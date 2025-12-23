@@ -1,0 +1,183 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import CharacterFilter from "@/components/CharacterFilter.astro";
+
+const characters = await getCollection("characters");
+
+/**
+ * Extract subdirectory from character slug for filtering
+ * @param {string} slug - The character slug (e.g., "band/georgeharrison")
+ * @returns {string} The subdirectory (e.g., "band")
+ */
+function getCategory(slug: string): string {
+  const parts = slug.split("/");
+  return parts.length > 1 ? parts[0] : "other";
+}
+---
+
+<Layout title="Characters - Her Majesty's Displeasure">
+  <div class="container">
+    <div class="header-section">
+      <div>
+        <h1>Characters</h1>
+        <p>Detailed character profiles and development</p>
+      </div>
+      <a href="/stats/character-stats" class="stats-link">
+        📊 View Character Statistics
+      </a>
+    </div>
+
+    <CharacterFilter />
+
+    <div class="items-grid">
+      {
+        characters.map((character) => (
+          <div class="item-card" data-category={getCategory(character.slug)}>
+            <h3>
+              <a href={`/characters/${character.slug}`}>
+                {character.data.name}
+              </a>
+            </h3>
+            <div class="meta">
+              <span class="role">{character.data.role}</span>
+              <span class="type">{character.data.character_type}</span>
+            </div>
+            <p>{character.data.description}</p>
+            {character.data.occupation && (
+              <p class="occupation">
+                <strong>Occupation:</strong> {character.data.occupation}
+              </p>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+    <div class="character-map-image" style="margin-top: 2rem; text-align: center;">
+      <img src="/character-relationship-diagram.png" alt="Character Relationship Diagram" style="max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 2px 8px rgba(0,0,0,0.07);" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+
+  .stats-link {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .stats-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stats-link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .item-card a:hover {
+    color: #0066cc;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .role,
+  .type {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+
+  .role {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .type {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .occupation {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

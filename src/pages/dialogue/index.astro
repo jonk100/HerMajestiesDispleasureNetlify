@@ -1,0 +1,124 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+
+const dialogue = await getCollection("dialogue");
+---
+
+<Layout title="Dialogue - Her Majesty's Displeasure">
+  <div class="container">
+    <h1>Dialogue</h1>
+    <p>Key conversations and memorable lines</p>
+    
+    <div class="items-grid">
+      {dialogue.map((item) => (
+        <div class="item-card">
+          <h3><a href={`/dialogue/${item.slug}`}>{item.data.title}</a></h3>
+          <div class="meta">
+            <span class="speaker">{item.data.characters?.join(', ')}</span>
+            {item.data.context && <span class="context">{item.data.context}</span>}
+          </div>
+          {item.data.emotion && (
+            <p class="emotion"><strong>Emotion:</strong> {item.data.emotion}</p>
+          )}
+          {item.data.subtext && (
+            <p class="subtext"><strong>Subtext:</strong> {item.data.subtext}</p>
+          )}
+          {item.data.scene_reference && (
+            <p class="scene-ref"><strong>Scene:</strong> {item.data.scene_reference}</p>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .item-card a:hover {
+    color: #0066cc;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .speaker, .context {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+  
+  .speaker {
+    background: #e3f2fd;
+    color: #1976d2;
+    font-weight: bold;
+  }
+  
+  .context {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+  
+  .purpose {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .emotion, .subtext {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0.5rem 0;
+  }
+  
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

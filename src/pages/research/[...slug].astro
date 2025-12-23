@@ -1,0 +1,166 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/collections/ResearchLayout.astro";
+
+export async function getStaticPaths() {
+  const research = await getCollection("research");
+  return research.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+---
+
+<Layout title={`${item.data.title} - Research`}>
+  <div class="container">
+    <div class="header">
+      <h1>{item.data.title}</h1>
+      <div class="meta">
+        <span class="category">{item.data.category}</span>
+        <span class="reliability">{item.data.reliability}</span>
+      </div>
+    </div>
+
+    <div class="research-info">
+      {
+        item.data.date_range && (
+          <p>
+            <strong>Period:</strong> {item.data.date_range}
+          </p>
+        )
+      }
+
+      {
+        item.data.source && (
+          <p>
+            <strong>Source:</strong> {item.data.source}
+          </p>
+        )
+      }
+
+      <p><strong>Relevance:</strong> {item.data.relevance}</p>
+
+      {
+        item.data.tags && item.data.tags.length > 0 && (
+          <div class="tags-section">
+            <strong>Tags:</strong>
+            <div class="tags">
+              {item.data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="content">
+      <Content />
+    </div>
+
+    <div class="back-link">
+      <a href="/research">← Back to Research</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+
+  .header h1 {
+    margin: 0 0 1rem 0;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .category,
+  .reliability {
+    background: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+
+  .category {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+
+  .reliability {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+
+  .research-info {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .research-info p {
+    margin: 0.5rem 0;
+  }
+
+  .tags-section {
+    margin-top: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    background: white;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    border: 1px solid #ddd;
+  }
+
+  .content {
+    line-height: 1.6;
+  }
+
+  .content h2,
+  .content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

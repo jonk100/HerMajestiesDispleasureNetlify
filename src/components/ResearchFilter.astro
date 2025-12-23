@@ -1,0 +1,28 @@
+---
+import BaseFilter from "./BaseFilter.astro";
+
+/**
+ * Research-specific filter component
+ * Filters research items by category field
+ */
+
+const researchFilters = {
+  all: 'All Research',
+  historical_events: 'Historical Events',
+  character_research: 'Character Research',
+  location_research: 'Location Research',
+  period_details: 'Period Details',
+  music_industry_1960s: 'Music Industry 1960s',
+  royal_family_protocols: 'Royal Family Protocols',
+  political_context: 'Political Context',
+  technical_details: 'Technical Details',
+  inspiration: 'Inspiration',
+  reference_material: 'Reference Material'
+};
+---
+
+<BaseFilter 
+  title="Filter by Category"
+  filters={researchFilters}
+  resultLabel="research items"
+/>

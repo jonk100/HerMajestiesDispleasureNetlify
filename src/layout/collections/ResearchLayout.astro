@@ -1,0 +1,14 @@
+---
+import Layout from "../Layout.astro";
+import "@/styles/research.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <slot />
+</Layout>

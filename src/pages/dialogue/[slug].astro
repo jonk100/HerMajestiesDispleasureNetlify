@@ -1,0 +1,183 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import "@/styles/markdown.css";
+
+export async function getStaticPaths() {
+  const dialogue = await getCollection("dialogue");
+  return dialogue.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+---
+
+<Layout title={`${item.data.title} - Dialogue`}>
+  <div class="container">
+    <div class="header">
+      <h1>{item.data.title}</h1>
+      <div class="meta">
+        {item.data.characters && item.data.characters.length > 0 && (
+          <span class="speaker">
+            {item.data.characters.map((char, index) => {
+              // Extract the character name from the reference path
+              const charPath = typeof char === 'string' ? char : char.id;
+              const charName = charPath.split('/').pop()?.replace(/-/g, ' ');
+              return (
+                <>
+                  {charName}
+                  {index < item.data.characters.length - 1 ? ', ' : ''}
+                </>
+              );
+            })}
+          </span>
+        )}
+        {item.data.context && <span class="context">{item.data.context}</span>}
+      </div>
+    </div>
+    
+    <div class="dialogue-info">
+
+      
+      {item.data.emotion && (
+        <div class="emotion">
+          <strong>Emotion:</strong> {item.data.emotion}
+        </div>
+      )}
+      
+      {item.data.subtext && (
+        <div class="subtext">
+          <strong>Subtext:</strong> {item.data.subtext}
+        </div>
+      )}
+      
+      {item.data.scene_reference && (
+        <div class="scene-ref">
+          <strong>Scene Reference:</strong> {item.data.scene_reference}
+        </div>
+      )}
+      
+      {item.data.tags && item.data.tags.length > 0 && (
+        <div class="tags-section">
+          <strong>Tags:</strong>
+          <div class="tags">
+            {item.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+    
+    <div class="content">
+      <Content />
+    </div>
+    
+    <div class="back-link">
+      <a href="/dialogue">← Back to Dialogue</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .header h1 {
+    margin: 0 0 1rem 0;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .speaker, .context {
+    background: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+  
+  .speaker {
+    background: #e3f2fd;
+    color: #1976d2;
+    font-weight: bold;
+  }
+  
+  .context {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+  
+  .dialogue-info {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .purpose, .emotion, .subtext, .scene-ref {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 4px solid #0066cc;
+  }
+  
+  .tags-section {
+    margin-top: 1rem;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tag {
+    background: white;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    border: 1px solid #ddd;
+  }
+  
+  .content {
+    line-height: 1.6;
+  }
+  
+  .content h2, .content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .back-link {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

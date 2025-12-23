@@ -1,0 +1,106 @@
+---
+title: "The Jesus Quote Firestorm"
+act: 2
+sequence: 4
+scene_number: 14.1
+location: 
+  - "mi5-office"
+  - "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "supporting/clive-barrow"
+  - "royalty/prince-phillip"
+purpose: "Establish Clive's proactive, petty methods and their oversized impact. Show Philip's satisfaction at the mission's first 'success.'"
+conflict: "The absurd gap between Clive's grandiose self-perception and the mundane reality of his letter-writing campaign."
+emotional_beat: "Dark comedy through bureaucratic banality achieving massive cultural impact."
+page_count: 2
+status: "draft"
+notes: "Key contrast between the drab MI5 office and Philip's satisfaction. Clive's relish at the stamp-licking moment is crucial character work."
+created: 2025-07-27
+---
+
+```text
+SCENE START
+
+INT. MI5 OFFICE - DAY (MARCH 1966)
+
+A cramped, soul-crushing office space. Harsh fluorescent lighting casts everything in an unflattering pallor. Beige filing cabinets line the walls. A single window looks out onto a brick wall.
+
+CLIVE BARROW (42) sits at a cluttered desk, pecking away at an ancient typewriter with the intensity of a concert pianist. His desk is a monument to bureaucratic chaos - surveillance photos (mostly blurry), carbon paper, and an overflowing ashtray next to a cold cup of tea.
+
+He pauses, studies his work with the satisfaction of a master craftsman, then continues typing. The CLACKING of keys echoes in the sterile room.
+
+CLOSE-UP on the typewriter. We see fragments of text being typed:
+
+"...as a concerned Christian and longtime reader of your publication, I was deeply troubled by recent comments made by John Lennon of The Beatles regarding our Lord and Savior..."
+
+Clive stops typing. He leans back in his chair, which squeaks ominously, and reads his work with the reverence of a poet reviewing his masterpiece.
+
+  CLIVE
+  (to himself, theatrical whisper)
+  Psychological ricochet... in motion.
+
+He rolls the paper out of the typewriter with a flourish. The letterhead reads "Mrs. Gladys Pemberton, Birmingham, Alabama."
+
+On his desk lies a massive stack of envelopes, already sealed. We see the top one - addressed in neat block letters to "DATEBOOK Magazine, New York, NY". Clive folds his newly typed "Gladys Pemberton" letter, slides it into an envelope addressed to "The Alabama Baptist Herald, Attn: Letters to the Editor." 
+
+He seals it and opens his desk drawer, revealing a collection of stamps from various countries - his tools for international manipulation. He selects an American stamp with the care of a surgeon choosing an instrument.
+
+EXTREME CLOSE-UP: Clive's tongue as he licks the stamp. The camera pulls back slowly and we see his eyes closed in what can only be described as sensual satisfaction.
+
+He attaches the stamp to the letter, places it on top of the Datebook letter and takes a deep breath - examining the pile of letters and envelopes like a general reviewing his troops before battle.
+
+  CLIVE
+  And... scene.
+
+He places the pile of letters in a wire basket labeled "OUTGOING POST" with the reverence of placing a wreath on a war memorial.
+
+CUT TO:
+
+INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (AUGUST 1966)
+
+A sanctuary of traditional British power. Dark oak paneling, naval paintings, hunting trophies. Everything speaks to hierarchy and masculine authority.
+
+PRINCE PHILIP (45) sits in a leather chair, impeccably dressed in a dark suit. Before him, a small black-and-white television flickers with news footage.
+
+ON THE TV SCREEN: Grainy footage of AMERICAN PROTESTERS outside a radio station. Signs read "BEATLES GO HOME" and "LENNON = BLASPHEMER." A BONFIRE burns in the background - vinyl records curling and melting in the flames.
+
+An AMERICAN NEWS ANCHOR's voice crackles through the small speaker:
+
+  TV ANCHOR (V.O.)
+  ...religious groups across the Bible Belt continue to organize boycotts following Lennon's controversial remarks comparing The Beatles' popularity to that of Jesus Christ...
+
+Philip watches with the focused attention of a general studying battlefield reports. His expression is unreadable, controlled.
+
+The footage cuts to a SOUTHERN PREACHER at a pulpit, gesticulating wildly:
+
+  PREACHER (ON TV)
+  These boys have forgotten that there is only one King of Kings, and His name is not John, Paul, George, or Ringo!
+
+The congregation ERUPTS in applause. The camera pans across faces twisted with righteous fury.
+
+Philip reaches for a delicate china teacup sitting on a side table. He takes a measured sip, his eyes never leaving the screen.
+
+More footage: TEENAGERS throwing Beatles records into flames. A RADIO DJ dramatically snapping a "Rubber Soul" album in half. PROTESTERS marching with crosses.
+
+The news anchor continues:
+
+  TV ANCHOR (V.O.)
+  ...several radio stations have banned Beatles music entirely, with some calling for a permanent boycott of all British recording artists...
+
+Philip allows himself the smallest of smiles - barely a twitch at the corner of his mouth. He sets down his teacup with the precision of a chess master making a winning move.
+
+  PHILIP
+  (quietly, to himself)
+  Quite.
+
+He reaches for a remote control - a modern intrusion in this traditional space - and switches off the television. The screen fades to black with a soft electronic whine.
+
+Philip sits back in his chair, steepling his fingers. Through the tall windows behind him, we can see the palace gardens in the afternoon light - serene, ordered, eternal.
+
+The silence in the room is profound. Philip's satisfaction is complete, but controlled. This is not celebration - this is confirmation that the natural order of things is being restored.
+
+He picks up his teacup again and takes another sip, his eyes focused on some distant point beyond the windows. The weight of institutional power settles around him like a comfortable coat.
+
+SCENE END
+```

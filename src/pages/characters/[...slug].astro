@@ -1,0 +1,172 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/collections/CharactersLayout.astro";
+import CharacterStats from "@/components/CharacterStats.astro";
+
+export async function getStaticPaths() {
+  const characters = await getCollection("characters");
+  return characters.map((character) => ({
+    params: { slug: character.slug },
+    props: { character },
+  }));
+}
+
+const { character } = Astro.props;
+const { Content } = await character.render();
+---
+
+<Layout title={`${character.data.name} - Characters`}>
+  <div class="container">
+    <div class="header">
+      <h1>{character.data.name}</h1>
+      <div class="meta">
+        <span class="role">{character.data.role}</span>
+        <span class="type">{character.data.character_type}</span>
+      </div>
+    </div>
+
+    <div class="character-info">
+      {
+        character.data.occupation && (
+          <p>
+            <strong>Occupation:</strong> {character.data.occupation}
+          </p>
+        )
+      }
+
+      {
+        character.data.age && (
+          <div class="age-info">
+            <strong>Age:</strong>
+            {character.data.age.act_1 && (
+              <span>Act 1: {character.data.age.act_1}</span>
+            )}
+            {character.data.age.act_2 && (
+              <span>Act 2: {character.data.age.act_2}</span>
+            )}
+            {character.data.age.act_3 && (
+              <span>Act 3: {character.data.age.act_3}</span>
+            )}
+          </div>
+        )
+      }
+
+      <!-- {
+        character.data.first_appearance && (
+          <p>
+            <strong>First Appearance:</strong> {character.data.first_appearance}
+          </p>
+        )
+      }
+
+      {
+        character.data.last_appearance && (
+          <p>
+            <strong>Last Appearance:</strong> {character.data.last_appearance}
+          </p>
+        )
+      } -->
+    </div>
+
+    <CharacterStats characterSlug={character.slug} showSceneDetails={true} />
+
+    <div class="content">
+      <Content />
+    </div>
+
+    <div class="back-link">
+      <a href="/characters">← Back to Characters</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+
+  .header h1 {
+    margin: 0 0 1rem 0;
+  }
+
+  .meta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .role,
+  .type {
+    background: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+
+  .role {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .type {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .character-info {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .character-info p {
+    margin: 0.5rem 0;
+  }
+
+  .age-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .age-info span {
+    background: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .content {
+    line-height: 1.6;
+  }
+
+  .content h2,
+  .content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

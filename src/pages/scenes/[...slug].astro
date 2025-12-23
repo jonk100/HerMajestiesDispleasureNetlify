@@ -1,0 +1,284 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import "@/styles/markdown.css";
+import "@/styles/screenplay.css";
+
+import Screenplay from "@/components/screenplay/Screenplay.astro";
+import Scene from "@/components/screenplay/Scene.astro";
+import Action from "@/components/screenplay/Action.astro";
+import Character from "@/components/screenplay/Character.astro";
+import Dialogue from "@/components/screenplay/Dialogue.astro";
+import Parenthetical from "@/components/screenplay/Parenthetical.astro";
+import Transition from "@/components/screenplay/Transition.astro";
+import ActBreak from "@/components/screenplay/ActBreak.astro";
+import SceneNav from "@/components/SceneNav.astro";
+
+export async function getStaticPaths() {
+  const scenes = await getCollection("scenes");
+  return scenes.map((scene) => ({
+    params: { slug: scene.slug },
+    props: { scene },
+  }));
+}
+
+const { scene } = Astro.props;
+const { Content } = await scene.render();
+
+// Resolve character and location references
+const characters = await Promise.all(
+  scene.data.characters.map((charRef) => getEntry(charRef))
+);
+
+// Handle both single location and array of locations
+const locations = Array.isArray(scene.data.location)
+  ? await Promise.all(scene.data.location.map((locRef) => getEntry(locRef)))
+  : [await getEntry(scene.data.location)];
+
+// Handle both single time and array of times
+const timesOfDay = Array.isArray(scene.data.time_of_day)
+  ? scene.data.time_of_day
+  : [scene.data.time_of_day];
+---
+
+<Layout title={`${scene.data.title} - Scenes`}>
+  <div class="container">
+    <div class="header">
+      <h1>{scene.data.title}</h1>
+      <div class="meta">
+        <a href={`/acts/${scene.data.act}`} class="act">Act {scene.data.act}</a>
+        <a href={`/sequences/${scene.data.act}-${scene.data.sequence}`} class="sequence">Seq {scene.data.sequence}</a>
+        <span class="scene-num">Scene {scene.data.scene_number}</span>
+      </div>
+    </div>
+    
+    <div class="scene-info">
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Location{locations.length > 1 ? 's' : ''}:</strong> 
+          {locations.map((location, index) => (
+            <span>
+              {location ? (
+                <a href={`/locations/${location.slug}`} class="location-link">
+                  {location.data.name}
+                </a>
+              ) : (
+                'Unknown Location'
+              )}
+              {index < locations.length - 1 && ', '}
+            </span>
+          ))}
+        </div>
+        <div class="info-item">
+          <strong>Time of Day:</strong> {timesOfDay.join(' → ')}
+        </div>
+        {scene.data.page_count && (
+          <div class="info-item">
+            <strong>Page Count:</strong> {scene.data.page_count}
+          </div>
+        )}
+        {scene.data.status && (
+          <div class="info-item">
+            <strong>Status:</strong> <span class="status">{scene.data.status}</span>
+          </div>
+        )}
+      </div>
+      
+      <div class="purpose">
+        <strong>Purpose:</strong> {scene.data.purpose}
+      </div>
+      
+      {scene.data.conflict && (
+        <div class="conflict">
+          <strong>Conflict:</strong> {scene.data.conflict}
+        </div>
+      )}
+      
+      {scene.data.emotional_beat && (
+        <div class="emotional-beat">
+          <strong>Emotional Beat:</strong> {scene.data.emotional_beat}
+        </div>
+      )}
+      
+      {characters && characters.length > 0 && (
+        <div class="characters">
+          <strong>Characters:</strong>
+          <div class="character-list">
+            {characters.map((character) => (
+              <a href={`/characters/${character?.slug}`} class="character-link">{character?.data.name}</a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+    
+    <div class="content markdown">
+      <div class="screenplay-root">
+        <Content
+          components={{
+            Screenplay,
+            Scene,
+            Action,
+            Character,
+            Dialogue,
+            Parenthetical,
+            Transition,
+            ActBreak,
+          }}
+        />
+      </div>
+    </div>
+
+    
+    <SceneNav currentSlug={scene.slug} />
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .header h1 {
+    margin: 0 0 1rem 0;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .act, .sequence, .scene-num {
+    background: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .act {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .act:hover {
+    background: #bbdefb;
+  }
+  
+  .sequence {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+  
+  .sequence:hover {
+    background: #e1bee7;
+  }
+  
+  .scene-num {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+  
+  .scene-info {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .info-item {
+    font-size: 0.875rem;
+  }
+  
+  .status {
+    background: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+  
+  .purpose, .conflict, .emotional-beat {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    border-left: 4px solid #0066cc;
+  }
+  
+  .characters {
+    margin-top: 1rem;
+  }
+  
+  .character-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: flex-start;
+  }
+  
+  .character-link {
+    all: unset;
+    cursor: pointer;
+    background: white;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  
+  .character-link:hover {
+    background: #f0f8ff;
+    border-color: #0066cc;
+    color: #0066cc;
+    transform: translateY(-1px);
+  }
+  
+  .location-link {
+    color: #0066cc;
+    text-decoration: none;
+    border-bottom: 1px dotted #0066cc;
+    transition: all 0.2s ease;
+  }
+  
+  .location-link:hover {
+    color: #004499;
+    border-bottom-style: solid;
+  }
+  
+  .content {
+    line-height: 1.6;
+  }
+  
+  /* Let markdown.css handle the typography for rendered content */
+  .content.markdown {
+    /* Remove conflicting styles to let markdown.css take over */
+  }
+  
+  .content h2, .content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+</style>

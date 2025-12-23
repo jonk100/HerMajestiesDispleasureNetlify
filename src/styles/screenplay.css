@@ -1,0 +1,159 @@
+/* =========================
+   Screenplay Isolation
+   ========================= */
+
+.screenplay-root {
+  all: unset;
+  display: block;
+}
+
+/* Base screenplay page */
+.screenplay-root {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12pt;
+  line-height: 1;
+  color: #000;
+  border: 1px solid grey;
+  width: 8.5in;
+  margin: 0 auto;
+}
+
+/* Page margins - only top/bottom, elements handle left/right */
+.screenplay-root .screenplay-page {
+  padding-top: 1in;
+  padding-bottom: 1in;
+  border: 1px solid grey;
+}
+
+/* Reset markdown interference */
+.screenplay-root p {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   Elements
+   ========================= */
+
+.screenplay-root .scene {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.screenplay-root .action {
+  margin-bottom: 1em;
+  margin-left: 1.5in;
+  margin-right: 1in;
+}
+
+.screenplay-root .character {
+  text-transform: uppercase;
+  margin-left: 3.7in;
+  margin-bottom: 0;
+}
+
+.screenplay-root .parenthetical {
+  margin-left: 3.1in;
+  margin-right: 3.1in;
+}
+
+.screenplay-root .dialogue {
+  margin-left: 2.5in;
+  margin-right: 2.5in;
+  margin-bottom: 1em;
+}
+
+.screenplay-root .transition {
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+/* =========================
+   FINAL SCREENPLAY OVERRIDES
+   ========================= */
+
+.screenplay-root {
+  width: 8.5in;
+  margin: 0 auto;
+  color: #000;
+}
+
+/* Absolute isolation from Tailwind + markdown */
+.screenplay-root,
+.screenplay-root * {
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 12pt;
+  line-height: 1 !important;
+}
+
+/* Neutralize markdown */
+.screenplay-root p {
+  margin: 0 !important;
+  padding: 0 !important;
+  
+}
+
+/* Elements */
+.screenplay-root .scene {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  margin-left: 1.5in;
+  margin-right: 1in;
+}
+
+/* .screenplay-root .action {
+  margin: 0 0 1em 0 !important;
+} */
+
+/* Override component styles when inside screenplay-root */
+.screenplay-root .screenplay {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Page break support for act/sequence views */
+.screenplay-root .screenplay-page {
+  padding-top: 1in;
+  padding-bottom: 1in;
+  min-height: 11in;
+  position: relative;
+  border-bottom: 3px dashed #ccc;
+  margin-bottom: 1rem;
+}
+
+.screenplay-root .screenplay-page::after {
+  content: '';
+  display: block;
+  height: 1in;
+}
+
+.screenplay-root .character {
+  text-transform: uppercase;
+  margin-left: 3.7in;
+}
+
+.screenplay-root .parenthetical {
+  margin-left: 3.1in;
+  margin-right: 3.1in;
+}
+
+/* Remove gap between dialogue and following parenthetical (mid-speech direction) */
+.screenplay-root .dialogue + .parenthetical {
+  margin-top: -0.5em;
+}
+
+.screenplay-root .dialogue {
+  margin-left: 2.5in;
+  margin-right: 2.5in;
+  margin-bottom: 1em;
+}
+
+.screenplay-root .transition {
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom: 1em;
+  margin-left: 1.5in;
+  margin-right: 1in;
+}

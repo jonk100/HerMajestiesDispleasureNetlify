@@ -1,0 +1,367 @@
+---
+import { getCharacterStats } from "@/utils/characterStats";
+
+export interface Props {
+  characterSlug: string;
+  showSceneDetails?: boolean;
+}
+
+const { characterSlug, showSceneDetails = false } = Astro.props;
+
+const stats = await getCharacterStats(characterSlug);
+
+if (!stats) {
+  return null;
+}
+
+const acts = [1, 2, 3];
+---
+
+{stats && (
+  <div class="character-stats">
+    <h3>Performance Statistics</h3>
+    
+    <div class="stats-grid">
+      <div class="stat-card highlight">
+        <div class="stat-label">Total Lines</div>
+        <div class="stat-value">{stats.totalLines}</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-label">Scene Appearances</div>
+        <div class="stat-value">{stats.totalScenes}</div>
+      </div>
+      
+      {stats.firstAppearance && (
+        <div class="stat-card">
+          <div class="stat-label">First Appearance</div>
+          <div class="stat-value">
+            <a href={`/scenes/${stats.firstAppearance.slug}`}>
+              Act {stats.firstAppearance.act}, Scene {stats.firstAppearance.sceneNumber}
+            </a>
+          </div>
+          <div class="stat-detail">{stats.firstAppearance.title}</div>
+        </div>
+      )}
+      
+      {stats.lastAppearance && (
+        <div class="stat-card">
+          <div class="stat-label">Last Appearance</div>
+          <div class="stat-value">
+            <a href={`/scenes/${stats.lastAppearance.slug}`}>
+              Act {stats.lastAppearance.act}, Scene {stats.lastAppearance.sceneNumber}
+            </a>
+          </div>
+          <div class="stat-detail">{stats.lastAppearance.title}</div>
+        </div>
+      )}
+    </div>
+
+    <div class="act-breakdown" x-data="{ expandedAct: null }">
+      <h4>Breakdown by Act</h4>
+      
+      {acts.map((act) => {
+        const linesByActMap = stats.linesByAct instanceof Map ? stats.linesByAct : new Map(stats.linesByAct as any);
+        const scenesByActMap = stats.scenesByAct instanceof Map ? stats.scenesByAct : new Map(stats.scenesByAct as any);
+        
+        const actLines = linesByActMap.get(act) || 0;
+        const actScenes = scenesByActMap.get(act) || 0;
+        const actAppearances = stats.sceneAppearances.filter(s => s.act === act);
+        
+        return (
+          <div class="act-section">
+            <button 
+              class="act-header"
+              @click={`expandedAct = expandedAct === ${act} ? null : ${act}`}
+              :class={`{ 'expanded': expandedAct === ${act} }`}
+            >
+              <div class="act-info">
+                <span class="act-title">Act {act}</span>
+                <div class="act-stats-row">
+                  <span class="act-stat">{actLines} lines</span>
+                  <span class="act-stat">{actScenes} scenes</span>
+                </div>
+              </div>
+              <svg 
+                class="expand-icon" 
+                :class={`{ 'rotated': expandedAct === ${act} }`}
+                width="16" 
+                height="16" 
+                viewBox="0 0 16 16" 
+                fill="currentColor"
+              >
+                <path d="M4.427 9.573L8 6l3.573 3.573a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708z"/>
+              </svg>
+            </button>
+            
+            {showSceneDetails && actAppearances.length > 0 && (
+              <div 
+                class="act-details"
+                x-show={`expandedAct === ${act}`}
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 max-h-0"
+                x-transition:enter-end="opacity-100 max-h-screen"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 max-h-screen"
+                x-transition:leave-end="opacity-0 max-h-0"
+              >
+                <div class="scene-list">
+                  {actAppearances.map((scene) => (
+                    <div class="scene-item">
+                      <a href={`/scenes/${scene.slug}`} class="scene-link">
+                        <span class="scene-number">Scene {scene.sceneNumber}</span>
+                        <span class="scene-title">{scene.title}</span>
+                      </a>
+                      <span class="scene-lines">{scene.lines} lines</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+)}
+
+<style>
+  .character-stats {
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .character-stats h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.25rem;
+    color: var(--color-text-primary, #1a1a1a);
+    border-bottom: 2px solid var(--color-border, #e0e0e0);
+    padding-bottom: 0.75rem;
+  }
+
+  .character-stats h4 {
+    margin: 1.5rem 0 1rem 0;
+    font-size: 1.1rem;
+    color: var(--color-text-primary, #1a1a1a);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--color-background, #f9f9f9);
+    border: 1px solid var(--color-border-light, #f0f0f0);
+    border-radius: 6px;
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-card.highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+  }
+
+  .stat-card.highlight .stat-label {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .stat-card.highlight .stat-value {
+    color: white;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #666666);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value a {
+    color: var(--color-primary, #0066cc);
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .stat-value a:hover {
+    text-decoration: underline;
+  }
+
+  .stat-detail {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #999999);
+    margin-top: 0.25rem;
+  }
+
+  .act-breakdown {
+    margin-top: 1.5rem;
+  }
+
+  .act-section {
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .act-header {
+    width: 100%;
+    background: var(--color-surface, #ffffff);
+    border: none;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: left;
+  }
+
+  .act-header:hover {
+    background: var(--color-background, #f9f9f9);
+  }
+
+  .act-header.expanded {
+    background: var(--color-primary-bg, #e3f2fd);
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+  }
+
+  .act-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .act-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #1a1a1a);
+  }
+
+  .act-stats-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .act-stat {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #666666);
+    background: var(--color-background, #f9f9f9);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  .expand-icon {
+    transition: transform 0.2s ease;
+    color: var(--color-text-secondary, #666666);
+    flex-shrink: 0;
+  }
+
+  .expand-icon.rotated {
+    transform: rotate(180deg);
+  }
+
+  .act-details {
+    background: var(--color-background, #f9f9f9);
+    overflow: hidden;
+  }
+
+  .scene-list {
+    padding: 0.5rem;
+  }
+
+  .scene-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border-light, #f0f0f0);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .scene-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .scene-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    flex: 1;
+  }
+
+  .scene-link:hover .scene-title {
+    color: var(--color-primary, #0066cc);
+  }
+
+  .scene-number {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #999999);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .scene-title {
+    font-size: 0.9rem;
+    color: var(--color-text-primary, #1a1a1a);
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .scene-lines {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--color-accent, #764ba2);
+    background: var(--color-accent-bg, #f3e5f5);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+    }
+
+    .act-header {
+      padding: 0.75rem;
+    }
+
+    .scene-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .scene-lines {
+      align-self: flex-end;
+    }
+  }
+</style>

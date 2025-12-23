@@ -1,0 +1,167 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+
+export async function getStaticPaths() {
+  const locations = await getCollection("locations");
+  return locations.map((location) => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+const { Content } = await location.render();
+---
+
+<Layout title={`${location.data.name} - Locations`}>
+  <div class="container">
+    <div class="header">
+      <h1>{location.data.name}</h1>
+      <div class="meta">
+        <span class="type">{location.data.type}</span>
+        {location.data.mood && (
+          <span class="mood">{location.data.mood}</span>
+        )}
+      </div>
+    </div>
+    
+    <div class="location-info">
+      <p><strong>Description:</strong> {location.data.description}</p>
+      
+      {location.data.visual_notes && (
+        <p><strong>Visual Notes:</strong> {location.data.visual_notes}</p>
+      )}
+      
+      {location.data.practical_notes && (
+        <p><strong>Practical Notes:</strong> {location.data.practical_notes}</p>
+      )}
+      
+      {location.data.scenes_used && location.data.scenes_used.length > 0 && (
+        <div class="scenes-section">
+          <strong>Used in Scenes:</strong>
+          <div class="scenes">
+            {location.data.scenes_used.map((scene) => (
+              <span class="scene">{scene}</span>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      {location.data.reference_images && location.data.reference_images.length > 0 && (
+        <div class="images-section">
+          <strong>Reference Images:</strong>
+          <div class="images">
+            {location.data.reference_images.map((image: string) => (
+              <span class="image">{image}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+    
+    <div class="content">
+      <Content />
+    </div>
+    
+    <div class="back-link">
+      <a href="/locations">← Back to Locations</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .header h1 {
+    margin: 0 0 1rem 0;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .type, .accuracy {
+    background: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+  
+  .type {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+  
+  .accuracy {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+  
+  .location-info {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .location-info p {
+    margin: 0.5rem 0;
+  }
+  
+  .tags-section {
+    margin-top: 1rem;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tag {
+    background: white;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    border: 1px solid #ddd;
+  }
+  
+  .content {
+    line-height: 1.6;
+  }
+  
+  .content h2, .content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .back-link {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

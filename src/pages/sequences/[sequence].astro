@@ -1,0 +1,255 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import "@/styles/screenplay.css";
+
+import Screenplay from "@/components/screenplay/Screenplay.astro";
+import Scene from "@/components/screenplay/Scene.astro";
+import Action from "@/components/screenplay/Action.astro";
+import Character from "@/components/screenplay/Character.astro";
+import Dialogue from "@/components/screenplay/Dialogue.astro";
+import Parenthetical from "@/components/screenplay/Parenthetical.astro";
+import Transition from "@/components/screenplay/Transition.astro";
+import ActBreak from "@/components/screenplay/ActBreak.astro";
+import PageBreaker from "@/components/screenplay/PageBreaker.astro";
+
+export async function getStaticPaths() {
+  const scenes = await getCollection("scenes");
+  // Create unique act-sequence combinations
+  const actSequences: string[] = [...new Set(
+    scenes.map((s) => `${s.data.act}-${s.data.sequence}`)
+  )].sort();
+  
+  return actSequences.map((combo: string) => {
+    const [act, sequence] = combo.split("-").map(Number);
+    return {
+      params: { sequence: combo },
+      props: { act, sequence },
+    };
+  });
+}
+
+const { act, sequence } = Astro.props;
+
+// Get all scenes for this sequence, sorted by scene_number
+const allScenes = await getCollection("scenes");
+const sequenceScenes = allScenes
+  .filter((s) => s.data.act === act && s.data.sequence === sequence)
+  .sort((a, b) => a.data.scene_number - b.data.scene_number);
+
+// Collect all unique characters across all scenes
+const allCharacterRefs = new Set<string>();
+for (const scene of sequenceScenes) {
+  for (const charRef of scene.data.characters) {
+    allCharacterRefs.add(JSON.stringify(charRef));
+  }
+}
+const characters = await Promise.all(
+  [...allCharacterRefs].map((ref) => getEntry(JSON.parse(ref)))
+);
+const sortedCharacters = characters
+  .filter((c): c is NonNullable<typeof c> => c !== null && c !== undefined)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// Collect all unique locations
+const allLocationRefs = new Set<string>();
+for (const scene of sequenceScenes) {
+  const locs = Array.isArray(scene.data.location) 
+    ? scene.data.location 
+    : [scene.data.location];
+  for (const locRef of locs) {
+    allLocationRefs.add(JSON.stringify(locRef));
+  }
+}
+const locations = await Promise.all(
+  [...allLocationRefs].map((ref) => getEntry(JSON.parse(ref)))
+);
+const sortedLocations = locations
+  .filter((l): l is NonNullable<typeof l> => l !== null && l !== undefined)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// Render all scene contents
+const renderedScenes = await Promise.all(
+  sequenceScenes.map(async (scene) => ({
+    scene,
+    Content: (await scene.render()).Content,
+  }))
+);
+---
+
+<Layout title={`Act ${act} Sequence ${sequence} - Full Screenplay`}>
+  <div class="sequence-header">
+    <div class="sequence-meta">
+      <h1>Act {act}, Sequence {sequence}</h1>
+      <div class="meta-info">
+        <a href={`/acts/${act}`} class="act-link">View Full Act {act}</a>
+        <span class="scene-count">{sequenceScenes.length} Scenes</span>
+      </div>
+    </div>
+    
+    <div class="sequence-details">
+      <div class="detail-section">
+        <strong>Locations:</strong>
+        <div class="tag-list">
+          {sortedLocations.map((loc) => (
+            <a href={`/locations/${loc.slug}`} class="tag location-tag">
+              {loc.data.name}
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <div class="detail-section">
+        <strong>Characters:</strong>
+        <div class="tag-list">
+          {sortedCharacters.map((char) => (
+            <a href={`/characters/${char.slug}`} class="tag character-tag">
+              {char.data.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screenplay-container">
+    <div class="screenplay-root">
+      <div class="screenplay-page">
+        {renderedScenes.map(({ scene, Content }, index) => (
+          <div class="scene-break" id={`scene-${scene.data.scene_number}`}>
+            <Content
+              components={{
+                Screenplay,
+                Scene,
+                Action,
+                Character,
+                Dialogue,
+                Parenthetical,
+                Transition,
+                ActBreak,
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <PageBreaker />
+</Layout>
+
+<style>
+  .sequence-header {
+    max-width: 8.5in;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .sequence-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .sequence-meta h1 {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+  
+  .meta-info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .act-link {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .act-link:hover {
+    background: #bbdefb;
+  }
+  
+  .scene-count {
+    background: #e8f5e8;
+    color: #2e7d32;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+  
+  .sequence-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .detail-section {
+    font-size: 0.875rem;
+  }
+  
+  .detail-section strong {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .location-tag {
+    background: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffcc80;
+  }
+  
+  .location-tag:hover {
+    background: #ffe0b2;
+  }
+  
+  .character-tag {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #90caf9;
+  }
+  
+  .character-tag:hover {
+    background: #bbdefb;
+  }
+  
+  .screenplay-container {
+    margin: 0 auto;
+  }
+  
+  /* Scene separator */
+  .scene-break {
+    margin-bottom: 2em;
+  }
+  
+  @media print {
+    .sequence-header {
+      page-break-after: always;
+    }
+  }
+</style>

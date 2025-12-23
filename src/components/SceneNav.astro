@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+
+// Get all scenes and sort by act, sequence, scene_number
+const allScenes = await getCollection("scenes");
+const sortedScenes = allScenes.sort((a, b) => {
+  if (a.data.act !== b.data.act) return a.data.act - b.data.act;
+  if (a.data.sequence !== b.data.sequence) return a.data.sequence - b.data.sequence;
+  return a.data.scene_number - b.data.scene_number;
+});
+
+// Find current scene index
+const currentIndex = sortedScenes.findIndex((s) => s.slug === currentSlug);
+
+// Get prev/next scenes
+const prevScene = currentIndex > 0 ? sortedScenes[currentIndex - 1] : null;
+const nextScene = currentIndex < sortedScenes.length - 1 ? sortedScenes[currentIndex + 1] : null;
+---
+
+<nav class="scene-nav">
+  {prevScene ? (
+    <a href={`/scenes/${prevScene.slug}`} class="nav-link prev" title={`Scene ${prevScene.data.scene_number}: ${prevScene.data.title}`}>
+      <span class="arrow">←</span>
+      <span class="label">Previous Scene</span>
+      <span class="scene-info">{prevScene.data.title}</span>
+    </a>
+  ) : (
+    <span class="nav-link prev disabled">
+      <span class="arrow">←</span>
+      <span class="label">Previous Scene</span>
+    </span>
+  )}
+
+  <a href="/scenes" class="nav-link center">
+    Back to Scenes
+  </a>
+
+  {nextScene ? (
+    <a href={`/scenes/${nextScene.slug}`} class="nav-link next" title={`Scene ${nextScene.data.scene_number}: ${nextScene.data.title}`}>
+      <span class="label">Next Scene</span>
+      <span class="scene-info">{nextScene.data.title}</span>
+      <span class="arrow">→</span>
+    </a>
+  ) : (
+    <span class="nav-link next disabled">
+      <span class="label">Next Scene</span>
+      <span class="arrow">→</span>
+    </span>
+  )}
+</nav>
+
+<style>
+  .scene-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #666;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link.prev {
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .nav-link.next {
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .nav-link.center {
+    flex-shrink: 0;
+  }
+
+  .nav-link:not(.disabled):hover {
+    background: #f0f8ff;
+    color: #0066cc;
+  }
+
+  .nav-link.disabled {
+    color: #ccc;
+    cursor: default;
+  }
+
+  .arrow {
+    font-size: 1.25rem;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+
+  .scene-info {
+    display: none;
+    font-size: 0.75rem;
+    color: #999;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-link:not(.disabled):hover .scene-info {
+    display: block;
+  }
+
+  .nav-link:not(.disabled):hover .label {
+    display: none;
+  }
+</style>

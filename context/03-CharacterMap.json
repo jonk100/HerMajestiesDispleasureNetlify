@@ -1,0 +1,273 @@
+{
+  "description": "A structured representation of the character relationships in the 'Her Majesty's Displeasure' screenplay spanning 1965-1970. Relationships evolve across four phases: The Offense (1965), Operation Minuet (1966-1968), The Escalation (1969), and The Assassination Attempt (1970).",
+  "characters": [
+    { "id": "Philip", "name": "Prince Philip", "faction": "The Royals" },
+    { "id": "Queen", "name": "The Queen", "faction": "The Royals" },
+    { "id": "Margaret", "name": "P. Margaret", "faction": "The Royals" },
+    {
+      "id": "Mountbatten",
+      "name": "Lord Mountbatten",
+      "faction": "The Royals"
+    },
+    { "id": "John", "name": "John Lennon", "faction": "The Beatles" },
+    { "id": "Paul", "name": "Paul McCartney", "faction": "The Beatles" },
+    { "id": "George", "name": "G. Harrison", "faction": "The Beatles" },
+    { "id": "Ringo", "name": "Ringo Starr", "faction": "The Beatles" },
+    { "id": "Yoko", "name": "Yoko Ono", "faction": "The Beatles" },
+    { "id": "Nigel", "name": "Nigel Finch", "faction": "MI5" },
+    { "id": "Clive", "name": "Clive Barrow", "faction": "MI5" },
+    { "id": "SirDerek", "name": "Sir Derek", "faction": "MI5" },
+    { "id": "Percy", "name": "Percy (Q)", "faction": "MI5" }
+  ],
+  "relationships": [
+    {
+      "source": "Philip",
+      "target": "John",
+      "label": "Views as Threat → Must Eliminate (1965-1970)",
+      "attributes": {
+        "type": "antagonistic",
+        "style": "bold",
+        "color": "red",
+        "isStrong": true,
+        "evolution": "Escalates from offense to murderous intent after medal return"
+      }
+    },
+    {
+      "source": "John",
+      "target": "Philip",
+      "label": "Unaware of",
+      "attributes": { "type": "unaware", "style": "dashed", "isSecret": true }
+    },
+    {
+      "source": "Mountbatten",
+      "target": "Philip",
+      "label": "Strategic Advisor (Operation Minuet Architect)",
+      "attributes": { 
+        "type": "advisory", 
+        "direction": "back",
+        "role": "Designs the long-term psychological operation"
+      }
+    },
+    {
+      "source": "Margaret",
+      "target": "Philip",
+      "label": "Committee Member (Amused by Scheme)",
+      "attributes": {
+        "type": "enabling",
+        "style": "dotted",
+        "role": "Finds the operation entertaining, encourages Philip's vendetta"
+      }
+    },
+    {
+      "source": "Queen",
+      "target": "Philip",
+      "label": "Committee Member (Skeptical but Complicit)",
+      "attributes": {
+        "type": "restraining",
+        "style": "dashed",
+        "color": "gray",
+        "role": "Reluctantly participates in Committee, tries to moderate Philip's extremes"
+      }
+    },
+    {
+      "source": "Philip",
+      "target": "SirDerek",
+      "label": "Gives Directive",
+      "attributes": { "type": "command" }
+    },
+    {
+      "source": "SirDerek",
+      "target": "Nigel",
+      "label": "Assigns Mission",
+      "attributes": { "type": "command" }
+    },
+    {
+      "source": "SirDerek",
+      "target": "Clive",
+      "label": "Assigns Mission",
+      "attributes": { "type": "command" }
+    },
+    {
+      "source": "Nigel",
+      "target": "Percy",
+      "label": "Requests Gear",
+      "attributes": { "type": "logistical" }
+    },
+    {
+      "source": "Clive",
+      "target": "Percy",
+      "label": "Requests Gear",
+      "attributes": { "type": "logistical" }
+    },
+    {
+      "source": "Nigel",
+      "target": "George",
+      "label": "Manipulates (Sitar Book, 1967)",
+      "attributes": {
+        "type": "manipulative",
+        "style": "dotted",
+        "color": "blue",
+        "isSecret": true,
+        "timeline": "Guides George toward Eastern philosophy during Operation Minuet"
+      }
+    },
+    {
+      "source": "Nigel",
+      "target": "Paul",
+      "label": "Manipulates (Knighthood Letter, 1969) → Sabotages Mission (1970)",
+      "attributes": {
+        "type": "manipulative",
+        "style": "dotted",
+        "color": "blue",
+        "isSecret": true,
+        "evolution": "Transitions from dutiful agent to moral saboteur",
+        "timeline": "Plants fake knighthood letter, later sabotages assassination plot"
+      }
+    },
+    {
+      "source": "Clive",
+      "target": "Yoko",
+      "label": "Attempts to Recruit (as 'Klaus', 1968-1970)",
+      "attributes": {
+        "type": "manipulative",
+        "style": "dotted",
+        "color": "blue",
+        "isSecret": true,
+        "timeline": "Multi-year infiltration attempt, escalates to assassination plot architect"
+      }
+    },
+    {
+      "source": "Paul",
+      "target": "Yoko",
+      "label": "WRONGLY SUSPECTS",
+      "attributes": {
+        "type": "misguided_suspicion",
+        "style": "dashed",
+        "color": "orange",
+        "isStrong": true
+      }
+    },
+    {
+      "source": "Yoko",
+      "target": "Clive",
+      "label": "Sees as 'Eccentric Fan'",
+      "attributes": { "type": "unaware", "style": "dashed" }
+    },
+    {
+      "source": "Clive",
+      "target": "Yoko",
+      "label": "Believes he's 'Turning' her",
+      "attributes": { "type": "delusional", "color": "purple" }
+    },
+    {
+      "source": "John",
+      "target": "Paul",
+      "label": "Growing Resentment (1966-1969)",
+      "attributes": {
+        "type": "band_dynamic",
+        "color": "green",
+        "direction": "both",
+        "evolution": "Relationship deteriorates from creative tension to open hostility",
+        "timeline": "Worsens during Operation Minuet, culminates in John leaving band"
+      }
+    },
+    {
+      "source": "George",
+      "target": "John",
+      "label": "Feels Sidelined by",
+      "attributes": {
+        "type": "band_dynamic",
+        "style": "dashed",
+        "color": "green"
+      }
+    },
+    {
+      "source": "George",
+      "target": "Paul",
+      "label": "Feels Sidelined by",
+      "attributes": {
+        "type": "band_dynamic",
+        "style": "dashed",
+        "color": "green"
+      }
+    },
+    {
+      "source": "Ringo",
+      "target": "John",
+      "label": "Supports",
+      "attributes": { "type": "supportive", "color": "darkgreen" }
+    },
+    {
+      "source": "Ringo",
+      "target": "Paul",
+      "label": "Supports",
+      "attributes": { "type": "supportive", "color": "darkgreen" }
+    },
+    {
+      "source": "Ringo",
+      "target": "George",
+      "label": "Supports",
+      "attributes": { "type": "supportive", "color": "darkgreen" }
+    },
+    {
+      "source": "Yoko",
+      "target": "John",
+      "label": "Loves / Anchors",
+      "attributes": {
+        "type": "love_interest",
+        "color": "hotpink",
+        "isStrong": true,
+        "direction": "both"
+      }
+    },
+    {
+      "source": "Philip",
+      "target": "Queen",
+      "label": "Convenes Committee for National Decorum (1965)",
+      "attributes": {
+        "type": "command",
+        "timeline": "Forms secret committee after MBE ceremony"
+      }
+    },
+    {
+      "source": "Philip",
+      "target": "Margaret",
+      "label": "Recruits to Committee",
+      "attributes": {
+        "type": "recruitment",
+        "timeline": "Margaret finds the vendetta entertaining"
+      }
+    },
+    {
+      "source": "Philip",
+      "target": "Mountbatten",
+      "label": "Recruits to Committee",
+      "attributes": {
+        "type": "recruitment",
+        "timeline": "Mountbatten becomes strategic architect of Operation Minuet"
+      }
+    },
+    {
+      "source": "Clive",
+      "target": "John",
+      "label": "Amplifies 'Jesus' Incident (1966)",
+      "attributes": {
+        "type": "manipulative",
+        "color": "blue",
+        "isSecret": true,
+        "timeline": "Feeds inflammatory quotes to American press"
+      }
+    },
+    {
+      "source": "Philip",
+      "target": "George",
+      "label": "Indirectly Funds Maharishi Tour (1968)",
+      "attributes": {
+        "type": "manipulative",
+        "color": "blue",
+        "isSecret": true,
+        "timeline": "Committee subtly funds tour to get Beatles out of country"
+      }
+    }
+  ]
+}

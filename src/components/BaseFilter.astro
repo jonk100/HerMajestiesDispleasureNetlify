@@ -1,0 +1,169 @@
+---
+export interface Props {
+  title: string;
+  filters: Record<string, string>;
+  resultLabel: string; // e.g., "characters", "research items"
+}
+
+const { title, filters, resultLabel } = Astro.props;
+
+/**
+ * Base Filter component for content collections
+ * Provides the UI and Alpine.js functionality for filtering
+ * Used by specific collection filter components
+ */
+---
+
+<div 
+  class="filter-container"
+  x-data=`{
+    activeFilter: 'all',
+    filters: ${JSON.stringify(filters)},
+    resultLabel: '${resultLabel}',
+    
+    /**
+     * Sets the active filter and triggers filtering
+     * @param {string} filter - The filter key to activate
+     */
+    setFilter(filter) {
+      this.activeFilter = filter;
+      this.filterItems();
+    },
+    
+    /**
+     * Filters items based on the active filter
+     * Shows/hides items based on their data-category attribute
+     */
+    filterItems() {
+      const items = document.querySelectorAll('[data-category]');
+      
+      items.forEach(item => {
+        if (this.activeFilter === 'all') {
+          item.style.display = 'block';
+          item.classList.remove('filter-hidden');
+        } else {
+          const category = item.getAttribute('data-category');
+          if (category === this.activeFilter) {
+            item.style.display = 'block';
+            item.classList.remove('filter-hidden');
+          } else {
+            item.style.display = 'none';
+            item.classList.add('filter-hidden');
+          }
+        }
+      });
+      
+      // Update results count
+      const visibleItems = document.querySelectorAll('[data-category]:not(.filter-hidden)');
+      const countElement = document.querySelector('.results-count');
+      if (countElement) {
+        const count = visibleItems.length;
+        const filterName = this.filters[this.activeFilter];
+        const itemText = count === 1 ? this.resultLabel.slice(0, -1) : this.resultLabel;
+        countElement.textContent = count + ' ' + itemText + (this.activeFilter === 'all' ? '' : ' in ' + filterName);
+      }
+    }
+  }`
+  x-init="filterItems()"
+>
+  <div class="filter-header">
+    <h2 class="filter-title">{title}</h2>
+    <div class="results-count"></div>
+  </div>
+  
+  <div class="filter-buttons">
+    <template x-for="(label, key) in filters" :key="key">
+      <button 
+        type="button"
+        class="filter-btn"
+        :class="{ 'active': activeFilter === key }"
+        @click="setFilter(key)"
+        x-text="label"
+      ></button>
+    </template>
+  </div>
+</div>
+
+<style>
+  .filter-container {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .filter-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .results-count {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #dee2e6;
+    background: white;
+    color: #495057;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .filter-btn:hover {
+    border-color: #6c757d;
+    background: #f8f9fa;
+  }
+  
+  .filter-btn.active {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+  }
+  
+  .filter-btn.active:hover {
+    background: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .filter-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .filter-buttons {
+      width: 100%;
+    }
+    
+    .filter-btn {
+      flex: 1;
+      text-align: center;
+      min-width: 0;
+    }
+  }
+</style>

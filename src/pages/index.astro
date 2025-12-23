@@ -1,49 +1,98 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from "@/layout/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Her Majesty's Displeasure - Creative Writing Project">
+  <div class="container">
+    <h1>Her Majesty's Displeasure</h1>
+    <p>A creative writing project exploring the intersection of music, monarchy, and social change in 1960s Britain.</p>
+    
+    <div class="collections-grid">
+      <div class="collection-card">
+        <h2><a href="/characters">Characters</a></h2>
+        <p>Detailed character profiles and development</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/scenes">Scenes</a></h2>
+        <p>Individual scenes with structure and content</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/beats">Story Beats</a></h2>
+        <p>Key story moments and plot points</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/locations">Locations</a></h2>
+        <p>Settings and places in the story</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/dialogue">Dialogue</a></h2>
+        <p>Key conversations and memorable lines</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/research">Research</a></h2>
+        <p>Background research and historical context</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/themes">Themes</a></h2>
+        <p>Central themes and their exploration</p>
+      </div>
+      
+      <div class="collection-card">
+        <h2><a href="/timeline">Timeline</a></h2>
+        <p>Chronological events and story progression</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .collection-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    transition: transform 0.2s ease;
+  }
+  
+  .collection-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .collection-card h2 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .collection-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .collection-card a:hover {
+    color: #0066cc;
+  }
+  
+  .collection-card p {
+    margin: 0;
+    color: #666;
+  }
+</style>

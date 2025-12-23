@@ -1,0 +1,330 @@
+---
+import { getCollection } from "astro:content";
+
+/**
+ * Scene-specific filter component
+ * Provides multiple filter types: act, sequence, location, and character
+ */
+
+const scenes = await getCollection("scenes");
+
+// Extract unique values for each filter type
+const acts = [...new Set(scenes.map(scene => scene.data.act))].sort((a, b) => a - b);
+const sequences = [...new Set(scenes.map(scene => scene.data.sequence))].sort((a, b) => a - b);
+
+// Extract unique locations (handle both string and array formats)
+const allLocations = scenes.flatMap(scene => {
+  if (Array.isArray(scene.data.location)) {
+    return scene.data.location.map(loc => {
+      // Handle both string references and objects
+      if (typeof loc === 'string') {
+        return loc;
+      } else if (loc && typeof loc === 'object' && 'id' in loc) {
+        return loc.id;
+      } else {
+        return String(loc);
+      }
+    });
+  }
+  const singleLoc = scene.data.location;
+  if (singleLoc) {
+    if (typeof singleLoc === 'string') {
+      return [singleLoc];
+    } else if (singleLoc && typeof singleLoc === 'object' && 'id' in singleLoc) {
+      return [singleLoc.id];
+    } else {
+      return [String(singleLoc)];
+    }
+  }
+  return [];
+});
+const locations = [...new Set(allLocations)].sort();
+
+// Extract unique characters (handle array format)
+const allCharacters = scenes.flatMap(scene => {
+  return scene.data.characters ? scene.data.characters.map(char => {
+    // Handle both string references and objects
+    if (typeof char === 'string') {
+      return char;
+    } else if (char && typeof char === 'object' && 'id' in char) {
+      return char.id;
+    } else {
+      return String(char);
+    }
+  }) : [];
+});
+const characters = [...new Set(allCharacters)].sort();
+
+const actFilters = {
+  all: 'All Acts',
+  ...Object.fromEntries(acts.map(act => [`act-${act}`, `Act ${act}`]))
+};
+
+const sequenceFilters = {
+  all: 'All Sequences',
+  ...Object.fromEntries(sequences.map(seq => [`sequence-${seq}`, `Sequence ${seq}`]))
+};
+
+const locationFilters = {
+  all: 'All Locations',
+  ...Object.fromEntries(locations.map(loc => [
+    loc.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase(),
+    loc.replace('locations/', '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
+  ]))
+};
+
+const characterFilters = {
+  all: 'All Characters',
+  ...Object.fromEntries(characters.map(char => {
+    const key = char.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+    const label = char
+      .replace(/^(characters\/|royalty\/|band\/|supporting\/)/, '')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (l: string) => l.toUpperCase());
+    return [key, label];
+  }))
+};
+---
+
+<div 
+  class="scene-filter-container"
+  x-data=`{
+    activeFilterType: 'act',
+    activeFilter: 'all',
+    filterTypes: {
+      act: ${JSON.stringify(actFilters)},
+      sequence: ${JSON.stringify(sequenceFilters)},
+      location: ${JSON.stringify(locationFilters)},
+      character: ${JSON.stringify(characterFilters)}
+    },
+    
+    /**
+     * Sets the active filter type and resets to 'all'
+     * @param {string} type - The filter type to activate
+     */
+    setFilterType(type) {
+      this.activeFilterType = type;
+      this.activeFilter = 'all';
+      this.filterItems();
+    },
+    
+    /**
+     * Sets the active filter within the current type
+     * @param {string} filter - The filter key to activate
+     */
+    setFilter(filter) {
+      this.activeFilter = filter;
+      this.filterItems();
+    },
+    
+    /**
+     * Filters scene items based on the active filter type and value
+     */
+    filterItems() {
+      const items = document.querySelectorAll('.scene-item');
+      let visibleCount = 0;
+      
+      items.forEach(item => {
+        let shouldShow = false;
+        
+        if (this.activeFilter === 'all') {
+          shouldShow = true;
+        } else {
+          switch (this.activeFilterType) {
+            case 'act':
+              shouldShow = item.getAttribute('data-act') === this.activeFilter;
+              break;
+            case 'sequence':
+              shouldShow = item.getAttribute('data-sequence') === this.activeFilter;
+              break;
+            case 'location':
+              const locations = item.getAttribute('data-locations') || '';
+              shouldShow = locations.includes(this.activeFilter);
+              break;
+            case 'character':
+              const characters = item.getAttribute('data-characters') || '';
+              shouldShow = characters.includes(this.activeFilter);
+              break;
+          }
+        }
+        
+        if (shouldShow) {
+          item.style.display = 'block';
+          item.classList.remove('filter-hidden');
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.add('filter-hidden');
+        }
+      });
+      
+      // Update result count
+      const resultCount = document.querySelector('.filter-result-count');
+      if (resultCount) {
+        const label = visibleCount === 1 ? 'scene' : 'scenes';
+        resultCount.textContent = 'Showing ' + visibleCount + ' ' + label;
+      }
+    }
+  }`
+>
+  <div class="filter-header">
+    <h3>Filter Scenes</h3>
+    <div class="filter-result-count">Showing all scenes</div>
+  </div>
+
+  <!-- Filter Type Selector -->
+  <div class="filter-type-selector">
+    <button 
+      @click="setFilterType('act')"
+      :class="{ active: activeFilterType === 'act' }"
+      class="filter-type-btn"
+    >
+      By Act
+    </button>
+    <button 
+      @click="setFilterType('sequence')"
+      :class="{ active: activeFilterType === 'sequence' }"
+      class="filter-type-btn"
+    >
+      By Sequence
+    </button>
+    <button 
+      @click="setFilterType('location')"
+      :class="{ active: activeFilterType === 'location' }"
+      class="filter-type-btn"
+    >
+      By Location
+    </button>
+    <button 
+      @click="setFilterType('character')"
+      :class="{ active: activeFilterType === 'character' }"
+      class="filter-type-btn"
+    >
+      By Character
+    </button>
+  </div>
+
+  <!-- Filter Options -->
+  <div class="filter-options">
+    <template x-for="(label, key) in filterTypes[activeFilterType]" :key="key">
+      <button 
+        @click="setFilter(key)"
+        :class="{ active: activeFilter === key }"
+        class="filter-btn"
+        x-text="label"
+      ></button>
+    </template>
+  </div>
+</div>
+
+<style>
+  .scene-filter-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .filter-header h3 {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .filter-result-count {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .filter-type-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-type-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    color: var(--color-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .filter-type-btn:hover {
+    background: var(--color-surface);
+    border-color: var(--color-primary);
+  }
+
+  .filter-type-btn.active {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    border-color: var(--color-primary);
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    color: var(--color-text);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    background: var(--color-surface);
+    border-color: var(--color-accent);
+  }
+
+  .filter-btn.active {
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .filter-hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .filter-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .filter-type-selector {
+      justify-content: center;
+    }
+    
+    .filter-type-btn {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+</style>

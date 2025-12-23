@@ -1,0 +1,285 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import ScreentimeCalculator from "@/components/ScreentimeCalculator.astro";
+import SceneFilter from "@/components/SceneFilter.astro";
+
+const scenes = await getCollection("scenes");
+
+// Sort scenes by act, sequence, and scene_number for proper display
+const sortedScenes = scenes.sort((a, b) => {
+  if (a.data.act !== b.data.act) return a.data.act - b.data.act;
+  if (a.data.sequence !== b.data.sequence)
+    return a.data.sequence - b.data.sequence;
+  return a.data.scene_number - b.data.scene_number;
+});
+
+/**
+ * Format minutes into a readable time string
+ * @param minutes - Number of minutes
+ * @returns Formatted time string (e.g., "1h 30m" or "45m")
+ */
+function formatTime(minutes: number): string {
+  if (minutes < 60) {
+    return `${minutes}m`;
+  }
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return remainingMinutes > 0 ? `${hours}h ${remainingMinutes}m` : `${hours}h`;
+}
+
+/**
+ * Format location for display
+ * @param location - Location data (string, object, or array)
+ * @returns Formatted location string
+ */
+function formatLocation(location: any): string {
+  if (Array.isArray(location)) {
+    const locationNames = location.map(loc => {
+      if (typeof loc === 'string') {
+        return loc.replace('locations/', '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+      } else if (loc && typeof loc === 'object' && 'id' in loc) {
+        return loc.id.replace('locations/', '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+      } else {
+        return String(loc);
+      }
+    });
+    return locationNames.join(', ');
+  } else if (location) {
+    if (typeof location === 'string') {
+      return location.replace('locations/', '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+    } else if (location && typeof location === 'object' && 'id' in location) {
+      return location.id.replace('locations/', '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+    } else {
+      return String(location);
+    }
+  }
+  return 'Unknown location';
+}
+
+/**
+ * Format characters for display
+ * @param characters - Characters array
+ * @returns Formatted character names string
+ */
+function formatCharacters(characters: any[]): string {
+  if (!characters || characters.length === 0) return '';
+  
+  const characterNames = characters.map(char => {
+    if (typeof char === 'string') {
+      return char.replace(/^(characters\/|royalty\/|band\/|supporting\/)/, '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+    } else if (char && typeof char === 'object' && 'id' in char) {
+      return char.id.replace(/^(characters\/|royalty\/|band\/|supporting\/)/, '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+    } else {
+      return String(char);
+    }
+  });
+  
+  return characterNames.join(', ');
+}
+
+/**
+ * Generate data attributes for filtering
+ * @param scene - Scene object with frontmatter data
+ * @returns Object with data attributes for filtering
+ */
+function getFilterAttributes(scene: any) {
+  const locations = Array.isArray(scene.data.location) 
+    ? scene.data.location.map((loc: any) => {
+        // Handle both string references and objects
+        let locStr;
+        if (typeof loc === 'string') {
+          locStr = loc;
+        } else if (loc && typeof loc === 'object' && 'id' in loc) {
+          locStr = loc.id;
+        } else {
+          locStr = String(loc);
+        }
+        return locStr.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+      }).join(' ')
+    : scene.data.location ? (() => {
+        const singleLoc = scene.data.location;
+        let locStr;
+        if (typeof singleLoc === 'string') {
+          locStr = singleLoc;
+        } else if (singleLoc && typeof singleLoc === 'object' && 'id' in singleLoc) {
+          locStr = singleLoc.id;
+        } else {
+          locStr = String(singleLoc);
+        }
+        return locStr.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+      })() : '';
+  
+  const characters = scene.data.characters 
+    ? scene.data.characters.map((char: any) => {
+        // Handle both string references and objects
+        let charStr;
+        if (typeof char === 'string') {
+          charStr = char;
+        } else if (char && typeof char === 'object' && 'id' in char) {
+          charStr = char.id;
+        } else {
+          charStr = String(char);
+        }
+        return charStr.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+      }).join(' ')
+    : '';
+  
+  return {
+    'data-act': `act-${scene.data.act}`,
+    'data-sequence': `sequence-${scene.data.sequence}`,
+    'data-locations': locations,
+    'data-characters': characters
+  };
+}
+---
+
+<Layout title="Scenes - Her Majesty's Displeasure">
+  <div class="container">
+    <h1>Scenes</h1>
+    <p>Individual scenes with structure and content</p>
+
+    <SceneFilter />
+
+    <div class="items-grid">
+      {
+        sortedScenes.map((scene) => (
+          <div class="item-card scene-item" {...getFilterAttributes(scene)}>
+            <h3>
+              <a href={`/scenes/${scene.slug}`}>{scene.data.title}</a>
+            </h3>
+            <div class="meta">
+              <span class="act">Act {scene.data.act}</span>
+              <span class="sequence">Seq {scene.data.sequence}</span>
+              <span class="scene-num">Scene {scene.data.scene_number}</span>
+              <span class="screentime">
+                {formatTime(scene.data.page_count || 0)}
+              </span>
+            </div>
+            <div class="scene-details">
+              <p>
+                <strong>Location:</strong>{" "}
+                {formatLocation(scene.data.location)}
+              </p>
+              <p>
+                <strong>Time:</strong>{" "}
+                {Array.isArray(scene.data.time_of_day)
+                  ? scene.data.time_of_day.join(" → ")
+                  : scene.data.time_of_day}
+              </p>
+              <p>
+                <strong>Purpose:</strong> {scene.data.purpose}
+              </p>
+              {scene.data.characters && scene.data.characters.length > 0 && (
+                <p>
+                  <strong>Characters:</strong>{" "}
+                  {formatCharacters(scene.data.characters)}
+                </p>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <ScreentimeCalculator />
+
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .item-card a:hover {
+    color: #0066cc;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .act,
+  .sequence,
+  .scene-num,
+  .screentime {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+
+  .act {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .sequence {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .scene-num {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+
+  .screentime {
+    background: #fff3e0;
+    color: #f57c00;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .scene-details p {
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+import BaseFilter from "./BaseFilter.astro";
+
+/**
+ * Beats-specific filter component
+ * Filters story beats by beat_type field
+ */
+
+const beatsFilters = {
+  all: 'All Beats',
+  inciting_incident: 'Inciting Incident',
+  plot_point_1: 'Plot Point 1',
+  midpoint: 'Midpoint',
+  plot_point_2: 'Plot Point 2',
+  climax: 'Climax',
+  resolution: 'Resolution',
+  conspiracy_revelation: 'Conspiracy Revelation',
+  escalation: 'Escalation',
+  betrayal: 'Betrayal',
+  cover_up: 'Cover Up',
+  character_moment: 'Character Moment',
+  setup: 'Setup',
+  payoff: 'Payoff'
+};
+---
+
+<BaseFilter 
+  title="Filter by Beat Type"
+  filters={beatsFilters}
+  resultLabel="beats"
+/>

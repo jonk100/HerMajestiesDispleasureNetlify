@@ -1,0 +1,148 @@
+@import "./global.css";
+
+/* Markdown typography styles */
+h1 {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: #102d6b;
+}
+
+h3 {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-bold */
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1rem; /* text-base */
+  font-weight: 700; /* font-bold */
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 700; /* font-bold */
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+h6 {
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 700; /* font-bold */
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+p {
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+a {
+  color: #00611d;
+}
+
+a:hover {
+  color: #00b938;
+}
+
+/* Markdown list styles */
+ul {
+  list-style-type: disc;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 1rem;
+}
+
+li {
+  margin-left: 1rem;
+}
+
+/* li a {
+  font-size: 0.875rem;
+} */
+
+/* Code block styling */
+pre {
+  background-color: #1e1e1e;
+  border-radius: 0.375rem;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  color: #e0e0e0;
+  /* Enable better text wrapping with preserved indentation */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+pre code {
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 0.9375em;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  /* Preserve spacing and indentation when lines wrap */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  tab-size: 2;
+  /* Maintain line structure */
+  display: block;
+  /* Preserve the original spacing structure */
+  font-variant-numeric: tabular-nums;
+  /* Better handling of long lines */
+  hyphens: none;
+  word-break: normal;
+  /* Create hanging indent for wrapped lines */
+  text-indent: -1em hanging;
+  margin-left: 1em;
+  /* Fallback for browsers without hanging support */
+  text-indent: 0;
+  margin-left: 0;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+table {
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+}

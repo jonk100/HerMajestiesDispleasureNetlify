@@ -1,0 +1,133 @@
+---
+// src/components/HoverPreview.astro
+
+/**
+ * HoverPreview.astro
+ *
+ * Renders a hover tooltip preview for a link to a subheading inside a local MDX/Markdown page.
+ *
+ * Props:
+ * - href: string — relative URL with hash (e.g., "/some-post#intro")
+ * - text: string — optional override for the visible link text
+ */
+
+import { getEntry } from "astro:content";
+
+const { href, text } = Astro.props;
+const [path, hash] = href.split("#");
+// Extract just the filename from the path (e.g., "/research/animal-reference" -> "animal-reference")
+const slug = path.split("/").pop() || path.replace(/^\/|\/$/g, "");
+
+import { marked } from 'marked';
+let htmlContent: string | undefined;
+
+try {
+  const entry = await getEntry("research", slug);
+  const raw = entry?.body || "";
+
+  // Match headings like ### **Pheasant** or ### **Red Grouse** (case insensitive)
+  // Convert hash to title case for matching (e.g., "red-grouse" -> "Red Grouse")
+  const titleCaseHash = hash.split('-').map((word: string) =>
+    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  ).join(' ');
+
+  // Escape special regex characters and handle spaces
+  const escapedHash = titleCaseHash.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+  const regexPattern = `###\\s+\\*\\*${escapedHash}\\*\\*\\s*\\n([^#]+)`;
+
+  const sectionMatch = new RegExp(regexPattern, "i").exec(raw);
+  const excerpt = sectionMatch?.[1]?.trim().split("\n").slice(0, 3).join("\n");
+  if (excerpt) {
+    htmlContent = await marked.parse(excerpt);
+  }
+} catch (err) {
+  console.error("HoverLinkPreview error:", err);
+}
+---
+
+<span
+  class="hover-preview-wrapper"
+  x-data="{ open: false }"
+  @mouseenter="open = true"
+  @mouseleave="open = false"
+>
+  <a href={href} class="hover-preview-link">{text || href}</a>
+  {
+    htmlContent && (
+      <div class="hover-preview-tooltip prose prose-sm" x-show="open" x-transition x-cloak set:html={htmlContent} />
+    )
+  }
+</span>
+
+<style is:global>
+  .hover-preview-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hover-preview-link {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    color: #0066cc;
+    cursor: help;
+  }
+
+  .hover-preview-link:hover {
+    color: #004499;
+  }
+
+  .hover-preview-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    
+    /* Size and spacing */
+    width: 320px;
+    max-width: 90vw;
+    padding: 16px 20px;
+    
+    /* Typography */
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    
+    /* Colors and appearance */
+    background: #ffffff;
+    color: #24292f;
+    border: 1px solid #d1d9e0;
+    border-radius: 8px;
+    
+    /* Shadow for depth */
+    box-shadow: 
+      0 8px 24px rgba(140, 149, 159, 0.2),
+      0 0 0 1px rgba(27, 31, 36, 0.04);
+    
+    /* Arrow pointer */
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border: 1px solid #d1d9e0;
+      border-bottom: none;
+      border-right: none;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hover-preview-tooltip {
+      width: 280px;
+      padding: 12px 16px;
+      font-size: 13px;
+    }
+  }
+</style>

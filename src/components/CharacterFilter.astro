@@ -1,0 +1,21 @@
+---
+import BaseFilter from "./BaseFilter.astro";
+
+/**
+ * Character-specific filter component
+ * Filters characters by subdirectory (band, royalty, supporting)
+ */
+
+const characterFilters = {
+  all: 'All Characters',
+  band: 'Band Members', 
+  royalty: 'Royalty',
+  supporting: 'Supporting'
+};
+---
+
+<BaseFilter 
+  title="Filter by Category"
+  filters={characterFilters}
+  resultLabel="characters"
+/>

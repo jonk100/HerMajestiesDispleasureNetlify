@@ -1,0 +1,99 @@
+// This is a DOT language script for Graphviz
+// You can render it using an online editor like https://edotor.net
+// Updated to reflect 1965-1970 timeline and relationship evolution
+
+digraph HerMajestysDispleasure {
+
+    // --- Graph Layout Settings ---
+    graph [
+        rankdir=LR, // Layout from Left to Right
+        splines=true,
+        overlap=false,
+        nodesep=0.6,
+        fontname="Helvetica,Arial,sans-serif"
+    ];
+    node [
+        shape=box,
+        style=rounded,
+        fontname="Helvetica,Arial,sans-serif"
+    ];
+    edge [
+        fontname="Helvetica,Arial,sans-serif",
+        fontsize=10
+    ];
+
+    // --- Factions (Clusters) ---
+    subgraph cluster_royals {
+        label = "The Royals";
+        style = filled;
+        color = lightgrey;
+        node [style="filled", color=lightblue];
+        Philip [label="Prince Philip"];
+        Queen [label="The Queen"];
+        Margaret [label="P. Margaret"];
+        Mountbatten;
+    }
+
+    subgraph cluster_beatles {
+        label = "The Beatles";
+        style = filled;
+        color = "#ffa6a6";
+        node [style="filled", color=lightyellow];
+        John [label="John Lennon"];
+        Paul [label="Paul McCartney"];
+        George [label="G. Harrison"];
+        Ringo [label="Ringo Starr"];
+    }
+    
+    subgraph cluster_mi5 {
+        label = "MI5";
+        style = filled;
+        color = "#e0e0e0";
+        node [style="filled", color=lightpink];
+        Nigel [label="Nigel Finch"];
+        Clive [label="Clive Barrow"];
+        SirDerek [label="Sir Derek"];
+        Percy [label="Percy (Q)"];
+    }
+
+    // --- Antagonist's Core Plot ---
+    Philip -> John [label="Views as Threat → Must Eliminate\n(1965-1970)", color=red, style=bold, penwidth=2];
+    John -> Philip [style=dashed, arrowhead=none, label="Unaware of"];
+
+    // --- The Committee for National Decorum (1965) ---
+    Philip -> Queen [label="Convenes Committee\n(1965)"];
+    Philip -> Margaret [label="Recruits to Committee"];
+    Philip -> Mountbatten [label="Recruits to Committee"];
+    Mountbatten -> Philip [label="Strategic Advisor\n(Operation Minuet Architect)", dir=back, color=darkblue];
+    Margaret -> Philip [label="Committee Member\n(Amused by Scheme)", color=purple];
+    Queen -> Philip [label="Committee Member\n(Skeptical but Complicit)", color=gray, style=dashed];
+
+    // --- MI5 Chain of Command ---
+    Philip -> SirDerek [label="Gives Directive"];
+    SirDerek -> Nigel [label="Assigns Mission"];
+    SirDerek -> Clive [label="Assigns Mission"];
+    Nigel -> Percy [label="Requests Gear"];
+    Clive -> Percy [label="Requests Gear"];
+    
+    // --- Operation Minuet Timeline (1966-1970) ---
+    Clive -> John [label="Amplifies 'Jesus' Incident\n(1966)", color=blue, style=dotted];
+    Nigel -> George [label="Manipulates (Sitar Book)\n(1967)", color=blue, style=dotted];
+    Philip -> George [label="Funds Maharishi Tour\n(1968)", color=blue, style=dotted];
+    Clive -> Yoko [label="Attempts to Recruit (as 'Klaus')\n(1968-1970)", color=blue, style=dotted, constraint=false];
+    Nigel -> Paul [label="Knighthood Letter (1969)\n→ Sabotages Mission (1970)", color=blue, style=dotted];
+    
+    // --- Misguided Perceptions ---
+    Paul -> Yoko [label="WRONGLY SUSPECTS", color=orange, style=dashed, penwidth=1.5];
+    Yoko -> Clive [label="Sees as 'Eccentric Fan'", style=dashed, arrowhead=none];
+    Clive -> Yoko [label="Believes he's 'Turning' her", color=purple];
+    
+    // --- Internal Beatles Dynamics (Deteriorating 1966-1969) ---
+    John -> Paul [label="Growing Resentment\n(1966-1969)", dir=both, color=green];
+    George -> John [label="Feels Sidelined by", color=green, style=dashed];
+    George -> Paul [label="Feels Sidelined by", color=green, style=dashed];
+    Ringo -> John [label="Supports", color=darkgreen, style=tapered];
+    Ringo -> Paul [label="Supports", color=darkgreen, style=tapered];
+    Ringo -> George [label="Supports", color=darkgreen, style=tapered];
+    
+    Yoko -> John [label="Loves / Anchors", dir=both, color=hotpink, penwidth=2];
+}

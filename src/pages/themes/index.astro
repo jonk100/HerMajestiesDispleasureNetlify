@@ -1,0 +1,116 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+
+const themes = await getCollection("themes");
+---
+
+<Layout title="Themes - Her Majesty's Displeasure">
+  <div class="container">
+    <h1>Themes</h1>
+    <p>Central themes and their exploration</p>
+    
+    <div class="items-grid">
+      {themes.map((theme) => (
+        <div class="item-card">
+          <h3><a href={`/themes/${theme.slug}`}>{theme.data.name}</a></h3>
+          <p class="description">{theme.data.description}</p>
+          <p class="exploration"><strong>How Explored:</strong> {theme.data.how_explored}</p>
+          {theme.data.character_connections && theme.data.character_connections.length > 0 && (
+            <p class="characters"><strong>Characters:</strong> {theme.data.character_connections.join(", ")}</p>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .item-card a:hover {
+    color: #0066cc;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .importance, .development {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+  
+  .importance {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+  
+  .development {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+  
+  .description {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .manifestation {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

@@ -1,0 +1,285 @@
+---
+/**
+ * PageBreaker - Client-side script to insert visual page breaks every 11 inches
+ * and add page numbers + scene numbers in margins
+ */
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const PAGE_HEIGHT_INCHES = 11;
+    const DPI = 96; // Standard screen DPI
+    const PAGE_HEIGHT_PX = PAGE_HEIGHT_INCHES * DPI; // 1056px
+    const TOP_MARGIN_PX = 1 * DPI; // 1 inch = 96px
+    const BOTTOM_MARGIN_PX = 1 * DPI;
+    const CONTENT_HEIGHT_PX = PAGE_HEIGHT_PX - TOP_MARGIN_PX - BOTTOM_MARGIN_PX; // 864px usable
+    
+    const screenplayPage = document.querySelector('.screenplay-page');
+    if (!screenplayPage) return;
+    
+    // Remove the single screenplay-page wrapper's min-height since we're paginating
+    screenplayPage.style.minHeight = 'auto';
+    screenplayPage.style.borderBottom = 'none';
+    screenplayPage.style.paddingTop = '0';
+    screenplayPage.style.paddingBottom = '0';
+    
+    // Get all content elements
+    const content = screenplayPage.innerHTML;
+    screenplayPage.innerHTML = '';
+    
+    // Create a temporary container to measure content
+    const tempContainer = document.createElement('div');
+    tempContainer.style.position = 'absolute';
+    tempContainer.style.visibility = 'hidden';
+    tempContainer.style.width = '8.5in';
+    tempContainer.innerHTML = content;
+    document.body.appendChild(tempContainer);
+    
+    // Get all block-level elements (scenes, actions, characters, dialogue, etc.)
+    const elements = Array.from(tempContainer.querySelectorAll('.scene, .action, .character, .parenthetical, .dialogue, .transition, .screenplay'));
+    
+    // Track pages and scenes
+    let pages = [];
+    let currentPage = {
+      elements: [],
+      height: 0,
+      scenes: new Set(),
+      startScene: null
+    };
+    let currentSceneNumber = null;
+    let pageNumber = 1;
+    
+    // Find scene numbers from scene headings or scene-break divs
+    function findSceneInfo(el) {
+      // Check if this element is inside a scene-break div
+      const sceneBreak = el.closest('.scene-break');
+      if (sceneBreak) {
+        const id = sceneBreak.id;
+        if (id && id.startsWith('scene-')) {
+          return id.replace('scene-', '');
+        }
+      }
+      return null;
+    }
+    
+    // Process elements, grouping character names with their dialogue/parentheticals
+    let i = 0;
+    while (i < elements.length) {
+      const el = elements[i];
+      
+      // Skip the .screenplay wrapper itself, process its children
+      if (el.classList.contains('screenplay')) {
+        i++;
+        continue;
+      }
+      
+      const sceneInfo = findSceneInfo(el);
+      if (sceneInfo) {
+        currentSceneNumber = sceneInfo;
+      }
+      
+      // Store scene number on the element BEFORE cloning (for slugline numbering)
+      if (currentSceneNumber && el.classList.contains('scene')) {
+        el.setAttribute('data-scene-number', currentSceneNumber);
+      }
+      
+      // Check if this is a character name - if so, group with following parenthetical/dialogue
+      let elementsToAdd = [el];
+      let groupHeight = el.offsetHeight;
+      
+      if (el.classList.contains('character')) {
+        // Look ahead for parenthetical and/or dialogue that should stay with this character
+        let j = i + 1;
+        while (j < elements.length) {
+          const nextEl = elements[j];
+          if (nextEl.classList.contains('parenthetical') || nextEl.classList.contains('dialogue')) {
+            elementsToAdd.push(nextEl);
+            groupHeight += nextEl.offsetHeight;
+            j++;
+            // After dialogue, stop grouping (dialogue ends the speech block)
+            if (nextEl.classList.contains('dialogue')) {
+              break;
+            }
+          } else {
+            // Any other element type breaks the group
+            break;
+          }
+        }
+      }
+      
+      // Check if adding this group would overflow the page
+      if (currentPage.height + groupHeight > CONTENT_HEIGHT_PX && currentPage.elements.length > 0) {
+        // Save current page and start new one
+        pages.push(currentPage);
+        pageNumber++;
+        currentPage = {
+          elements: [],
+          height: 0,
+          scenes: new Set(),
+          startScene: currentSceneNumber
+        };
+      }
+      
+      // Add all elements in the group to current page
+      elementsToAdd.forEach(groupEl => {
+        currentPage.elements.push(groupEl.cloneNode(true));
+      });
+      currentPage.height += groupHeight;
+      
+      if (currentSceneNumber) {
+        currentPage.scenes.add(currentSceneNumber);
+        if (!currentPage.startScene) {
+          currentPage.startScene = currentSceneNumber;
+        }
+      }
+      
+      // Skip past all elements we just added
+      i += elementsToAdd.length;
+    }
+    
+    // Don't forget the last page
+    if (currentPage.elements.length > 0) {
+      pages.push(currentPage);
+    }
+    
+    // Clean up temp container
+    document.body.removeChild(tempContainer);
+    
+    // Track which scene numbers have already been displayed (only show on first slugline)
+    const displayedSceneNumbers = new Set();
+    
+    // Now render the pages
+    pages.forEach((page, index) => {
+      const pageDiv = document.createElement('div');
+      pageDiv.className = 'screenplay-visual-page';
+      pageDiv.style.cssText = `
+        min-height: ${PAGE_HEIGHT_INCHES}in;
+        padding: ${TOP_MARGIN_PX}px 0;
+        position: relative;
+        border-bottom: 3px dashed #ccc;
+        margin-bottom: 1rem;
+        box-sizing: border-box;
+      `;
+      
+      // Page header with page number (top right, like real screenplays)
+      const pageHeader = document.createElement('div');
+      pageHeader.className = 'page-header';
+      pageHeader.style.cssText = `
+        position: absolute;
+        top: 0.5in;
+        right: 1in;
+        font-family: "Courier New", monospace;
+        font-size: 12pt;
+      `;
+      pageHeader.textContent = `${index + 1}.`;
+      pageDiv.appendChild(pageHeader);
+      
+      // Scene indicator (top left, showing which scene(s) are on this page)
+      if (page.scenes.size > 0) {
+        const sceneIndicator = document.createElement('div');
+        sceneIndicator.className = 'scene-indicator';
+        sceneIndicator.style.cssText = `
+          position: absolute;
+          top: 0.5in;
+          left: 0.5in;
+          font-family: "Courier New", monospace;
+          font-size: 10pt;
+          color: #666;
+        `;
+        const sceneNums = Array.from(page.scenes).sort((a, b) => parseFloat(a) - parseFloat(b));
+        if (sceneNums.length === 1) {
+          sceneIndicator.textContent = `Sc. ${sceneNums[0]}`;
+        } else {
+          sceneIndicator.textContent = `Sc. ${sceneNums[0]}-${sceneNums[sceneNums.length - 1]}`;
+        }
+        pageDiv.appendChild(sceneIndicator);
+      }
+      
+      // Content container
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'page-content';
+      contentDiv.style.cssText = `
+        margin-top: 0.5in;
+      `;
+      
+      page.elements.forEach(el => {
+        // Check if this is a scene heading (slugline) and add scene number in margin
+        if (el.classList.contains('scene')) {
+          const wrapper = document.createElement('div');
+          wrapper.style.cssText = `
+            position: relative;
+          `;
+          
+          // Get the scene number from the closest scene-break ancestor in original content
+          // We stored data on cloned elements, so check for data attribute
+          let sceneNum = el.dataset.sceneNumber;
+          
+          // If not found via data attribute, try to extract from the scene-break context
+          if (!sceneNum) {
+            // Look for scene number pattern in the scene text (e.g., starts with number)
+            const sceneText = el.textContent || '';
+            // Try to find the current scene from our tracking
+            const sceneBreakParent = el.closest('.scene-break');
+            if (sceneBreakParent && sceneBreakParent.id) {
+              sceneNum = sceneBreakParent.id.replace('scene-', '');
+            }
+          }
+          
+          // Only show scene number on the FIRST slugline of each scene
+          if (sceneNum && !displayedSceneNumbers.has(sceneNum)) {
+            displayedSceneNumbers.add(sceneNum);
+            
+            // Left margin scene number
+            const leftSceneNum = document.createElement('div');
+            leftSceneNum.className = 'scene-number-left';
+            leftSceneNum.style.cssText = `
+              position: absolute;
+              left: 0.25in;
+              top: 0;
+              font-family: "Courier New", monospace;
+              font-size: 12pt;
+              font-weight: bold;
+            `;
+            leftSceneNum.textContent = sceneNum;
+            wrapper.appendChild(leftSceneNum);
+            
+            // Right margin scene number (like professional screenplays)
+            const rightSceneNum = document.createElement('div');
+            rightSceneNum.className = 'scene-number-right';
+            rightSceneNum.style.cssText = `
+              position: absolute;
+              right: 0.25in;
+              top: 0;
+              font-family: "Courier New", monospace;
+              font-size: 12pt;
+              font-weight: bold;
+            `;
+            rightSceneNum.textContent = sceneNum;
+            wrapper.appendChild(rightSceneNum);
+          }
+          
+          wrapper.appendChild(el);
+          contentDiv.appendChild(wrapper);
+        } else {
+          contentDiv.appendChild(el);
+        }
+      });
+      
+      pageDiv.appendChild(contentDiv);
+      screenplayPage.appendChild(pageDiv);
+    });
+    
+    // Add page count summary
+    const summary = document.createElement('div');
+    summary.className = 'page-summary';
+    summary.style.cssText = `
+      text-align: center;
+      padding: 1rem;
+      font-family: "Courier New", monospace;
+      color: #666;
+      border-top: 1px solid #ccc;
+    `;
+    summary.textContent = `${pages.length} pages`;
+    screenplayPage.appendChild(summary);
+  });
+</script>

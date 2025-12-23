@@ -1,0 +1,125 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import BeatsFilter from "@/components/BeatsFilter.astro";
+
+const beats = await getCollection("beats");
+---
+
+<Layout title="Story Beats - Her Majesty's Displeasure">
+  <div class="container">
+    <h1>Story Beats</h1>
+    <p>Key story moments and plot points</p>
+    
+    <BeatsFilter />
+    
+    <div class="items-grid">
+      {beats.map((beat) => (
+        <div class="item-card" data-category={beat.data.beat_type}>
+          <h3><a href={`/beats/${beat.slug}`}>{beat.data.title}</a></h3>
+          <div class="meta">
+            <span class="act">Act {beat.data.act}</span>
+            <span class="type">{beat.data.beat_type}</span>
+          </div>
+          <p class="description">{beat.data.description}</p>
+          {beat.data.characters_involved && beat.data.characters_involved.length > 0 && (
+            <p class="characters"><strong>Characters:</strong> {beat.data.characters_involved.join(", ")}</p>
+          )}
+          {beat.data.page_target && (
+            <p class="page-target"><strong>Target Pages:</strong> {beat.data.page_target}</p>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .item-card a:hover {
+    color: #0066cc;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .act, .type {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+  }
+  
+  .act {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .type {
+    background: #fff3e0;
+    color: #f57c00;
+  }
+  
+  .purpose {
+    margin: 1rem 0;
+    line-height: 1.5;
+  }
+  
+  .emotion {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+  
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

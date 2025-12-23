@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1037pt" height="1200pt" viewBox="0.00 0.00 1037.31 1200.36">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1196.36)">
+<title>HerMajestysDispleasure</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1196.36 1033.31,-1196.36 1033.31,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_royals</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="101.88,-605.82 101.88,-1049.82 473.81,-1049.82 473.81,-605.82 101.88,-605.82"/>
+<text text-anchor="middle" x="287.84" y="-1033.22" font-family="Helvetica,Arial,sans-serif" font-size="14.00">The Royals</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_beatles</title>
+<polygon fill="#ffa6a6" stroke="#ffa6a6" points="105.77,-377.82 105.77,-597.82 1021.31,-597.82 1021.31,-377.82 105.77,-377.82"/>
+<text text-anchor="middle" x="563.54" y="-581.22" font-family="Helvetica,Arial,sans-serif" font-size="14.00">The Beatles</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_mi5</title>
+<polygon fill="#e0e0e0" stroke="#e0e0e0" points="111.22,-195.82 111.22,-368.82 754.17,-368.82 754.17,-195.82 111.22,-195.82"/>
+<text text-anchor="middle" x="432.69" y="-352.22" font-family="Helvetica,Arial,sans-serif" font-size="14.00">MI5</text>
+</g>
+<!-- Philip -->
+<g id="node1" class="node">
+<title>Philip</title>
+<polygon fill="lightblue" stroke="lightblue" points="198.6,-806.82 109.88,-806.82 109.88,-770.82 198.6,-770.82 198.6,-806.82"/>
+<text text-anchor="middle" x="154.24" y="-784.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Prince Philip</text>
+</g>
+<!-- Queen -->
+<g id="node2" class="node">
+<title>Queen</title>
+<polygon fill="lightblue" stroke="lightblue" points="460.94,-840.82 383.14,-840.82 383.14,-804.82 460.94,-804.82 460.94,-840.82"/>
+<text text-anchor="middle" x="422.04" y="-818.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">The Queen</text>
+</g>
+<!-- Philip&#45;&gt;Queen -->
+<g id="edge3" class="edge">
+<title>Philip-&gt;Queen</title>
+<path fill="none" stroke="black" d="M198.83,-781.87C235.42,-777.4 288.86,-774.06 334.33,-783.82 349.38,-787.04 364.97,-793.09 378.7,-799.48"/>
+<polygon fill="black" stroke="black" points="376.93,-802.51 387.45,-803.73 379.98,-796.21 376.93,-802.51"/>
+<text text-anchor="middle" x="275.46" y="-798.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Convenes Committee</text>
+<text text-anchor="middle" x="275.46" y="-786.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1965)</text>
+</g>
+<!-- Margaret -->
+<g id="node3" class="node">
+<title>Margaret</title>
+<polygon fill="lightblue" stroke="lightblue" points="463.08,-953.82 380.99,-953.82 380.99,-917.82 463.08,-917.82 463.08,-953.82"/>
+<text text-anchor="middle" x="422.04" y="-931.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">P. Margaret</text>
+</g>
+<!-- Philip&#45;&gt;Margaret -->
+<g id="edge4" class="edge">
+<title>Philip-&gt;Margaret</title>
+<path fill="none" stroke="black" d="M167.1,-807.14C178.2,-823.01 196.12,-845.6 216.6,-859.82 263.52,-892.4 326.14,-912.98 369.66,-924.38"/>
+<polygon fill="black" stroke="black" points="368.55,-927.71 379.1,-926.78 370.27,-920.92 368.55,-927.71"/>
+<text text-anchor="middle" x="275.46" y="-916.9" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Recruits to Committee</text>
+</g>
+<!-- Mountbatten -->
+<g id="node4" class="node">
+<title>Mountbatten</title>
+<polygon fill="lightblue" stroke="lightblue" points="465.81,-700.82 378.27,-700.82 378.27,-664.82 465.81,-664.82 465.81,-700.82"/>
+<text text-anchor="middle" x="422.04" y="-678.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Mountbatten</text>
+</g>
+<!-- Philip&#45;&gt;Mountbatten -->
+<g id="edge5" class="edge">
+<title>Philip-&gt;Mountbatten</title>
+<path fill="none" stroke="black" d="M157.43,-770.49C162.15,-740.25 176.33,-680.66 216.6,-654.82 263.94,-624.42 330.14,-641.86 374.24,-659.88"/>
+<polygon fill="black" stroke="black" points="372.71,-663.03 383.28,-663.73 375.45,-656.59 372.71,-663.03"/>
+<text text-anchor="middle" x="275.46" y="-657.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Recruits to Committee</text>
+</g>
+<!-- John -->
+<g id="node5" class="node">
+<title>John</title>
+<polygon fill="lightyellow" stroke="lightyellow" points="755.12,-466.82 666.41,-466.82 666.41,-430.82 755.12,-430.82 755.12,-466.82"/>
+<text text-anchor="middle" x="710.77" y="-444.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">John Lennon</text>
+</g>
+<!-- Philip&#45;&gt;John -->
+<g id="edge1" class="edge">
+<title>Philip-&gt;John</title>
+<path fill="none" stroke="red" stroke-width="2" d="M156.25,-807.09C159.88,-864.84 174.31,-1041.61 216.6,-1075.82 361.37,-1192.91 501.8,-1205.36 635.55,-1075.82 658.06,-1054 641.91,-540.93 653.55,-511.82 658.82,-498.61 668.17,-486.37 677.75,-476.25"/>
+<polygon fill="red" stroke="red" stroke-width="2" points="680.06,-478.89 684.72,-469.37 675.15,-473.91 680.06,-478.89"/>
+<text text-anchor="middle" x="422.04" y="-1183.36" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Views as Threat → Must Eliminate</text>
+<text text-anchor="middle" x="422.04" y="-1171.36" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1965-1970)</text>
+</g>
+<!-- George -->
+<g id="node7" class="node">
+<title>George</title>
+<polygon fill="lightyellow" stroke="lightyellow" points="463.09,-564.82 380.99,-564.82 380.99,-528.82 463.09,-528.82 463.09,-564.82"/>
+<text text-anchor="middle" x="422.04" y="-542.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">G. Harrison</text>
+</g>
+<!-- Philip&#45;&gt;George -->
+<g id="edge16" class="edge">
+<title>Philip-&gt;George</title>
+<path fill="none" stroke="blue" stroke-dasharray="1,5" d="M155.87,-770.35C158.17,-733.28 168.7,-649.45 216.6,-603.82 257.7,-564.65 323.39,-551.98 369.18,-548.1"/>
+<polygon fill="blue" stroke="blue" points="369.42,-551.59 379.14,-547.39 368.92,-544.61 369.42,-551.59"/>
+<text text-anchor="middle" x="275.46" y="-618.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Funds Maharishi Tour</text>
+<text text-anchor="middle" x="275.46" y="-606.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1968)</text>
+</g>
+<!-- SirDerek -->
+<g id="node11" class="node">
+<title>SirDerek</title>
+<polygon fill="lightpink" stroke="lightpink" points="189.26,-335.82 119.22,-335.82 119.22,-299.82 189.26,-299.82 189.26,-335.82"/>
+<text text-anchor="middle" x="154.24" y="-313.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Sir Derek</text>
+</g>
+<!-- Philip&#45;&gt;SirDerek -->
+<g id="edge9" class="edge">
+<title>Philip-&gt;SirDerek</title>
+<path fill="none" stroke="black" d="M142.09,-770.46C117.96,-732.76 64.68,-643.03 45.82,-558.82 26.5,-472.48 55.19,-442.96 101.88,-367.82 107.33,-359.03 114.69,-350.73 122.16,-343.51"/>
+<polygon fill="black" stroke="black" points="124.1,-346.48 129.11,-337.15 119.37,-341.32 124.1,-346.48"/>
+<text text-anchor="middle" x="60.36" y="-549.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Gives Directive</text>
+</g>
+<!-- Queen&#45;&gt;Philip -->
+<g id="edge8" class="edge">
+<title>Queen-&gt;Philip</title>
+<path fill="none" stroke="gray" stroke-dasharray="5,2" d="M382.86,-824.99C341.41,-826.46 273.52,-826.27 216.6,-813.82 213,-813.03 209.35,-812.05 205.7,-810.93"/>
+<polygon fill="gray" stroke="gray" points="206.9,-807.64 196.31,-807.74 204.65,-814.27 206.9,-807.64"/>
+<text text-anchor="middle" x="275.46" y="-840.49" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Committee Member</text>
+<text text-anchor="middle" x="275.46" y="-828.49" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(Skeptical but Complicit)</text>
+</g>
+<!-- Margaret&#45;&gt;Philip -->
+<g id="edge7" class="edge">
+<title>Margaret-&gt;Philip</title>
+<path fill="none" stroke="purple" d="M380.78,-948.03C336.61,-958.84 265.48,-968.38 216.6,-935.82 177.48,-909.76 163.26,-853.5 158.12,-818.64"/>
+<polygon fill="purple" stroke="purple" points="161.59,-818.25 156.84,-808.78 154.65,-819.15 161.59,-818.25"/>
+<text text-anchor="middle" x="275.46" y="-973.2" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Committee Member</text>
+<text text-anchor="middle" x="275.46" y="-961.2" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(Amused by Scheme)</text>
+</g>
+<!-- Mountbatten&#45;&gt;Philip -->
+<g id="edge6" class="edge">
+<title>Mountbatten-&gt;Philip</title>
+<path fill="none" stroke="darkblue" d="M366.75,-693.66C324.42,-703.37 264.9,-719.8 216.6,-743.82 202.28,-750.93 187.79,-761.37 176.49,-770.41"/>
+<polygon fill="darkblue" stroke="darkblue" points="367.47,-697.09 376.46,-691.49 365.94,-690.26 367.47,-697.09"/>
+<text text-anchor="middle" x="275.46" y="-758.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Strategic Advisor</text>
+<text text-anchor="middle" x="275.46" y="-746.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(Operation Minuet Architect)</text>
+</g>
+<!-- John&#45;&gt;Philip -->
+<g id="edge2" class="edge">
+<title>John-&gt;Philip</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M689.88,-467.1C678,-478.91 663.36,-495.14 653.55,-511.82 542.75,-700.03 663.17,-840.49 491.75,-975.82 488.03,-978.75 246.22,-1013.81 216.6,-991.82 186.3,-969.32 165.18,-852.68 157.96,-807.1"/>
+<text text-anchor="middle" x="422.04" y="-997" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Unaware of</text>
+</g>
+<!-- Paul -->
+<g id="node6" class="node">
+<title>Paul</title>
+<polygon fill="lightyellow" stroke="lightyellow" points="1013.31,-421.82 905.94,-421.82 905.94,-385.82 1013.31,-385.82 1013.31,-421.82"/>
+<text text-anchor="middle" x="959.63" y="-399.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Paul McCartney</text>
+</g>
+<!-- John&#45;&gt;Paul -->
+<g id="edge22" class="edge">
+<title>John-&gt;Paul</title>
+<path fill="none" stroke="green" d="M766.89,-438.77C804.71,-431.87 855.02,-422.7 894.62,-415.48"/>
+<polygon fill="green" stroke="green" points="766.31,-435.31 757.1,-440.55 767.57,-442.2 766.31,-435.31"/>
+<polygon fill="green" stroke="green" points="895.05,-418.96 904.26,-413.73 893.79,-412.08 895.05,-418.96"/>
+<text text-anchor="middle" x="836.96" y="-449.26" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Growing Resentment</text>
+<text text-anchor="middle" x="836.96" y="-437.26" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1966-1969)</text>
+</g>
+<!-- Yoko -->
+<g id="node13" class="node">
+<title>Yoko</title>
+<path fill="none" stroke="black" d="M725.77,-187.82C725.77,-187.82 695.77,-187.82 695.77,-187.82 689.77,-187.82 683.77,-181.82 683.77,-175.82 683.77,-175.82 683.77,-163.82 683.77,-163.82 683.77,-157.82 689.77,-151.82 695.77,-151.82 695.77,-151.82 725.77,-151.82 725.77,-151.82 731.77,-151.82 737.77,-157.82 737.77,-163.82 737.77,-163.82 737.77,-175.82 737.77,-175.82 737.77,-181.82 731.77,-187.82 725.77,-187.82"/>
+<text text-anchor="middle" x="710.77" y="-165.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Yoko</text>
+</g>
+<!-- Paul&#45;&gt;Yoko -->
+<g id="edge19" class="edge">
+<title>Paul-&gt;Yoko</title>
+<path fill="none" stroke="orange" stroke-width="1.5" stroke-dasharray="5,2" d="M946.73,-385.61C919.6,-345.38 849.17,-248.04 767.98,-191.82 762.38,-187.94 756,-184.61 749.6,-181.8"/>
+<polygon fill="orange" stroke="orange" stroke-width="1.5" points="750.91,-178.56 740.32,-178.14 748.34,-185.07 750.91,-178.56"/>
+<text text-anchor="middle" x="836.96" y="-306.17" font-family="Helvetica,Arial,sans-serif" font-size="10.00">WRONGLY SUSPECTS</text>
+</g>
+<!-- George&#45;&gt;John -->
+<g id="edge23" class="edge">
+<title>George-&gt;John</title>
+<path fill="none" stroke="green" stroke-dasharray="5,2" d="M463.47,-536.03C506.59,-524.16 576.64,-503.83 635.55,-481.82 643.72,-478.76 652.28,-475.26 660.56,-471.7"/>
+<polygon fill="green" stroke="green" points="661.71,-475.01 669.46,-467.79 658.9,-468.6 661.71,-475.01"/>
+<text text-anchor="middle" x="572.65" y="-525.8" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Feels Sidelined by</text>
+</g>
+<!-- George&#45;&gt;Paul -->
+<g id="edge24" class="edge">
+<title>George-&gt;Paul</title>
+<path fill="none" stroke="green" stroke-dasharray="5,2" d="M463.26,-549.84C506.21,-552.28 576.11,-553.97 635.55,-544.82 751.46,-526.97 785.93,-525.68 887.94,-467.82 905.31,-457.97 922,-443.2 934.79,-430.33"/>
+<polygon fill="green" stroke="green" points="937.14,-432.93 941.56,-423.3 932.1,-428.08 937.14,-432.93"/>
+<text text-anchor="middle" x="710.77" y="-544.98" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Feels Sidelined by</text>
+</g>
+<!-- Ringo -->
+<g id="node8" class="node">
+<title>Ringo</title>
+<polygon fill="lightyellow" stroke="lightyellow" points="194.71,-464.82 113.77,-464.82 113.77,-428.82 194.71,-428.82 194.71,-464.82"/>
+<text text-anchor="middle" x="154.24" y="-442.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Ringo Starr</text>
+</g>
+<!-- Ringo&#45;&gt;John -->
+<g id="edge25" class="edge">
+<title>Ringo-&gt;John</title>
+<polygon fill="darkgreen" stroke="none" points="195.1,-447.64 200.68,-447.72 206.53,-447.8 212.62,-447.9 218.93,-448.01 225.45,-448.13 232.15,-448.26 239.01,-448.42 246.02,-448.59 253.16,-448.77 260.4,-448.97 267.72,-449.2 275.12,-449.44 282.56,-449.7 290.02,-449.98 297.5,-450.29 304.96,-450.61 312.39,-450.96 319.78,-451.34 327.09,-451.74 334.31,-452.16 353.66,-453.52 371.67,-455.1 388.48,-456.86 404.25,-458.75 419.13,-460.72 433.25,-462.73 446.78,-464.73 459.86,-466.68 472.63,-468.53 485.25,-470.23 497.87,-471.73 510.62,-472.99 523.67,-473.97 537.15,-474.61 551.22,-474.87 566.03,-474.7 581.71,-474.06 598.43,-472.9 616.33,-471.18 635.55,-468.84 636.52,-468.71 637.49,-468.57 638.46,-468.42 639.44,-468.27 640.42,-468.12 641.4,-467.96 642.38,-467.8 643.37,-467.63 644.36,-467.45 645.35,-467.27 646.34,-467.09 647.33,-466.9 648.32,-466.7 649.31,-466.51 650.3,-466.31 651.29,-466.1 652.28,-465.89 653.27,-465.68 654.26,-465.46 655.25,-465.24 655.25,-465.24 654.26,-465.46 653.27,-465.67 652.28,-465.89 651.29,-466.09 650.3,-466.3 649.31,-466.49 648.31,-466.69 647.32,-466.88 646.33,-467.07 645.34,-467.25 644.35,-467.43 643.37,-467.6 642.38,-467.77 641.4,-467.93 640.41,-468.09 639.43,-468.24 638.46,-468.39 637.48,-468.53 636.51,-468.66 635.54,-468.79 616.32,-471.09 598.42,-472.78 581.7,-473.9 566.02,-474.51 551.22,-474.64 537.16,-474.35 523.69,-473.68 510.65,-472.68 497.9,-471.39 485.3,-469.86 472.69,-468.13 459.92,-466.26 446.85,-464.29 433.32,-462.25 419.2,-460.21 404.32,-458.21 388.55,-456.28 371.73,-454.49 353.71,-452.87 334.35,-451.47 327.13,-451.03 319.82,-450.61 312.43,-450.22 305,-449.85 297.53,-449.51 290.06,-449.19 282.59,-448.89 275.14,-448.61 267.75,-448.35 260.42,-448.12 253.18,-447.9 246.05,-447.7 239.03,-447.51 232.17,-447.34 225.47,-447.19 218.95,-447.06 212.64,-446.93 206.55,-446.83 200.7,-446.73 195.11,-446.64 195.1,-447.64"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="655.83,-468.7 664.73,-462.96 654.19,-461.9 655.83,-468.7"/>
+<text text-anchor="middle" x="422.04" y="-473.74" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Supports</text>
+</g>
+<!-- Ringo&#45;&gt;Paul -->
+<g id="edge26" class="edge">
+<title>Ringo-&gt;Paul</title>
+<polygon fill="darkgreen" stroke="none" points="195.18,-440.98 196.26,-440.83 197.33,-440.68 198.41,-440.53 199.49,-440.39 200.57,-440.24 201.65,-440.1 202.74,-439.96 203.82,-439.82 204.9,-439.68 205.98,-439.54 207.07,-439.4 208.14,-439.27 209.22,-439.14 210.29,-439.01 211.36,-438.89 212.43,-438.76 213.49,-438.64 214.55,-438.52 215.6,-438.41 216.65,-438.3 253.09,-434.49 286.99,-431.07 318.63,-428.01 348.31,-425.29 376.29,-422.87 402.87,-420.73 428.33,-418.86 452.95,-417.22 477.01,-415.8 500.8,-414.55 524.6,-413.47 548.7,-412.53 573.37,-411.69 598.9,-410.95 625.57,-410.26 653.67,-409.61 683.48,-408.98 715.28,-408.33 749.35,-407.64 785.99,-406.89 791.41,-406.78 796.88,-406.67 802.4,-406.56 807.95,-406.45 813.53,-406.34 819.14,-406.23 824.75,-406.12 830.36,-406.02 835.96,-405.91 841.55,-405.8 847.11,-405.7 852.64,-405.6 858.13,-405.5 863.56,-405.4 868.93,-405.3 874.23,-405.21 879.46,-405.11 884.59,-405.02 889.63,-404.93 894.57,-404.85 894.57,-404.85 889.63,-404.93 884.59,-405.01 879.46,-405.09 874.23,-405.18 868.93,-405.27 863.56,-405.36 858.13,-405.45 852.64,-405.54 847.11,-405.63 841.55,-405.73 835.96,-405.83 830.36,-405.92 824.75,-406.02 819.13,-406.12 813.53,-406.22 807.95,-406.33 802.39,-406.43 796.88,-406.53 791.4,-406.63 785.98,-406.74 749.35,-407.43 715.27,-408.07 683.47,-408.68 653.66,-409.27 625.56,-409.88 598.89,-410.53 573.35,-411.24 548.68,-412.04 524.58,-412.95 500.77,-413.99 476.98,-415.2 452.91,-416.59 428.29,-418.2 402.82,-420.03 376.23,-422.13 348.24,-424.51 318.56,-427.19 286.9,-430.21 252.99,-433.58 216.55,-437.33 215.5,-437.44 214.44,-437.56 213.38,-437.67 212.32,-437.79 211.25,-437.92 210.18,-438.04 209.1,-438.17 208.03,-438.3 206.95,-438.43 205.86,-438.56 204.78,-438.7 203.69,-438.84 202.61,-438.97 201.52,-439.12 200.44,-439.26 199.36,-439.4 198.28,-439.55 197.2,-439.69 196.12,-439.84 195.05,-439.99 195.18,-440.98"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="894.28,-408.35 904.22,-404.69 894.16,-401.35 894.28,-408.35"/>
+<text text-anchor="middle" x="572.65" y="-416.76" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Supports</text>
+</g>
+<!-- Ringo&#45;&gt;George -->
+<g id="edge27" class="edge">
+<title>Ringo-&gt;George</title>
+<polygon fill="darkgreen" stroke="none" points="189.33,-465.68 190.64,-466.33 191.97,-466.99 193.3,-467.64 194.64,-468.3 195.99,-468.95 197.34,-469.6 198.7,-470.25 200.07,-470.9 201.43,-471.54 202.8,-472.18 204.17,-472.82 205.54,-473.44 206.92,-474.07 208.29,-474.68 209.65,-475.29 211.02,-475.89 212.38,-476.49 213.74,-477.07 215.09,-477.64 216.43,-478.21 224.18,-481.38 232.04,-484.53 240,-487.65 248.03,-490.73 256.12,-493.76 264.24,-496.76 272.37,-499.7 280.49,-502.59 288.59,-505.42 296.64,-508.19 304.62,-510.9 312.5,-513.54 320.28,-516.11 327.92,-518.6 335.41,-521.02 342.72,-523.35 349.85,-525.59 356.75,-527.74 363.42,-529.8 369.83,-531.76 369.83,-531.76 363.43,-529.76 356.77,-527.67 349.88,-525.49 342.77,-523.21 335.47,-520.84 327.99,-518.39 320.36,-515.86 312.6,-513.25 304.73,-510.57 296.77,-507.82 288.74,-505 280.66,-502.13 272.55,-499.2 264.44,-496.21 256.33,-493.18 248.27,-490.1 240.26,-486.99 232.32,-483.83 224.48,-480.64 216.76,-477.43 215.42,-476.86 214.08,-476.28 212.73,-475.69 211.37,-475.09 210.01,-474.49 208.65,-473.87 207.29,-473.25 205.92,-472.62 204.56,-471.99 203.19,-471.35 201.83,-470.7 200.47,-470.05 199.11,-469.4 197.76,-468.74 196.41,-468.09 195.07,-467.43 193.73,-466.77 192.41,-466.11 191.09,-465.45 189.78,-464.79 189.33,-465.68"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="368.81,-535.1 379.39,-534.66 370.85,-528.41 368.81,-535.1"/>
+<text text-anchor="middle" x="275.46" y="-522.81" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Supports</text>
+</g>
+<!-- Nigel -->
+<g id="node9" class="node">
+<title>Nigel</title>
+<polygon fill="lightpink" stroke="lightpink" points="463.29,-256.82 380.79,-256.82 380.79,-220.82 463.29,-220.82 463.29,-256.82"/>
+<text text-anchor="middle" x="422.04" y="-234.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Nigel Finch</text>
+</g>
+<!-- Nigel&#45;&gt;Paul -->
+<g id="edge18" class="edge">
+<title>Nigel-&gt;Paul</title>
+<path fill="none" stroke="blue" stroke-dasharray="1,5" d="M423.79,-220.46C426.7,-176.57 440.85,-65.71 509.75,-18.82 555.96,12.65 582.02,-2.65 635.55,-18.82 766.71,-58.42 807.22,-85.11 887.94,-195.82 928.32,-251.19 946.84,-331.3 954.29,-374.15"/>
+<polygon fill="blue" stroke="blue" points="950.83,-374.64 955.9,-383.94 957.73,-373.51 950.83,-374.64"/>
+<text text-anchor="middle" x="710.77" y="-85.91" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Knighthood Letter (1969)</text>
+<text text-anchor="middle" x="710.77" y="-73.91" font-family="Helvetica,Arial,sans-serif" font-size="10.00">→ Sabotages Mission (1970)</text>
+</g>
+<!-- Nigel&#45;&gt;George -->
+<g id="edge15" class="edge">
+<title>Nigel-&gt;George</title>
+<path fill="none" stroke="blue" stroke-dasharray="1,5" d="M381.95,-257.16C371.55,-263.12 360.88,-270.39 352.33,-278.82 281.64,-348.48 193.59,-394.52 249.07,-476.82 275.74,-516.39 328.99,-533.59 369.4,-541.07"/>
+<polygon fill="blue" stroke="blue" points="368.75,-544.51 379.19,-542.72 369.91,-537.61 368.75,-544.51"/>
+<text text-anchor="middle" x="275.46" y="-467.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Manipulates (Sitar Book)</text>
+<text text-anchor="middle" x="275.46" y="-455.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1967)</text>
+</g>
+<!-- Percy -->
+<g id="node12" class="node">
+<title>Percy</title>
+<polygon fill="lightpink" stroke="lightpink" points="746.17,-300.82 675.36,-300.82 675.36,-264.82 746.17,-264.82 746.17,-300.82"/>
+<text text-anchor="middle" x="710.77" y="-278.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Percy (Q)</text>
+</g>
+<!-- Nigel&#45;&gt;Percy -->
+<g id="edge12" class="edge">
+<title>Nigel-&gt;Percy</title>
+<path fill="none" stroke="black" d="M463.72,-234.71C507.05,-231.54 577.27,-229.89 635.55,-244.82 647.79,-247.95 660.31,-253.36 671.49,-259.14"/>
+<polygon fill="black" stroke="black" points="669.56,-262.07 680.02,-263.77 672.9,-255.92 669.56,-262.07"/>
+<text text-anchor="middle" x="572.65" y="-247.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Requests Gear</text>
+</g>
+<!-- Clive -->
+<g id="node10" class="node">
+<title>Clive</title>
+<polygon fill="lightpink" stroke="lightpink" points="467.95,-335.82 376.13,-335.82 376.13,-299.82 467.95,-299.82 467.95,-335.82"/>
+<text text-anchor="middle" x="422.04" y="-313.62" font-family="Helvetica,Arial,sans-serif" font-size="14.00">Clive Barrow</text>
+</g>
+<!-- Clive&#45;&gt;John -->
+<g id="edge14" class="edge">
+<title>Clive-&gt;John</title>
+<path fill="none" stroke="blue" stroke-dasharray="1,5" d="M468.19,-324.37C512.95,-332.29 582.35,-348.51 635.55,-378.82 655.23,-390.03 673.77,-407.51 687.4,-422.2"/>
+<polygon fill="blue" stroke="blue" points="684.52,-424.23 693.81,-429.33 689.73,-419.55 684.52,-424.23"/>
+<text text-anchor="middle" x="572.65" y="-393.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Amplifies 'Jesus' Incident</text>
+<text text-anchor="middle" x="572.65" y="-381.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1966)</text>
+</g>
+<!-- Clive&#45;&gt;Percy -->
+<g id="edge13" class="edge">
+<title>Clive-&gt;Percy</title>
+<path fill="none" stroke="black" d="M468.16,-312.31C521.64,-305.78 610.26,-294.96 664.02,-288.4"/>
+<polygon fill="black" stroke="black" points="664.26,-291.9 673.76,-287.21 663.41,-284.95 664.26,-291.9"/>
+<text text-anchor="middle" x="572.65" y="-309.49" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Requests Gear</text>
+</g>
+<!-- Clive&#45;&gt;Yoko -->
+<g id="edge17" class="edge">
+<title>Clive-&gt;Yoko</title>
+<path fill="none" stroke="blue" stroke-dasharray="1,5" d="M467.97,-299.51C476.96,-294.03 485.54,-287.19 491.75,-278.82 513.45,-249.54 483,-223.57 509.75,-198.82 553.6,-158.23 627.61,-158.81 672.26,-163.74"/>
+<polygon fill="blue" stroke="blue" points="671.62,-167.19 681.98,-164.96 672.49,-160.24 671.62,-167.19"/>
+<text text-anchor="middle" x="572.65" y="-213.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Attempts to Recruit (as 'Klaus')</text>
+<text text-anchor="middle" x="572.65" y="-201.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">(1968-1970)</text>
+</g>
+<!-- Clive&#45;&gt;Yoko -->
+<g id="edge21" class="edge">
+<title>Clive-&gt;Yoko</title>
+<path fill="none" stroke="purple" d="M468.2,-300.14C477.29,-294.6 485.86,-287.58 491.75,-278.82 526.49,-227.11 462.95,-180.94 509.75,-139.82 554.92,-100.11 629.18,-126.96 673.38,-149.08"/>
+<polygon fill="purple" stroke="purple" points="671.57,-152.09 682.06,-153.58 674.79,-145.87 671.57,-152.09"/>
+<text text-anchor="middle" x="572.65" y="-142.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Believes he's 'Turning' her</text>
+</g>
+<!-- SirDerek&#45;&gt;Nigel -->
+<g id="edge10" class="edge">
+<title>SirDerek-&gt;Nigel</title>
+<path fill="none" stroke="black" d="M189.49,-305.04C198.28,-301.9 207.75,-298.63 216.6,-295.82 268.22,-279.39 327.98,-263.03 369.5,-252.08"/>
+<polygon fill="black" stroke="black" points="370.19,-255.52 378.98,-249.59 368.42,-248.75 370.19,-255.52"/>
+<text text-anchor="middle" x="275.46" y="-298.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Assigns Mission</text>
+</g>
+<!-- SirDerek&#45;&gt;Clive -->
+<g id="edge11" class="edge">
+<title>SirDerek-&gt;Clive</title>
+<path fill="none" stroke="black" d="M189.71,-317.82C234.08,-317.82 311.73,-317.82 364.72,-317.82"/>
+<polygon fill="black" stroke="black" points="364.45,-321.32 374.45,-317.82 364.45,-314.32 364.45,-321.32"/>
+<text text-anchor="middle" x="275.46" y="-320.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Assigns Mission</text>
+</g>
+<!-- Yoko&#45;&gt;John -->
+<g id="edge28" class="edge">
+<title>Yoko-&gt;John</title>
+<path fill="none" stroke="hotpink" stroke-width="2" d="M671.39,-181.58C635.02,-194.88 583.56,-220.52 562.62,-263.82 531.5,-328.14 610.76,-390.32 664.98,-423.67"/>
+<polygon fill="hotpink" stroke="hotpink" stroke-width="2" points="672.38,-184.94 680.69,-178.37 670.09,-178.32 672.38,-184.94"/>
+<polygon fill="hotpink" stroke="hotpink" stroke-width="2" points="663.14,-426.65 673.52,-428.78 666.74,-420.64 663.14,-426.65"/>
+<text text-anchor="middle" x="572.65" y="-266.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Loves / Anchors</text>
+</g>
+<!-- Yoko&#45;&gt;Clive -->
+<g id="edge20" class="edge">
+<title>Yoko-&gt;Clive</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M704.36,-151.43C695.24,-124.15 673.91,-73.91 635.55,-52.82 586.55,-25.88 550.82,-14.88 509.75,-52.82 472.73,-87 518.81,-236.32 491.75,-278.82 486,-287.84 477.38,-294.99 468.16,-300.56"/>
+<text text-anchor="middle" x="572.65" y="-55.82" font-family="Helvetica,Arial,sans-serif" font-size="10.00">Sees as 'Eccentric Fan'</text>
+</g>
+</g>
+</svg>
