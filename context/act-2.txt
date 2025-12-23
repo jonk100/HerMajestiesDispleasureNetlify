@@ -1,0 +1,3196 @@
+---
+title: "The Quartermaster's Lament"
+act: 2
+sequence: 4
+scene_number: 17
+location: "mi5-q-branch"
+time_of_day: "day"
+characters:
+  - "supporting/nigel-finch"
+  - "supporting/clive-barrow"
+  - "minor/percy-dalton"
+purpose: "Introduce Percy Dalton and establish the theme of bureaucratic incompetence at the heart of the conspiracy."
+conflict: "Clive's desire for cutting-edge spy gear vs. Percy's obsession with outdated inventory and proper procedure."
+emotional_beat: "Darkly comedic frustration. The grand conspiracy is immediately hobbled by mundane, soul-crushing bureaucracy."
+page_count: 2
+status: "draft"
+notes: "Percy is the human embodiment of institutional inertia. His lecture should feel both absurd and utterly believable for a mid-century government storeroom."
+created: 2025-07-28
+---
+
+s-INT. MI5 Q-BRANCH - DAY (EARLY 1966)
+
+a-A cavernous, chilly storeroom in the bowels of Whitehall. Fluorescent lights hum over rows of grey metal shelving, meticulously labeled but covered in a fine layer of dust. The air smells of ozone and old Bakelite. This is where spy technology comes to die.
+
+a-PERCY DALTON (57), a wiry man in a brown cardigan and thick glasses, stands behind a long counter, polishing a hefty piece of Cold War-era equipment with a soft cloth. He is the obsessive gatekeeper of this forgotten kingdom.
+
+a-NIGEL FINCH (49) and CLIVE BARROW (42) approach the counter. Nigel carries a clipboard with a requisition form. Clive practically vibrates with excitement.
+
+c-CLIVE
+d-Morning, Percy! We require some kit for a... delicate undertaking. Audio surveillance. I was thinking something discreet. A miniature sonic amplifier, perhaps? Something state-of-the-art.
+
+a-Percy stops polishing. He looks slowly up from the device, over the top of his glasses. The look is one of profound, ancient weariness.
+
+c-PERCY
+p-(clipped, irritated)
+d-Form 12-C. In triplicate.
+
+a-Nigel slides a perfectly completed form across the counter. Percy picks it up, inspects it with suspicion, then grunts.
+
+c-PERCY (CONT'D)
+d-"Miniature."
+p-(he scoffs)
+d-This isn't a bloody Bond film, Barrow. This is His Majesty's government. We have standards. And budgets.
+
+a-He turns and disappears into the aisles. After a moment of rummaging, he returns, placing a heavy, metal box on the counter with a loud THUD. It looks like a car battery with a large cone attached to it.
+
+c-PERCY (CONT'D)
+d-Item 47-B. Parabolic Listening Device. German. 1953. Very reliable.
+
+c-CLIVE
+p-(deflated)
+d-Right. And... how does one conceal that? In a bread van?
+
+c-PERCY
+p-(ignoring him)
+d-Battery life is approximately ninety minutes, provided you don't use it in the damp. The last agent who used this in the damp, a chap in Budapest, caused a short. Do you know what a replacement valve costs for a '53 Telefunken?
+
+a-Nigel sighs, a sound of pure existential despair.
+
+c-NIGEL
+d-Go on then, Percy.
+
+c-PERCY
+d-Fourteen pounds and sixpence! A month's wages for some people. And he didn't return it in the original packaging. Had to fill out a Form 21-A for non-compliance. Truly dreadful business.
+
+a-Percy hands Clive a tangle of wires and a pair of enormous headphones.
+
+c-PERCY (CONT'D)
+d-Now, you lose a single one of these transmitter screws, and that comes out of your travel stipend. I'm not joking. I'll be checking the manifest upon return.
+
+c-CLIVE
+p-(desperately)
+d-We're conducting a psychological ricochet operation against a major cultural target! We can't do it with a museum piece!
+
+c-PERCY
+d-You can do it with what you're given, Barrow. Just like everyone else. Sign here. And here. Initial there.
+
+a-He pushes the clipboard toward Clive. Nigel is already walking away, having accepted their fate.
+
+c-NIGEL
+p-(over his shoulder)
+d-Don't forget the original packaging, Clive.
+
+a-Percy watches them go, then returns to polishing his device, the guardian of mediocrity, utterly content in his perfectly ordered, perfectly useless world.---
+title: "The Sitar Sage"
+act: 2
+sequence: 4
+scene_number: 18
+location: "soho-bookshop"
+time_of_day: "day"
+characters:
+  - "supporting/nigel-finch"
+  - "band/george-harrison"
+purpose: "Show Nigel's more subtle, morally gray approach to manipulation. Highlight George's spiritual vulnerability as a vector for attack."
+conflict: "Nigel's professional duty to manipulate versus his growing recognition of George's genuine spiritual seeking."
+emotional_beat: "Subtle manipulation disguised as wisdom, with undertones of moral compromise."
+page_count: 3
+status: "draft"
+notes: "Key contrast between Nigel's bureaucratic reality and his wise mentor persona. George's earnest seeking makes the manipulation both effective and morally complex."
+created: 2025-07-27
+---
+
+s-INT. SOHO BOOKSHOP - DAY (EARLY 1966)
+
+a-A cramped, atmospheric independent bookshop. Floor-to-ceiling shelves packed with esoteric texts create narrow, maze-like aisles. A small corner is dedicated to imported vinyl LPs. The air is thick with the scent of old paper and sandalwood incense.
+
+a-NIGEL FINCH (49) stands behind the counter, transformed. Gone is the weary bureaucrat. He wears a comfortable cardigan, half-moon reading glasses, and has cultivated a slightly bohemian air. He is the picture of a man who has found peace among books.
+
+a-The shop bell CHIMES softly. GEORGE HARRISON (23) enters. He’s fresh from the success of Rubber Soul, but a searching uncertainty hangs about him. He used the sitar on "Norwegian Wood," but knows he only scratched the surface. It was a texture, not an art form.
+
+a-George wanders toward the Eastern Philosophy section, his fingers trailing along book spines. He pauses on Practical Lessons in Yoga by Swami Sivananda, reads the back cover, then gently returns it to the shelf. Next to it, The Science of Pranayama — he flips it open, stares at a diagram of alternate nostril breathing, and shakes his head. He picks up The Book of Tea by Okakura Kakuzō, runs a thumb across its worn edge, then places it back like a fragile artifact. A stray, dog-eared copy of Howl by Allen Ginsberg is shoved between the titles — George smirks faintly, sets it aside.
+
+a-Finally, he pulls out a volume by Alan Watts — The Way of Zen. He flips through it, slows on a paragraph about silence and direct experience, then replaces it with a small sigh.
+
+a-Nigel observes from behind his glasses, timing his approach. He walks to a small record player behind the counter and gently drops the needle on a spinning LP. A complex, mesmerizing SITAR melody fills the quiet shop. The sound is impossibly rich and fluid.
+
+a-George looks up, captivated. He approaches the counter.
+
+c-GEORGE
+d-What is that?
+
+c-NIGEL
+p-(without looking up, as if stating a fact of nature)
+d-That is Ravi Shankar. The source.
+
+a-George listens, rapt. The gulf between this and his own playing feels immense.
+
+c-GEORGE
+d-It’s… a whole other world. I’ve been… dabbling with one. A sitar. But it doesn't sound like that.
+
+a-Nigel looks up, his expression one of gentle, academic interest.
+
+c-NIGEL
+p-(a flicker of a knowing smile)
+d-Ah. Yes. A common observation. One can acquire the instrument, but the philosophy... that must be sought.
+
+a-The word "philosophy" lands perfectly. It’s exactly what George feels is missing.
+
+c-GEORGE
+d-Exactly. It feels like there's something more. Beyond just the notes.
+
+c-NIGEL
+p-(nodding sagely)
+d-Because there is. The sitar is not merely a collection of strings and wood. It’s a discipline. A path. To play it correctly, one must understand the silence between the notes. The unstruck sound.
+
+a-This resonates deeply. It’s the language he's been trying to find.
+
+c-GEORGE
+d-But how do you even begin to learn that? It seems… impossibly complex.
+
+a-Nigel feigns a thoughtful pause, as if accessing a piece of cultural trivia.
+
+c-NIGEL
+d-It’s interesting you should ask. There's another young man, a customer. From that group, The Rolling Stones. The blond one.
+p-(a dismissive wave)
+d-A bit more... frantic, their music. But he is a very serious student.
+
+a-This piques George's interest intensely. A peer. A rival, even.
+
+c-GEORGE
+d-Brian Jones?
+
+c-NIGEL
+p-(snapping his fingers softly)
+d-That's the one. He tells me the only way to truly understand the music is to go to the master himself. He’s been taking lessons. From Mr. Shankar.
+
+a-The pieces click into place for George. It’s not just about practice; it's about apprenticeship. A lineage.
+
+c-NIGEL (CONT'D)
+d-He says Shankar is... particular. He doesn't suffer fools or dilettantes. One must demonstrate a genuine spiritual commitment.
+
+a-Nigel is now performing the most sophisticated kind of manipulation: using the truth. He's not inventing a path; he's merely illuminating it, framing it as a challenge worthy of George's deep spirit, while subtly positioning the more "frantic" Brian Jones as someone who has already started the journey.
+
+a-George looks determined. This isn't just about music anymore. It's about creative and spiritual respect.
+
+c-GEORGE
+d-Ravi Shankar. He lives here? In London?
+
+a-Nigel takes a small slip of paper from a notepad. He writes the name on it with a fountain pen, his handwriting neat and precise.
+
+c-NIGEL
+d-He visits. One has to be… attentive. But I believe a man like Brian Jones would know how to make an introduction, if one were to ask. One seeker to another.
+
+a-He slides the paper across the counter. It contains only two words: "Ravi Shankar."
+
+c-GEORGE
+p-(taking the paper)
+d-Thank you.
+
+c-NIGEL
+p-(with a slight, formal bow)
+d-The path appears when the student is ready.
+
+a-George tucks the paper carefully into his jacket pocket. It feels like a key. He gives Nigel a grateful nod and exits.
+
+a-Nigel watches him go. He calmly turns back to his leather-bound journal—his operational log, disguised as a shop ledger. He finds the page headed "OPERATION MINUET - SUBJECT: HARRISON, G." and makes a new entry in his precise, bureaucratic script.
+
+c-NIGEL (V.O.)
+p-(reading his own writing)
+d-Vector Identified: B. Jones (Rolling Stones). Target primed with information regarding subject's tutelage under R. Shankar. Path to spiritual and artistic divergence successfully illuminated. Subject believes discovery to be his own.
+
+a-He closes the book. The music of Ravi Shankar plays on, now sounding less like a beautiful melody and more like the soundtrack to a perfectly executed act of bureaucratic sabotage.
+---
+title: "The Jesus Quote Firestorm"
+act: 2
+sequence: 4
+scene_number: 19
+location: 
+  - "mi5-office"
+  - "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "supporting/clive-barrow"
+  - "royalty/prince-phillip"
+purpose: "Establish Clive's proactive, petty methods and their oversized impact. Show Philip's satisfaction at the mission's first 'success.'"
+conflict: "The absurd gap between Clive's grandiose self-perception and the mundane reality of his letter-writing campaign."
+emotional_beat: "Dark comedy through bureaucratic banality achieving massive cultural impact."
+page_count: 2
+status: "draft"
+notes: "Key contrast between the drab MI5 office and Philip's satisfaction. Clive's relish at the stamp-licking moment is crucial character work."
+created: 2025-07-27
+---
+s-INT. MI5 OFFICE - DAY (MARCH 1966)
+
+a-A cramped, soul-crushing office space. Harsh fluorescent lighting casts everything in an unflattering pallor. Beige filing cabinets line the walls. A single window looks out onto a brick wall.
+
+a-CLIVE BARROW (42) sits at a cluttered desk, pecking away at an ancient typewriter with the intensity of a concert pianist. His desk is a monument to bureaucratic chaos - surveillance photos (mostly blurry), carbon paper, and an overflowing ashtray next to a cold cup of tea.
+
+a-He pauses, studies his work with the satisfaction of a master craftsman, then continues typing. The CLACKING of keys echoes in the sterile room.
+
+a-CLOSE-UP on the typewriter. We see fragments of text being typed: "...as a concerned Christian and longtime reader of your publication, I was deeply troubled by recent comments made by John Lennon of The Beatles regarding our Lord and Savior..."
+
+a-Clive stops typing. He leans back in his chair, which squeaks ominously, and reads his work with the reverence of a poet reviewing his masterpiece.
+
+c-CLIVE
+p-(to himself, theatrical whisper)
+d-Psychological ricochet... in motion.
+
+a-He rolls the paper out of the typewriter with a flourish. The letterhead reads "Mrs. Gladys Pemberton, Birmingham, Alabama."
+
+a-On his desk lies a massive stack of envelopes, already sealed. We see the top one - addressed in neat block letters to "DATEBOOK Magazine, New York, NY". Clive folds his newly typed "Gladys Pemberton" letter, slides it into an envelope addressed to "The Alabama Baptist Herald, Attn: Letters to the Editor."
+
+a-He seals it and opens his desk drawer, revealing a collection of stamps from various countries - his tools for international manipulation. He selects an American stamp with the care of a surgeon choosing an instrument.
+
+a-EXTREME CLOSE-UP: Clive's tongue as he licks the stamp. The camera pulls back slowly and we see his eyes closed in what can only be described as sensual satisfaction.
+
+a-He attaches the stamp to the letter, places it on top of the Datebook letter and takes a deep breath - examining the pile of letters and envelopes like a general reviewing his troops before battle.
+
+c-CLIVE
+d-And... scene.
+
+a-He places the pile of letters in a wire basket labeled "OUTGOING POST" with the reverence of placing a wreath on a war memorial.
+
+t-CUT TO:
+
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (AUGUST 1966)
+
+a-A sanctuary of traditional British power. Dark oak paneling, naval paintings, hunting trophies. Everything speaks to hierarchy and masculine authority.
+
+a-PRINCE PHILIP (45) sits in a leather chair, impeccably dressed in a dark suit. Before him, a small black-and-white television flickers with news footage.
+
+a-ON THE TV SCREEN: Grainy footage of AMERICAN PROTESTERS outside a radio station. Signs read "BEATLES GO HOME" and "LENNON = BLASPHEMER." A BONFIRE burns in the background - vinyl records curling and melting in the flames.
+
+a-An AMERICAN NEWS ANCHOR's voice crackles through the small speaker:
+
+c-TV ANCHOR (V.O.)
+d-...religious groups across the Bible Belt continue to organize boycotts following Lennon's controversial remarks comparing The Beatles' popularity to that of Jesus Christ...
+
+a-Philip watches with the focused attention of a general studying battlefield reports. His expression is unreadable, controlled.
+
+a-The footage cuts to a SOUTHERN PREACHER at a pulpit, gesticulating wildly:
+
+c-PREACHER (ON TV)
+d-These boys have forgotten that there is only one King of Kings, and His name is not John, Paul, George, or Ringo!
+
+a-The congregation ERUPTS in applause. The camera pans across faces twisted with righteous fury.
+
+a-Philip reaches for a delicate china teacup sitting on a side table. He takes a measured sip, his eyes never leaving the screen.
+
+a-More footage: TEENAGERS throwing Beatles records into flames. A RADIO DJ dramatically snapping a "Rubber Soul" album in half. PROTESTERS marching with crosses.
+
+a-The news anchor continues:
+
+c-TV ANCHOR (V.O.)
+d-...several radio stations have banned Beatles music entirely, with some calling for a permanent boycott of all British recording artists...
+
+a-Philip allows himself the smallest of smiles - barely a twitch at the corner of his mouth. He sets down his teacup with the precision of a chess master making a winning move.
+
+c-PHILIP
+p-(quietly, to himself)
+d-Quite.
+
+a-He reaches for a remote control - a modern intrusion in this traditional space - and switches off the television. The screen fades to black with a soft electronic whine.
+
+a-Philip sits back in his chair, steepling his fingers. Through the tall windows behind him, we can see the palace gardens in the afternoon light - serene, ordered, eternal.
+
+a-The silence in the room is profound. Philip's satisfaction is complete, but controlled. This is not celebration - this is confirmation that the natural order of things is being restored.
+
+a-He picks up his teacup again and takes another sip, his eyes focused on some distant point beyond the windows. The weight of institutional power settles around him like a comfortable coat.
+---
+title: "Revolver Sessions"
+act: 2
+sequence: 4
+scene_number: 20
+location: "emi-studios-abbey-road"
+time_of_day: "night"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/brian-epstein"
+purpose: "Show the Beatles at their most unified and experimental during Revolver, while Brian realizes he has become an observer rather than a creative driver."
+conflict: "The band's collective artistic evolution versus Brian's growing sense of obsolescence and loss of control over their direction."
+emotional_beat: "Elation and unity inside the studio contrasted with Brian's quiet, painful awareness that his role has shifted from architect to caretaker."
+page_count: 3
+status: "draft"
+notes: "Visually emphasize the four-headed creative organism of the band and Brian's isolation just outside that circle."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. EMI STUDIOS, STUDIO TWO - NIGHT (APRIL 1966)
+
+a-The legendary studio has been transformed into a mad scientist's laboratory. The air is thick with cigarette smoke and the smell of hot vacuum tubes.
+
+a-JOHN LENNON (25), eyes wide with manic energy, is directing chaos. He stands over a dozen tape recorders, each playing a short, strange loop of sound— a distorted laugh, a seagull's cry, a sitar phrase played backwards.
+
+c-JOHN
+p-(to a young studio engineer)
+d-Right, on my signal, you push that fader up. Paul, you ready on the wine glass?
+
+a-PAUL MCCARTNEY (23), ever the professional, holds a pencil poised over a half-full glass of red wine, ready to create a specific ringing tone. He nods, a focused smile on his face.
+
+a-GEORGE HARRISON (23) sits cross-legged on a rug, his sitar across his lap, quietly observing the controlled chaos with the look of a man who finally feels at home.
+
+a-RINGO STARR (25) sits behind his drum kit, a bemused but supportive grin on his face. He taps out a steady, hypnotic beat. Another night at the office.
+
+c-PAUL
+p-(laughing with scepticism)
+d-Sounds like a thousand seagulls being tortured.
+
+c-JOHN
+p-(gleefully)
+d-Exactly! It's the sound of the void, Macca! The sound of what happens after you die! Or before you're born. Haven't decided yet.
+
+a-The control room door opens and BRIAN EPSTEIN (31) enters. He's impeccably dressed in a dark suit, a stark contrast to the band's casual attire. He looks like a visiting headmaster stepping into the art room during a finger-painting session.
+
+a-He stands for a moment, watching the scene. He's here to discuss the upcoming American tour, but the words die on his lips.
+
+c-BRIAN
+p-(to the engineer, quietly)
+d-What are they... doing?
+
+c-ENGINEER
+p-(without looking up)
+d-Making the tape loops for "Tomorrow Never Knows," Mr. Epstein. John wants it to sound like the Dalai Lama singing from a mountaintop.
+
+a-Brian nods, though he clearly doesn't understand. He sees Paul, George, and Ringo all holding pencils, ready to manipulate the tape machines. They are a single unit, a four-headed creative organism operating on a level he can't access.
+
+c-JOHN
+d-Okay... NOW!
+
+a-On his cue, everyone pushes faders and starts their machines. A cacophony of sound erupts—alien, terrifying, and exhilarating.
+
+a-Through the chaos, Ringo's drumming remains the solid, unwavering heartbeat. Paul, despite his teasing, is completely committed, his brow furrowed in concentration. George closes his eyes, meditating on the sound.
+
+a-Brian watches them, a complicated expression on his face. It's pride, mixed with a profound sense of obsolescence. He came here to talk about logistics, contracts, television appearances—the world outside this room. But he can see with painful clarity that their world is now inside this room.
+
+a-He turns to leave, unnoticed by the band.
+
+c-PAUL
+p-(shouting over the noise)
+d-Try the seagull one again! Slow it down a bit!
+
+a-John gives him a thumbs-up, his face ecstatic.
+
+a-Brian pauses at the door, looks back one last time. They don't need him for this. For the first time, he understands that his job is no longer to build their career, but merely to manage the fallout from their genius.
+
+a-He quietly closes the door, leaving them to their creation. The camera stays inside the studio, moving between the four of them, a tight, focused unit, inventing a new language together, completely oblivious to the world outside—and to the man who brought them there, now walking away down a long, empty corridor.
+---
+title: "George and Ravi"
+act: 2
+sequence: 4
+scene_number: 21
+location:
+  - "ravi-shankar-home"
+  - "dal-lake-houseboat"
+  - "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "band/george-harrison"
+  - "supporting/ravi-shankar"
+  - "royalty/prince-phillip"
+  - "royalty/lord-mountbatten"
+  - "royalty/princess-margaret"
+purpose: "Show George's deepening spiritual path with Ravi Shankar while the Palace begins to weaponize Paul's establishment-friendly ambition."
+conflict: "George's sincere spiritual seeking versus the Crown's cold strategic manipulation of the band's internal dynamics."
+emotional_beat: "Serene, earned peace for George contrasted with Margaret's gleeful suggestion to turn Paul into the establishment's pet."
+page_count: 3
+status: "draft"
+notes: "Montage should feel lyrical and reverent in India, then cut sharply to brittle, acerbic wit at the Palace. Margaret's dialogue carries the venom of class and entitlement."
+created: 2025-07-28
+---
+t-FADE IN:
+
+a-MONTAGE
+
+s-INT. RAVI SHANKAR'S HOME, BOMBAY - DAY (SUMMER 1966)
+
+a-A simple, elegant room. Sunlight streams through slatted blinds. No gold records, no pop art. Just rugs, incense, and a profound sense of peace.
+
+a-GEORGE HARRISON (23), dressed in a simple white kurta, sits cross-legged on the floor. His posture is awkward; he's not used to this. His expensive Western boots are left neatly by the door.
+
+a-Across from him sits RAVI SHANKAR (46), the picture of dignified authority. He holds his sitar with effortless grace.
+
+c-RAVI SHANKAR
+p-(calmly, but firm)
+d-Before you touch the instrument, you must learn to sit. Before you learn to sit, you must learn to be still. Your mind is a storm of... distractions. Fame. Deadlines. You must leave it all outside. Here, you are not a Beatle. You are a student.
+
+a-George nods, humbled. He tries to straighten his back, focusing on his breathing. His fingers twitch, eager to play, but he forces them to be still.
+
+s-INT. RAVI SHANKAR'S HOME - DAY
+
+a-DAYS LATER. George holds a sitar. It rests clumsily in his lap. Ravi Shankar adjusts George's hands on the strings, his touch precise.
+
+c-RAVI SHANKAR
+d-No, no. Not with force. The note is already there. You are not creating it. You are... revealing it. Let your finger be like a feather.
+
+a-George tries again. A harsh, buzzing sound comes out. He winces.
+
+c-GEORGE
+d-Sorry.
+
+c-RAVI SHANKAR
+d-Do not be sorry. Be patient. Your guitar wants to fight the string. The sitar must persuade it. It will take years. Are you prepared for that?
+
+a-George looks at the master, his expression deadly serious.
+
+c-GEORGE
+d-Yes.
+
+s-EXT. DAL LAKE, KASHMIR - HOUSEBOAT - EVENING
+
+a-WEEKS LATER. George and Ravi sit on the deck of a houseboat, floating on a serene lake surrounded by majestic mountains. The cacophony of the world feels a million miles away.
+
+a-George is playing a simple raga, a basic scale. His playing is still hesitant, but it's cleaner, more fluid. He is focused, his eyes closed. He is listening.
+
+a-Ravi listens, not with a teacher's critical ear, but with a growing sense of respect. He sees the sincerity.
+
+a-The lesson ends. The sun sets over the mountains.
+
+c-GEORGE
+p-(quietly)
+d-Back in London... it's all about what's next. The next single, the next album. It never stops. Here... it feels like time doesn't exist.
+
+c-RAVI SHANKAR
+d-Because it doesn't. There is only the note. And the silence before it. Everything else is illusion. Maya.
+
+a-The word "maya" hangs in the air. For George, it's a revelation. It gives a name to the emptiness he's been feeling amidst the screaming fans and gold records.
+
+c-GEORGE
+d-Maya.
+
+a-He looks out at the water, a profound sense of peace settling over him. He is no longer just a musician learning a new instrument. He is a seeker who has found his path.
+
+a-The camera holds on his face, serene and content. He is a world away from John's restless intellectualism and Paul's diplomatic anxieties.
+
+a-A title card appears over the tranquil scene: **AUGUST 1966. The Beatles begin their final, chaotic tour of America.**
+
+a-The peaceful sound of the sitar fades, replaced by the faint, distant sound of screaming fans.
+---
+title: "A More Theatrical Approach"
+act: 2
+sequence: 4
+scene_number: 22
+location: "buckingham-palace-private-study"
+time_of_day: "day"
+characters:
+  - "royalty/prince-philip"
+  - "antagonist/lord-mountbatten"
+  - "royalty/princess-margaret"
+purpose: "Re-engage the antagonists, showcase Princess Margaret's character, and weaponize the band's own creative evolution against them."
+conflict: "Mountbatten's dry strategic approach vs. Margaret's desire for a more theatrical, psychologically cruel form of sabotage."
+emotional_beat: "The conspiracy takes a turn from stuffy and strategic to glamorous and malicious, driven by royal ennui."
+page_count: 3
+status: "draft"
+notes: "This scene directly incorporates research on 'The Family Way' and Margaret's personality. Her 'creative' input should feel both brilliant and deeply unsettling."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (LATE 1966)
+
+a-The masculine sanctuary of dark wood and leather. PRINCE PHILIP (45) stands impatiently by the window. LORD MOUNTBATTEN (66) sits at a large desk, reviewing a file. The air is thick with serious purpose.
+
+a-The door opens and PRINCESS MARGARET (36) sweeps in, holding a long cigarette holder and radiating an aura of magnificent boredom.
+
+c-PRINCESS MARGARET
+d-Dickie. Philip. Still huddled over your little pop group? Honestly, the country is falling to bits and you two are fretting over four boys who look like they've wandered out of a train station cafeteria.
+
+a-Mountbatten doesn't look up.
+
+c-MOUNTBATTEN
+d-Your Royal Highness. We were just reviewing the successful amplification of the... "Jesus" affair.
+
+a-Margaret exhales a plume of smoke — amused, contemptuous.
+
+c-PRINCESS MARGARET
+d-Oh, that business. Terribly dreary. Americans screaming scripture at Liverpudlians.
+p-(shrugs)
+d-It's like tossing pearls into a crowd and hoping someone downmarket catches them.
+
+a-Philip turns, irritation rising.
+
+c-PRINCE PHILIP
+d-This is a matter of national dignity, Margaret, not a West End show.
+
+a-Margaret smirks.
+
+c-PRINCESS MARGARET
+d-My dear Philip — the monarchy is a show. We simply pretend it isn't. You should try it sometime.
+
+a-She saunters to the desk, picks up a file as though it might be contagious.
+
+c-PRINCESS MARGARET (CONT'D)
+d-You're all obsessed with the angry one. But you're missing the opportunity sitting right under your perfectly shaped noses. The other one — the agreeable, eager little puppy dog.
+
+a-Mountbatten looks up.
+
+c-MOUNTBATTEN
+d-McCartney? A comformist. Hardly a threat.
+
+a-He waves a hand dismissively, but Margaret laughs — low and wicked.
+
+c-PRINCESS MARGARET
+d-Exactly. A conformist is a creature of appetite. Praise, status, approval... dangle a bit of refinement and they'll crawl straight toward it.
+p-(taps ash elegantly)
+d-Someone at dinner last week was cooing about his new film score. Very proud of himself, apparently. It was all so frightfully provincial. You could almost smell the factory soot.
+
+a-Philip scoffs.
+
+c-PHILIP
+d-A film score? He's convinced himself he's a real composer now?
+
+c-PRINCESS MARGARET
+d-It's sweet, really. They want so badly to be embraced by the very world they insist they're rebelling against.
+p-(tilts her head)
+d-Why not give him the embrace he's desperate for? Have one of your little well-trained men at the Times write a glowing review. Praise his "masterful orchestration." Compare him to Noël Coward. Use words like "sophisticated" and "mature".
+
+a-Mountbatten's eyebrow lifts. Now she has him.
+
+c-MOUNTBATTEN
+d-You're suggesting we weaponize his ambition.
+
+c-PRINCESS MARGARET
+d-I'm suggesting we encourage the delusion. Give him everything he thinks he deserves.
+p-(she takes a long drag from her cigarette)
+d-Call his little composition "astonishingly sophisticated." Say he shows "the promise of a composer of real breeding."
+
+a-She lets that sink in for a beat.
+
+c-PRINCESS MARGARET (CONT'D)
+d-Imagine how Lennon will respond when his partner becomes the establishment's new pet. That sort of jealousy is practically ethnic to the northern temperament.
+
+a-Philip's eyes flick upward at her phrasing — shocked, but amused.
+
+c-PRINCE PHILIP
+d-Quite vicious, Margaret, even for you.
+
+c-PRINCESS MARGARET
+p-(pleasantly)
+d-I'm doing my part for Crown and country, Philip. Sometimes all one requires is vanity and a match.
+
+a-She glides toward the door.
+
+c-PRINCESS MARGARET (CONT'D)
+d-Now if you'll excuse me, all this national service has left me parched.
+
+a-She exits in a sweep of smoke and silk as Philip and Mountbatten exchange a look.
+
+c-MOUNTBATTEN
+d-I'll have Finchley assign a cultural asset at the Sunday papers.
+
+c-PRINCE PHILIP
+p-(quiet, calculating)
+d-See that you do.
+---
+title: "The King is Dead"
+act: 2
+sequence: 4
+scene_number: 23
+location: "various"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/nigel-finch"
+  - "royalty/prince-philip"
+purpose: "A major historical and emotional turning point. The Beatles' protector is gone, leaving them vulnerable to the conspiracy."
+conflict: "The band's attempt to find spiritual peace is shattered by the news of Brian Epstein's death, exposing their utter reliance on him."
+emotional_beat: "Devastation and dawning horror. The end of the Beatles' protected childhood and the beginning of their dissolution."
+page_count: 2
+status: "draft"
+notes: "This montage scene is the lynchpin of Act II. The contrast between the Beatles' grief and Philip's cold opportunism is crucial."
+created: 2025-07-28
+---
+t-FADE IN:
+
+a-A SERIES OF INTERCUT SCENES, CONNECTED BY THE RINGING OF TELEPHONES AND THE HUSHED TONES OF BREAKING NEWS.
+
+s-INT. HOTEL ROOM, BANGOR, WALES - DAY (AUGUST 27, 1967)
+
+a-Sunlight streams into a modest hotel room. JOHN, PAUL, GEORGE, and RINGO are sitting on the floor with the MAHARISHI MAHESH YOGI. They are dressed in simple, casual clothes. The mood is calm, meditative. For the first time in years, they look like four young men at peace.
+
+a-A hotel phone RINGS. An AIDE answers it.
+
+s-INT. NIGEL FINCH'S OFFICE - DAY
+
+a-Nigel sits at his neat desk, a cup of tea steaming beside him. His phone RINGS. He answers, listens, his face remaining impassive.
+
+c-NIGEL
+p-(into phone)
+d-I see. Thank you.
+
+a-He hangs up and takes a slow sip of tea. He opens a filing cabinet and pulls out a thick file folder with "EPSTEIN, B" on the tab. He places it squarely in the center of his desk, opens it, and methodically flips through the files.
+
+a-He sets aside a complex diagram with "Brian Epstein" in the middle, surrounded by names — all four Beatles there, alongside an intricate web of producers, publishers, lawyers, promoters, financiers, and others — anyone connected to the massive network controlled by Epstein. As his eyes scan the page, Nigel's face is grim.
+
+s-INT. HOTEL ROOM, BANGOR - DAY
+
+a-The AIDE approaches quietly, his face pale. He approaches the group and leans down.
+
+c-AIDE
+p-(softly, carefully)
+d-I'm so sorry, but there's been an accident. It's Mr. Epstein. He's gone.
+
+a-John's reaction is sharp, visceral. He doubles over as if punched.
+
+c-JOHN
+p-(hoarse, almost to himself)
+d-No... No, not Brian. Not him.
+
+a-George and Ringo look on, their faces a mixture of confusion and horror. Paul's eyes go straight to the ground. No one moves or speaks for a moment.
+
+a-Paul picks his head up, tears in his eyes but calm.
+
+c-PAUL
+p-(voice cracking)
+d-Who's going to hold it together now? Who's going to keep us moving?
+
+c-RINGO
+p-(face in his hands, crying)
+d-He looked after us. Always did.
+
+a-George is looking through the window, studying something no one else can see.
+
+c-GEORGE
+d-The center's gone. Everything scatters now... Leaves in the wind...
+
+a-The four Beatles are huddled together now, the Maharishi forgotten. They are no longer pop stars or spiritual seekers. They are four orphans, suddenly adrift.
+
+a-Ringo just shakes his head, tears welling in his eyes. John looks up, his face a mask of grief and rage.
+
+c-JOHN
+p-(a raw, broken voice)
+d-We're on our own now.
+
+a-The camera pulls back, leaving them in a circle of shock and grief. The spiritual retreat has become a prison. Their protector is gone.
+
+s-INT. BUCKINGHAM PALACE, PHILIP'S STUDY - DAY
+
+a-Prince Philip is studying a large naval map on his desk, moving miniature ships with a long pointer. An AIDE enters quietly.
+
+c-AIDE
+d-Your Royal Highness. A telephone call from Sir Derek.
+
+a-Philip doesn't look up from his map.
+
+c-PRINCE PHILIP
+d-What is it?
+
+c-AIDE
+d-It's about the... asset manager for the subjects. Brian Epstein. There's been an accident. He's dead.
+
+a-Philip stops moving the ships. He remains perfectly still for a long moment. He shows no surprise, no satisfaction. Only the cold focus of a predator sensing a sudden, unexpected advantage.
+
+a-He slowly straightens up, his eyes still on the map.
+
+c-PRINCE PHILIP
+p-(quietly, to the aide)
+d-Thank you. That will be all.
+
+a-The aide exits.
+
+a-Philip picks up the pointer again. He looks down at the board, at the tiny ships representing his forces. He gently nudges one forward, into a now undefended position.
+
+c-PRINCE PHILIP (CONT'D)
+p-(to himself)
+d-Proceed.
+---
+title: "John Meets Yoko"
+act: 2
+sequence: 5
+scene_number: 24
+location: "indica-gallery"
+time_of_day: "night"
+characters:
+  - "band/john-lennon"
+  - "supporting/yoko-ono"
+  - "misc/gallery-owner"
+purpose: "Dramatize the first meeting of John and Yoko as an intellectual and artistic recognition, not instant romance."
+conflict: "John's reflexive cynicism versus Yoko's uncompromising conceptual seriousness."
+emotional_beat: "A moment of unexpected 'yes' in John's increasingly negative world, planting the seed of a future partnership."
+page_count: 3
+status: "draft"
+notes: "Keep the tone understated and faithful to accounts of the Indica meeting. Focus on mutual recognition and playfulness, not romance."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. INDICA GALLERY - NIGHT (NOVEMBER 9, 1966)
+
+a-The gallery is stark, white, and mostly empty. It's the night before an exhibition opens. JOHN LENNON (26), looking restless and slightly bored in his famous round glasses, wanders through the space. He's here at the invitation of the owner, looking for a distraction from his life of suburban ennui.
+
+a-He examines a piece: an apple on a pedestal with a price tag for £200. He scoffs quietly. He moves to another piece, "Hammer A Nail": a pristine white board with a hammer hanging beside it and a jar of nails.
+
+a-Intrigued, he picks up the hammer.
+
+a-YOKO ONO (33), small and serene in a black turtleneck, emerges from the back of the gallery.
+
+c-YOKO
+d-You cannot. The show does not open until tomorrow.
+
+a-Her voice is calm, firm. Not impressed by his fame, only concerned with the integrity of her art. John puts the hammer down, a flicker of amusement in his eyes.
+
+c-JOHN
+d-Can I not hammer one nail in? For a price?
+
+c-YOKO
+p-(considers this)
+d-It would disrupt the concept. The piece is about participation, but participation in its proper time.
+
+a-The GALLERY OWNER (40s, suave) approaches them, sensing a delicate situation.
+
+c-GALLERY OWNER
+d-Yoko, darling. Perhaps an exception? Let the gentleman hammer a nail in... for five shillings.
+
+a-Yoko considers this. John smirks, reaching into his pocket, then stops. He looks at Yoko, a glint of mischief in his eye.
+
+c-JOHN
+d-Alright. I'll give you an imaginary five shillings... and I'll hammer in an imaginary nail.
+
+a-Yoko stares at him. The corner of her mouth twitches into a small, appreciative smile. He gets it. He's playing her game.
+
+c-YOKO
+p-(a small nod)
+d-Acceptable.
+
+a-John mimes hammering a nail into the board, making a quiet "tink, tink, tink" sound. She watches, her expression unreadable.
+
+a-He turns away, his eyes scanning the room. They land on a tall, white stepladder standing in the middle of the gallery. At the top, a small magnifying glass hangs from the ceiling on a chain.
+
+c-JOHN
+d-And what's that meant to be?
+
+c-YOKO
+d-That is "Ceiling Painting." You must climb the ladder to experience it.
+
+a-John, skeptical, approaches the ladder and starts his climb. His face alternates between amused and annoyed. The gallery owner looks nervous. Yoko just watches, impassive.
+
+a-John reaches the top, unsteady. He grabs the hanging magnifying glass and holds it up to a tiny, almost invisible word painted on the ceiling. He squints.
+
+a-CLOSE-UP: Through the magnifying glass, we see the word, written in tiny, neat block letters: "YES"
+
+a-John stares at it for a long moment. A slow smile spreads across his face. It's a smile of pure relief. In a world that felt increasingly negative and complicated, he found a simple, positive word.
+
+a-He lowers the glass and looks down at Yoko, who is looking up at him. Their eyes meet. It's not a look of romance, but of profound, startling recognition.
+
+a-He climbs down the ladder, his earlier cynicism completely gone.
+
+c-JOHN
+p-(quietly, to her)
+d-It's the first art show I've been to that hasn't made me want to leave immediately.
+
+c-YOKO
+d-Art that only says "no" is not a conversation. It's a statement. I prefer conversation.
+
+a-John nods, understanding completely. He gives her a final, appraising look, then turns and walks out of the gallery into the London night.
+
+a-Yoko watches him go, a serene, thoughtful expression on her face.
+---
+title: "The Klaus Methodology"
+act: 2
+sequence: 5
+scene_number: 25
+location: "robert-fraser-gallery"
+time_of_day: "day"
+characters:
+  - "supporting/clive-barrow"
+  - "band/yoko-ono"
+  - "band/paul-mccartney"
+purpose: "A key comedic scene that also drives the plot by fueling Paul's paranoia and misdirecting him from the true conspiracy."
+conflict: "Clive's delusional belief he can recruit Yoko versus her serene authenticity, while Paul misinterprets what he's witnessing."
+emotional_beat: "Dark comedy through cultural misunderstanding and paranoid misinterpretation."
+page_count: 1.5
+status: "draft"
+notes: "Clive's terrible German accent and art-speak should be painfully obvious to the audience but somehow convincing to Yoko. Paul's growing suspicion is crucial for misdirecting him from the real conspiracy."
+created: 2025-07-27
+---
+t-FADE IN:
+
+s-INT. ROBERT FRASER GALLERY - DAY (JULY 1968)
+
+a-A stark, minimalist gallery space. White walls, polished floors. The gallery is crowded but quiet. The main attraction is a large, circular, completely white canvas. In the center, in tiny letters, are the words "you are here". In front of it sits a white charity collection tin.
+
+a-YOKO ONO (35) stands serenely near the piece. Her public relationship with John has made her a figure of intense fascination and controversy.
+
+a-Enter CLIVE BARROW (44), transformed into his "KLAUS" persona. He wears a black turtleneck, dark slacks, and an absurdly tilted black beret. He approaches the white canvas with exaggerated intensity, circling it, squinting.
+
+c-CLIVE
+p-(in a terrible, inconsistent German accent)
+d-Fascinating. Zee void. It is a mirror, ja? Reflecting back at zee viewer nothing but zair own existential dread. Zee white... it is not an absence of color, but zee terrifying presence of all colors at once!
+
+a-Yoko turns toward him with genuine interest. Someone is looking past the controversy to the concept.
+
+c-YOKO
+p-(serene, pleased)
+d-The piece is an invitation. It simply states a fact: you are here. The rest is whatever the viewer brings to it.
+
+c-CLIVE
+p-(nodding vigorously, his accent slipping)
+d-Ja, exactly! Zee participation! You are asking not for interpretation, but for... for presence! It is a critique of art as object, and a celebration of art as... as a moment in consciousness! Sehr sophisticated!
+
+a-He adjusts his beret, which has shifted precariously.
+
+c-CLIVE (CONT'D)
+p-(gesturing at the collection tin)
+d-And zis! A stroke of genius! A commentary on zee commodification of zee spiritual journey! You invite us to confront zee void, and zen you ask for... for loose change! It is... it is a devastating parody of capitalist salvation!
+
+a-Yoko's eyes light up. This strange European critic understands conceptual art's playful provocations.
+
+c-YOKO
+p-(genuinely engaged)
+d-Or perhaps it is simply a chance to do something good while you are here.
+
+c-CLIVE
+p-(scribbling frantically in his notebook)
+d-Ah, zeh duality! Zis is vy your vork transcends zee... zee bourgeois limitations of traditional art forms. You are not just making objects, you are... you are creating experiences of consciousness itself!
+
+a-His accent wavers between German, vaguely Eastern European, and occasionally slips into pure English before he catches himself.
+
+a-Across the gallery, PAUL MCCARTNEY (26) enters quietly, looking around with the cautious air of someone out of his element. He spots Yoko in deep conversation with the intense, foreign-looking stranger and moves closer, staying partially hidden behind a large abstract sculpture.
+
+c-YOKO
+p-(to Clive, warming to the discussion)
+d-Most people see my work and think it's empty or meaningless. But you understand that the meaning comes from the interaction, the participation.
+
+c-CLIVE
+p-(leaning in conspiratorially, his voice dropping)
+d-Perhaps... perhaps z'are others who vould benefit from understanding zis philosophy, ja? Zose who are... trapped in more conventional forms of expression?
+
+a-Paul's eyes narrow. He can't hear the words clearly, but the body language looks suspicious — the foreigner leaning in, speaking quietly, Yoko listening intently.
+
+c-YOKO
+p-(thoughtfully)
+d-Art should dissolve boundaries. Between performer and audience, between artist and subject. When John and I work together, we try to break down those artificial separations.
+
+c-CLIVE
+p-(his eyes lighting up with what he believes is recruitment opportunity)
+d-Ah, John! Your... your collaborator. He must be very... vhat is zee vord... receptive to new ideas, ja? New vays of seeing zee vorld?
+
+c-YOKO
+p-(simply)
+d-I hope to see everything differently than I did yesterday. John does, too. We both do.
+
+a-Paul watches as Clive pulls out a business card and hands it to Yoko with a slight bow. Even from across the room, Paul can see it's some kind of formal exchange.
+
+c-CLIVE
+p-(straightening his beret one final time)
+d-I vould very much like to write about your vork for zee European art journals. Perhaps vee could... how you say... continue zis conversation at another time?
+
+c-YOKO
+p-(taking the card graciously)
+d-I'd like that. It's rare to meet someone who truly understands conceptual art.
+
+c-CLIVE
+p-(bowing slightly, his accent thick again)
+d-Zee pleasure is entirely mine, Fraulein Ono. Your vork... it vill change zee vorld, I am certain of zis.
+
+a-He backs away with another theatrical bow, nearly tripping over his own feet. As he exits, he adjusts his beret one last time and disappears into the London street.
+
+a-Paul emerges from behind the sculpture, his expression dark with suspicion. He approaches Yoko, who is still looking at the business card with mild interest.
+
+c-PAUL
+p-(trying to sound casual)
+d-Friend of yours?
+
+c-YOKO
+p-(looking up, surprised to see him)
+d-Paul. I didn't know you were here.
+
+c-PAUL
+p-(gesturing toward the exit)
+d-That bloke you were talking to. Seemed... intense.
+
+c-YOKO
+p-(serenely)
+d-Klaus. He's a German art critic. Very knowledgeable about conceptual work.
+
+c-PAUL
+p-(his suspicion growing)
+d-German, eh? What did he want?
+
+c-YOKO
+p-(simply)
+d-To understand the art. To write about it.
+
+a-Paul looks at the business card in her hand, then back toward the gallery entrance where Clive disappeared. His expression hardens with a mixture of protectiveness and paranoia.
+
+c-PAUL
+p-(quietly, more to himself)
+d-Right. Art critic.
+
+a-Yoko returns her attention to her installation, completely unaware of Paul's growing suspicion. She places Klaus's business card in her small purse with the same serene care she gives to everything else.
+
+a-The gallery's white walls seem to close in slightly, the sterile space suddenly feeling less like a temple to art and more like a stage for unseen dramas. Paul continues to stare at the exit, his mind racing with possibilities, all of them wrong.
+---
+title: "Subject Immunity"
+act: 2
+sequence: 5
+scene_number: 26
+location: 
+  - "abbey-road-studios-lounge"
+  - "mi5-surveillance-van"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/ringo-starr"
+  - "supporting/clive-barrow"
+  - "supporting/nigel-finch"
+purpose: "Comedic beat showing the mission's absurdity and Ringo's role as the unintentional spanner in the works."
+conflict: "Clive's elaborate poisoning attempt versus Ringo's innocent interference and natural immunity to manipulation."
+emotional_beat: "Dark comedy through bureaucratic incompetence defeated by simple decency."
+page_count: 1
+status: "draft"
+notes: "Ringo's cheerful obliviousness should contrast sharply with the tension between John and Paul. Clive's rage at 'Subject Immunity' is crucial character work."
+created: 2025-07-27
+---
+t-FADE IN:
+
+s-INT. ABBEY ROAD STUDIOS LOUNGE - DAY (MARCH 1969)
+
+a-The comfortable retreat. Worn leather furniture, gold records, tall windows. The space feels familiar but tense.
+
+a-JOHN LENNON (28) and PAUL MCCARTNEY (26) sit in armchairs, their body language rigid. On a side table between them sits a delicate china teacup, steam rising from the amber liquid. It's positioned perfectly to be in John's reach.
+
+c-PAUL
+p-(quietly, controlled)
+d-We can't just... abandon everything we've built, John. The fans, the music, the—
+
+c-JOHN
+p-(interrupting, weary)
+d-The what, Paul? The machine? The bloody circus?
+
+t-CUT TO:
+
+s-INT. MI5 SURVEILLANCE VAN - CONTINUOUS
+
+a-CLIVE BARROW (45) leans into his equipment, eyes gleaming. NIGEL FINCH (52) reads a file, unimpressed.
+
+c-CLIVE
+p-(into his radio, a hushed whisper)
+d-The catalyst is in the pot. Once ingested, the psychoactive compound will amplify his existing paranoia and creative anxieties. It will shatter the group's cohesion from the inside.
+
+c-NIGEL
+p-(without looking up)
+d-Or he'll just write another song about a walrus.
+
+a-Clive glares at him, then puts his headphones back on, focusing intently.
+
+t-BACK TO:
+
+s-INT. ABBEY ROAD STUDIOS LOUNGE - CONTINUOUS
+
+c-PAUL
+p-(leaning forward)
+d-The band. Our band.
+
+a-John looks away, his jaw tight. The teacup sits untouched.
+
+c-JOHN
+p-(after a pause)
+d-Maybe it's time to admit it's not our band anymore. Maybe it never was.
+
+a-The door bursts open. RINGO STARR (29) enters, radiating uncomplicated good humor.
+
+c-RINGO
+p-(grinning)
+d-Blimey, you two. Give it a rest. Like an old married couple, you are.
+
+a-Ringo spots the teacup. His face lights up.
+
+c-RINGO (CONT'D)
+d-Ooh, is that for anyone? Parched, I am.
+
+a-Before either John or Paul can respond, Ringo plucks the teacup from its saucer.
+
+t-CUT TO:
+
+s-INT. MI5 SURVEILLANCE VAN - CONTINUOUS
+
+a-Clive hears this and his body goes rigid.
+
+c-CLIVE
+p-(whispering urgently)
+d-Non-target approaching the delivery mechanism. Abort! ABORT!
+
+a-But it's too late. Through his headphones, he hears Ringo take a long, satisfying sip.
+
+c-RINGO (V.O.)
+p-(through the radio, cheerful)
+d-That's nice. Bit lemony. The steam's making lovely patterns...
+
+a-Clive's face cycles through confusion, realization, then pure, silent rage. He rips the headset off with a CLATTER.
+
+c-CLIVE
+p-(exploding)
+d-Subject Immunity! It's scientifically impossible!
+
+a-He gestures wildly at the radio equipment.
+
+c-CLIVE (CONT'D)
+p-(ranting)
+d-Five years of psychological profiling! It's supposed to induce ego fragmentation! Paranoia! Not... not a bloody tea review!
+
+c-NIGEL
+p-(dryly, not looking up from his file)
+d-He seems content.
+
+c-CLIVE
+p-(desperately)
+d-But the operational parameters! The psycho-chemical matrix! The—
+
+c-NIGEL
+p-(sighing)
+d-Clive.
+
+a-Nigel opens a thick file folder labeled "STARR, R." He flips to a page that's mostly blank.
+
+c-NIGEL (CONT'D)
+p-(reading aloud)
+d-"Subject displays a baseline level of contentment impervious to psycho-chemical manipulation. Possesses no exploitable ego or anxieties. Recommendation: ignore."
+
+a-He closes the file with the finality of a judge's gavel.
+
+c-NIGEL (CONT'D)
+p-(matter-of-factly)
+d-He's immune, Clive. Some people just are.
+
+a-Clive slumps in his chair, defeated. The sophisticated technology around him suddenly looks like expensive junk.
+
+a-Nigel makes a small notation in his logbook. Outside, London continues its day, completely unaware that a government conspiracy has just been neutralized by a thirsty drummer.
+---
+title: "A Cold, Hard Place"
+act: 2
+sequence: 5
+scene_number: 27
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+purpose: "Show the devastating cumulative effect of Operation Minuet. The natural cracks have become chasms."
+conflict: "The complete breakdown of Beatles unity and creativity under the weight of accumulated tensions and manipulation"
+emotional_beat: "The death of the dream - four friends who can no longer function as a creative unit, observed by cameras that document their dissolution"
+page_count: 2
+status: "draft"
+notes: "Polar opposite of earlier creative scenes. Show how Operation Minuet's subtle manipulations have destroyed the band's natural chemistry. The sterile environment amplifies their disconnection."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 1969)
+
+a-The harsh fluorescent lights buzz overhead, casting everything in a sickly, institutional glow. This is the polar opposite of Abbey Road's warm creativity - concrete floors, industrial equipment, and cameras positioned like silent judges throughout the space.
+
+a-The Beatles' equipment sits in the center like an island of abandoned hope. Amplifiers, drums, guitars - all the tools of their former magic, now looking somehow smaller and sadder in this sterile environment.
+
+a-JOHN LENNON, 28, sits at the piano, but he's not playing. His hair is longer, wilder, his clothes more casual and unkempt. Next to him, YOKO ONO, 36, sits in a chair that clearly wasn't meant for her - an intrusion into the sacred Beatles space that would have been unthinkable three years ago.
+
+a-PAUL MCCARTNEY, 26, paces near his bass, trying to generate energy that simply isn't there. His usual diplomatic charm is strained, forced.
+
+a-GEORGE HARRISON, 25, sits cross-legged on the floor with his sitar, but he's not playing Indian music. He's just... sitting. Detached. His spiritual seeking has become spiritual withdrawal.
+
+a-RINGO STARR, 28, sits behind his drum kit like a man at his own funeral.
+
+a-The cameras roll silently, documenting the death of a dream.
+
+c-PAUL
+p-(with forced enthusiasm)
+d-Right then. Shall we try "Two of Us" again? I think we were getting somewhere yesterday.
+
+a-No one moves. John doesn't even look up from the piano keys.
+
+c-JOHN
+p-(flatly)
+d-Were we?
+
+c-PAUL
+p-(trying to maintain momentum)
+d-Yes, I think so. The harmony in the bridge was starting to work, and if we just...
+
+c-JOHN
+p-(interrupting, still not looking up)
+d-Paul, do you ever listen to yourself? "Starting to work." "If we just." Always conditional with you, isn't it?
+
+a-YOKO shifts slightly in her chair, a small movement that somehow draws everyone's attention. Her presence is like a stone thrown into still water - the ripples are invisible but felt by everyone.
+
+c-PAUL
+p-(tension creeping in)
+d-I'm trying to be constructive, John.
+
+c-JOHN
+p-(finally looking up, cold)
+d-Are you? Or are you trying to be in charge?
+
+a-The silence that follows is deafening. George continues to stare at his sitar strings. Ringo examines his drumsticks as if he's never seen them before.
+
+c-GEORGE
+p-(quietly, without looking up)
+d-Maybe we should just... not. Today.
+
+c-PAUL
+p-(frustrated)
+d-George, we've got a deadline. We've got cameras rolling. We've got...
+
+c-GEORGE
+p-(still quiet, but with an edge)
+d-We've got nothing, Paul. Can't you see that?
+
+a-He finally looks up, and there's something broken in his eyes.
+
+c-GEORGE (CONT'D)
+d-We're sitting in this... this factory, pretending we're still a band. But we're not, are we? We're just four people who used to know each other.
+
+c-RINGO
+p-(softly)
+d-Maybe we should take a break.
+
+c-PAUL
+p-(desperately)
+d-We can't keep taking breaks! We need to make music. That's what we do. That's who we are.
+
+c-JOHN
+p-(with bitter amusement)
+d-Is it? When's the last time you felt anything when we played together, Paul? Really felt it?
+
+a-Paul opens his mouth to answer, then closes it. The question hangs in the air like an accusation.
+
+c-YOKO
+p-(speaking for the first time, her voice calm and measured)
+d-Perhaps the music is trying to tell you something.
+
+a-All eyes turn to her. The fact that she's spoken at all feels like a violation of some unspoken rule.
+
+c-YOKO (CONT'D)
+p-(to John, gently)
+d-Art should flow from truth, not obligation.
+
+c-PAUL
+p-(barely controlled anger)
+d-This isn't about art, it's about...
+
+c-JOHN
+p-(cutting him off)
+d-About what, Paul? About keeping the machine running? About not disappointing the fans? About protecting the brand?
+
+a-He stands up from the piano, walks away from it.
+
+c-JOHN (CONT'D)
+d-Maybe Yoko's right. Maybe the music is trying to tell us something. Maybe it's trying to tell us it's over.
+
+c-PAUL
+p-(desperate now)
+d-It doesn't have to be over! We just need to remember why we started doing this. The joy of it. The...
+
+c-GEORGE
+p-(interrupting, standing up)
+d-The joy?
+
+a-He looks around the sterile studio, at the cameras, at the industrial lighting.
+
+c-GEORGE (CONT'D)
+d-Paul, look around. Does this look like joy to you?
+
+a-He gestures at the space, at their positions - John and Yoko on one side, Paul isolated, George detached, Ringo trying to disappear.
+
+c-GEORGE (CONT'D)
+d-We're not making music anymore. We're performing an autopsy.
+
+a-The cameras continue to roll, capturing every moment of dissolution. The silence stretches until it becomes unbearable.
+
+c-RINGO
+p-(finally speaking, his voice heavy)
+d-You know what the worst part is?
+
+a-Everyone looks at him.
+
+c-RINGO (CONT'D)
+d-We used to laugh. Remember? We used to laugh all the time. Even when things were mental, even when we were exhausted, we'd find something funny.
+
+a-He looks around at his bandmates.
+
+c-RINGO (CONT'D)
+d-When's the last time we laughed together?
+
+a-The question hangs in the air. No one has an answer.
+
+c-PAUL
+p-(quietly, defeated)
+d-We could... we could try again tomorrow.
+
+c-JOHN
+p-(shaking his head)
+d-No, Paul. Tomorrow will be the same as today. And the day after that. And the day after that.
+
+a-He walks toward the exit, Yoko rising to follow him.
+
+c-JOHN (CONT'D)
+p-(pausing at the door)
+d-You want to know the truth? The Beatles died somewhere between the Cavern Club and here. We've just been playing the corpse for the cameras.
+
+a-He exits with Yoko. The remaining three sit in the harsh fluorescent light, surrounded by their instruments and their memories.
+
+c-GEORGE
+p-(after a long pause)
+d-He's not wrong, is he?
+
+c-PAUL
+p-(barely audible)
+d-No. He's not wrong.
+
+a-The cameras continue to roll, documenting the end of the most successful band in history. But there's no drama in it, no explosive argument or dramatic walkout. Just four friends who can no longer find their way back to each other.
+
+a-RINGO picks up his drumsticks, taps them together once, then sets them down again.
+
+c-RINGO
+p-(to no one in particular)
+d-It was good while it lasted, though. Wasn't it?
+
+a-PAUL and GEORGE look at him, then at each other. For just a moment, there's a flicker of the old connection, the old understanding.
+
+c-PAUL
+p-(with a sad smile)
+d-Yeah, Ringo. It was good.
+
+a-The camera slowly pulls back, showing the three remaining Beatles dwarfed by the industrial space, their instruments silent, their magic spent.
+
+t-FADE TO BLACK.
+---
+title: "I'm Scared of Being the Boss"
+act: 2
+sequence: 5
+scene_number: 28
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+purpose: "Establish the creative tensions and Paul's awareness of his own controlling behavior. Shows Operation Minuet's effects amplifying existing problems."
+conflict: "Paul's need to lead versus George's frustration with being directed. The band's inability to work together as they once did."
+emotional_beat: "Paul's vulnerable confession of his fear of being 'the boss' - self-awareness that can't solve the problem."
+page_count: 3
+status: "draft"
+notes: "Based on actual dialogue from January 6, 1969 (Day 3). John's silence is as important as Paul and George's conflict. The scene should feel like watching a relationship fray in real-time."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 6, 1969)
+
+a-The vast, cold soundstage. Harsh fluorescent lights cast everything in an institutional glow. The Beatles' equipment sits in the center - guitars, amps, Ringo's drums - looking small and isolated in the cavernous space.
+
+a-Film cameras are positioned around the room, their presence adding pressure to an already tense atmosphere.
+
+a-JOHN LENNON (28) sits at the piano, not playing, just present. YOKO ONO (36) sits nearby in her black clothing, a constant, silent presence.
+
+a-RINGO STARR (28) sits behind his drum kit, tapping his sticks lightly, waiting.
+
+a-PAUL MCCARTNEY (26) stands with his Höfner bass, trying to generate energy. He's clearly frustrated but attempting to stay constructive.
+
+a-GEORGE HARRISON (25) sits with his guitar, looking weary. There's a resignation in his posture that wasn't there in earlier years.
+
+a-They've been working on "Two Of Us" for what feels like hours. It's not coming together.
+
+c-PAUL
+p-(with forced enthusiasm)
+d-See, look. Listen, now. We're gonna have to sort of bring it together, 'cause we're all at odds. We're doing that thing we did on 'The Beatles'. Like, in this verse, it's two harmonies singing, trying to say some words, right?
+
+c-JOHN
+p-(flatly, not looking up)
+d-I'm not that bothered. I'm just trying to sing it.
+
+c-PAUL
+d-It's not sounding together.
+
+c-GEORGE
+d-And so we can only play until we find the bit.
+
+c-PAUL
+d-Or we can stop and say it's not together.
+
+c-GEORGE
+d-Yes, then you've got to carry on until it gets together.
+
+a-JOHN picks out a few notes on the piano, seemingly uninterested in the debate.
+
+c-JOHN
+d-These are the hard ones to do, aren't they?
+
+c-PAUL
+p-(increasingly frustrated)
+d-No, not really, it's just... We've got to be imaginative. You know, it's complicated now. See, if we can get it simpler and then complicate it where it needs complication, but it's complicated in the bit...
+
+c-GEORGE
+p-(cutting him off)
+d-It's not complicated. I'll play just the chords, if you like.
+
+a-Paul stops. He recognizes the tone - George is pulling back, disengaging.
+
+c-PAUL
+p-(trying to bridge the gap)
+d-No, no, come on. You always get annoyed when I say that. I'm trying to help, you know. But I always hear myself annoying you, and I'm trying...
+
+c-GEORGE
+p-(resigned, almost defeated)
+d-No, you're not annoying me. You don't annoy me anymore.
+
+a-The words hang in the air. "Anymore." As if George has moved past annoyance into something else - apathy, perhaps.
+
+c-PAUL
+d-But you see what I mean. We do this then... Then I don't know.
+
+a-A long pause. The cameras keep rolling. Ringo taps his sticks quietly. John plays a few more notes, deliberately not engaging.
+
+a-Paul takes a breath. Something shifts in him - a moment of raw honesty.
+
+c-PAUL (CONT'D)
+p-(vulnerable, almost confessional)
+d-I'm scared of me being the boss. And I have been for a couple of years. I always feel as though I'm trying to put you down and stop you playing. But I'm not. I'm trying to stop us all playing, until we know what we're playing.
+
+a-George looks at him. There's a flicker of recognition - this is Paul being genuine.
+
+c-GEORGE
+d-But you've got to play in order to find which fits and which doesn't. You see that's all we can do.
+
+c-PAUL
+p-(the honesty continuing, almost desperate now)
+d-I don't wanna say it, 'cause I really just hear myself as being the only one saying it, always. And like, the three of you just sort of sit there, like 'Oh, he's saying that one again, is he?' And I never get any support, or anything. So I just think, 'Oh, well. Fuck it'. And I know it's right, and you know it's right.
+
+a-John continues playing piano, seemingly unbothered. Yoko sits motionless. Ringo looks uncomfortable - caught between his bandmates.
+
+c-GEORGE
+p-(quietly)
+d-Yes, all right. I just don't know what to do about it.
+
+c-PAUL
+d-But doesn't everyone agree that it's confused at the moment. So, all I'm trying to say is, we've only got 12 more days, so we've really got to do this methodically, this one.
+
+c-GEORGE
+p-(the resignation back)
+d-I'll wait until you get all your bits and then work my part out, if you like. It's like a matter of working it out with you, while you're working your bit out. You know, have you got your bass bit?
+
+a-Paul's frustration returns. George is doing it again - making it about Paul being difficult.
+
+c-PAUL
+d-You're doing it again as though I'm trying to say that. And what we said the other day, you know, I'm not trying to get you. What I really am trying to just say, 'Look lads, the band, shall we try it like this, you know?'
+
+c-GEORGE
+p-(with an edge)
+d-It's funny how it only occurs when the...
+
+c-PAUL
+p-(interrupting, trying an analogy)
+d-It's like 'shall we play guitar all through Hey Jude?' Well, I don't think we should.
+
+c-GEORGE
+p-(quietly, but the words cut deep)
+d-Okay, well, I don't mind. I'll play whatever you want me to play. Or I won't play at all if you don't want me to play. Now, whatever it is that will please you, I'll do it. But I don't think you really know what that one is.
+
+a-The words land like a blow. Paul's face shows he feels it.
+
+a-A long, uncomfortable silence. The cameras continue rolling, documenting every moment of this dissolution.
+
+c-PAUL
+p-(trying to recover, to explain)
+d-Look, you know, the... No, it's not like that. You see, that's it, it's like, we can't do this. We've really got to sort out this, 'cause we're – this is – we're like – this is the one, you know. Now we're rehearsing, and we're trying to like get it together for a TV show, so we really – like you said, we've only been through four numbers, you know.
+
+c-GEORGE
+d-Mm.
+
+c-JOHN
+p-(finally engaging, but only minimally)
+d-Well...
+
+c-PAUL
+p-(pressing on)
+d-So we've probably got to get some system to get through like twenty, or thirty, and no more, and have learnt them. And it's probably going to be like sculpture. So that we get all the chords. So we can all vamp and all. Then we can all play, like, every solo we need. But like... You know what I mean? It's got to sound as though it's improving.
+
+c-GEORGE
+p-(careful, but honest)
+d-Yeah, well, it actually – it sounded to me, that for me, it was a waste of me time playing, when we started it today. I mean, I just started remembering then what it could get into the other day, after playing for around an hour, an hour and a half. And suddenly, you know, I just don't find that my – that what I'm doing is starting to have something, you know. Have some structure to it.
+
+a-He pauses.
+
+c-GEORGE (CONT'D)
+d-You know, that's the thing.
+
+c-PAUL
+p-(trying to understand)
+d-Yeah, I know, I know what you mean, you know. 'Cause it's like—
+
+c-GEORGE
+p-(interrupting)
+d-You know, I mean—
+
+c-PAUL
+p-(the fundamental problem surfacing)
+d-It's just that that way of doing it, you know, puts me off the way I'm trying to do it, and—
+
+c-GEORGE
+p-(resigned, final)
+d-Well, that's – you know. That's all, then. I can only do me, in that one way, however I do it, you know.
+
+a-A long pause. The impasse is complete. John plays a few more piano notes. Yoko remains still. Ringo looks at his drumsticks.
+
+c-PAUL
+p-(defeated)
+d-Let's do another song.
+
+c-GEORGE
+p-(trying to be constructive despite everything)
+d-No, come on, we just have to learn this—
+
+c-PAUL
+p-(firm, done with this conversation)
+d-No, no, it's – let's just do something else.
+
+c-GEORGE
+d-Do you want to do... 'Maxwell's Silver Hammer'?
+
+c-JOHN
+p-(finally showing some engagement)
+d-Well, let's do this, 'cause then we – we're gonna come to this, or whatever it is. And the thing is just try and think what – the stage we've got to be in then.
+
+c-PAUL
+p-(the frustration boiling over)
+d-You just have to know that. I think we've wasted a lot of time, I think. I think we do like waste, physically waste a heck of a lot of time, you know, when the four of us are together.
+
+a-The words echo in the cavernous space. "When the four of us are together." The very thing that made them The Beatles is now the problem.
+
+a-The cameras continue rolling. The fluorescent lights buzz overhead. The Beatles sit with their instruments, unable to play together, unable to move forward, unable to go back.
+
+t-FADE TO BLACK.
+---
+title: "Daddy's Gone Away"
+act: 2
+sequence: 5
+scene_number: 29
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/michael-lindsay-hogg"
+purpose: "Peak of tensions before George's departure. Show the existential crisis about the band's future and purpose."
+conflict: "The band's inability to find a reason to continue. Paul's desperation versus George and John's apathy."
+emotional_beat: "Paul's admission about Brian Epstein's death - 'Daddy's gone away now, and we're on our own at the holiday camp.'"
+page_count: 4
+status: "draft"
+notes: "Based on actual dialogue from January 7, 1969 (Day 4). The 'divorce' joke should feel both funny and deeply sad. This is the band recognizing their own dissolution."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 7, 1969)
+
+a-The same cold soundstage. The equipment, the cameras, the fluorescent lights. But the energy is different today - not just tense, but existential. The band is questioning why they're even here.
+
+a-JOHN LENNON (28) sits at the piano, doodling musically. YOKO ONO (36) sits nearby, knitting. Her presence is now unremarkable - part of the furniture.
+
+a-GEORGE HARRISON (25) looks particularly weary today, like a man who's made a decision but hasn't announced it yet.
+
+a-PAUL MCCARTNEY (26) stands, pacing, trying to generate momentum that simply isn't there.
+
+a-RINGO STARR (28) sits behind his drums, watching the dynamic unfold.
+
+a-MICHAEL LINDSAY-HOGG (30s), the director, hovers nearby with his crew, cameras rolling.
+
+c-JOHN
+p-(to no one in particular)
+d-I think we are just repeating all the dullness.
+
+a-Paul stops pacing. That stung.
+
+c-PAUL
+p-(pressing the question)
+d-We gotta have some serious reason for doing this or else we won't. What's it for? Can't be for the money.
+
+c-JOHN
+p-(actually engaging)
+d-I've decided the whole point of it is communication. And to be on TV is communication. We've got a chance to smile at people, like 'All You Need Is Love.' So that's my incentive for doing it.
+
+c-MICHAEL LINDSAY-HOGG
+p-(trying to help)
+d-If this comes off, we've got a great entertainment package. We've got an album, a documentary never seen before, and a performance. It's a great package.
+
+c-JOHN
+p-(with a shrug)
+d-The worst that we have is a documentary of us making an LP, if we don't get into a show.
+
+a-Paul's frustration is building. John's treating this so casually, like it doesn't matter.
+
+c-PAUL
+p-(erupting)
+d-But we haven't played together, you see. That's the fucking thing. But when we do come together to play, we all just sort of talk about the fucking past! We're like old age pensioners. 'Remember the days when we used to rock?' You know, but we're here now, and we can do it, you know?
+
+a-He looks at them, desperate for some sign of life.
+
+c-PAUL (CONT'D)
+d-But, I mean, all I want to see is enthusiasm! See, the thing is also I get to a bit where I just sort of push all my ideas. You know, I mean, a lot will come out of it if we could get the enthusiasm. I mean, why are you here? I'm here 'cause I wanna do a show. But I really don't feel an awful lot of support.
+
+a-The words hang in the air. George shifts in his seat, and when he speaks, there's a resignation in his voice.
+
+c-GEORGE
+d-We keep coming up against that one and I keep saying, 'Yeah well, I'd like to do this, this and that.' And we end up doing something again that nobody really wants to do.
+
+c-PAUL
+p-(the threat implicit)
+d-If this one turns into that, it should definitely be the last for all of us. Because there just isn't any point.
+
+c-MICHAEL LINDSAY-HOGG
+d-I think that'd be sad. I mean, as an audience. That'd be sad.
+
+c-PAUL
+p-(bitter)
+d-Course it is! It's stupid. It is just stupid. You see, the people who are being stupid are the four of us.
+
+c-GEORGE
+p-(finally naming it)
+d-We need to be creative instead of being the doldrums, which it always is. The Beatles have been in doldrums for at least a year.
+
+a-A year. Since Brian Epstein died. Everyone knows it, but no one's said it so directly.
+
+a-Paul takes a breath. When he speaks again, there's a vulnerability beneath the frustration.
+
+c-PAUL
+p-(the core truth)
+d-Ever since Mr. Epstein passed away, it's never been the same. I mean, we've been very negative since Mr. Epstein passed away. And that's why all of us, in turn, have been sick of the group. It's discipline we lack. We've never had discipline.
+
+a-He's working through it as he speaks, finding the words.
+
+c-PAUL (CONT'D)
+d-We had a sort of slight, symbolic discipline. Like Mr. Epstein. You know, and he sort of said, 'Get suits on,' and we did. You know, and so we were always fighting that discipline a bit. There really is no one there now to say, 'Do it.' Whereas there always used to be.
+
+a-A pause. Then the devastating metaphor.
+
+c-PAUL (CONT'D)
+p-(quietly)
+d-Daddy's gone away now, and we're on our own at the holiday camp. I think we either go home or we do it.
+
+a-The words land heavily. John looks down at the piano keys. George stares at his guitar. Even Yoko pauses in her knitting.
+
+a-Michael Lindsay-Hogg, sensing an opening, tries to push the conversation forward.
+
+c-MICHAEL LINDSAY-HOGG
+d-Do you still wanna perform in front of an audience, or do you just see yourselves as a recording group?
+
+c-PAUL
+p-(to John)
+d-I think we've got a bit shy, I think I've got a bit shy of certain things, you know. 'Cause you know how often, like, on albums we sometimes blow one of your songs, 'cause we come in in the wrong mood. And you say, 'This is how it goes. I'll be back.' And we're all just, 'Oh, well you…'
+
+c-MICHAEL LINDSAY-HOGG
+d-That's why we're wrong to throw away the show. Because there's no desire.
+
+c-PAUL
+p-(building momentum)
+d-So it's like, if we're doing the show, we're gonna have to work hard. And that means by the time a week from now comes all these songs we've got, we've gotta know perfectly.
+
+a-George has been quiet, but now he speaks, and there's defeat in his voice.
+
+c-GEORGE
+d-I don't wanna do any of my songs on the show. Because they just turn out shitty…
+
+c-PAUL
+p-(trying to encourage)
+d-No, but this… Thinking it's not gonna come out great won't help. If we cancel the show now, we'll be throwing it away.
+
+c-MICHAEL LINDSAY-HOGG
+d-But equally, at the moment we haven't got a show and so none of us really want to do it.
+
+c-PAUL
+p-(his patience snapping)
+d-I'll do it. I'm not interested, you know, to spend my fucking days farting around here, while everyone makes up their minds whether they want to do it or not. It's like Mal said last night, 'If you're gonna do the show here, you've gotta decide today.' And as far as I can see, there's only two ways. We're gonna do it, or we're not gonna do it. And I want a decision!
+
+a-The demand echoes in the vast space. No one responds immediately.
+
+a-Then George says it. Quietly, but clearly.
+
+c-GEORGE
+d-Maybe we should have a divorce.
+
+a-The word sits there. Divorce. Like they're a marriage that's failed.
+
+c-PAUL
+p-(with a sad smile)
+d-Well, I said that at the last meeting. But it's getting nearer, you know?
+
+a-A beat. Then John, unable to resist, makes a joke.
+
+c-JOHN
+d-Who'd have the children?
+
+c-PAUL
+p-(playing along, grateful for the levity)
+d-Dick James.
+
+c-JOHN
+p-(laughing)
+d-Oh, yeah.
+
+a-The moment of humor defuses the tension, but doesn't solve anything. They're still sitting in a cold studio, unable to agree on why they're here or what they're doing.
+
+a-The cameras continue rolling. The fluorescent lights buzz. The Beatles sit with their instruments, having just discussed their own divorce.
+
+a-Ringo hasn't said a word the entire conversation. He just sits at his drums, the peacekeeper who knows there's no peace to keep anymore.
+
+t-FADE TO BLACK.
+---
+title: "See You 'Round the Clubs"
+act: 2
+sequence: 5
+scene_number: 30
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/michael-lindsay-hogg"
+purpose: "THE breaking point. George quits. Show this as both dramatic and matter-of-fact."
+conflict: "George's decision to leave versus the band's inability to process it properly."
+emotional_beat: "George's quiet exit - 'See you 'round the clubs' - followed by John's callous suggestion to replace him with Eric Clapton."
+page_count: 3
+status: "draft"
+notes: "Based on actual events from January 10, 1969 (Day 7). The lunch conversation audio was lost to the clatter of cutlery. George's departure should feel both inevitable and shocking."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 10, 1969)
+
+a-Morning. The soundstage feels different today - the tension has shifted from frustration to something darker. A decision is forming.
+
+a-GEORGE HARRISON (25) is quiet. More than quiet - withdrawn. He sits with his guitar, but there's a distance in his eyes. This is a man who has made up his mind.
+
+a-PAUL MCCARTNEY (26), JOHN LENNON (28), and RINGO STARR (28) are working on "Get Back" - trying to nail the arrangement. Paul is at the piano, enthusiastic about the song.
+
+a-YOKO ONO (36) sits nearby, her usual silent presence.
+
+c-PAUL
+p-(excited)
+d-We've just got to do something about this middle eight.
+
+c-GEORGE
+p-(distant)
+d-Try shuffling it, the whole middle eight.
+
+a-They work through it. This rehearsal is actually good - maybe the best version yet. For a moment, it feels like the old Beatles.
+
+c-GEORGE (CONT'D)
+p-(after they finish)
+d-That's the best so far.
+
+a-But there's no joy in his voice. Just observation.
+
+t-CUT TO:
+
+s-INT. TWICKENHAM FILM STUDIOS - DINING ROOM - DAY
+
+a-LUNCH BREAK
+
+a-A small dining room adjoining a bar. MICHAEL LINDSAY-HOGG (30s) sits at a long table with PAUL, JOHN, YOKO, and RINGO. They're eating lunch, casual conversation about the morning's work.
+
+a-GEORGE is not there.
+
+a-Michael has arranged for a hidden microphone in the flower pot on the table - a documentarian's instinct that something is about to happen.
+
+a-The conversation continues. The sound of cutlery on plates, glasses being set down. Muffled voices discussing the session.
+
+a-Then GEORGE appears at the end of the table.
+
+a-He's wearing a beautiful black corduroy hat. He stands there for a moment, silent. Everyone looks up at him.
+
+c-GEORGE
+p-(calm, final)
+d-See you 'round the clubs.
+
+a-That's it. No drama. No explanation. Just goodbye.
+
+a-He turns and walks out.
+
+a-The table sits in silence for a beat. Then JOHN's face hardens - his defensive aggression kicking in.
+
+c-JOHN
+p-(immediately)
+d-Let's get in Eric. He's just as good and not such a headache.
+
+a-Paul and Ringo don't respond. They won't be drawn into this. The suggestion hangs in the air like smoke.
+
+t-CUT TO:
+
+s-INT. TWICKENHAM FILM STUDIOS - SOUNDSTAGE - DAY
+
+a-AFTER LUNCH
+
+a-Paul, John, and Ringo return to the studio. The cameras are still rolling. George's equipment sits there, abandoned.
+
+a-YOKO now sits on the edge of the rostrum - on the blue cushion that had been George's.
+
+c-PAUL
+p-(to no one in particular)
+d-I don't know why we are coming back here for.
+
+c-JOHN
+p-(flatly)
+d-Just pretending nothing's happened.
+
+a-And that's exactly what they do. They pick up their instruments.
+
+a-What follows is not music - it's a release. A ferocious riff. Half an hour of anger and frustration expressed through guitars and drums. Paul on bass, John on guitar, Ringo pounding the drums.
+
+a-Yoko leans into George's microphone and howls.
+
+a-It's not The Beatles. It's something else. Something raw and broken.
+
+t-CUT TO:
+
+s-INT. TWICKENHAM FILM STUDIOS - LATER
+
+a-JOHN talks with MICHAEL LINDSAY-HOGG near the cameras. The jam session is over. The studio feels empty despite the equipment.
+
+c-JOHN
+d-I think, if George doesn't come back by Monday or Tuesday, we'll ask Eric Clapton to play. Eric will be pleased... He'd have enough scope to play the guitar. The point is, George leaves and do we want to carry on The Beatles? I certainly do.
+
+c-MICHAEL LINDSAY-HOGG
+d-Maybe for the show, I mean, you could just say George was sick.
+
+c-JOHN
+p-(dismissive)
+d-No. I mean, if he leaves, he leaves.
+
+c-MICHAEL LINDSAY-HOGG
+d-What's the consensus? Do you want to go on with the show and the work?
+
+c-JOHN
+d-If he doesn't come back by Tuesday, we get Clapton.
+
+a-Michael studies him for a moment.
+
+c-MICHAEL LINDSAY-HOGG
+d-Has anyone ever left as seriously as George before?
+
+a-John doesn't answer. He just turns away, back to the piano.
+
+a-Across the studio, RINGO sits at his drums, not playing. Just sitting. The peacekeeper who couldn't keep the peace.
+
+a-PAUL stands alone with his bass, looking at George's empty spot. For the first time in this whole ordeal, Paul McCartney looks lost.
+
+a-The cameras continue rolling, documenting the end of something that can never be put back together the same way.
+
+t-FADE TO BLACK.
+---
+title: "The Lunch Conversation"
+act: 2
+sequence: 5
+scene_number: 31
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "supporting/linda-eastman"
+  - "band/yoko-ono"
+purpose: "The secret conversation revealing the deep creative issues. Shows John and Paul's complexity - they understand the problems but can't solve them."
+conflict: "John and Paul's attempt to diagnose what's gone wrong with The Beatles versus their inability to fix it."
+emotional_beat: "The painful honesty between John and Paul - they know they've hurt George, they know their creative process is broken, but they're trapped in it."
+page_count: 4
+status: "draft"
+notes: "Based on secretly recorded lunch conversation from January 13, 1969 (Day 8). Hidden microphone in flowerpot. This is them at their most vulnerable and self-aware."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. TWICKENHAM FILM STUDIOS - CAFETERIA - DAY (JANUARY 13, 1969)
+
+a-Three days after George left. The small cafeteria feels intimate, private. A long table with a flowerpot in the center - a flowerpot containing a hidden microphone that JOHN and PAUL don't know about.
+
+a-JOHN LENNON (28) sits across from PAUL MCCARTNEY (26). They're alone for this conversation, though LINDA EASTMAN and YOKO ONO are elsewhere in the building.
+
+a-This is rare - John and Paul talking honestly, without the others present. The weight of George's absence hangs over everything.
+
+c-JOHN
+p-(trying to articulate it)
+d-It's like George said, he didn't get enough satisfaction anymore, because of the compromise he had to make to be together. It's a festering wound that we've allowed to... and yesterday we allowed it to go even deeper, and we didn't give him any bandages. And when he is that far in, we have egos.
+
+a-Paul nods. He's been thinking about this too.
+
+c-PAUL
+d-The thing is, that's what I was trying to say to George, you know. Whereas previously I would have said, 'Take it there with diddle-der-diddle-der'. But I was trying last week to say, 'Now take it there. Anything you like. Put whatever you...'
+
+c-JOHN
+p-(cutting to it)
+d-You see, the point is now, we both do that to George this time, and because of the build-up to it—
+
+c-PAUL
+d-Yeah, we treat him a bit like that. See, 'cause he knows what we're on about. But I do think that he's right. That's why I think we've got the problem now, you know, the four of us. You go one way, George one way, and me another. But I know it'll apply to all of us, if one day you can all be singing like you sing. George can be really playing, I mean, like he plays, not like I keep trying to make him play.
+
+a-John shifts in his seat. Now they're getting to the core of it.
+
+c-JOHN
+d-Yeah, OK, because you're afraid that how he'll play won't be like you want him to play, and that's what we do, and that's what you do to me. And I'm not gonna tell you what to play.
+
+c-PAUL
+p-(trying to defend)
+d-See, that... that seems to be the trouble, is that if you'd have been able to say that on the occasion, just even to say, 'Look, I'm not gonna say anything about the song because it's very difficult, I'm gonna really try and now...'
+
+c-JOHN
+p-(the deeper issue)
+d-You know, I've always done the numbers like that. Now, the only regret about the past numbers is when, because I've been so frightened, I've allowed you to take it somewhere where I didn't want. And then, that my only chance was to let George take over, or interest George in it. If you give me your suggestions, let me reject them and pinch the ones I like... is where my writing side is. Same goes for the arranging. I don't want it to... I don't know.
+
+c-PAUL
+p-(quietly, understanding)
+d-I know. I do know. I know what you mean, yeah.
+
+c-JOHN
+p-(the accusation, but said gently)
+d-'Cause there was a period where none of us could actually say anything about your arrangements 'cause you would reject it all. I'd have to tell George and I would just say, you know, like you do about me. You know, 'I'm Paul McCartney', and a lot of the times you were right, and a lot of the times you were wrong. Same as we always are. But I can't see the answer to that, because you've suddenly got it all, you see.
+
+c-PAUL
+d-I really don't want you...
+
+c-JOHN
+p-(continuing)
+d-Well all right. I'm just telling you what I think. I don't— The Beatles revolve around the four people. It might a fucking job.
+
+c-PAUL
+p-(the power dynamic)
+d-You know, but I tell you what. I tell you one thing, what I think. The main thing is this: you have always been boss. Now I've been, sort of, secondary boss.
+
+c-JOHN
+d-Not always.
+
+c-PAUL
+p-(insistent)
+d-No, listen. Listen. No, always! Really, I mean, it is gonna be much better if we can actually just stick together and say, 'Look George, on 'I've Got A Feeling' I want you to do it exactly like I play it.' And he'll say, 'I'm not you, and I can't do it exactly like you do it.'
+
+a-John considers this. There's truth in it.
+
+c-JOHN
+d-But this year, what you've been doing, and what everybody's been doing, I've not only felt guilty about the way we're all guilty about our relationship to each other, 'cause we could do more. And look, I'm not putting any blame on you. I've suddenly realised this, because that was my game, you know, but goals, they're still the same. Self-preservation, you know. I know what I like, I've let you do what you want and George too, you know.
+
+c-PAUL
+d-Yeah, I know.
+
+c-JOHN
+d-If we want him, if we do want him, I can go along with that, because the policy has kept us together.
+
+c-PAUL
+p-(the hope, or delusion)
+d-Well, I don't know, you know. See, I'm just assuming he's coming back. If he isn't, then he isn't, then it's a new problem. And probably when we're all very old, we'll all agree with each other, and we'll all sing together.
+
+a-A pause. John circles back to the creative process itself.
+
+c-JOHN
+p-(trying to explain)
+d-And that's all I did on the last album was say, 'Okay, Paul, you're out to decide where my songs are concerned, arrangement-wise'. I don't know the songs, you know. I'd sooner just sing them, than have them turn into 'Mr. Kite', or anything else, where— I've accepted the problem from you that it needs arrangement. And then, because I'm an ape, I don't know. I don't see any further than me, the guitar, and the drums, and George Martin doing the— I don't hear any of the flutes playing, you know?
+
+a-He makes a strumming gesture.
+
+c-JOHN (CONT'D)
+d-I suppose I could hear 'em if I sat down and worked very hard! I could turn out a mathematical drawing if you'd like, but I could never do it off me own backside, I always have to just— do that, you know?
+
+c-PAUL
+d-Yeah.
+
+c-JOHN
+d-I mean—
+
+c-PAUL
+p-(quiet, recognizing himself)
+d-Yeah. Yeah. I'm onto the same thing, you know. That's— that's— we're all at that. It is only, like, if you can just remember that we're— you know. That the four of us are trying to do that. Because I mean, all of those things you say, you know, in some way, apply to me. Not all ways—
+
+c-JOHN
+d-Yes, yes, because everything applies a little bit to you, too.
+
+c-PAUL
+d—it is just you saying it. They're all— you know, in some way, to some degree, will apply to me.
+
+c-JOHN
+p-(the pattern repeating)
+d-'Cause once there was a period where none of us could actually, uh, say anything, about your criticisms.
+
+c-PAUL
+p-(quiet)
+d-Yeah. Yeah.
+
+c-JOHN
+p-(bleak)
+d-'Cause you would reject it all.
+
+c-PAUL
+p-(accepting it)
+d-Yeah, sure.
+
+c-JOHN
+d-And so George and I would just go— you know, 'I'll give you a line here,' 'Okay,' you know, 'We'll do four in a bar, and I'll do...' And a lot of the times you were right.
+
+c-PAUL
+d-Yeah.
+
+c-JOHN
+d-But a lot of the times you were— the same as they always are. But I can't see the answer to that.
+
+c-PAUL
+p-(trying to find the silver lining)
+d-No, but— no, that's good you see. The thing is, like, within each other, within ourselves, we reach something that's nearly perfect. And everyone else who's listening will think, 'That's it. They've got it.' You know— you know what I mean. So okay, we know we nearly made it, but we've really made it, for everyone else.
+
+a-He's building momentum, trying to convince himself as much as John.
+
+c-PAUL (CONT'D)
+d-'Cause it's okay, we're into the fine, finest, finest technicalities— I mean, that's where it's at, you know. If one day, we can even keep all— if all the people who are listening to this, nearly nearly made it, they'll think we've made it, you know. They'll think that's it.
+
+c-JOHN
+p-(bringing it back to George)
+d-You see, the point is now— George— is we both did that to George, this time.
+
+c-PAUL
+d-Mm.
+
+c-JOHN
+d-And because of the build up to it, that— now he can't even take that.
+
+c-PAUL
+p-(the harsh truth)
+d-Treating him a bit like a mongrel, yeah.
+
+c-JOHN
+d-He can't even— you know. It's like if I say, 'Alright, take it,' he'll say, 'Well, look, I can't take it. I'll forget it.'
+
+c-PAUL
+d-Yeah...
+
+c-JOHN
+d-I have to, uh—
+
+c-PAUL
+d-'Cause he knows what we're all about.
+
+c-JOHN
+d-Yeah.
+
+c-PAUL
+d-So he knows that when we say, 'Take it,' we expect doo-doo-duh-duh-doo. If I said that, then you'd expect—
+
+c-JOHN
+d-But it's just that bit. The bit where we've— 'I've Got A Feeling'.
+
+c-PAUL
+d-Yeah.
+
+c-JOHN
+d-We— there's no way we could have translated it to him, to say... you know.
+
+a-They sit in silence for a moment. The conversation has circled through their entire creative partnership - the power dynamics, the egos, the unspoken expectations, the way they've treated George.
+
+a-They understand the problem completely. But understanding it doesn't solve it.
+
+a-The hidden microphone in the flowerpot captures it all - two friends who built something extraordinary together, now trapped in the very system they created.
+
+t-FADE TO BLACK.
+---
+title: "Billy Preston Arrives"
+act: 2
+sequence: 5
+scene_number: 32
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/billy-preston"
+  - "supporting/george-martin"
+  - "supporting/michael-lindsay-hogg"
+purpose: "THE TURNAROUND. Show that genuine joy and creativity are still possible. This is crucial - not just dissolution, but hope."
+conflict: "The band's broken dynamic versus Billy Preston's innocent enthusiasm cutting through the tension."
+emotional_beat: "The moment Billy sits at the electric piano and everything comes alive again. John's immediate 'You're in the group!'"
+page_count: 3
+status: "draft"
+notes: "Based on January 22, 1969 (Day 13). This is the turning point - the ice breaks. All four Beatles beaming with smiles. George's contribution saves the sessions."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. APPLE STUDIOS - BASEMENT - DAY (JANUARY 22, 1969)
+
+a-A different space entirely from Twickenham. Smaller, warmer. The basement of 3 Savile Row. Equipment is more cramped but feels more intimate. This is their space.
+
+a-GEORGE HARRISON (25) is back. He's been back for two days, since the move to Apple Studios. But the atmosphere is still tentative, careful. Everyone walking on eggshells.
+
+a-JOHN LENNON (28), PAUL MCCARTNEY (26), and RINGO STARR (28) are working through "I've Got A Feeling" but something's missing. The energy isn't there.
+
+a-YOKO ONO (36) sits nearby. GEORGE MARTIN watches from the control area. MICHAEL LINDSAY-HOGG's cameras are still rolling.
+
+a-They finish a run-through. It's... fine. Just fine.
+
+a-Then GEORGE looks up, sees someone at the door.
+
+a-BILLY PRESTON (23), impossibly young, impossibly talented, stands there with a huge smile. He's in London touring with Ray Charles.
+
+c-GEORGE
+p-(genuine warmth breaking through)
+d-Billy!
+
+a-George crosses to him, grabs his arm.
+
+c-GEORGE (CONT'D)
+d-Remember Billy? Here he is.
+
+a-He practically drags Billy into the studio. The energy shifts immediately - George has brought a guest, and suddenly everyone has to be on their best behavior.
+
+c-JOHN
+p-(to Billy, enthusiastic)
+d-Every number's got a piano part. And normally we overdub it. But this time we wanna do it live.
+
+c-BILLY
+p-(excited)
+d-Yeah. That'd be nice.
+
+c-JOHN
+d-I mean, just live to ourselves... Straight off, one number after the other. And that means having somebody in on it.
+
+c-GEORGE
+d-If you'd like to do that you're welcome.
+
+c-BILLY
+d-Sure. Beautiful.
+
+c-JOHN
+d-Right. And then you'd be on the album.
+
+c-BILLY
+p-(can't believe it)
+d-You're kidding.
+
+a-Billy looks around at The Beatles - the actual Beatles - inviting him to play on their album.
+
+c-JOHN
+d-Well, that's good then. We've taped a few. The thing is to get some tapes made of what we've done, and let him have a listen, take 'em home at night.
+
+c-GEORGE
+p-(knowing better)
+d-He'll probably pick them up much quicker hearing us play 'em.
+
+c-PAUL
+d-Yeah, just rehearsing them.
+
+a-John spots George Martin in the control room.
+
+c-JOHN
+d-Have you met Billy, George?
+
+a-GEORGE MARTIN (43) comes over, extends his hand.
+
+c-GEORGE MARTIN
+d-How do you do, Billy?
+
+c-JOHN
+d-That's George Martin, our A&R man. That's Billy. We played with him in Hamburg. He was backing Little Richard.
+
+c-PAUL
+p-(with a nostalgic smile)
+d-In the old days.
+
+a-Billy sits at the electric piano. There's a moment of anticipation. The Beatles haven't sounded right in weeks. Can this really help?
+
+c-PAUL (CONT'D)
+d-Let's try "I've Got A Feeling."
+
+a-They count it in.
+
+a-And something magical happens.
+
+a-Billy's fingers find the keys. The electric piano cuts through the arrangement like sunlight through clouds. His playing is joyful, effortless, perfect.
+
+a-Paul and John sing together. George's guitar finds its groove. Ringo locks in.
+
+a-For the first time in weeks - maybe months - The Beatles sound like The Beatles.
+
+a-They're all smiling. Actually smiling. Paul catches John's eye and grins. George is nodding along, looking relieved. Even Ringo, usually so steady, has a huge smile on his face.
+
+a-The song builds, and Billy just floats around their parts, filling in the spaces, making everything better.
+
+a-When they finish, there's a moment of stunned silence.
+
+a-Then JOHN turns to Billy, beaming.
+
+c-JOHN
+d-You're in the group!
+
+a-Everyone laughs. Real laughter. The kind they haven't had in this whole ordeal.
+
+c-PAUL
+p-(grinning)
+d-Do you play violin?
+
+a-More laughter.
+
+a-Billy looks at them, eyes wide as saucers, hardly believing what just happened.
+
+a-In the control room, GLYN JOHNS is already making notes. This is it. This is the sound.
+
+a-GEORGE HARRISON watches Billy at the keyboard, watches his bandmates smiling, and there's something in his expression - pride, relief, maybe a little sadness too. He brought Billy here. He saved the sessions. But he knows it took an outsider to make them behave.
+
+a-Later, George will say to the camera: "Having this fifth person was just enough to cut the ice that we'd created among ourselves. Billy didn't know all the politics and the games that had been going on, so in his innocence he got stuck in and gave an extra little kick to the band."
+
+a-But right now, in this moment, they're just playing music together. And for the first time in a long time, it feels good.
+
+a-They count in another song. "Don't Let Me Down."
+
+c-JOHN
+p-(to Billy, encouraging)
+d-Hit it, Bill!
+
+a-Billy launches into a solo. John grins.
+
+c-JOHN (CONT'D)
+d-Oh, yeah! One more!
+
+a-The cameras capture it all. The Beatles, energized. Playing together. Actually enjoying themselves.
+
+a-It won't solve everything. The underlying problems are still there. But right now, with Billy Preston at the electric piano, making the songs come alive, it feels like maybe - just maybe - The Beatles can still be The Beatles.
+
+t-FADE OUT.
+---
+title: "Sweet Loretta Fart"
+act: 2
+sequence: 5
+scene_number: 33
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/billy-preston"
+  - "supporting/george-martin"
+  - "supporting/glyn-johns"
+purpose: "Show the creative joy returning. Capture them at their best - funny, loose, making great music."
+conflict: "None - this is pure creative flow. The opposite of the earlier scenes."
+emotional_beat: "The Beatles being The Beatles - making great music and having fun doing it. The 'Sweet Loretta Fart' moment as pure joy."
+page_count: 2
+status: "draft"
+notes: "Based on January 27, 1969 (Day 18). This is them recording the definitive 'Get Back' single. Laughter, experimentation, celebration. The contrast to Twickenham is stark."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. APPLE STUDIOS - BASEMENT - DAY (JANUARY 27, 1969)
+
+a-The same space, but it feels completely different now. There's energy here. Purpose. Joy.
+
+a-JOHN LENNON (28), PAUL MCCARTNEY (26), GEORGE HARRISON (25), and RINGO STARR (28) are locked in, working on "Get Back." BILLY PRESTON (23) is at the electric piano, now fully part of the sound.
+
+a-They've been at this for hours, trying to nail the perfect take. But it's not frustrating - it's fun. They're experimenting, laughing, goofing around between takes.
+
+a-GEORGE MARTIN and GLYN JOHNS watch from the control room, making notes, adjusting levels.
+
+c-PAUL
+p-(to the band)
+d-Let's try varying the tempo a bit. Just slightly.
+
+a-They launch into another version. It's fast, loose. Paul starts singing the first verse in mock Japanese, throwing in phrases from "Rowan & Martin's Laugh-In."
+
+c-PAUL (CONT'D)
+p-(singing)
+d-Sock it to me!
+
+a-Everyone laughs. The take falls apart, but nobody cares.
+
+c-GEORGE
+p-(grinning)
+d-Try it again, but slower this time.
+
+a-Another take. John experiments with a different guitar solo. It's getting closer. You can feel it.
+
+c-PAUL
+p-(after they finish)
+d-Nearly!
+
+a-They're close. Everyone can feel it. This is the one.
+
+a-John leans into the microphone, and with perfect Liverpudlian deadpan, delivers the line:
+
+c-JOHN
+d-Sweet Loretta Fart, she thought she was a cleaner, but she was a frying pan... picks with his fingers.
+
+a-The room erupts in laughter. Paul is doubled over. George is shaking his head, grinning. Ringo taps his sticks together, waiting.
+
+c-PAUL
+p-(still laughing)
+d-Right, let's do it.
+
+a-They count in. And this time, everything clicks.
+
+a-The intro crashes in - that iconic opening chord, Ringo's drum fill. Paul's voice, strong and confident. John's guitar cutting through. George's wah-wah solo that sounds effortless. Billy's piano making it all come together.
+
+a-This is it. This is THE take.
+
+a-They're all locked in, smiling as they play. Paul and John catch each other's eyes during a harmony - for a moment, they're just two kids from Liverpool making music together.
+
+a-The song builds to the ending. The iconic "Oooh" from Paul.
+
+a-And then... nothing. Silence.
+
+a-Ringo forgot to come back in.
+
+c-GEORGE
+p-(after a beat)
+d-We missed that end, didn't we?
+
+a-Everyone looks at each other. In the control room, George Martin leans into the talkback.
+
+c-GEORGE MARTIN
+d-I thought you were going on. Do you want to end it like that?
+
+c-RINGO
+p-(practical)
+d-Just plug it on – the best end we did.
+
+a-A moment of consideration. Then nods all around. They know what they've got - the perfect take, even with the flubbed ending. They can fix it later.
+
+c-PAUL
+p-(grinning)
+d-That's it. That's the one.
+
+c-JOHN
+p-(to Billy)
+d-Beautiful, Bill.
+
+a-Billy beams. He's just played on a Beatles single.
+
+a-But they're not done celebrating. Someone suggests they do it again - this time in German.
+
+a-What follows is pure Beatles chaos. Mock German lyrics throughout. Paul throwing in a phrase: "Yah, that's good, Jackie!" referencing Jackie Lomax. The final verse in terrible French.
+
+a-They're celebrating. The pressure's off. They've got their single. Now they can just have fun.
+
+a-In the control room, Glyn Johns is shaking his head, smiling. He's been mixing their takes overnight for days. He knows what he heard - they've just recorded something special.
+
+a-The German version devolves into laughter. They finish with a flourish, instruments crashing to a halt.
+
+c-PAUL
+p-(to everyone)
+d-Right then. We're getting somewhere.
+
+c-JOHN
+p-(lighting a cigarette)
+d-About bloody time.
+
+a-But he's smiling. They're all smiling.
+
+a-For the first time since Twickenham, The Beatles look like a band again. Not four people trapped in a cold studio, but four musicians who chose to make music together.
+
+a-Billy Preston watches them, still amazed to be here. George catches his eye and gives him a nod - thank you.
+
+a-The cameras capture it all. Not dissolution this time. Creation.
+
+t-FADE TO BLACK.
+---
+title: "The Rooftop"
+act: 2
+sequence: 5
+scene_number: 34
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/michael-lindsay-hogg"
+  - "supporting/glyn-johns"
+  - "supporting/mal-evans"
+purpose: "The solution. Show Paul's frustration transforming into hope. The rooftop concert as salvation."
+conflict: "Paul's need for a climax, a payoff, versus the shapeless documentary they're making."
+emotional_beat: "The realization on the rooftop - 'We could do it right here.' Hope returning after weeks of darkness."
+page_count: 3
+status: "draft"
+notes: "Based on January 25, 1969 (Day 16). The rooftop proposal changes everything. For the first time in weeks, they're excited about something together."
+created: 2025-12-20
+---
+t-FADE IN:
+
+s-INT. APPLE STUDIOS - CONTROL ROOM - DAY (JANUARY 25, 1969)
+
+a-PAUL MCCARTNEY (26) sits in the control room, listening to playbacks with JOHN LENNON (28), GEORGE HARRISON (25), and RINGO STARR (28). MICHAEL LINDSAY-HOGG (30s) and GLYN JOHNS watch them.
+
+a-The last few days have been good - better than Twickenham. Billy Preston helped. But something's eating at Paul. He's frustrated in a different way now.
+
+c-MICHAEL LINDSAY-HOGG
+d-Originally, it was a show and an album. A live album recorded when the show was actually live on the spot. And what I think is lacking at the moment is the show.
+
+c-JOHN
+d-I would dig to play onstage, you know? I mean, if it was all... everything was all right and there was no messing and we're just gonna play onstage. You know, that's why I said yes to the TV show. I didn't want the hell of doing it, but nobody else wants to go on the stage or do a TV show. You know, that's what it's about. Nobody wants to get out there. You know?
+
+c-PAUL
+p-(admitting it)
+d-I suppose that's true, you know?
+
+c-GEORGE
+d-The things that have worked out best ever for us haven't really been planned any more than this has. It's just, you know, it's like you just go into something and it does it itself. You know, whatever it's gonna be, it becomes that, you know?
+
+c-JOHN
+p-(to Paul, gently)
+d-See, it's turned out it's not what Paul wants. It's like if it's... Say it's his number, this whole show. It's actually turned into our number more than his number. That's all. And, uh... It's just that, really.
+
+c-PAUL
+d-Yeah, I know, it is majority decisions and all. Yeah.
+
+a-Paul's quiet for a moment. Then it comes out.
+
+c-PAUL (CONT'D)
+d-I just have a feeling that we... It's all right, you know? It's nothing to complain about, but... But it's just funny to sort of realize that after this is all over, you'll be off in a black bag somewhere on the Albert Hall, you know?
+
+c-MICHAEL LINDSAY-HOGG
+p-(hitting it)
+d-What you're moaning about is there's no payoff.
+
+c-PAUL
+p-(the need surfacing)
+d-I think all I wanna do is, like, uh... I probably, you know, having got it together, I probably just wanna go and have fun with it. Rather than just, sort of, finish off exactly as we started. And I'd like to sort of do a... for the finish. And we just get out in the open, change of scene, and go and do it somewhere else, do it on a live show, do it on a stage. You know, I'd like to light a rocket and really sort of take off for the end of it.
+
+a-There's a moment of silence. Then Glyn Johns and Michael exchange a look.
+
+c-MICHAEL LINDSAY-HOGG
+d-What if we went up to the roof?
+
+a-Everyone looks at him.
+
+c-GLYN JOHNS
+d-Ringo was just showing me - there's a wonderful view up there. Big flat area.
+
+c-MICHAEL LINDSAY-HOGG
+p-(the idea taking shape)
+d-You could play to the whole West End from up there.
+
+a-Paul's face changes. You can see it - the idea catching fire.
+
+t-CUT TO:
+
+s-EXT. APPLE STUDIOS - ROOFTOP - DAY
+
+a-PAUL, RINGO, GLYN JOHNS, MICHAEL LINDSAY-HOGG, and MAL EVANS climb the stairs to the roof of 3 Savile Row.
+
+a-They emerge onto a large flat rooftop. The view stretches across London - the West End spreading out before them. It's January cold, but clear.
+
+a-Paul walks to the edge, looking out over the city. For the first time in weeks, there's real excitement in his eyes.
+
+c-RINGO
+p-(gesturing around)
+d-Told you. Great view.
+
+c-GLYN JOHNS
+d-If they wanted to play to a large crowd, why not play on the roof to the whole of the West End?
+
+a-Paul turns, looking at the space. Imagining it. Amps up here. Ringo's drums. The cameras. Playing to all of London.
+
+c-PAUL
+p-(the energy building)
+d-Yeah. Yeah, we could do this.
+
+c-MICHAEL LINDSAY-HOGG
+d-The only thing is we've got to get some permission, Paul. So the cops don't come and throw us off, that's all.
+
+c-RINGO
+d-What happens if we go on top of the other roof?
+
+c-MICHAEL LINDSAY-HOGG
+d-If it's somebody else's roof, then we can get had not only for disturbing the peace and the noise, but also for trespassing.
+
+a-But Paul's not worried about that. He's seeing it now - the climax he's been wanting. The payoff.
+
+c-PAUL
+d-The Savile Row police station is only a couple of hundred yards away. They'll probably shut us down pretty quick.
+
+c-GLYN JOHNS
+p-(grinning)
+d-That'll all be part of the fun, won't it?
+
+a-Paul laughs. Actually laughs. The first real, unguarded laugh in weeks.
+
+c-MAL EVANS
+p-(practical)
+d-So, but just roughly timewise, so I can look into gear...
+
+c-PAUL
+d-Yeah. So, okay, look, if we say like on Friday or something.
+
+a-They stand there for a moment, looking out over London. The city sprawling below them. The Beatles - or what's left of them - about to do something nobody's ever done before.
+
+t-CUT TO:
+
+s-INT. APPLE STUDIOS - BASEMENT - DAY
+
+a-Back downstairs. Paul bursts in with energy the others haven't seen in ages.
+
+c-PAUL
+d-Right, we're doing it on the roof.
+
+a-JOHN and GEORGE look up from their instruments.
+
+c-JOHN
+d-What?
+
+c-PAUL
+p-(grinning)
+d-The rooftop. Wednesday or Thursday. We set up on the roof and play to all of London.
+
+c-MICHAEL LINDSAY-HOGG
+d-I think the thing is we'll aim for Thursday.
+
+c-GEORGE HARRISON
+d-Are we gonna do it all here now?
+
+c-GEORGE MARTIN
+p-(entering, practical)
+d-I think you should aim for a little earlier than Thursday. 'Cause if you aim for Thursday, it's not gonna be Thursday.
+
+c-PAUL
+d-See, we have to give them a chance to get their other cameras in.
+
+c-MICHAEL LINDSAY-HOGG
+p-(with Ringo)
+d-Aim for Wednesday.
+
+c-PAUL
+d-It'll be pretty quick, but it'll still give us some time to do it.
+
+a-John watches Paul's excitement. There's something in his expression - maybe relief, maybe amusement. But he's nodding.
+
+c-JOHN
+d-All right then. Wednesday it is.
+
+a-George looks uncertain, but he's not arguing. Ringo's already thinking about the logistics.
+
+a-For the first time since they walked into Twickenham Film Studios nearly a month ago, they have a plan they all agree on. A goal. A climax.
+
+a-Paul stands there, energized, alive. The rooftop concert.
+
+c-PAUL
+p-(to everyone)
+d-Right. Let's rehearse. We've got three days.
+
+a-They pick up their instruments. And for the first time in weeks, there's purpose in the room.
+
+a-The Beatles are going to play a concert. On a rooftop. In the middle of London. And nobody - not even them - knows how it's going to turn out.
+
+a-But that's the point.
+
+t-FADE TO BLACK.
+---
+title: "A Letter from the Queen"
+act: 2
+sequence: 6
+scene_number: 35
+location: "pauls-home-cavendish-ave"
+time_of_day: "day"
+characters:
+  - "band/paul-mccartney"
+  - "supporting/linda-eastman"
+purpose: "To show how paranoia has twisted every interaction. Paul misinterprets the gesture, ironically furthering the Crown's actual goal by deepening the divisions."
+conflict: "Paul's initial pride in the knighthood offer vs. his escalating paranoia that it's a weapon to divide the band."
+emotional_beat: "Flattery curdles into fear and misguided anger. The violation of a sanctuary."
+page_count: 3
+status: "draft"
+notes: "This is Nigel's masterstroke. Paul's internal monologue connecting the letter to 'Klaus' is crucial. The scene's power comes from the audience knowing he's completely wrong."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. PAUL MCCARTNEY'S HOME, CAVENDISH AVENUE - DAY (NOVEMBER 1969)
+
+a-A sanctuary of curated calm. Sunlight streams into the living room, illuminating a space that is both a creative workshop and a family haven. A grand piano sits in the corner. Guitars are on stands. The room is tidy, warm, domestic.
+
+a-PAUL MCCARTNEY (27) sits on a plush sofa, strumming a gentle, unformed melody on an acoustic guitar. He looks relaxed, a rare moment of peace.
+
+a-LINDA EASTMAN (28), camera around her neck, smiles as she watches him. Their young daughter, HEATHER, plays quietly on the floor with wooden blocks.
+
+c-LINDA
+d-That's a nice one. What is it?
+
+c-PAUL
+p-(Shrugs, smiling)
+d-Don't know yet. It's just... there.
+
+a-The gentle CLATTER of the letterbox flap breaks the quiet.
+
+c-LINDA
+d-Post is here.
+
+a-She gets up and retrieves a small stack of mail from the floor. She flips through it. Bills, fan mail... and one other.
+
+c-LINDA (CONT'D)
+d-Oh. This one looks important.
+
+a-She hands him a thick, cream-colored envelope. It bears a royal crest, embossed in gold. It's addressed simply to "P. McCartney, Esq."
+
+a-Paul puts his guitar aside. He takes the envelope, a flicker of curiosity on his face. He studies the crest.
+
+c-PAUL
+d-Blimey. What's this then?
+
+a-He carefully breaks the wax seal with his thumbnail and pulls out a single sheet of heavy, watermarked paper.
+
+a-He reads. His eyes widen. A slow, incredulous smile spreads across his face. He looks up at Linda, completely stunned.
+
+c-PAUL (CONT'D)
+d-You're not going to believe this.
+
+c-LINDA
+d-What is it?
+
+c-PAUL
+p-(Reading aloud, his voice a mix of awe and disbelief)
+d-"...Her Majesty the Queen has been graciously pleased to approve the recommendation that you be appointed a Knight Bachelor... for your services to music..."
+
+a-He lets the letter fall to his lap, shaking his head.
+
+c-PAUL (CONT'D)
+d-A knighthood. They want to make me a knight.
+
+a-Linda's face breaks into a huge, delighted grin. She throws her arms around him.
+
+c-LINDA
+d-Paul, that's incredible! Sir Paul! Oh, my God!
+
+a-Paul laughs, a genuine, joyful sound. He hugs her back tightly. For a moment, he is purely happy. The honor, the recognition. His dad would have been so proud.
+
+c-PAUL
+d-"Arise, Sir Paul..."
+p-(He chuckles)
+d-Can you believe it?
+
+a-He picks up the letter again, re-reading it. The smile on his face slowly begins to fade. The joy is replaced by a creeping puzzlement.
+
+c-PAUL (CONT'D)
+p-(More to himself)
+d-But... why? Why now?
+
+c-LINDA
+d-What do you mean, 'why'? Because you're a genius! You deserve it.
+
+c-PAUL
+d-No, I mean... the timing. The band's a mess. John's... well, he's John. It feels... odd.
+
+a-His mind starts to race. The warm, safe room suddenly feels colder.
+
+t-QUICK FLASHBACK - INT. INDICA GALLERY - DAY (1968)
+
+a-A subjective memory. Paul's POV. He sees YOKO across the gallery. She's in deep, intense conversation with KLAUS (CLIVE). The audio is distorted, muffled. Klaus leans in, his gestures sharp, conspiratorial. It doesn't look like a chat about art. It looks like a briefing.
+
+t-BACK TO SCENE
+
+a-Paul's expression has hardened. The pieces are clicking into place in his mind, but they're all the wrong pieces.
+
+c-PAUL
+d-That German bloke. At Yoko's gallery.
+
+c-LINDA
+d-The art critic? Klaus?
+
+c-PAUL
+d-He wasn't a critic. He was something else. They've been meeting. Whispering. And now this...
+p-(He holds up the letter as if it's evidence)
+d-...this arrives.
+
+a-Linda looks at him, completely lost.
+
+c-LINDA
+d-Paul, what are you talking about? This is a good thing.
+
+c-PAUL
+p-(Shaking his head, his voice low and urgent)
+d-Don't you see? It's not a reward, Linda. It's a weapon.
+
+a-He stands up, pacing the room. His sanctuary has been violated.
+
+c-PAUL (CONT'D)
+d-They're trying to split us. It's her. She's got her hooks in him, turning him against everything we were. And now the establishment... they're helping her.
+
+a-His paranoia is now a torrent.
+
+c-PAUL (CONT'D)
+d-They make him the revolutionary clown, the one who's gone mad. And me? They make me 'Sir Paul'. The good one. The safe one. The one who plays by the rules. It drives a wedge right down the middle of us.
+
+a-He stops pacing and looks at the letter in his hand with utter disgust. The honor has become a brand, a mark of treason against his friend.
+
+c-PAUL (CONT'D)
+p-(Quietly, fiercely)
+d-They are not taking him from me.
+
+a-He crushes the letter slightly in his fist. The melody he was strumming is forgotten. The domestic peace is shattered.
+
+a-Linda watches him, her face a mask of worry. She sees a man she loves retreating into a world of suspicion she cannot enter.
+
+t-FADE OUT.
+---
+title: "I Want a Divorce"
+act: 2
+sequence: 6
+scene_number: 36
+location: "apple-corps-hq"
+time_of_day: "day"
+characters:
+  - "band/paul-mccartney"
+  - "band/john-lennon"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/nigel-finch"
+  - "supporting/clive-barrow"
+purpose: "The climax of Operation Minuet. The band is officially broken, achieving the initial goal set by Philip four years prior."
+conflict: "Paul's misguided attempt to 'save' the band from a Yoko-led conspiracy versus John's cold, final decision to leave."
+emotional_beat: "Tragedy for the band, triumphant success for MI5. The moment the psychological warfare bears its ultimate fruit."
+page_count: 3
+status: "draft"
+notes: "The power of this scene comes from the audience knowing Paul is completely wrong. His passion is directed at a phantom, while the real enemy listens in."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. APPLE CORPS BOARDROOM - DAY (NOVEMBER 1969)
+
+a-The room is stylish, expensive, and cold. The four Beatles are assembled around a large, polished table. The mood is thick with dread.
+
+a-PAUL (27) paces at the head of the table, radiating a tense, aggressive energy. In his hand is the crumpled, forged knighthood letter.
+
+a-JOHN (29) sits opposite, utterly disengaged. He doodles on a notepad. YOKO (36) is beside him, a silent, still presence.
+
+a-GEORGE (26) stares out the window at Savile Row, having already mentally left the room.
+
+a-RINGO (29) sits between them all, anxiously tapping his fingers on the table, the unwilling witness to a family's collapse.
+
+c-PAUL
+p-(Stopping his pacing)
+d-Right. I called this meeting because things have gone too far. There are... forces at play here. Trying to tear us apart. And we need to face it.
+
+a-His eyes are fixed on Yoko. John doesn't look up from his doodle.
+
+c-JOHN
+p-(Muttering)
+d-Here we go. St. Paul's sermon on the mount.
+
+c-PAUL
+p-(Ignoring him, his voice rising)
+d-I'm serious, John! You can't see it because you're too close to it, but I can. The whispers. The outsiders. The way they're trying to turn you against me. Against us.
+
+a-He gestures vaguely with the letter, the "evidence" for his paranoid theory. He is so full of righteous fury, he's practically shaking.
+
+c-PAUL (CONT'D)
+d-This isn't about music anymore. This is about... infiltration. And we have to fight it. We have to be a band again.
+
+a-He looks around the table, pleading. But no one meets his eye. He's trying to rally troops who have already deserted.
+
+a-Before Paul can present his "evidence," John slowly puts his pencil down. He looks up, not at Paul, but at the center of the table. His expression is flat, devoid of emotion.
+
+c-JOHN
+d-I'm leaving the group.
+
+a-The words hang in the air, simple and brutal. Paul stops dead. His entire argument, his whole paranoid structure, collapses into dust.
+
+c-PAUL
+p-(Confused)
+d-What? What are you talking about? We're talking about how to save it...
+
+c-JOHN
+p-(Cutting him off, still calm)
+d-No, *you're* talking about how to save it. I'm not. It's over.
+p-(He looks at Paul for the first time)
+d-I want a divorce.
+
+a-The room falls into a stunning, absolute silence.
+
+a-Paul's face goes blank with shock. He came in for a fight, armed and ready, only to find the war was long over.
+
+a-George turns from the window. A small, almost imperceptible nod. A quiet exhale of relief. He's free.
+
+a-Ringo's face crumples. He looks utterly heartbroken.
+
+t-CUT TO:
+
+s-INT. MI5 SURVEILLANCE VAN - CONTINUOUS
+
+a-NIGEL (52) and CLIVE (45) listen through their headphones.
+
+c-CLIVE
+p-(Tearing his headset off, leaping to his feet in the cramped space)
+d-YES! HE SAID IT! HE SAID THE THING!
+p-(He punches the air)
+d-SUCCESSFUL FRACTURING! OPERATIONAL OBJECTIVE ACHIEVED! THE KLAUS METHODOLOGY WORKS!
+
+a-Nigel doesn't move. He slowly takes off his own headphones, placing them carefully on the console. He closes his eyes, pinching the bridge of his nose. The weight of the last four years settles on him. There is no triumph on his face, only a profound, weary sadness.
+
+t-BACK TO SCENE
+
+a-In the boardroom, the silence stretches. Paul sinks into a chair, the crumpled letter falling from his hand onto the table. It lies there, a pathetic, meaningless prop.
+
+c-PAUL
+p-(A whisper)
+d-...a divorce?
+
+c-JOHN
+p-(Standing up, Yoko rising with him)
+d-It was fun while it lasted.
+
+a-He says it without malice or sentiment. It's just a fact. He walks toward the door, not looking back. The band is already in his past.
+
+a-Paul watches him go, completely and utterly blindsided. The real conspiracy wasn't the one he imagined. It was the one he never saw.
+
+t-FADE OUT.
+---
+title: "Return to Sender"
+act: 2
+sequence: 6
+scene_number: 37
+location: "post-office-london"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/yoko-ono"
+  - "supporting/brenda-postal-worker"
+purpose: "The Midpoint. John's act of defiance turns the tables. He isn't just a fractured pop star; he's a political dissident using the Crown's own symbol against them."
+conflict: "The immense political and personal weight of John's act versus the mundane, indifferent bureaucracy embodied by Brenda."
+emotional_beat: "Quiet resolve and the birth of a political artist, rendered absurdly anticlimactic by the setting."
+page_count: 2
+status: "draft"
+notes: "Brenda's complete cultural obliviousness is the key to the scene's satirical tone. Her focus on procedure transforms a historic act of rebellion into a mundane transaction."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. POST OFFICE, LONDON - DAY (NOVEMBER 25, 1969)
+
+a-The echoing hall is the epitome of civil service indifference. Harsh fluorescent lights reflect off the worn linoleum floors. A queue of people shuffles forward with practiced patience.
+
+a-JOHN LENNON (29) and YOKO ONO (36) stand in the queue. Dressed in simple dark coats, they blend in. John clutches a small, plain cardboard box.
+
+a-They reach the counter. Behind the glass partition sits BRENDA (45), a woman who looks as if she were born into her postal worker's uniform. She's been stamping forms since the dawn of time.
+
+c-BRENDA
+p-(Without looking up)
+d-Next, please.
+
+a-John slides the small box through the opening at the bottom of the glass.
+
+c-JOHN
+p-(Quietly)
+d-This is for Buckingham Palace.
+
+a-Brenda eyes the box, then John, with no flicker of recognition. It's just another address.
+
+c-BRENDA
+d-Contents?
+
+a-John pauses for a beat.
+
+c-JOHN
+d-A medal.
+
+a-Brenda makes a bored tick on a form. She's processed stranger things before lunch.
+
+c-BRENDA
+d-Right. Needs to go recorded. That'll be one and six.
+
+a-John pays. As Brenda begins the mechanical process of her job—weighing the package, selecting a stamp, consulting a chart—we hear John's voice, calm and resolute.
+
+c-JOHN (V.O.)
+d-Your Majesty, I am returning this MBE as a protest against Britain's involvement in the Nigeria-Biafra thing...
+
+a-Brenda licks a stamp with a practiced flick of her tongue and places it precisely on the box.
+
+c-JOHN (V.O.)
+d-...against our support of America in Vietnam...
+
+a-She picks up her heavy rubber stamp and brings it down with a loud, final, echoing THUD.
+
+c-JOHN (V.O.)
+d-...and against 'Cold Turkey' slipping down the charts. With love, John Lennon of Bag.
+
+a-The transaction is complete. Brenda slides the box off the counter and drops it unceremoniously into a large canvas mail sack beside her.
+
+a-It lands with a dull, anticlimactic THUD.
+
+a-Brenda is already looking past them, her focus on the next person in the queue. Her duty to John Lennon is done.
+
+c-BRENDA
+d-Next.
+
+a-John and Yoko turn and walk away, hand in hand. They disappear into the anonymous London crowd.
+
+a-The camera lingers on the mail sack, filled with ordinary parcels. Inside, a symbol of rebellion begins its quiet, bureaucratic journey to the heart of the establishment.
+
+t-FADE OUT.
+---
+title: "The Package"
+act: 2
+sequence: 6
+scene_number: 38
+location: "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "royalty/prince-philip"
+  - "royalty/queen-elizabeth-ii"
+  - "royalty/princess-margaret"
+  - "antagonist/lord-mountbatten"
+purpose: "To show Philip's 'victory' turning to ash, triggering his decision to escalate from psychological warfare to elimination."
+conflict: "Philip's expectation of triumph versus the humiliating reality of John's letter. The Queen's pragmatism vs. Philip's personal rage."
+emotional_beat: "Wounded pride curdles into murderous fury. The moment the mission changes from a game into a vendetta."
+page_count: 4
+status: "draft"
+notes: "The Queen's quiet, pragmatic reaction is the perfect foil to Philip's explosion. Margaret's theatrical response adds a layer of dark, almost gleeful, absurdity."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (LATE NOVEMBER 1969)
+
+a-A sanctuary of austere, masculine power. The room is quiet, heavy with the weight of tradition.
+
+a-PRINCE PHILIP (48) stands with LORD MOUNTBATTEN (69), examining a naval chart. Philip looks smug, controlled. Operation Minuet is a success. The band is broken. He has won.
+
+a-The door opens and an AIDE enters, carrying a small, plain cardboard box on a silver tray.
+
+c-AIDE
+d-A package, Your Royal Highness. From the post room. Marked for Her Majesty's attention.
+
+a-He places the tray on the heavy mahogany desk.
+
+a-Philip glances at it, dismissive. Mountbatten shows a flicker of professional interest.
+
+a-At that moment, QUEEN ELIZABETH II (43) and PRINCESS MARGARET (39) enter. The Queen carries a small stack of correspondence. Margaret drifts in behind her, a cigarette holder in hand.
+
+c-THE QUEEN
+p-(To the Aide)
+d-Thank you, Robert.
+p-(To Philip)
+d-More charts? One would think you were planning another war.
+
+a-She spots the box on the tray.
+
+c-THE QUEEN (CONT'D)
+d-What's this?
+
+a-She picks up the small, unimpressive box. There is a simple letter attached. She opens the letter and begins to read. Her expression remains utterly neutral, a mask of practiced composure.
+
+a-Philip watches her, a triumphant glint in his eye. This is the final report from the front. The enemy's unconditional surrender.
+
+a-The Queen finishes reading. She looks up, her face betraying nothing.
+
+c-THE QUEEN (CONT'D)
+p-(Quietly)
+d-Well. That's that, I suppose.
+
+a-She hands the letter to Philip. Margaret leans over his shoulder, eager for the drama.
+
+a-Philip takes the letter, his face a mask of smug satisfaction. He reads.
+
+t-CLOSE ON THE LETTER. We see John's handwriting.
+
+a-As Philip's eyes scan the text, his expression transforms. The smugness evaporates, replaced by confusion, then disbelief, then a deep, cold, incandescent rage.
+
+c-JOHN (V.O.)
+d-...as a protest against Britain's involvement in the Nigeria-Biafra thing, against our support of America in Vietnam...
+
+a-Philip's jaw tightens. This isn't a surrender. It's a list of demands.
+
+c-JOHN (V.O.) (CONT'D)
+d-...and against 'Cold Turkey' slipping down the charts.
+
+a-The final line hits Philip like a physical blow. The petty, narcissistic absurdity of it. The insolence.
+
+a-Margaret lets out a low whistle, a sound of pure theatrical appreciation.
+
+c-PRINCESS MARGARET
+d-Oh, that's magnificent. "Cold Turkey"! He's mocking you. It's perfectly ghastly. I adore it.
+
+a-Philip is no longer listening. He's staring at the letter, his knuckles white. He thought he had broken Lennon. Instead, Lennon has rejected *him*. He has taken Philip's victory and used it as a platform for his own grubby politics.
+
+c-THE QUEEN
+p-(Calmly)
+d-It's an emotional gesture from an emotional young man. It will be a footnote in a week. The best response is no response.
+
+a-But Philip is beyond reason. He crushes the letter in his fist.
+
+c-PRINCE PHILIP
+p-(His voice a low, dangerous growl)
+d-No response? He didn't just return it. He spat on it.
+p-(He looks at the Queen, his eyes burning)
+d-He spat on *you*.
+
+c-THE QUEEN
+p-(Firmly)
+d-He spat on a symbol, Philip. It is my job to be a symbol. It's a singer having a tantrum. Let it go.
+
+c-PRINCE PHILIP
+d-Let it go? We spent four years on this. We fractured them. We drove him to this. And he turns it into a... a press release for his wretched song!
+
+a-He throws the crumpled letter onto the desk. He looks at Mountbatten, his face a mask of cold fury. The game is over.
+
+c-PRINCE PHILIP (CONT'D)
+d-He has made himself a political figure. A martyr. He's more dangerous now than he ever was with a guitar. This isn't over.
+
+c-THE QUEEN
+p-(A warning tone)
+d-Philip. Be careful.
+
+c-PRINCESS MARGARET
+p-(A delighted whisper)
+d-Oh, I do hope he won't be. This is getting frightfully interesting.
+
+a-Philip ignores them both. His eyes are locked on Mountbatten's, his decision made. The personal insult has become a matter of national security. The protector of the realm has become its most dangerous zealot.
+
+t-FADE OUT.
+---
+title: "A Change in Terms"
+act: 2
+sequence: 7
+scene_number: 39
+location: "buckingham-palace-study"
+time_of_day: "night"
+characters:
+  - "royalty/prince-philip"
+  - "antagonist/lord-mountbatten"
+  - "supporting/sir-derek-finchley"
+purpose: "The stakes are raised from career assassination to literal assassination. Philip's motivation shifts from wounded pride to perceived national security."
+conflict: "Mountbatten's strategic caution versus Philip's cold, absolute demand for a 'permanent solution.'"
+emotional_beat: "The chilling moment the conspiracy crosses a moral event horizon, from a cynical game to a deadly serious plot."
+page_count: 4
+status: "draft"
+notes: "The Queen's absence is critical. Without her moderating influence, Philip's worst impulses are unchecked. Finchley's role is to be the horrified but compliant bureaucrat."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - NIGHT (LATE NOVEMBER 1969)
+
+a-The room is dark, save for a single green-shaded lamp on the heavy desk, casting long, menacing shadows. The atmosphere is funereal.
+
+a-PRINCE PHILIP (48) stands by the fireplace, staring into the flames. He is unnervingly still. The explosive rage from the afternoon has cooled into something far more dangerous: icy, resolute calm.
+
+a-LORD MOUNTBATTEN (69) sits in a leather armchair, a glass of brandy untouched beside him.
+
+a-SIR DEREK FINCHLEY (58), the Deputy Director of MI5, sits opposite him, looking deeply uneasy. He holds a slim, empty portfolio on his lap. He was summoned, not invited.
+
+a-The QUEEN is notably absent. This is not a state matter anymore. This is personal.
+
+c-MOUNTBATTEN
+p-(Breaking the silence)
+d-The press is treating it as a celebrity tantrum. The Times called the 'Cold Turkey' reference 'gauche'. In a week, it will be forgotten. In a strategic sense, the operation was a success. The group is fractured beyond repair. The primary objective has been met.
+
+a-Philip turns slowly from the fire. His face is a mask.
+
+c-PRINCE PHILIP
+d-The primary objective? Was it?
+p-(He walks slowly toward the desk)
+d-The objective, as I recall, was to neutralize a nuisance. To remind these people of the proper order of things.
+
+a-He stops, looking down at Finchley, who shrinks slightly under his gaze.
+
+c-PRINCE PHILIP (CONT'D)
+d-Instead, we have created a political symbol. We have spent four years turning a court jester into a Joan of Arc. He's more dangerous now than he ever was with a guitar.
+
+c-MOUNTBATTEN
+d-He's a musician, Philip. His influence is... ephemeral.
+
+c-PRINCE PHILIP
+p-(A sharp, cold laugh)
+d-Is it? He's met with prime ministers. He holds press conferences about world peace from a bed. He has the ear of an entire generation. And now, he has a legitimate grievance. He has our attention. And we gave it to him.
+
+a-Finchley shifts uncomfortably in his chair. He is a bureaucrat, a man of plausible deniability. This conversation is becoming dangerously concrete.
+
+c-SIR DEREK FINCHLEY
+d-Your Highness, MI5's official assessment is that while Lennon is a person of interest, he does not constitute a direct threat to national—
+
+c-PRINCE PHILIP
+p-(Cutting him off, his voice like ice)
+d-Your 'official assessment' is a document designed to protect your pension, Sir Derek. I am talking about reality.
+p-(He leans on the desk, his voice dropping)
+d-The man has publicly accused the Crown of complicity in war. He has used an honour from the Sovereign as a political weapon. He is no longer a nuisance. He is a dissident. And dissidents... must be managed.
+
+a-Mountbatten senses where this is going. He sits up, his expression hardening.
+
+c-MOUNTBATTEN
+d-Philip, we must be exceedingly careful here. Any overt action would be catastrophic.
+
+c-PRINCE PHILIP
+d-I am not suggesting an overt action. I am suggesting a final one.
+
+a-The room goes utterly still. Finchley looks like he wants to dissolve into the floor. This is a line he never, ever wanted to cross.
+
+c-PRINCE PHILIP (CONT'D)
+d-Operation Minuet was a success in its tactics, but its strategy was flawed. It was a dance. It was about disruption. The terms have now changed.
+
+a-He looks directly at Mountbatten, the command clear in his eyes.
+
+c-PRINCE PHILIP (CONT'D)
+d-Operation Minuet is terminated. Effective immediately.
+p-(He pauses, letting the finality sink in)
+d-We are activating a new protocol. Operation... 'Elegy'.
+
+c-MOUNTBATTEN
+p-(Quietly)
+d-An elegy is a funeral song.
+
+c-PRINCE PHILIP
+d-Precisely. This is no longer about disruption, Dickie. This is about silencing a threat. Permanently.
+
+a-Sir Derek Finchley visibly pales. This is no longer a cynical game of psychological manipulation. This is a royal directive for an assassination.
+
+c-SIR DEREK FINCHLEY
+p-(Stammering)
+d-Your... Your Highness... that is... such a measure would be... unprecedented. The blowback...
+
+c-PRINCE PHILIP
+p-(Straightening up, his voice regaining its command)
+d-The blowback for allowing a public figure to repeatedly and publicly defy the Crown is far greater. That is the very definition of sedition.
+p-(To Mountbatten)
+d-I want a plan. Quiet. Plausible. Final. Use the same assets. They are already compromised.
+
+a-Mountbatten stares at his nephew, seeing the full extent of his obsession. The protector of the monarchy has become its greatest liability. But an order has been given.
+
+c-MOUNTBATTEN
+p-(After a long silence, a slight, almost imperceptible nod)
+d-As you wish.
+
+a-Philip turns back to the fire, his back to them both. The decision is made. The conversation is over.
+
+a-Finchley sits frozen, clutching his portfolio, a man trapped in a waking nightmare. He has just become accessory to a plot he wants no part of, ordered by a man he cannot refuse.
+
+t-FADE OUT.
+---
+title: "Operation Elegy"
+act: 2
+sequence: 7
+scene_number: 40
+location: "mi5-safe-house"
+time_of_day: "night"
+characters:
+  - "supporting/sir-derek-finchley"
+  - "supporting/nigel-finch"
+  - "supporting/clive-barrow"
+purpose: "The bumbling agents are now a killer and a potential saboteur, setting a new, deadly trajectory for Act III."
+conflict: "Nigel's horrified conscience versus Clive's manic enthusiasm and Finchley's cold, bureaucratic order."
+emotional_beat: "The point of no return. The dark comedy officially dies and a chilling conspiracy thriller is born."
+page_count: 4
+status: "draft"
+notes: "The contrast between the agents' reactions is the core of the scene. Finchley's mastery of euphemism makes the kill order all the more terrifying."
+created: 2025-07-28
+---
+t-FADE IN:
+
+s-INT. MI5 SAFE HOUSE - NIGHT (LATE NOVEMBER 1969)
+
+a-The room is cold, lit by a single bare bulb. The air is stale with the ghosts of a thousand sordid secrets.
+
+a-SIR DEREK FINCHLEY (58), NIGEL FINCH (52), and CLIVE BARROW (45) sit around a cheap wooden table. An overflowing ashtray sits between them. Finchley looks as if he's just swallowed something foul but is maintaining his professional composure.
+
+a-The mood is funereal.
+
+c-SIR DEREK FINCHLEY
+p-(Clears his throat)
+d-Gentlemen. I have just come from a meeting at the highest level. A strategic reassessment has been made. Operation Minuet has been... concluded.
+
+a-Clive looks momentarily confused, a schoolboy whose favorite game has been cancelled. Nigel says nothing, his face a mask of weary anticipation.
+
+c-SIR DEREK FINCHLEY (CONT'D)
+d-The operation's primary objective—the fracturing of the group—has been achieved. However, recent actions by the primary subject, Lennon, have created an unforeseen complication.
+
+a-He opens a slim portfolio. It contains a single sheet of paper.
+
+c-SIR DEREK FINCHLEY (CONT'D)
+d-It is now the Palace's view that the subject no longer represents a cultural nuisance, but a political one. As such, a new directive has been issued.
+
+a-He slides the paper across the table. It's a memo, typed, with no letterhead and no signature. It is a ghost.
+
+c-SIR DEREK FINCHLEY (CONT'D)
+d-The subject's file is to be closed. His activities are to be brought to a final conclusion. The matter is to be... permanently retired.
+
+a-He delivers the lines in a flat, bureaucratic monotone. A man reading a weather report.
+
+a-Clive leans forward, reading the memo. His eyes scan the euphemisms. A slow, strange smile spreads across his face. His eyes light up with a manic, creative glee.
+
+c-CLIVE
+p-(A hushed, reverent whisper)
+d-A permanent resolution. My God. It's the third act.
+
+a-Nigel stares at Finchley, his mind struggling to process the words.
+
+c-NIGEL
+d-Retired? Sir, I'm not sure I understand the... operational parameters.
+
+c-SIR DEREK FINCHLEY
+p-(Looking him dead in the eye)
+d-I think you do, Nigel.
+
+a-The truth lands. Nigel feels the blood drain from his face. He looks physically ill.
+
+c-NIGEL
+p-(Shaking his head, slowly)
+d-No. Sir, with respect... that's not... that is not what we do. We are an intelligence service, not... not that.
+
+c-CLIVE
+p-(Interrupting, his mind already racing)
+d-It's a question of methodology, Nigel! A final exit. It requires... artistry. A performance piece. Something public, but misdirecting. A charity concert, perhaps? The dramatic irony would be... sublime.
+
+a-Nigel stares at Clive, horrified. Clive isn't seeing a man; he's seeing a plot point.
+
+c-NIGEL
+p-(To Finchley, pleading)
+d-Sir Derek. This is assassination.
+
+a-He says the word. The ugly, simple truth that Finchley's elegant euphemisms were designed to hide. The word hangs in the dead air of the room.
+
+a-Finchley's pleasant mask cracks, just for a second. His eyes turn to steel.
+
+c-SIR DEREK FINCHLEY
+d-This is a royal directive, Mr. Finch. This is not a request. It is not a debate. It is an order. Are you a loyal servant of the Crown, or are you not?
+
+a-The threat is absolute, unspoken but perfectly clear.
+
+c-NIGEL
+d-I am a loyal servant. But this is... wrong.
+
+c-SIR DEREK FINCHLEY
+p-(Leaning forward, his voice a silken threat)
+d-What is 'wrong' is a matter for philosophers. We are professionals. You have a few years left until your pension. One would hate to see such a long and... adequate career end on a note of insubordination. Consider your options. Carefully.
+
+a-He stands, straightening his suit. The briefing is over.
+
+c-SIR DEREK FINCHLEY (CONT'D)
+d-I expect a preliminary plan on my desk by Monday.
+p-(He looks at Clive)
+d-Something... creative.
+
+a-He exits, closing the door behind him with a soft CLICK.
+
+a-Clive immediately pulls out a notebook and starts sketching frantically, muttering to himself.
+
+c-CLIVE
+d-The stage... the lighting... a distraction in the crowd... it has to be a masterpiece...
+
+a-Nigel doesn't move. He sits at the table, utterly defeated. The bumbling comedy is over. He is now the partner of a killer-in-waiting, and an accessory to a state-sanctioned murder.
+
+a-His face is a portrait of a man trapped between his duty, his pension, and a conscience he never knew he had until this exact moment. The path forward contains only terrible choices.
+
+t-FADE OUT.
