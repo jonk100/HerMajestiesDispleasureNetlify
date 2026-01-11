@@ -6,7 +6,7 @@ mood: "Effortlessly cool, influential, minimalist, tense"
 visual_notes: "Clean white walls, polished floors. A minimalist temple showcasing groundbreaking Pop Art. The space is defined by its famous visitors (Beatles, Stones) as much as its art. Key exhibit: John and Yoko's 'You Are Here' show (July 1968), featuring a large, blank white canvas."
 practical_notes: "Historically accurate venue for the 'Klaus Methodology' scene. Located at 69 Duke Street, Mayfair. As the site of John's 1968 solo show and a frequent haunt of Paul McCartney, their presence here is completely authentic. Fraser's own clashes with the law make the gallery a perfect symbol of the establishment vs. counter-culture conflict."
 scenes_used:
-  - "s17-the-klaus-methodology"
+  - "s36-the-klaus-methodology"
 reference_images: []
 created: 2025-08-03
 ---

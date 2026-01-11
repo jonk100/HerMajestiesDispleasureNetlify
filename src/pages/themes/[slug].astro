@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@/layout/Layout.astro";
+import Layout from "@/layout/collections/ThemesLayout.astro";
 
 export async function getStaticPaths() {
   const themes = await getCollection("themes");

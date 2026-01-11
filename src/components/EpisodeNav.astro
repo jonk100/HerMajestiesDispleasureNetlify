@@ -1,0 +1,157 @@
+---
+/**
+ * EpisodeNav
+ *
+ * Provides previous / next navigation between episodes
+ * based on episode_number ordering.
+ *
+ * Props:
+ * - currentSlug: slug of the current episode
+ */
+import { getCollection } from "astro:content";
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+
+// Load all episodes
+const allEpisodes = await getCollection("episodes");
+
+// Sort by episode_number ascending
+const sortedEpisodes = allEpisodes.sort(
+  (a, b) => a.data.episode_number - b.data.episode_number
+);
+
+// Find current episode index
+const currentIndex = sortedEpisodes.findIndex(
+  (ep) => ep.slug === currentSlug
+);
+
+// Resolve neighbors
+const prevEpisode =
+  currentIndex > 0 ? sortedEpisodes[currentIndex - 1] : null;
+
+const nextEpisode =
+  currentIndex < sortedEpisodes.length - 1
+    ? sortedEpisodes[currentIndex + 1]
+    : null;
+---
+
+<nav class="episode-nav">
+  {prevEpisode ? (
+    <a
+      href={`/episodes/${prevEpisode.slug}`}
+      class="nav-link prev"
+      title={`Episode ${prevEpisode.data.episode_number}: ${prevEpisode.data.title}`}
+    >
+      <span class="arrow">←</span>
+      <span class="label">Previous Episode</span>
+      <span class="episode-info">
+        Ep {prevEpisode.data.episode_number}: {prevEpisode.data.title}
+      </span>
+    </a>
+  ) : (
+    <span class="nav-link prev disabled">
+      <span class="arrow">←</span>
+      <span class="label">Previous Episode</span>
+    </span>
+  )}
+
+  <a href="/episodes" class="nav-link center">
+    Back to Episodes
+  </a>
+
+  {nextEpisode ? (
+    <a
+      href={`/episodes/${nextEpisode.slug}`}
+      class="nav-link next"
+      title={`Episode ${nextEpisode.data.episode_number}: ${nextEpisode.data.title}`}
+    >
+      <span class="label">Next Episode</span>
+      <span class="episode-info">
+        Ep {nextEpisode.data.episode_number}: {nextEpisode.data.title}
+      </span>
+      <span class="arrow">→</span>
+    </a>
+  ) : (
+    <span class="nav-link next disabled">
+      <span class="label">Next Episode</span>
+      <span class="arrow">→</span>
+    </span>
+  )}
+</nav>
+
+<style>
+  .episode-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #666;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link.prev {
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .nav-link.next {
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .nav-link.center {
+    flex-shrink: 0;
+  }
+
+  .nav-link:not(.disabled):hover {
+    background: #f0f8ff;
+    color: #0066cc;
+  }
+
+  .nav-link.disabled {
+    color: #ccc;
+    cursor: default;
+  }
+
+  .arrow {
+    font-size: 1.25rem;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+
+  .episode-info {
+    display: none;
+    font-size: 0.75rem;
+    color: #999;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-link:not(.disabled):hover .episode-info {
+    display: block;
+  }
+
+  .nav-link:not(.disabled):hover .label {
+    display: none;
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Print to PDF" } = Astro.props;
+---
+
+<button type="button" class="print-to-pdf" data-print-to-pdf>
+  {label}
+</button>
+
+<script>
+  const btn = document.querySelector('[data-print-to-pdf]');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+</script>
+
+<style>
+  .print-to-pdf {
+    appearance: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .print-to-pdf:hover {
+    border-color: #bbb;
+  }
+
+  @media print {
+    .print-to-pdf {
+      display: none;
+    }
+  }
+</style>

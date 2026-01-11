@@ -1,8 +1,12 @@
 # Premise
 
-## Logline
+## Loglines
 
-When The Beatles are awarded MBEs in 1965, a deeply offended Prince Philip launches a secret, multi-year MI5 campaign to fracture the band. But when a newly radicalized John Lennon returns the medal four years later, Philip escalates the mission from disruption to permanent elimination.
+### Option 1 - Balanced, Buyer-Friendly
+- After The Beatles receive MBEs in 1965, a wounded Prince Philip quietly authorizes MI5 to neutralize the band as a growing political embarrassment. Tasked with the operation, two ill-suited intelligence officers stumble through a multi-year campaign of sabotage that escalates alongside John Lennon’s radicalization—until bureaucratic inertia pushes the mission toward consequences no one can fully control.
+
+### Option 2 - Sharper Stirical Signal (More Conrad / Iannucci)
+- When The Beatles are awarded MBEs in 1965, Prince Philip responds not with pride but by quietly unleashing MI5 to rein them in. Caught between royal paranoia and John Lennon’s growing rebellion, two hapless intelligence officers oversee a campaign that exposes how petty grudges, bad paperwork, and institutional absurdity can reshape history.
 
 ## Tone
 

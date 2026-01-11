@@ -6,7 +6,7 @@ mood: "Cold, clinical, tense, detached"
 visual_notes: "A world of geometric shadows and industrial textures. Steel beams create a cage-like effect. Dust motes float in the single, low-wattage work light. The vibrant sounds of the concert below feel distant and muffled. The framing should be symmetrical and claustrophobic, contrasting with the expansive stage view."
 practical_notes: "This is the sniper's nest. It needs to feel both high above the action and oppressively close for the characters within it. The contrast between this cold, silent space and the warm, loud stage is the key visual dynamic of the climax."
 scenes_used:
-  - "s29-instant-karma"
+  - "s55-instant-karma"
 reference_images:
   - "Catwalks from 'The Conversation'"
   - "Theater rafters from 'Birdman'"

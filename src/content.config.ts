@@ -35,13 +35,14 @@ const scenes = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    act: z.number().min(1).max(3),
+    act: z.number().min(1).max(5).optional(),
     sequence: z.number(),
     // Scene number can be a single number or have 1 decimal place
     scene_number: z.number().min(0).max(99.9),
     scene_type: z
       .enum(["standard", "montage", "intercut", "composite"])
       .default("standard"),
+    chronology_index: z.number().optional(),
     // Allow either single location reference or array of location references
     location: z.union([
       reference("locations"),
@@ -62,6 +63,45 @@ const scenes = defineCollection({
       .enum(["outline", "draft", "revision", "final"])
       .default("outline"),
     notes: z.string().optional(),
+    episode_candidates: z.array(z.number()).optional(),
+    created: z.date(),
+    updated: z.date().optional(),
+  }),
+});
+
+/**
+ * Episodes collection schema
+ */
+const episodes = defineCollection({
+  type: "content",
+  schema: z.object({
+    episode_number: z.number().min(1),
+    title: z.string(),
+    // Optional but very useful for pitching
+    logline: z.string(),
+    // Timeframe the episode covers
+    timeframe: z.string().optional(),
+    // Core dramatic engine of the episode
+    thematic_engine: z.string().optional(),
+    // Explicit composition: ordered list of scenes
+    scenes: z.array(reference("scenes")),
+    // Optional structural notes
+    opening_image: z.string().optional(),
+    closing_image: z.string().optional(),
+    // Where this episode sits in the season arc
+    arc_function: z.enum([
+      "introduction",
+      "inciting",
+      "escalation",
+      "complication",
+      "reversal",
+      "climax",
+      "resolution",
+    ]),
+    estimated_runtime: z.number().optional(), // minutes
+    notes: z.string().optional(),
+    episode_question: z.string().optional(),
+    episode_button: z.string().optional(),
     created: z.date(),
     updated: z.date().optional(),
   }),
@@ -217,6 +257,7 @@ const timeline = defineCollection({
 export const collections = {
   characters,
   scenes,
+  episodes,
   beats,
   locations,
   dialogue,

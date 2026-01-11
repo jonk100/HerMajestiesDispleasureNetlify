@@ -6,7 +6,7 @@ mood: "Creative chaos, financial anxiety, a failed utopia, a stylish battlegroun
 visual_notes: "Elegant, historic exterior. The interior is a clash of worlds: original Georgian architecture (ornate plasterwork, grand staircases) mixed with late-60s counter-culture (shag carpets, abstract art, beanbags). The boardroom is a nexus of conflict, with a large, imposing table where business arguments happen. The Apple logo is subtly present. The overall feeling is of immense wealth managed with creative disorganization."
 practical_notes: "This location must feel like a beautiful prison. It's the physical manifestation of the band's attempt at self-management after Brian Epstein's death. The tension should be palpable beneath the stylish surface. It's where the joy of being in a band dies and the business of being The Beatles takes over."
 scenes_used:
-  - "s21-i-want-a-divorce"
+  - "s47-i-want-a-divorce"
 reference_images:
   - "Archival photos of The Beatles at 3 Savile Row"
   - "Stills from the 'Let It Be' / 'Get Back' rooftop concert"

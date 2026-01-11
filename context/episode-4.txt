@@ -1,0 +1,994 @@
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s38-a-cold-hard-place.mdx ----
+---
+title: "A Cold, Hard Place"
+act: 2
+sequence: 10
+scene_number: 27
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+purpose: "Show the devastating cumulative effect of Operation Minuet. The natural cracks have become chasms."
+conflict: "The complete breakdown of Beatles unity and creativity under the weight of accumulated tensions and manipulation"
+emotional_beat: "The death of the dream - four friends who can no longer function as a creative unit, observed by cameras that document their dissolution"
+page_count: 2
+status: "draft"
+notes: "Polar opposite of earlier creative scenes. Show how Operation Minuet's subtle manipulations have destroyed the band's natural chemistry. The sterile environment amplifies their disconnection."
+created: 2025-07-28
+---
+t-FADE IN:
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 1969)
+a-The harsh fluorescent lights buzz overhead, casting everything in a sickly, institutional glow. This is the polar opposite of Abbey Road's warm creativity - concrete floors, industrial equipment, and cameras positioned like silent judges throughout the space.
+a-The Beatles' equipment sits in the center like an island of abandoned hope. Amplifiers, drums, guitars - all the tools of their former magic, now looking somehow smaller and sadder in this sterile environment.
+a-JOHN LENNON, 28, sits at the piano, but he's not playing. His hair is longer, wilder, his clothes more casual and unkempt. Next to him, YOKO ONO, 36, sits in a chair that clearly wasn't meant for her - an intrusion into the sacred Beatles space that would have been unthinkable three years ago.
+a-PAUL MCCARTNEY, 26, paces near his bass, trying to generate energy that simply isn't there. His usual diplomatic charm is strained, forced.
+a-GEORGE HARRISON, 25, sits cross-legged on the floor with his sitar, but he's not playing Indian music. He's just... sitting. Detached. His spiritual seeking has become spiritual withdrawal.
+a-RINGO STARR, 28, sits behind his drum kit like a man at his own funeral.
+a-The cameras roll silently, documenting the death of a dream.
+c-PAUL
+p-(with forced enthusiasm)
+d-Right then. Shall we try "Two of Us" again? I think we were getting somewhere yesterday.
+a-No one moves. John doesn't even look up from the piano keys.
+c-JOHN
+p-(flatly)
+d-Were we?
+c-PAUL
+p-(trying to maintain momentum)
+d-Yes, I think so. The harmony in the bridge was starting to work, and if we just...
+c-JOHN
+p-(interrupting, still not looking up)
+d-Paul, do you ever listen to yourself? "Starting to work." "If we just." Always conditional with you, isn't it?
+a-YOKO shifts slightly in her chair, a small movement that somehow draws everyone's attention. Her presence is like a stone thrown into still water - the ripples are invisible but felt by everyone.
+c-PAUL
+p-(tension creeping in)
+d-I'm trying to be constructive, John.
+c-JOHN
+p-(finally looking up, cold)
+d-Are you? Or are you trying to be in charge?
+a-The silence that follows is deafening. George continues to stare at his sitar strings. Ringo examines his drumsticks as if he's never seen them before.
+c-GEORGE
+p-(quietly, without looking up)
+d-Maybe we should just... not. Today.
+c-PAUL
+p-(frustrated)
+d-George, we've got a deadline. We've got cameras rolling. We've got...
+c-GEORGE
+p-(still quiet, but with an edge)
+d-We've got nothing, Paul. Can't you see that?
+a-He finally looks up, and there's something broken in his eyes.
+c-GEORGE (CONT'D)
+d-We're sitting in this... this factory, pretending we're still a band. But we're not, are we? We're just four people who used to know each other.
+c-RINGO
+p-(softly)
+d-Maybe we should take a break.
+c-PAUL
+p-(desperately)
+d-We can't keep taking breaks! We need to make music. That's what we do. That's who we are.
+c-JOHN
+p-(with bitter amusement)
+d-Is it? When's the last time you felt anything when we played together, Paul? Really felt it?
+a-Paul opens his mouth to answer, then closes it. The question hangs in the air like an accusation.
+c-YOKO
+p-(speaking for the first time, her voice calm and measured)
+d-Perhaps the music is trying to tell you something.
+a-All eyes turn to her. The fact that she's spoken at all feels like a violation of some unspoken rule.
+c-YOKO (CONT'D)
+p-(to John, gently)
+d-Art should flow from truth, not obligation.
+c-PAUL
+p-(barely controlled anger)
+d-This isn't about art, it's about...
+c-JOHN
+p-(cutting him off)
+d-About what, Paul? About keeping the machine running? About not disappointing the fans? About protecting the brand?
+a-He stands up from the piano, walks away from it.
+c-JOHN (CONT'D)
+d-Maybe Yoko's right. Maybe the music is trying to tell us something. Maybe it's trying to tell us it's over.
+c-PAUL
+p-(desperate now)
+d-It doesn't have to be over! We just need to remember why we started doing this. The joy of it. The...
+c-GEORGE
+p-(interrupting, standing up)
+d-The joy?
+a-He looks around the sterile studio, at the cameras, at the industrial lighting.
+c-GEORGE (CONT'D)
+d-Paul, look around. Does this look like joy to you?
+a-He gestures at the space, at their positions - John and Yoko on one side, Paul isolated, George detached, Ringo trying to disappear.
+c-GEORGE (CONT'D)
+d-We're not making music anymore. We're performing an autopsy.
+a-The cameras continue to roll, capturing every moment of dissolution. The silence stretches until it becomes unbearable.
+c-RINGO
+p-(finally speaking, his voice heavy)
+d-You know what the worst part is?
+a-Everyone looks at him.
+c-RINGO (CONT'D)
+d-We used to laugh. Remember? We used to laugh all the time. Even when things were mental, even when we were exhausted, we'd find something funny.
+a-He looks around at his bandmates.
+c-RINGO (CONT'D)
+d-When's the last time we laughed together?
+a-The question hangs in the air. No one has an answer.
+c-PAUL
+p-(quietly, defeated)
+d-We could... we could try again tomorrow.
+c-JOHN
+p-(shaking his head)
+d-No, Paul. Tomorrow will be the same as today. And the day after that. And the day after that.
+a-He walks toward the exit, Yoko rising to follow him.
+c-JOHN (CONT'D)
+p-(pausing at the door)
+d-You want to know the truth? The Beatles died somewhere between the Cavern Club and here. We've just been playing the corpse for the cameras.
+a-He exits with Yoko. The remaining three sit in the harsh fluorescent light, surrounded by their instruments and their memories.
+c-GEORGE
+p-(after a long pause)
+d-He's not wrong, is he?
+c-PAUL
+p-(barely audible)
+d-No. He's not wrong.
+a-The cameras continue to roll, documenting the end of the most successful band in history. But there's no drama in it, no explosive argument or dramatic walkout. Just four friends who can no longer find their way back to each other.
+a-RINGO picks up his drumsticks, taps them together once, then sets them down again.
+c-RINGO
+p-(to no one in particular)
+d-It was good while it lasted, though. Wasn't it?
+a-PAUL and GEORGE look at him, then at each other. For just a moment, there's a flicker of the old connection, the old understanding.
+c-PAUL
+p-(with a sad smile)
+d-Yeah, Ringo. It was good.
+a-The camera slowly pulls back, showing the three remaining Beatles dwarfed by the industrial space, their instruments silent, their magic spent.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s39-scared-of-being-boss.mdx ----
+---
+title: "I'm Scared of Being the Boss"
+act: 2
+sequence: 10
+scene_number: 28
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+purpose: "Establish the creative tensions and Paul's awareness of his own controlling behavior. Shows Operation Minuet's effects amplifying existing problems."
+conflict: "Paul's need to lead versus George's frustration with being directed. The band's inability to work together as they once did."
+emotional_beat: "Paul's vulnerable confession of his fear of being 'the boss' - self-awareness that can't solve the problem."
+page_count: 3
+status: "draft"
+notes: "Based on actual dialogue from January 6, 1969 (Day 3). John's silence is as important as Paul and George's conflict. The scene should feel like watching a relationship fray in real-time."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 6, 1969)
+a-The vast, cold soundstage. Harsh fluorescent lights cast everything in an institutional glow. The Beatles' equipment sits in the center - guitars, amps, Ringo's drums - looking small and isolated in the cavernous space.
+a-Film cameras are positioned around the room, their presence adding pressure to an already tense atmosphere.
+a-JOHN LENNON (28) sits at the piano, not playing, just present. YOKO ONO (36) sits nearby in her black clothing, a constant, silent presence.
+a-RINGO STARR (28) sits behind his drum kit, tapping his sticks lightly, waiting.
+a-PAUL MCCARTNEY (26) stands with his Höfner bass, trying to generate energy. He's clearly frustrated but attempting to stay constructive.
+a-GEORGE HARRISON (25) sits with his guitar, looking weary. There's a resignation in his posture that wasn't there in earlier years.
+a-They've been working on "Two Of Us" for what feels like hours. It's not coming together.
+c-PAUL
+p-(with forced enthusiasm)
+d-See, look. Listen, now. We're gonna have to sort of bring it together, 'cause we're all at odds. We're doing that thing we did on 'The Beatles'. Like, in this verse, it's two harmonies singing, trying to say some words, right?
+c-JOHN
+p-(flatly, not looking up)
+d-I'm not that bothered. I'm just trying to sing it.
+c-PAUL
+d-It's not sounding together.
+c-GEORGE
+d-And so we can only play until we find the bit.
+c-PAUL
+d-Or we can stop and say it's not together.
+c-GEORGE
+d-Yes, then you've got to carry on until it gets together.
+a-JOHN picks out a few notes on the piano, seemingly uninterested in the debate.
+c-JOHN
+d-These are the hard ones to do, aren't they?
+c-PAUL
+p-(increasingly frustrated)
+d-No, not really, it's just... We've got to be imaginative. You know, it's complicated now. See, if we can get it simpler and then complicate it where it needs complication, but it's complicated in the bit...
+c-GEORGE
+p-(cutting him off)
+d-It's not complicated. I'll play just the chords, if you like.
+a-Paul stops. He recognizes the tone - George is pulling back, disengaging.
+c-PAUL
+p-(trying to bridge the gap)
+d-No, no, come on. You always get annoyed when I say that. I'm trying to help, you know. But I always hear myself annoying you, and I'm trying...
+c-GEORGE
+p-(resigned, almost defeated)
+d-No, you're not annoying me. You don't annoy me anymore.
+a-The words hang in the air. "Anymore." As if George has moved past annoyance into something else - apathy, perhaps.
+c-PAUL
+d-But you see what I mean. We do this then... Then I don't know.
+a-A long pause. The cameras keep rolling. Ringo taps his sticks quietly. John plays a few more notes, deliberately not engaging.
+a-Paul takes a breath. Something shifts in him - a moment of raw honesty.
+c-PAUL (CONT'D)
+p-(vulnerable, almost confessional)
+d-I'm scared of me being the boss. And I have been for a couple of years. I always feel as though I'm trying to put you down and stop you playing. But I'm not. I'm trying to stop us all playing, until we know what we're playing.
+a-George looks at him. There's a flicker of recognition - this is Paul being genuine.
+c-GEORGE
+d-But you've got to play in order to find which fits and which doesn't. You see that's all we can do.
+c-PAUL
+p-(the honesty continuing, almost desperate now)
+d-I don't wanna say it, 'cause I really just hear myself as being the only one saying it, always. And like, the three of you just sort of sit there, like 'Oh, he's saying that one again, is he?' And I never get any support, or anything. So I just think, 'Oh, well. Fuck it'. And I know it's right, and you know it's right.
+a-John continues playing piano, seemingly unbothered. Yoko sits motionless. Ringo looks uncomfortable - caught between his bandmates.
+c-GEORGE
+p-(quietly)
+d-Yes, all right. I just don't know what to do about it.
+c-PAUL
+d-But doesn't everyone agree that it's confused at the moment. So, all I'm trying to say is, we've only got 12 more days, so we've really got to do this methodically, this one.
+c-GEORGE
+p-(the resignation back)
+d-I'll wait until you get all your bits and then work my part out, if you like. It's like a matter of working it out with you, while you're working your bit out. You know, have you got your bass bit?
+a-Paul's frustration returns. George is doing it again - making it about Paul being difficult.
+c-PAUL
+d-You're doing it again as though I'm trying to say that. And what we said the other day, you know, I'm not trying to get you. What I really am trying to just say, 'Look lads, the band, shall we try it like this, you know?'
+c-GEORGE
+p-(with an edge)
+d-It's funny how it only occurs when the...
+c-PAUL
+p-(interrupting, trying an analogy)
+d-It's like 'shall we play guitar all through Hey Jude?' Well, I don't think we should.
+c-GEORGE
+p-(quietly, but the words cut deep)
+d-Okay, well, I don't mind. I'll play whatever you want me to play. Or I won't play at all if you don't want me to play. Now, whatever it is that will please you, I'll do it. But I don't think you really know what that one is.
+a-The words land like a blow. Paul's face shows he feels it.
+a-A long, uncomfortable silence. The cameras continue rolling, documenting every moment of this dissolution.
+c-PAUL
+p-(trying to recover, to explain)
+d-Look, you know, the... No, it's not like that. You see, that's it, it's like, we can't do this. We've really got to sort out this, 'cause we're – this is – we're like – this is the one, you know. Now we're rehearsing, and we're trying to like get it together for a TV show, so we really – like you said, we've only been through four numbers, you know.
+c-GEORGE
+d-Mm.
+c-JOHN
+p-(finally engaging, but only minimally)
+d-Well...
+c-PAUL
+p-(pressing on)
+d-So we've probably got to get some system to get through like twenty, or thirty, and no more, and have learnt them. And it's probably going to be like sculpture. So that we get all the chords. So we can all vamp and all. Then we can all play, like, every solo we need. But like... You know what I mean? It's got to sound as though it's improving.
+c-GEORGE
+p-(careful, but honest)
+d-Yeah, well, it actually – it sounded to me, that for me, it was a waste of me time playing, when we started it today. I mean, I just started remembering then what it could get into the other day, after playing for around an hour, an hour and a half. And suddenly, you know, I just don't find that my – that what I'm doing is starting to have something, you know. Have some structure to it.
+a-He pauses.
+c-GEORGE (CONT'D)
+d-You know, that's the thing.
+c-PAUL
+p-(trying to understand)
+d-Yeah, I know, I know what you mean, you know. 'Cause it's like—
+c-GEORGE
+p-(interrupting)
+d-You know, I mean—
+c-PAUL
+p-(the fundamental problem surfacing)
+d-It's just that that way of doing it, you know, puts me off the way I'm trying to do it, and—
+c-GEORGE
+p-(resigned, final)
+d-Well, that's – you know. That's all, then. I can only do me, in that one way, however I do it, you know.
+a-A long pause. The impasse is complete. John plays a few more piano notes. Yoko remains still. Ringo looks at his drumsticks.
+c-PAUL
+p-(defeated)
+d-Let's do another song.
+c-GEORGE
+p-(trying to be constructive despite everything)
+d-No, come on, we just have to learn this—
+c-PAUL
+p-(firm, done with this conversation)
+d-No, no, it's – let's just do something else.
+c-GEORGE
+d-Do you want to do... 'Maxwell's Silver Hammer'?
+c-JOHN
+p-(finally showing some engagement)
+d-Well, let's do this, 'cause then we – we're gonna come to this, or whatever it is. And the thing is just try and think what – the stage we've got to be in then.
+c-PAUL
+p-(the frustration boiling over)
+d-You just have to know that. I think we've wasted a lot of time, I think. I think we do like waste, physically waste a heck of a lot of time, you know, when the four of us are together.
+a-The words echo in the cavernous space. "When the four of us are together." The very thing that made them The Beatles is now the problem.
+a-The cameras continue rolling. The fluorescent lights buzz overhead. The Beatles sit with their instruments, unable to play together, unable to move forward, unable to go back.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s40-daddys-gone-away.mdx ----
+---
+title: "Daddy's Gone Away"
+act: 2
+sequence: 10
+scene_number: 29
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/michael-lindsay-hogg"
+purpose: "Peak of tensions before George's departure. Show the existential crisis about the band's future and purpose."
+conflict: "The band's inability to find a reason to continue. Paul's desperation versus George and John's apathy."
+emotional_beat: "Paul's admission about Brian Epstein's death - 'Daddy's gone away now, and we're on our own at the holiday camp.'"
+page_count: 4
+status: "draft"
+notes: "Based on actual dialogue from January 7, 1969 (Day 4). The 'divorce' joke should feel both funny and deeply sad. This is the band recognizing their own dissolution."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 7, 1969)
+a-The same cold soundstage. The equipment, the cameras, the fluorescent lights. But the energy is different today - not just tense, but existential. The band is questioning why they're even here.
+a-JOHN LENNON (28) sits at the piano, doodling musically. YOKO ONO (36) sits nearby, knitting. Her presence is now unremarkable - part of the furniture.
+a-GEORGE HARRISON (25) looks particularly weary today, like a man who's made a decision but hasn't announced it yet.
+a-PAUL MCCARTNEY (26) stands, pacing, trying to generate momentum that simply isn't there.
+a-RINGO STARR (28) sits behind his drums, watching the dynamic unfold.
+a-MICHAEL LINDSAY-HOGG (30s), the director, hovers nearby with his crew, cameras rolling.
+c-JOHN
+p-(to no one in particular)
+d-I think we are just repeating all the dullness.
+a-Paul stops pacing. That stung.
+c-PAUL
+p-(pressing the question)
+d-We gotta have some serious reason for doing this or else we won't. What's it for? Can't be for the money.
+c-JOHN
+p-(actually engaging)
+d-I've decided the whole point of it is communication. And to be on TV is communication. We've got a chance to smile at people, like 'All You Need Is Love.' So that's my incentive for doing it.
+c-MICHAEL LINDSAY-HOGG
+p-(trying to help)
+d-If this comes off, we've got a great entertainment package. We've got an album, a documentary never seen before, and a performance. It's a great package.
+c-JOHN
+p-(with a shrug)
+d-The worst that we have is a documentary of us making an LP, if we don't get into a show.
+a-Paul's frustration is building. John's treating this so casually, like it doesn't matter.
+c-PAUL
+p-(erupting)
+d-But we haven't played together, you see. That's the fucking thing. But when we do come together to play, we all just sort of talk about the fucking past! We're like old age pensioners. 'Remember the days when we used to rock?' You know, but we're here now, and we can do it, you know?
+a-He looks at them, desperate for some sign of life.
+c-PAUL (CONT'D)
+d-But, I mean, all I want to see is enthusiasm! See, the thing is also I get to a bit where I just sort of push all my ideas. You know, I mean, a lot will come out of it if we could get the enthusiasm. I mean, why are you here? I'm here 'cause I wanna do a show. But I really don't feel an awful lot of support.
+a-The words hang in the air. George shifts in his seat, and when he speaks, there's a resignation in his voice.
+c-GEORGE
+d-We keep coming up against that one and I keep saying, 'Yeah well, I'd like to do this, this and that.' And we end up doing something again that nobody really wants to do.
+c-PAUL
+p-(the threat implicit)
+d-If this one turns into that, it should definitely be the last for all of us. Because there just isn't any point.
+c-MICHAEL LINDSAY-HOGG
+d-I think that'd be sad. I mean, as an audience. That'd be sad.
+c-PAUL
+p-(bitter)
+d-Course it is! It's stupid. It is just stupid. You see, the people who are being stupid are the four of us.
+c-GEORGE
+p-(finally naming it)
+d-We need to be creative instead of being the doldrums, which it always is. The Beatles have been in doldrums for at least a year.
+a-A year. Since Brian Epstein died. Everyone knows it, but no one's said it so directly.
+a-Paul takes a breath. When he speaks again, there's a vulnerability beneath the frustration.
+c-PAUL
+p-(the core truth)
+d-Ever since Mr. Epstein passed away, it's never been the same. I mean, we've been very negative since Mr. Epstein passed away. And that's why all of us, in turn, have been sick of the group. It's discipline we lack. We've never had discipline.
+a-He's working through it as he speaks, finding the words.
+c-PAUL (CONT'D)
+d-We had a sort of slight, symbolic discipline. Like Mr. Epstein. You know, and he sort of said, 'Get suits on,' and we did. You know, and so we were always fighting that discipline a bit. There really is no one there now to say, 'Do it.' Whereas there always used to be.
+a-A pause. Then the devastating metaphor.
+c-PAUL (CONT'D)
+p-(quietly)
+d-Daddy's gone away now, and we're on our own at the holiday camp. I think we either go home or we do it.
+a-The words land heavily. John looks down at the piano keys. George stares at his guitar. Even Yoko pauses in her knitting.
+a-Michael Lindsay-Hogg, sensing an opening, tries to push the conversation forward.
+c-MICHAEL LINDSAY-HOGG
+d-Do you still wanna perform in front of an audience, or do you just see yourselves as a recording group?
+c-PAUL
+p-(to John)
+d-I think we've got a bit shy, I think I've got a bit shy of certain things, you know. 'Cause you know how often, like, on albums we sometimes blow one of your songs, 'cause we come in in the wrong mood. And you say, 'This is how it goes. I'll be back.' And we're all just, 'Oh, well you…'
+c-MICHAEL LINDSAY-HOGG
+d-That's why we're wrong to throw away the show. Because there's no desire.
+c-PAUL
+p-(building momentum)
+d-So it's like, if we're doing the show, we're gonna have to work hard. And that means by the time a week from now comes all these songs we've got, we've gotta know perfectly.
+a-George has been quiet, but now he speaks, and there's defeat in his voice.
+c-GEORGE
+d-I don't wanna do any of my songs on the show. Because they just turn out shitty…
+c-PAUL
+p-(trying to encourage)
+d-No, but this… Thinking it's not gonna come out great won't help. If we cancel the show now, we'll be throwing it away.
+c-MICHAEL LINDSAY-HOGG
+d-But equally, at the moment we haven't got a show and so none of us really want to do it.
+c-PAUL
+p-(his patience snapping)
+d-I'll do it. I'm not interested, you know, to spend my fucking days farting around here, while everyone makes up their minds whether they want to do it or not. It's like Mal said last night, 'If you're gonna do the show here, you've gotta decide today.' And as far as I can see, there's only two ways. We're gonna do it, or we're not gonna do it. And I want a decision!
+a-The demand echoes in the vast space. No one responds immediately.
+a-Then George says it. Quietly, but clearly.
+c-GEORGE
+d-Maybe we should have a divorce.
+a-The word sits there. Divorce. Like they're a marriage that's failed.
+c-PAUL
+p-(with a sad smile)
+d-Well, I said that at the last meeting. But it's getting nearer, you know?
+a-A beat. Then John, unable to resist, makes a joke.
+c-JOHN
+d-Who'd have the children?
+c-PAUL
+p-(playing along, grateful for the levity)
+d-Dick James.
+c-JOHN
+p-(laughing)
+d-Oh, yeah.
+a-The moment of humor defuses the tension, but doesn't solve anything. They're still sitting in a cold studio, unable to agree on why they're here or what they're doing.
+a-The cameras continue rolling. The fluorescent lights buzz. The Beatles sit with their instruments, having just discussed their own divorce.
+a-Ringo hasn't said a word the entire conversation. He just sits at his drums, the peacekeeper who knows there's no peace to keep anymore.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s41-see-you-round-the-clubs.mdx ----
+---
+title: "See You 'Round the Clubs"
+act: 2
+sequence: 10
+scene_number: 30
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/michael-lindsay-hogg"
+purpose: "THE breaking point. George quits. Show this as both dramatic and matter-of-fact."
+conflict: "George's decision to leave versus the band's inability to process it properly."
+emotional_beat: "George's quiet exit - 'See you 'round the clubs' - followed by John's callous suggestion to replace him with Eric Clapton."
+page_count: 3
+status: "draft"
+notes: "Based on actual events from January 10, 1969 (Day 7). The lunch conversation audio was lost to the clatter of cutlery. George's departure should feel both inevitable and shocking."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. TWICKENHAM FILM STUDIOS - DAY (JANUARY 10, 1969)
+a-Morning. The soundstage feels different today - the tension has shifted from frustration to something darker. A decision is forming.
+a-GEORGE HARRISON (25) is quiet. More than quiet - withdrawn. He sits with his guitar, but there's a distance in his eyes. This is a man who has made up his mind.
+a-PAUL MCCARTNEY (26), JOHN LENNON (28), and RINGO STARR (28) are working on "Get Back" - trying to nail the arrangement. Paul is at the piano, enthusiastic about the song.
+a-YOKO ONO (36) sits nearby, her usual silent presence.
+c-PAUL
+p-(excited)
+d-We've just got to do something about this middle eight.
+c-GEORGE
+p-(distant)
+d-Try shuffling it, the whole middle eight.
+a-They work through it. This rehearsal is actually good - maybe the best version yet. For a moment, it feels like the old Beatles.
+c-GEORGE (CONT'D)
+p-(after they finish)
+d-That's the best so far.
+a-But there's no joy in his voice. Just observation.
+t-CUT TO:
+s-INT. TWICKENHAM FILM STUDIOS - DINING ROOM - DAY
+a-LUNCH BREAK
+a-A small dining room adjoining a bar. MICHAEL LINDSAY-HOGG (30s) sits at a long table with PAUL, JOHN, YOKO, and RINGO. They're eating lunch, casual conversation about the morning's work.
+a-GEORGE is not there.
+a-Michael has arranged for a hidden microphone in the flower pot on the table - a documentarian's instinct that something is about to happen.
+a-The conversation continues. The sound of cutlery on plates, glasses being set down. Muffled voices discussing the session.
+a-Then GEORGE appears at the end of the table.
+a-He's wearing a beautiful black corduroy hat. He stands there for a moment, silent. Everyone looks up at him.
+c-GEORGE
+p-(calm, final)
+d-See you 'round the clubs.
+a-That's it. No drama. No explanation. Just goodbye.
+a-He turns and walks out.
+a-The table sits in silence for a beat. Then JOHN's face hardens - his defensive aggression kicking in.
+c-JOHN
+p-(immediately)
+d-Let's get in Eric. He's just as good and not such a headache.
+a-Paul and Ringo don't respond. They won't be drawn into this. The suggestion hangs in the air like smoke.
+t-CUT TO:
+s-INT. TWICKENHAM FILM STUDIOS - SOUNDSTAGE - DAY
+a-AFTER LUNCH
+a-Paul, John, and Ringo return to the studio. The cameras are still rolling. George's equipment sits there, abandoned.
+a-YOKO now sits on the edge of the rostrum - on the blue cushion that had been George's.
+c-PAUL
+p-(to no one in particular)
+d-I don't know why we are coming back here for.
+c-JOHN
+p-(flatly)
+d-Just pretending nothing's happened.
+a-And that's exactly what they do. They pick up their instruments.
+a-What follows is not music - it's a release. A ferocious riff. Half an hour of anger and frustration expressed through guitars and drums. Paul on bass, John on guitar, Ringo pounding the drums.
+a-Yoko leans into George's microphone and howls.
+a-It's not The Beatles. It's something else. Something raw and broken.
+t-CUT TO:
+s-INT. TWICKENHAM FILM STUDIOS - LATER
+a-JOHN talks with MICHAEL LINDSAY-HOGG near the cameras. The jam session is over. The studio feels empty despite the equipment.
+c-JOHN
+d-I think, if George doesn't come back by Monday or Tuesday, we'll ask Eric Clapton to play. Eric will be pleased... He'd have enough scope to play the guitar. The point is, George leaves and do we want to carry on The Beatles? I certainly do.
+c-MICHAEL LINDSAY-HOGG
+d-Maybe for the show, I mean, you could just say George was sick.
+c-JOHN
+p-(dismissive)
+d-No. I mean, if he leaves, he leaves.
+c-MICHAEL LINDSAY-HOGG
+d-What's the consensus? Do you want to go on with the show and the work?
+c-JOHN
+d-If he doesn't come back by Tuesday, we get Clapton.
+a-Michael studies him for a moment.
+c-MICHAEL LINDSAY-HOGG
+d-Has anyone ever left as seriously as George before?
+a-John doesn't answer. He just turns away, back to the piano.
+a-Across the studio, RINGO sits at his drums, not playing. Just sitting. The peacekeeper who couldn't keep the peace.
+a-PAUL stands alone with his bass, looking at George's empty spot. For the first time in this whole ordeal, Paul McCartney looks lost.
+a-The cameras continue rolling, documenting the end of something that can never be put back together the same way.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s42-the-lunch-conversation.mdx ----
+---
+title: "The Lunch Conversation"
+act: 2
+sequence: 10
+scene_number: 31
+location: "twickenham-film-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "supporting/linda-eastman"
+  - "band/yoko-ono"
+purpose: "The secret conversation revealing the deep creative issues. Shows John and Paul's complexity - they understand the problems but can't solve them."
+conflict: "John and Paul's attempt to diagnose what's gone wrong with The Beatles versus their inability to fix it."
+emotional_beat: "The painful honesty between John and Paul - they know they've hurt George, they know their creative process is broken, but they're trapped in it."
+page_count: 4
+status: "draft"
+notes: "Based on secretly recorded lunch conversation from January 13, 1969 (Day 8). Hidden microphone in flowerpot. This is them at their most vulnerable and self-aware."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. TWICKENHAM FILM STUDIOS - CAFETERIA - DAY (JANUARY 13, 1969)
+a-Three days after George left. The small cafeteria feels intimate, private. A long table with a flowerpot in the center - a flowerpot containing a hidden microphone that JOHN and PAUL don't know about.
+a-JOHN LENNON (28) sits across from PAUL MCCARTNEY (26). They're alone for this conversation, though LINDA EASTMAN and YOKO ONO are elsewhere in the building.
+a-This is rare - John and Paul talking honestly, without the others present. The weight of George's absence hangs over everything.
+c-JOHN
+p-(trying to articulate it)
+d-It's like George said, he didn't get enough satisfaction anymore, because of the compromise he had to make to be together. It's a festering wound that we've allowed to... and yesterday we allowed it to go even deeper, and we didn't give him any bandages. And when he is that far in, we have egos.
+a-Paul nods. He's been thinking about this too.
+c-PAUL
+d-The thing is, that's what I was trying to say to George, you know. Whereas previously I would have said, 'Take it there with diddle-der-diddle-der'. But I was trying last week to say, 'Now take it there. Anything you like. Put whatever you...'
+c-JOHN
+p-(cutting to it)
+d-You see, the point is now, we both do that to George this time, and because of the build-up to it—
+c-PAUL
+d-Yeah, we treat him a bit like that. See, 'cause he knows what we're on about. But I do think that he's right. That's why I think we've got the problem now, you know, the four of us. You go one way, George one way, and me another. But I know it'll apply to all of us, if one day you can all be singing like you sing. George can be really playing, I mean, like he plays, not like I keep trying to make him play.
+a-John shifts in his seat. Now they're getting to the core of it.
+c-JOHN
+d-Yeah, OK, because you're afraid that how he'll play won't be like you want him to play, and that's what we do, and that's what you do to me. And I'm not gonna tell you what to play.
+c-PAUL
+p-(trying to defend)
+d-See, that... that seems to be the trouble, is that if you'd have been able to say that on the occasion, just even to say, 'Look, I'm not gonna say anything about the song because it's very difficult, I'm gonna really try and now...'
+c-JOHN
+p-(the deeper issue)
+d-You know, I've always done the numbers like that. Now, the only regret about the past numbers is when, because I've been so frightened, I've allowed you to take it somewhere where I didn't want. And then, that my only chance was to let George take over, or interest George in it. If you give me your suggestions, let me reject them and pinch the ones I like... is where my writing side is. Same goes for the arranging. I don't want it to... I don't know.
+c-PAUL
+p-(quietly, understanding)
+d-I know. I do know. I know what you mean, yeah.
+c-JOHN
+p-(the accusation, but said gently)
+d-'Cause there was a period where none of us could actually say anything about your arrangements 'cause you would reject it all. I'd have to tell George and I would just say, you know, like you do about me. You know, 'I'm Paul McCartney', and a lot of the times you were right, and a lot of the times you were wrong. Same as we always are. But I can't see the answer to that, because you've suddenly got it all, you see.
+c-PAUL
+d-I really don't want you...
+c-JOHN
+p-(continuing)
+d-Well all right. I'm just telling you what I think. I don't— The Beatles revolve around the four people. It might a fucking job.
+c-PAUL
+p-(the power dynamic)
+d-You know, but I tell you what. I tell you one thing, what I think. The main thing is this: you have always been boss. Now I've been, sort of, secondary boss.
+c-JOHN
+d-Not always.
+c-PAUL
+p-(insistent)
+d-No, listen. Listen. No, always! Really, I mean, it is gonna be much better if we can actually just stick together and say, 'Look George, on 'I've Got A Feeling' I want you to do it exactly like I play it.' And he'll say, 'I'm not you, and I can't do it exactly like you do it.'
+a-John considers this. There's truth in it.
+c-JOHN
+d-But this year, what you've been doing, and what everybody's been doing, I've not only felt guilty about the way we're all guilty about our relationship to each other, 'cause we could do more. And look, I'm not putting any blame on you. I've suddenly realised this, because that was my game, you know, but goals, they're still the same. Self-preservation, you know. I know what I like, I've let you do what you want and George too, you know.
+c-PAUL
+d-Yeah, I know.
+c-JOHN
+d-If we want him, if we do want him, I can go along with that, because the policy has kept us together.
+c-PAUL
+p-(the hope, or delusion)
+d-Well, I don't know, you know. See, I'm just assuming he's coming back. If he isn't, then he isn't, then it's a new problem. And probably when we're all very old, we'll all agree with each other, and we'll all sing together.
+a-A pause. John circles back to the creative process itself.
+c-JOHN
+p-(trying to explain)
+d-And that's all I did on the last album was say, 'Okay, Paul, you're out to decide where my songs are concerned, arrangement-wise'. I don't know the songs, you know. I'd sooner just sing them, than have them turn into 'Mr. Kite', or anything else, where— I've accepted the problem from you that it needs arrangement. And then, because I'm an ape, I don't know. I don't see any further than me, the guitar, and the drums, and George Martin doing the— I don't hear any of the flutes playing, you know?
+a-He makes a strumming gesture.
+c-JOHN (CONT'D)
+d-I suppose I could hear 'em if I sat down and worked very hard! I could turn out a mathematical drawing if you'd like, but I could never do it off me own backside, I always have to just— do that, you know?
+c-PAUL
+d-Yeah.
+c-JOHN
+d-I mean—
+c-PAUL
+p-(quiet, recognizing himself)
+d-Yeah. Yeah. I'm onto the same thing, you know. That's— that's— we're all at that. It is only, like, if you can just remember that we're— you know. That the four of us are trying to do that. Because I mean, all of those things you say, you know, in some way, apply to me. Not all ways—
+c-JOHN
+d-Yes, yes, because everything applies a little bit to you, too.
+c-PAUL
+d—it is just you saying it. They're all— you know, in some way, to some degree, will apply to me.
+c-JOHN
+p-(the pattern repeating)
+d-'Cause once there was a period where none of us could actually, uh, say anything, about your criticisms.
+c-PAUL
+p-(quiet)
+d-Yeah. Yeah.
+c-JOHN
+p-(bleak)
+d-'Cause you would reject it all.
+c-PAUL
+p-(accepting it)
+d-Yeah, sure.
+c-JOHN
+d-And so George and I would just go— you know, 'I'll give you a line here,' 'Okay,' you know, 'We'll do four in a bar, and I'll do...' And a lot of the times you were right.
+c-PAUL
+d-Yeah.
+c-JOHN
+d-But a lot of the times you were— the same as they always are. But I can't see the answer to that.
+c-PAUL
+p-(trying to find the silver lining)
+d-No, but— no, that's good you see. The thing is, like, within each other, within ourselves, we reach something that's nearly perfect. And everyone else who's listening will think, 'That's it. They've got it.' You know— you know what I mean. So okay, we know we nearly made it, but we've really made it, for everyone else.
+a-He's building momentum, trying to convince himself as much as John.
+c-PAUL (CONT'D)
+d-'Cause it's okay, we're into the fine, finest, finest technicalities— I mean, that's where it's at, you know. If one day, we can even keep all— if all the people who are listening to this, nearly nearly made it, they'll think we've made it, you know. They'll think that's it.
+c-JOHN
+p-(bringing it back to George)
+d-You see, the point is now— George— is we both did that to George, this time.
+c-PAUL
+d-Mm.
+c-JOHN
+d-And because of the build up to it, that— now he can't even take that.
+c-PAUL
+p-(the harsh truth)
+d-Treating him a bit like a mongrel, yeah.
+c-JOHN
+d-He can't even— you know. It's like if I say, 'Alright, take it,' he'll say, 'Well, look, I can't take it. I'll forget it.'
+c-PAUL
+d-Yeah...
+c-JOHN
+d-I have to, uh—
+c-PAUL
+d-'Cause he knows what we're all about.
+c-JOHN
+d-Yeah.
+c-PAUL
+d-So he knows that when we say, 'Take it,' we expect doo-doo-duh-duh-doo. If I said that, then you'd expect—
+c-JOHN
+d-But it's just that bit. The bit where we've— 'I've Got A Feeling'.
+c-PAUL
+d-Yeah.
+c-JOHN
+d-We— there's no way we could have translated it to him, to say... you know.
+a-They sit in silence for a moment. The conversation has circled through their entire creative partnership - the power dynamics, the egos, the unspoken expectations, the way they've treated George.
+a-They understand the problem completely. But understanding it doesn't solve it.
+a-The hidden microphone in the flowerpot captures it all - two friends who built something extraordinary together, now trapped in the very system they created.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s43-billy-preston-arrives.mdx ----
+---
+title: "Billy Preston Arrives"
+act: 2
+sequence: 10
+scene_number: 32
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "band/yoko-ono"
+  - "supporting/billy-preston"
+  - "supporting/george-martin"
+  - "supporting/michael-lindsay-hogg"
+purpose: "THE TURNAROUND. Show that genuine joy and creativity are still possible. This is crucial - not just dissolution, but hope."
+conflict: "The band's broken dynamic versus Billy Preston's innocent enthusiasm cutting through the tension."
+emotional_beat: "The moment Billy sits at the electric piano and everything comes alive again. John's immediate 'You're in the group!'"
+page_count: 3
+status: "draft"
+notes: "Based on January 22, 1969 (Day 13). This is the turning point - the ice breaks. All four Beatles beaming with smiles. George's contribution saves the sessions."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. APPLE STUDIOS - BASEMENT - DAY (JANUARY 22, 1969)
+a-A different space entirely from Twickenham. Smaller, warmer. The basement of 3 Savile Row. Equipment is more cramped but feels more intimate. This is their space.
+a-GEORGE HARRISON (25) is back. He's been back for two days, since the move to Apple Studios. But the atmosphere is still tentative, careful. Everyone walking on eggshells.
+a-JOHN LENNON (28), PAUL MCCARTNEY (26), and RINGO STARR (28) are working through "I've Got A Feeling" but something's missing. The energy isn't there.
+a-YOKO ONO (36) sits nearby. GEORGE MARTIN watches from the control area. MICHAEL LINDSAY-HOGG's cameras are still rolling.
+a-They finish a run-through. It's... fine. Just fine.
+a-Then GEORGE looks up, sees someone at the door.
+a-BILLY PRESTON (23), impossibly young, impossibly talented, stands there with a huge smile. He's in London touring with Ray Charles.
+c-GEORGE
+p-(genuine warmth breaking through)
+d-Billy!
+a-George crosses to him, grabs his arm.
+c-GEORGE (CONT'D)
+d-Remember Billy? Here he is.
+a-He practically drags Billy into the studio. The energy shifts immediately - George has brought a guest, and suddenly everyone has to be on their best behavior.
+c-JOHN
+p-(to Billy, enthusiastic)
+d-Every number's got a piano part. And normally we overdub it. But this time we wanna do it live.
+c-BILLY
+p-(excited)
+d-Yeah. That'd be nice.
+c-JOHN
+d-I mean, just live to ourselves... Straight off, one number after the other. And that means having somebody in on it.
+c-GEORGE
+d-If you'd like to do that you're welcome.
+c-BILLY
+d-Sure. Beautiful.
+c-JOHN
+d-Right. And then you'd be on the album.
+c-BILLY
+p-(can't believe it)
+d-You're kidding.
+a-Billy looks around at The Beatles - the actual Beatles - inviting him to play on their album.
+c-JOHN
+d-Well, that's good then. We've taped a few. The thing is to get some tapes made of what we've done, and let him have a listen, take 'em home at night.
+c-GEORGE
+p-(knowing better)
+d-He'll probably pick them up much quicker hearing us play 'em.
+c-PAUL
+d-Yeah, just rehearsing them.
+a-John spots George Martin in the control room.
+c-JOHN
+d-Have you met Billy, George?
+a-GEORGE MARTIN (43) comes over, extends his hand.
+c-GEORGE MARTIN
+d-How do you do, Billy?
+c-JOHN
+d-That's George Martin, our A&R man. That's Billy. We played with him in Hamburg. He was backing Little Richard.
+c-PAUL
+p-(with a nostalgic smile)
+d-In the old days.
+a-Billy sits at the electric piano. There's a moment of anticipation. The Beatles haven't sounded right in weeks. Can this really help?
+c-PAUL (CONT'D)
+d-Let's try "I've Got A Feeling."
+a-They count it in.
+a-And something magical happens.
+a-Billy's fingers find the keys. The electric piano cuts through the arrangement like sunlight through clouds. His playing is joyful, effortless, perfect.
+a-Paul and John sing together. George's guitar finds its groove. Ringo locks in.
+a-For the first time in weeks - maybe months - The Beatles sound like The Beatles.
+a-They're all smiling. Actually smiling. Paul catches John's eye and grins. George is nodding along, looking relieved. Even Ringo, usually so steady, has a huge smile on his face.
+a-The song builds, and Billy just floats around their parts, filling in the spaces, making everything better.
+a-When they finish, there's a moment of stunned silence.
+a-Then JOHN turns to Billy, beaming.
+c-JOHN
+d-You're in the group!
+a-Everyone laughs. Real laughter. The kind they haven't had in this whole ordeal.
+c-PAUL
+p-(grinning)
+d-Do you play violin?
+a-More laughter.
+a-Billy looks at them, eyes wide as saucers, hardly believing what just happened.
+a-In the control room, GLYN JOHNS is already making notes. This is it. This is the sound.
+a-GEORGE HARRISON watches Billy at the keyboard, watches his bandmates smiling, and there's something in his expression - pride, relief, maybe a little sadness too. He brought Billy here. He saved the sessions. But he knows it took an outsider to make them behave.
+a-Later, George will say to the camera: "Having this fifth person was just enough to cut the ice that we'd created among ourselves. Billy didn't know all the politics and the games that had been going on, so in his innocence he got stuck in and gave an extra little kick to the band."
+a-But right now, in this moment, they're just playing music together. And for the first time in a long time, it feels good.
+a-They count in another song. "Don't Let Me Down."
+c-JOHN
+p-(to Billy, encouraging)
+d-Hit it, Bill!
+a-Billy launches into a solo. John grins.
+c-JOHN (CONT'D)
+d-Oh, yeah! One more!
+a-The cameras capture it all. The Beatles, energized. Playing together. Actually enjoying themselves.
+a-It won't solve everything. The underlying problems are still there. But right now, with Billy Preston at the electric piano, making the songs come alive, it feels like maybe - just maybe - The Beatles can still be The Beatles.
+t-FADE OUT.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s44-sweet-loretta-fart.mdx ----
+---
+title: "Sweet Loretta Fart"
+act: 2
+sequence: 10
+scene_number: 33
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/billy-preston"
+  - "supporting/george-martin"
+  - "supporting/glyn-johns"
+purpose: "Show the creative joy returning. Capture them at their best - funny, loose, making great music."
+conflict: "None - this is pure creative flow. The opposite of the earlier scenes."
+emotional_beat: "The Beatles being The Beatles - making great music and having fun doing it. The 'Sweet Loretta Fart' moment as pure joy."
+page_count: 2
+status: "draft"
+notes: "Based on January 27, 1969 (Day 18). This is them recording the definitive 'Get Back' single. Laughter, experimentation, celebration. The contrast to Twickenham is stark."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. APPLE STUDIOS - BASEMENT - DAY (JANUARY 27, 1969)
+a-The same space, but it feels completely different now. There's energy here. Purpose. Joy.
+a-JOHN LENNON (28), PAUL MCCARTNEY (26), GEORGE HARRISON (25), and RINGO STARR (28) are locked in, working on "Get Back." BILLY PRESTON (23) is at the electric piano, now fully part of the sound.
+a-They've been at this for hours, trying to nail the perfect take. But it's not frustrating - it's fun. They're experimenting, laughing, goofing around between takes.
+a-GEORGE MARTIN and GLYN JOHNS watch from the control room, making notes, adjusting levels.
+c-PAUL
+p-(to the band)
+d-Let's try varying the tempo a bit. Just slightly.
+a-They launch into another version. It's fast, loose. Paul starts singing the first verse in mock Japanese, throwing in phrases from "Rowan & Martin's Laugh-In."
+c-PAUL (CONT'D)
+p-(singing)
+d-Sock it to me!
+a-Everyone laughs. The take falls apart, but nobody cares.
+c-GEORGE
+p-(grinning)
+d-Try it again, but slower this time.
+a-Another take. John experiments with a different guitar solo. It's getting closer. You can feel it.
+c-PAUL
+p-(after they finish)
+d-Nearly!
+a-They're close. Everyone can feel it. This is the one.
+a-John leans into the microphone, and with perfect Liverpudlian deadpan, delivers the line:
+c-JOHN
+d-Sweet Loretta Fart, she thought she was a cleaner, but she was a frying pan... picks with his fingers.
+a-The room erupts in laughter. Paul is doubled over. George is shaking his head, grinning. Ringo taps his sticks together, waiting.
+c-PAUL
+p-(still laughing)
+d-Right, let's do it.
+a-They count in. And this time, everything clicks.
+a-The intro crashes in - that iconic opening chord, Ringo's drum fill. Paul's voice, strong and confident. John's guitar cutting through. George's wah-wah solo that sounds effortless. Billy's piano making it all come together.
+a-This is it. This is THE take.
+a-They're all locked in, smiling as they play. Paul and John catch each other's eyes during a harmony - for a moment, they're just two kids from Liverpool making music together.
+a-The song builds to the ending. The iconic "Oooh" from Paul.
+a-And then... nothing. Silence.
+a-Ringo forgot to come back in.
+c-GEORGE
+p-(after a beat)
+d-We missed that end, didn't we?
+a-Everyone looks at each other. In the control room, George Martin leans into the talkback.
+c-GEORGE MARTIN
+d-I thought you were going on. Do you want to end it like that?
+c-RINGO
+p-(practical)
+d-Just plug it on – the best end we did.
+a-A moment of consideration. Then nods all around. They know what they've got - the perfect take, even with the flubbed ending. They can fix it later.
+c-PAUL
+p-(grinning)
+d-That's it. That's the one.
+c-JOHN
+p-(to Billy)
+d-Beautiful, Bill.
+a-Billy beams. He's just played on a Beatles single.
+a-But they're not done celebrating. Someone suggests they do it again - this time in German.
+a-What follows is pure Beatles chaos. Mock German lyrics throughout. Paul throwing in a phrase: "Yah, that's good, Jackie!" referencing Jackie Lomax. The final verse in terrible French.
+a-They're celebrating. The pressure's off. They've got their single. Now they can just have fun.
+a-In the control room, Glyn Johns is shaking his head, smiling. He's been mixing their takes overnight for days. He knows what he heard - they've just recorded something special.
+a-The German version devolves into laughter. They finish with a flourish, instruments crashing to a halt.
+c-PAUL
+p-(to everyone)
+d-Right then. We're getting somewhere.
+c-JOHN
+p-(lighting a cigarette)
+d-About bloody time.
+a-But he's smiling. They're all smiling.
+a-For the first time since Twickenham, The Beatles look like a band again. Not four people trapped in a cold studio, but four musicians who chose to make music together.
+a-Billy Preston watches them, still amazed to be here. George catches his eye and gives him a nod - thank you.
+a-The cameras capture it all. Not dissolution this time. Creation.
+t-FADE TO BLACK.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s45-the-rooftop.mdx ----
+---
+title: "The Rooftop"
+act: 2
+sequence: 10
+scene_number: 34
+location: "apple-studios"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/michael-lindsay-hogg"
+  - "supporting/glyn-johns"
+  - "supporting/mal-evans"
+purpose: "The solution. Show Paul's frustration transforming into hope. The rooftop concert as salvation."
+conflict: "Paul's need for a climax, a payoff, versus the shapeless documentary they're making."
+emotional_beat: "The realization on the rooftop - 'We could do it right here.' Hope returning after weeks of darkness."
+page_count: 3
+status: "draft"
+notes: "Based on January 25, 1969 (Day 16). The rooftop proposal changes everything. For the first time in weeks, they're excited about something together."
+created: 2025-12-20
+---
+t-FADE IN:
+s-INT. APPLE STUDIOS - CONTROL ROOM - DAY (JANUARY 25, 1969)
+a-PAUL MCCARTNEY (26) sits in the control room, listening to playbacks with JOHN LENNON (28), GEORGE HARRISON (25), and RINGO STARR (28). MICHAEL LINDSAY-HOGG (30s) and GLYN JOHNS watch them.
+a-The last few days have been good - better than Twickenham. Billy Preston helped. But something's eating at Paul. He's frustrated in a different way now.
+c-MICHAEL LINDSAY-HOGG
+d-Originally, it was a show and an album. A live album recorded when the show was actually live on the spot. And what I think is lacking at the moment is the show.
+c-JOHN
+d-I would dig to play onstage, you know? I mean, if it was all... everything was all right and there was no messing and we're just gonna play onstage. You know, that's why I said yes to the TV show. I didn't want the hell of doing it, but nobody else wants to go on the stage or do a TV show. You know, that's what it's about. Nobody wants to get out there. You know?
+c-PAUL
+p-(admitting it)
+d-I suppose that's true, you know?
+c-GEORGE
+d-The things that have worked out best ever for us haven't really been planned any more than this has. It's just, you know, it's like you just go into something and it does it itself. You know, whatever it's gonna be, it becomes that, you know?
+c-JOHN
+p-(to Paul, gently)
+d-See, it's turned out it's not what Paul wants. It's like if it's... Say it's his number, this whole show. It's actually turned into our number more than his number. That's all. And, uh... It's just that, really.
+c-PAUL
+d-Yeah, I know, it is majority decisions and all. Yeah.
+a-Paul's quiet for a moment. Then it comes out.
+c-PAUL (CONT'D)
+d-I just have a feeling that we... It's all right, you know? It's nothing to complain about, but... But it's just funny to sort of realize that after this is all over, you'll be off in a black bag somewhere on the Albert Hall, you know?
+c-MICHAEL LINDSAY-HOGG
+p-(hitting it)
+d-What you're moaning about is there's no payoff.
+c-PAUL
+p-(the need surfacing)
+d-I think all I wanna do is, like, uh... I probably, you know, having got it together, I probably just wanna go and have fun with it. Rather than just, sort of, finish off exactly as we started. And I'd like to sort of do a... for the finish. And we just get out in the open, change of scene, and go and do it somewhere else, do it on a live show, do it on a stage. You know, I'd like to light a rocket and really sort of take off for the end of it.
+a-There's a moment of silence. Then Glyn Johns and Michael exchange a look.
+c-MICHAEL LINDSAY-HOGG
+d-What if we went up to the roof?
+a-Everyone looks at him.
+c-GLYN JOHNS
+d-Ringo was just showing me - there's a wonderful view up there. Big flat area.
+c-MICHAEL LINDSAY-HOGG
+p-(the idea taking shape)
+d-You could play to the whole West End from up there.
+a-Paul's face changes. You can see it - the idea catching fire.
+t-CUT TO:
+s-EXT. APPLE STUDIOS - ROOFTOP - DAY
+a-PAUL, RINGO, GLYN JOHNS, MICHAEL LINDSAY-HOGG, and MAL EVANS climb the stairs to the roof of 3 Savile Row.
+a-They emerge onto a large flat rooftop. The view stretches across London - the West End spreading out before them. It's January cold, but clear.
+a-Paul walks to the edge, looking out over the city. For the first time in weeks, there's real excitement in his eyes.
+c-RINGO
+p-(gesturing around)
+d-Told you. Great view.
+c-GLYN JOHNS
+d-If they wanted to play to a large crowd, why not play on the roof to the whole of the West End?
+a-Paul turns, looking at the space. Imagining it. Amps up here. Ringo's drums. The cameras. Playing to all of London.
+c-PAUL
+p-(the energy building)
+d-Yeah. Yeah, we could do this.
+c-MICHAEL LINDSAY-HOGG
+d-The only thing is we've got to get some permission, Paul. So the cops don't come and throw us off, that's all.
+c-RINGO
+d-What happens if we go on top of the other roof?
+c-MICHAEL LINDSAY-HOGG
+d-If it's somebody else's roof, then we can get had not only for disturbing the peace and the noise, but also for trespassing.
+a-But Paul's not worried about that. He's seeing it now - the climax he's been wanting. The payoff.
+c-PAUL
+d-The Savile Row police station is only a couple of hundred yards away. They'll probably shut us down pretty quick.
+c-GLYN JOHNS
+p-(grinning)
+d-That'll all be part of the fun, won't it?
+a-Paul laughs. Actually laughs. The first real, unguarded laugh in weeks.
+c-MAL EVANS
+p-(practical)
+d-So, but just roughly timewise, so I can look into gear...
+c-PAUL
+d-Yeah. So, okay, look, if we say like on Friday or something.
+a-They stand there for a moment, looking out over London. The city sprawling below them. The Beatles - or what's left of them - about to do something nobody's ever done before.
+t-CUT TO:
+s-INT. APPLE STUDIOS - BASEMENT - DAY
+a-Back downstairs. Paul bursts in with energy the others haven't seen in ages.
+c-PAUL
+d-Right, we're doing it on the roof.
+a-JOHN and GEORGE look up from their instruments.
+c-JOHN
+d-What?
+c-PAUL
+p-(grinning)
+d-The rooftop. Wednesday or Thursday. We set up on the roof and play to all of London.
+c-MICHAEL LINDSAY-HOGG
+d-I think the thing is we'll aim for Thursday.
+c-GEORGE HARRISON
+d-Are we gonna do it all here now?
+c-GEORGE MARTIN
+p-(entering, practical)
+d-I think you should aim for a little earlier than Thursday. 'Cause if you aim for Thursday, it's not gonna be Thursday.
+c-PAUL
+d-See, we have to give them a chance to get their other cameras in.
+c-MICHAEL LINDSAY-HOGG
+p-(with Ringo)
+d-Aim for Wednesday.
+c-PAUL
+d-It'll be pretty quick, but it'll still give us some time to do it.
+a-John watches Paul's excitement. There's something in his expression - maybe relief, maybe amusement. But he's nodding.
+c-JOHN
+d-All right then. Wednesday it is.
+a-George looks uncertain, but he's not arguing. Ringo's already thinking about the logistics.
+a-For the first time since they walked into Twickenham Film Studios nearly a month ago, they have a plan they all agree on. A goal. A climax.
+a-Paul stands there, energized, alive. The rooftop concert.
+c-PAUL
+p-(to everyone)
+d-Right. Let's rehearse. We've got three days.
+a-They pick up their instruments. And for the first time in weeks, there's purpose in the room.
+a-The Beatles are going to play a concert. On a rooftop. In the middle of London. And nobody - not even them - knows how it's going to turn out.
+a-But that's the point.
+t-FADE TO BLACK.

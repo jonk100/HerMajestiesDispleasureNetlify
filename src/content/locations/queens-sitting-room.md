@@ -6,7 +6,7 @@ mood: "Calm, orderly, quiet authority, timeless"
 visual_notes: "A much softer, brighter room than Philip's study. The color palette is creams, soft blues, and floral patterns. Tasteful but comfortable furniture. Family photographs in silver frames are neatly arranged on side tables. A corgi sleeps in a dog bed by the fireplace. Everything is perfectly in its place. The room is a fortress of quiet, domestic order and institutional continuity."
 practical_notes: "This location serves as the ultimate seat of power in the film, but it's a power expressed through quiet calm, not masculine aggression. The contrast with Philip's dark, wood-paneled study is essential. This is the heart of 'the firm'—less a war room, more a permanent, unshakeable boardroom."
 scenes_used:
-  - "s32-the-crown-endures"
+  - "s58-the-crown-endures"
 reference_images:
   - "Archival photos of Queen Elizabeth II's private apartments"
   - "Interiors from the series 'The Crown'"

@@ -1,0 +1,531 @@
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s31-the-firestorm.mdx ----
+---
+title: "The Jesus Quote Firestorm"
+act: 2
+sequence: 8
+scene_number: 20
+location: "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "royalty/prince-phillip"
+purpose: "Reveal the delayed cultural fallout of Clive’s action and show Philip’s quiet satisfaction at institutional order reasserting itself."
+conflict: "Public chaos versus private confirmation of authority."
+emotional_beat: "Chilling restraint — satisfaction without celebration."
+page_count: 1
+status: "draft"
+notes: "Consequences without attribution. Philip should not reference Clive or MI5 directly."
+created: 2025-07-27
+---
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (AUGUST 1966)
+a-A sanctuary of traditional British power. Dark oak paneling, naval paintings, hunting trophies. Everything speaks to hierarchy and masculine authority.
+a-PRINCE PHILIP (45) sits in a leather chair, impeccably dressed in a dark suit. Before him, a small black-and-white television flickers with news footage.
+a-ON THE TV SCREEN: Grainy footage of AMERICAN PROTESTERS outside a radio station. Signs read "BEATLES GO HOME" and "LENNON = BLASPHEMER." A BONFIRE burns in the background - vinyl records curling and melting in the flames.
+a-An AMERICAN NEWS ANCHOR's voice crackles through the small speaker:
+c-TV ANCHOR (V.O.)
+d-...religious groups across the Bible Belt continue to organize boycotts following Lennon's controversial remarks comparing The Beatles' popularity to that of Jesus Christ...
+a-Philip watches with the focused attention of a general studying battlefield reports. His expression is unreadable, controlled.
+a-The footage cuts to a SOUTHERN PREACHER at a pulpit, gesticulating wildly:
+c-PREACHER (ON TV)
+d-These boys have forgotten that there is only one King of Kings, and His name is not John, Paul, George, or Ringo!
+a-The congregation ERUPTS in applause. The camera pans across faces twisted with righteous fury.
+a-Philip reaches for a delicate china teacup sitting on a side table. He takes a measured sip, his eyes never leaving the screen.
+a-More footage: TEENAGERS throwing Beatles records into flames. A RADIO DJ dramatically snapping a "Rubber Soul" album in half. PROTESTERS marching with crosses.
+a-The news anchor continues:
+c-TV ANCHOR (V.O.)
+d-...several radio stations have banned Beatles music entirely, with some calling for a permanent boycott of all British recording artists...
+a-Philip allows himself the smallest of smiles - barely a twitch at the corner of his mouth. He sets down his teacup with the precision of a chess master making a winning move.
+c-PHILIP
+p-(quietly, to himself)
+d-Quite.
+a-He reaches for a remote control - a modern intrusion in this traditional space - and switches off the television. The screen fades to black with a soft electronic whine.
+a-Philip sits back in his chair, steepling his fingers. Through the tall windows behind him, we can see the palace gardens in the afternoon light - serene, ordered, eternal.
+a-The silence in the room is profound. Philip's satisfaction is complete, but controlled. This is not celebration - this is confirmation that the natural order of things is being restored.
+a-He picks up his teacup again and takes another sip, his eyes focused on some distant point beyond the windows. The weight of institutional power settles around him like a comfortable coat.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s32-george-and-ravi.mdx ----
+---
+title: "George and Ravi"
+act: 2
+sequence: 10
+scene_number: 21
+location:
+  - "ravi-shankar-home"
+  - "dal-lake-houseboat"
+  - "buckingham-palace-study"
+time_of_day: "day"
+characters:
+  - "band/george-harrison"
+  - "supporting/ravi-shankar"
+  - "royalty/prince-phillip"
+  - "royalty/lord-mountbatten"
+  - "royalty/princess-margaret"
+purpose: "Show George's deepening spiritual path with Ravi Shankar while the Palace begins to weaponize Paul's establishment-friendly ambition."
+conflict: "George's sincere spiritual seeking versus the Crown's cold strategic manipulation of the band's internal dynamics."
+emotional_beat: "Serene, earned peace for George contrasted with Margaret's gleeful suggestion to turn Paul into the establishment's pet."
+page_count: 3
+status: "draft"
+notes: "Montage should feel lyrical and reverent in India, then cut sharply to brittle, acerbic wit at the Palace. Margaret's dialogue carries the venom of class and entitlement."
+created: 2025-07-28
+---
+t-FADE IN:
+a-MONTAGE
+s-INT. RAVI SHANKAR'S HOME, BOMBAY - DAY (SUMMER 1966)
+a-A simple, elegant room. Sunlight streams through slatted blinds. No gold records, no pop art. Just rugs, incense, and a profound sense of peace.
+a-GEORGE HARRISON (23), dressed in a simple white kurta, sits cross-legged on the floor. His posture is awkward; he's not used to this. His expensive Western boots are left neatly by the door.
+a-Across from him sits RAVI SHANKAR (46), the picture of dignified authority. He holds his sitar with effortless grace.
+c-RAVI SHANKAR
+p-(calmly, but firm)
+d-Before you touch the instrument, you must learn to sit. Before you learn to sit, you must learn to be still. Your mind is a storm of... distractions. Fame. Deadlines. You must leave it all outside. Here, you are not a Beatle. You are a student.
+a-George nods, humbled. He tries to straighten his back, focusing on his breathing. His fingers twitch, eager to play, but he forces them to be still.
+s-INT. RAVI SHANKAR'S HOME - DAY
+a-DAYS LATER. George holds a sitar. It rests clumsily in his lap. Ravi Shankar adjusts George's hands on the strings, his touch precise.
+c-RAVI SHANKAR
+d-No, no. Not with force. The note is already there. You are not creating it. You are... revealing it. Let your finger be like a feather.
+a-George tries again. A harsh, buzzing sound comes out. He winces.
+c-GEORGE
+d-Sorry.
+c-RAVI SHANKAR
+d-Do not be sorry. Be patient. Your guitar wants to fight the string. The sitar must persuade it. It will take years. Are you prepared for that?
+a-George looks at the master, his expression deadly serious.
+c-GEORGE
+d-Yes.
+s-EXT. DAL LAKE, KASHMIR - HOUSEBOAT - EVENING
+a-WEEKS LATER. George and Ravi sit on the deck of a houseboat, floating on a serene lake surrounded by majestic mountains. The cacophony of the world feels a million miles away.
+a-George is playing a simple raga, a basic scale. His playing is still hesitant, but it's cleaner, more fluid. He is focused, his eyes closed. He is listening.
+a-Ravi listens, not with a teacher's critical ear, but with a growing sense of respect. He sees the sincerity.
+a-The lesson ends. The sun sets over the mountains.
+c-GEORGE
+p-(quietly)
+d-Back in London... it's all about what's next. The next single, the next album. It never stops. Here... it feels like time doesn't exist.
+c-RAVI SHANKAR
+d-Because it doesn't. There is only the note. And the silence before it. Everything else is illusion. Maya.
+a-The word "maya" hangs in the air. For George, it's a revelation. It gives a name to the emptiness he's been feeling amidst the screaming fans and gold records.
+c-GEORGE
+d-Maya.
+a-He looks out at the water, a profound sense of peace settling over him. He is no longer just a musician learning a new instrument. He is a seeker who has found his path.
+a-The camera holds on his face, serene and content. He is a world away from John's restless intellectualism and Paul's diplomatic anxieties.
+a-A title card appears over the tranquil scene: **AUGUST 1966. The Beatles begin their final, chaotic tour of America.**
+a-The peaceful sound of the sitar fades, replaced by the faint, distant sound of screaming fans.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s33-a-more-theatrical-approach.mdx ----
+---
+title: "A More Theatrical Approach"
+act: 2
+sequence: 10
+scene_number: 22
+location: "buckingham-palace-private-study"
+time_of_day: "day"
+characters:
+  - "royalty/prince-philip"
+  - "antagonist/lord-mountbatten"
+  - "royalty/princess-margaret"
+purpose: "Re-engage the antagonists, showcase Princess Margaret's character, and weaponize the band's own creative evolution against them."
+conflict: "Mountbatten's dry strategic approach vs. Margaret's desire for a more theatrical, psychologically cruel form of sabotage."
+emotional_beat: "The conspiracy takes a turn from stuffy and strategic to glamorous and malicious, driven by royal ennui."
+page_count: 3
+status: "draft"
+notes: "This scene directly incorporates research on 'The Family Way' and Margaret's personality. Her 'creative' input should feel both brilliant and deeply unsettling."
+created: 2025-07-28
+---
+t-FADE IN:
+s-INT. BUCKINGHAM PALACE PRIVATE STUDY - DAY (LATE 1966)
+a-The masculine sanctuary of dark wood and leather. PRINCE PHILIP (45) stands impatiently by the window. LORD MOUNTBATTEN (66) sits at a large desk, reviewing a file. The air is thick with serious purpose.
+a-The door opens and PRINCESS MARGARET (36) sweeps in, holding a long cigarette holder and radiating an aura of magnificent boredom.
+c-PRINCESS MARGARET
+d-Dickie. Philip. Still huddled over your little pop group? Honestly, the country is falling to bits and you two are fretting over four boys who look like they've wandered out of a train station cafeteria.
+a-Mountbatten doesn't look up.
+c-MOUNTBATTEN
+d-Your Royal Highness. We were just reviewing the successful amplification of the... "Jesus" affair.
+a-Margaret exhales a plume of smoke — amused, contemptuous.
+c-PRINCESS MARGARET
+d-Oh, that business. Terribly dreary. Americans screaming scripture at Liverpudlians.
+p-(shrugs)
+d-It's like tossing pearls into a crowd and hoping someone downmarket catches them.
+a-Philip turns, irritation rising.
+c-PRINCE PHILIP
+d-This is a matter of national dignity, Margaret, not a West End show.
+a-Margaret smirks.
+c-PRINCESS MARGARET
+d-My dear Philip — the monarchy is a show. We simply pretend it isn't. You should try it sometime.
+a-She saunters to the desk, picks up a file as though it might be contagious.
+c-PRINCESS MARGARET (CONT'D)
+d-You're all obsessed with the angry one. But you're missing the opportunity sitting right under your perfectly shaped noses. The other one — the agreeable, eager little puppy dog.
+a-Mountbatten looks up.
+c-MOUNTBATTEN
+d-McCartney? A comformist. Hardly a threat.
+a-He waves a hand dismissively, but Margaret laughs — low and wicked.
+c-PRINCESS MARGARET
+d-Exactly. A conformist is a creature of appetite. Praise, status, approval... dangle a bit of refinement and they'll crawl straight toward it.
+p-(taps ash elegantly)
+d-Someone at dinner last week was cooing about his new film score. Very proud of himself, apparently. It was all so frightfully provincial. You could almost smell the factory soot.
+a-Philip scoffs.
+c-PHILIP
+d-A film score? He's convinced himself he's a real composer now?
+c-PRINCESS MARGARET
+d-It's sweet, really. They want so badly to be embraced by the very world they insist they're rebelling against.
+p-(tilts her head)
+d-Why not give him the embrace he's desperate for? Have one of your little well-trained men at the Times write a glowing review. Praise his "masterful orchestration." Compare him to Noël Coward. Use words like "sophisticated" and "mature".
+a-Mountbatten's eyebrow lifts. Now she has him.
+c-MOUNTBATTEN
+d-You're suggesting we weaponize his ambition.
+c-PRINCESS MARGARET
+d-I'm suggesting we encourage the delusion. Give him everything he thinks he deserves.
+p-(she takes a long drag from her cigarette)
+d-Call his little composition "astonishingly sophisticated." Say he shows "the promise of a composer of real breeding."
+a-She lets that sink in for a beat.
+c-PRINCESS MARGARET (CONT'D)
+d-Imagine how Lennon will respond when his partner becomes the establishment's new pet. That sort of jealousy is practically ethnic to the northern temperament.
+a-Philip's eyes flick upward at her phrasing — shocked, but amused.
+c-PRINCE PHILIP
+d-Quite vicious, Margaret, even for you.
+c-PRINCESS MARGARET
+p-(pleasantly)
+d-I'm doing my part for Crown and country, Philip. Sometimes all one requires is vanity and a match.
+a-She glides toward the door.
+c-PRINCESS MARGARET (CONT'D)
+d-Now if you'll excuse me, all this national service has left me parched.
+a-She exits in a sweep of smoke and silk as Philip and Mountbatten exchange a look.
+c-MOUNTBATTEN
+d-I'll have Finchley assign a cultural asset at the Sunday papers.
+c-PRINCE PHILIP
+p-(quiet, calculating)
+d-See that you do.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s34-the-king-is-dead.mdx ----
+---
+title: "The King is Dead"
+act: 2
+sequence: 10
+scene_number: 23
+location: "various"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/george-harrison"
+  - "band/ringo-starr"
+  - "supporting/nigel-finch"
+  - "royalty/prince-philip"
+purpose: "A major historical and emotional turning point. The Beatles' protector is gone, leaving them vulnerable to the conspiracy."
+conflict: "The band's attempt to find spiritual peace is shattered by the news of Brian Epstein's death, exposing their utter reliance on him."
+emotional_beat: "Devastation and dawning horror. The end of the Beatles' protected childhood and the beginning of their dissolution."
+page_count: 2
+status: "draft"
+notes: "This montage scene is the lynchpin of Act II. The contrast between the Beatles' grief and Philip's cold opportunism is crucial."
+created: 2025-07-28
+---
+t-FADE IN:
+a-A SERIES OF INTERCUT SCENES, CONNECTED BY THE RINGING OF TELEPHONES AND THE HUSHED TONES OF BREAKING NEWS.
+s-INT. HOTEL ROOM, BANGOR, WALES - DAY (AUGUST 27, 1967)
+a-Sunlight streams into a modest hotel room. JOHN, PAUL, GEORGE, and RINGO are sitting on the floor with the MAHARISHI MAHESH YOGI. They are dressed in simple, casual clothes. The mood is calm, meditative. For the first time in years, they look like four young men at peace.
+a-A hotel phone RINGS. An AIDE answers it.
+s-INT. NIGEL FINCH'S OFFICE - DAY
+a-Nigel sits at his neat desk, a cup of tea steaming beside him. His phone RINGS. He answers, listens, his face remaining impassive.
+c-NIGEL
+p-(into phone)
+d-I see. Thank you.
+a-He hangs up and takes a slow sip of tea. He opens a filing cabinet and pulls out a thick file folder with "EPSTEIN, B" on the tab. He places it squarely in the center of his desk, opens it, and methodically flips through the files.
+a-He sets aside a complex diagram with "Brian Epstein" in the middle, surrounded by names — all four Beatles there, alongside an intricate web of producers, publishers, lawyers, promoters, financiers, and others — anyone connected to the massive network controlled by Epstein. As his eyes scan the page, Nigel's face is grim.
+s-INT. HOTEL ROOM, BANGOR - DAY
+a-The AIDE approaches quietly, his face pale. He approaches the group and leans down.
+c-AIDE
+p-(softly, carefully)
+d-I'm so sorry, but there's been an accident. It's Mr. Epstein. He's gone.
+a-John's reaction is sharp, visceral. He doubles over as if punched.
+c-JOHN
+p-(hoarse, almost to himself)
+d-No... No, not Brian. Not him.
+a-George and Ringo look on, their faces a mixture of confusion and horror. Paul's eyes go straight to the ground. No one moves or speaks for a moment.
+a-Paul picks his head up, tears in his eyes but calm.
+c-PAUL
+p-(voice cracking)
+d-Who's going to hold it together now? Who's going to keep us moving?
+c-RINGO
+p-(face in his hands, crying)
+d-He looked after us. Always did.
+a-George is looking through the window, studying something no one else can see.
+c-GEORGE
+d-The center's gone. Everything scatters now... Leaves in the wind...
+a-The four Beatles are huddled together now, the Maharishi forgotten. They are no longer pop stars or spiritual seekers. They are four orphans, suddenly adrift.
+a-Ringo just shakes his head, tears welling in his eyes. John looks up, his face a mask of grief and rage.
+c-JOHN
+p-(a raw, broken voice)
+d-We're on our own now.
+a-The camera pulls back, leaving them in a circle of shock and grief. The spiritual retreat has become a prison. Their protector is gone.
+s-INT. BUCKINGHAM PALACE, PHILIP'S STUDY - DAY
+a-Prince Philip is studying a large naval map on his desk, moving miniature ships with a long pointer. An AIDE enters quietly.
+c-AIDE
+d-Your Royal Highness. A telephone call from Sir Derek.
+a-Philip doesn't look up from his map.
+c-PRINCE PHILIP
+d-What is it?
+c-AIDE
+d-It's about the... asset manager for the subjects. Brian Epstein. There's been an accident. He's dead.
+a-Philip stops moving the ships. He remains perfectly still for a long moment. He shows no surprise, no satisfaction. Only the cold focus of a predator sensing a sudden, unexpected advantage.
+a-He slowly straightens up, his eyes still on the map.
+c-PRINCE PHILIP
+p-(quietly, to the aide)
+d-Thank you. That will be all.
+a-The aide exits.
+a-Philip picks up the pointer again. He looks down at the board, at the tiny ships representing his forces. He gently nudges one forward, into a now undefended position.
+c-PRINCE PHILIP (CONT'D)
+p-(to himself)
+d-Proceed.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s35-john-meets-yoko.mdx ----
+---
+title: "John Meets Yoko"
+act: 2
+sequence: 10
+scene_number: 24
+location: "indica-gallery"
+time_of_day: "night"
+characters:
+  - "band/john-lennon"
+  - "supporting/yoko-ono"
+  - "misc/gallery-owner"
+purpose: "Dramatize the first meeting of John and Yoko as an intellectual and artistic recognition, not instant romance."
+conflict: "John's reflexive cynicism versus Yoko's uncompromising conceptual seriousness."
+emotional_beat: "A moment of unexpected 'yes' in John's increasingly negative world, planting the seed of a future partnership."
+page_count: 3
+status: "draft"
+notes: "Keep the tone understated and faithful to accounts of the Indica meeting. Focus on mutual recognition and playfulness, not romance."
+created: 2025-07-28
+---
+t-FADE IN:
+s-INT. INDICA GALLERY - NIGHT (NOVEMBER 9, 1966)
+a-The gallery is stark, white, and mostly empty. It's the night before an exhibition opens. JOHN LENNON (26), looking restless and slightly bored in his famous round glasses, wanders through the space. He's here at the invitation of the owner, looking for a distraction from his life of suburban ennui.
+a-He examines a piece: an apple on a pedestal with a price tag for £200. He scoffs quietly. He moves to another piece, "Hammer A Nail": a pristine white board with a hammer hanging beside it and a jar of nails.
+a-Intrigued, he picks up the hammer.
+a-YOKO ONO (33), small and serene in a black turtleneck, emerges from the back of the gallery.
+c-YOKO
+d-You cannot. The show does not open until tomorrow.
+a-Her voice is calm, firm. Not impressed by his fame, only concerned with the integrity of her art. John puts the hammer down, a flicker of amusement in his eyes.
+c-JOHN
+d-Can I not hammer one nail in? For a price?
+c-YOKO
+p-(considers this)
+d-It would disrupt the concept. The piece is about participation, but participation in its proper time.
+a-The GALLERY OWNER (40s, suave) approaches them, sensing a delicate situation.
+c-GALLERY OWNER
+d-Yoko, darling. Perhaps an exception? Let the gentleman hammer a nail in... for five shillings.
+a-Yoko considers this. John smirks, reaching into his pocket, then stops. He looks at Yoko, a glint of mischief in his eye.
+c-JOHN
+d-Alright. I'll give you an imaginary five shillings... and I'll hammer in an imaginary nail.
+a-Yoko stares at him. The corner of her mouth twitches into a small, appreciative smile. He gets it. He's playing her game.
+c-YOKO
+p-(a small nod)
+d-Acceptable.
+a-John mimes hammering a nail into the board, making a quiet "tink, tink, tink" sound. She watches, her expression unreadable.
+a-He turns away, his eyes scanning the room. They land on a tall, white stepladder standing in the middle of the gallery. At the top, a small magnifying glass hangs from the ceiling on a chain.
+c-JOHN
+d-And what's that meant to be?
+c-YOKO
+d-That is "Ceiling Painting." You must climb the ladder to experience it.
+a-John, skeptical, approaches the ladder and starts his climb. His face alternates between amused and annoyed. The gallery owner looks nervous. Yoko just watches, impassive.
+a-John reaches the top, unsteady. He grabs the hanging magnifying glass and holds it up to a tiny, almost invisible word painted on the ceiling. He squints.
+a-CLOSE-UP: Through the magnifying glass, we see the word, written in tiny, neat block letters: "YES"
+a-John stares at it for a long moment. A slow smile spreads across his face. It's a smile of pure relief. In a world that felt increasingly negative and complicated, he found a simple, positive word.
+a-He lowers the glass and looks down at Yoko, who is looking up at him. Their eyes meet. It's not a look of romance, but of profound, startling recognition.
+a-He climbs down the ladder, his earlier cynicism completely gone.
+c-JOHN
+p-(quietly, to her)
+d-It's the first art show I've been to that hasn't made me want to leave immediately.
+c-YOKO
+d-Art that only says "no" is not a conversation. It's a statement. I prefer conversation.
+a-John nods, understanding completely. He gives her a final, appraising look, then turns and walks out of the gallery into the London night.
+a-Yoko watches him go, a serene, thoughtful expression on her face.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s36-the-klaus-methodology.mdx ----
+---
+title: "The Klaus Methodology"
+act: 2
+sequence: 10
+scene_number: 25
+location: "robert-fraser-gallery"
+time_of_day: "day"
+characters:
+  - "supporting/clive-barrow"
+  - "band/yoko-ono"
+  - "band/paul-mccartney"
+purpose: "A key comedic scene that also drives the plot by fueling Paul's paranoia and misdirecting him from the true conspiracy."
+conflict: "Clive's delusional belief he can recruit Yoko versus her serene authenticity, while Paul misinterprets what he's witnessing."
+emotional_beat: "Dark comedy through cultural misunderstanding and paranoid misinterpretation."
+page_count: 1.5
+status: "draft"
+notes: "Clive's terrible German accent and art-speak should be painfully obvious to the audience but somehow convincing to Yoko. Paul's growing suspicion is crucial for misdirecting him from the real conspiracy."
+created: 2025-07-27
+---
+t-FADE IN:
+s-INT. ROBERT FRASER GALLERY - DAY (JULY 1968)
+a-A stark, minimalist gallery space. White walls, polished floors. The gallery is crowded but quiet. The main attraction is a large, circular, completely white canvas. In the center, in tiny letters, are the words "you are here". In front of it sits a white charity collection tin.
+a-YOKO ONO (35) stands serenely near the piece. Her public relationship with John has made her a figure of intense fascination and controversy.
+a-Enter CLIVE BARROW (44), transformed into his "KLAUS" persona. He wears a black turtleneck, dark slacks, and an absurdly tilted black beret. He approaches the white canvas with exaggerated intensity, circling it, squinting.
+c-CLIVE
+p-(in a terrible, inconsistent German accent)
+d-Fascinating. Zee void. It is a mirror, ja? Reflecting back at zee viewer nothing but zair own existential dread. Zee white... it is not an absence of color, but zee terrifying presence of all colors at once!
+a-Yoko turns toward him with genuine interest. Someone is looking past the controversy to the concept.
+c-YOKO
+p-(serene, pleased)
+d-The piece is an invitation. It simply states a fact: you are here. The rest is whatever the viewer brings to it.
+c-CLIVE
+p-(nodding vigorously, his accent slipping)
+d-Ja, exactly! Zee participation! You are asking not for interpretation, but for... for presence! It is a critique of art as object, and a celebration of art as... as a moment in consciousness! Sehr sophisticated!
+a-He adjusts his beret, which has shifted precariously.
+c-CLIVE (CONT'D)
+p-(gesturing at the collection tin)
+d-And zis! A stroke of genius! A commentary on zee commodification of zee spiritual journey! You invite us to confront zee void, and zen you ask for... for loose change! It is... it is a devastating parody of capitalist salvation!
+a-Yoko's eyes light up. This strange European critic understands conceptual art's playful provocations.
+c-YOKO
+p-(genuinely engaged)
+d-Or perhaps it is simply a chance to do something good while you are here.
+c-CLIVE
+p-(scribbling frantically in his notebook)
+d-Ah, zeh duality! Zis is vy your vork transcends zee... zee bourgeois limitations of traditional art forms. You are not just making objects, you are... you are creating experiences of consciousness itself!
+a-His accent wavers between German, vaguely Eastern European, and occasionally slips into pure English before he catches himself.
+a-Across the gallery, PAUL MCCARTNEY (26) enters quietly, looking around with the cautious air of someone out of his element. He spots Yoko in deep conversation with the intense, foreign-looking stranger and moves closer, staying partially hidden behind a large abstract sculpture.
+c-YOKO
+p-(to Clive, warming to the discussion)
+d-Most people see my work and think it's empty or meaningless. But you understand that the meaning comes from the interaction, the participation.
+c-CLIVE
+p-(leaning in conspiratorially, his voice dropping)
+d-Perhaps... perhaps z'are others who vould benefit from understanding zis philosophy, ja? Zose who are... trapped in more conventional forms of expression?
+a-Paul's eyes narrow. He can't hear the words clearly, but the body language looks suspicious — the foreigner leaning in, speaking quietly, Yoko listening intently.
+c-YOKO
+p-(thoughtfully)
+d-Art should dissolve boundaries. Between performer and audience, between artist and subject. When John and I work together, we try to break down those artificial separations.
+c-CLIVE
+p-(his eyes lighting up with what he believes is recruitment opportunity)
+d-Ah, John! Your... your collaborator. He must be very... vhat is zee vord... receptive to new ideas, ja? New vays of seeing zee vorld?
+c-YOKO
+p-(simply)
+d-I hope to see everything differently than I did yesterday. John does, too. We both do.
+a-Paul watches as Clive pulls out a business card and hands it to Yoko with a slight bow. Even from across the room, Paul can see it's some kind of formal exchange.
+c-CLIVE
+p-(straightening his beret one final time)
+d-I vould very much like to write about your vork for zee European art journals. Perhaps vee could... how you say... continue zis conversation at another time?
+c-YOKO
+p-(taking the card graciously)
+d-I'd like that. It's rare to meet someone who truly understands conceptual art.
+c-CLIVE
+p-(bowing slightly, his accent thick again)
+d-Zee pleasure is entirely mine, Fraulein Ono. Your vork... it vill change zee vorld, I am certain of zis.
+a-He backs away with another theatrical bow, nearly tripping over his own feet. As he exits, he adjusts his beret one last time and disappears into the London street.
+a-Paul emerges from behind the sculpture, his expression dark with suspicion. He approaches Yoko, who is still looking at the business card with mild interest.
+c-PAUL
+p-(trying to sound casual)
+d-Friend of yours?
+c-YOKO
+p-(looking up, surprised to see him)
+d-Paul. I didn't know you were here.
+c-PAUL
+p-(gesturing toward the exit)
+d-That bloke you were talking to. Seemed... intense.
+c-YOKO
+p-(serenely)
+d-Klaus. He's a German art critic. Very knowledgeable about conceptual work.
+c-PAUL
+p-(his suspicion growing)
+d-German, eh? What did he want?
+c-YOKO
+p-(simply)
+d-To understand the art. To write about it.
+a-Paul looks at the business card in her hand, then back toward the gallery entrance where Clive disappeared. His expression hardens with a mixture of protectiveness and paranoia.
+c-PAUL
+p-(quietly, more to himself)
+d-Right. Art critic.
+a-Yoko returns her attention to her installation, completely unaware of Paul's growing suspicion. She places Klaus's business card in her small purse with the same serene care she gives to everything else.
+a-The gallery's white walls seem to close in slightly, the sterile space suddenly feeling less like a temple to art and more like a stage for unseen dramas. Paul continues to stare at the exit, his mind racing with possibilities, all of them wrong.
+---- /home/jk/dev/HerMajestysDispleasure/src/content/scenes/act-2/s37-subject-immunity.mdx ----
+---
+title: "Subject Immunity"
+act: 2
+sequence: 10
+scene_number: 26
+location: 
+  - "abbey-road-studios-lounge"
+  - "mi5-surveillance-van"
+time_of_day: "day"
+characters:
+  - "band/john-lennon"
+  - "band/paul-mccartney"
+  - "band/ringo-starr"
+  - "supporting/clive-barrow"
+  - "supporting/nigel-finch"
+purpose: "Comedic beat showing the mission's absurdity and Ringo's role as the unintentional spanner in the works."
+conflict: "Clive's elaborate poisoning attempt versus Ringo's innocent interference and natural immunity to manipulation."
+emotional_beat: "Dark comedy through bureaucratic incompetence defeated by simple decency."
+page_count: 1
+status: "draft"
+notes: "Ringo's cheerful obliviousness should contrast sharply with the tension between John and Paul. Clive's rage at 'Subject Immunity' is crucial character work."
+created: 2025-07-27
+---
+t-FADE IN:
+s-INT. ABBEY ROAD STUDIOS LOUNGE - DAY (MARCH 1969)
+a-The comfortable retreat. Worn leather furniture, gold records, tall windows. The space feels familiar but tense.
+a-JOHN LENNON (28) and PAUL MCCARTNEY (26) sit in armchairs, their body language rigid. On a side table between them sits a delicate china teacup, steam rising from the amber liquid. It's positioned perfectly to be in John's reach.
+c-PAUL
+p-(quietly, controlled)
+d-We can't just... abandon everything we've built, John. The fans, the music, the—
+c-JOHN
+p-(interrupting, weary)
+d-The what, Paul? The machine? The bloody circus?
+t-CUT TO:
+s-INT. MI5 SURVEILLANCE VAN - CONTINUOUS
+a-CLIVE BARROW (45) leans into his equipment, eyes gleaming. NIGEL FINCH (52) reads a file, unimpressed.
+c-CLIVE
+p-(into his radio, a hushed whisper)
+d-The catalyst is in the pot. Once ingested, the psychoactive compound will amplify his existing paranoia and creative anxieties. It will shatter the group's cohesion from the inside.
+c-NIGEL
+p-(without looking up)
+d-Or he'll just write another song about a walrus.
+a-Clive glares at him, then puts his headphones back on, focusing intently.
+t-BACK TO:
+s-INT. ABBEY ROAD STUDIOS LOUNGE - CONTINUOUS
+c-PAUL
+p-(leaning forward)
+d-The band. Our band.
+a-John looks away, his jaw tight. The teacup sits untouched.
+c-JOHN
+p-(after a pause)
+d-Maybe it's time to admit it's not our band anymore. Maybe it never was.
+a-The door bursts open. RINGO STARR (29) enters, radiating uncomplicated good humor.
+c-RINGO
+p-(grinning)
+d-Blimey, you two. Give it a rest. Like an old married couple, you are.
+a-Ringo spots the teacup. His face lights up.
+c-RINGO (CONT'D)
+d-Ooh, is that for anyone? Parched, I am.
+a-Before either John or Paul can respond, Ringo plucks the teacup from its saucer.
+t-CUT TO:
+s-INT. MI5 SURVEILLANCE VAN - CONTINUOUS
+a-Clive hears this and his body goes rigid.
+c-CLIVE
+p-(whispering urgently)
+d-Non-target approaching the delivery mechanism. Abort! ABORT!
+a-But it's too late. Through his headphones, he hears Ringo take a long, satisfying sip.
+c-RINGO (V.O.)
+p-(through the radio, cheerful)
+d-That's nice. Bit lemony. The steam's making lovely patterns...
+a-Clive's face cycles through confusion, realization, then pure, silent rage. He rips the headset off with a CLATTER.
+c-CLIVE
+p-(exploding)
+d-Subject Immunity! It's scientifically impossible!
+a-He gestures wildly at the radio equipment.
+c-CLIVE (CONT'D)
+p-(ranting)
+d-Five years of psychological profiling! It's supposed to induce ego fragmentation! Paranoia! Not... not a bloody tea review!
+c-NIGEL
+p-(dryly, not looking up from his file)
+d-He seems content.
+c-CLIVE
+p-(desperately)
+d-But the operational parameters! The psycho-chemical matrix! The—
+c-NIGEL
+p-(sighing)
+d-Clive.
+a-Nigel opens a thick file folder labeled "STARR, R." He flips to a page that's mostly blank.
+c-NIGEL (CONT'D)
+p-(reading aloud)
+d-"Subject displays a baseline level of contentment impervious to psycho-chemical manipulation. Possesses no exploitable ego or anxieties. Recommendation: ignore."
+a-He closes the file with the finality of a judge's gavel.
+c-NIGEL (CONT'D)
+p-(matter-of-factly)
+d-He's immune, Clive. Some people just are.
+a-Clive slumps in his chair, defeated. The sophisticated technology around him suddenly looks like expensive junk.
+a-Nigel makes a small notation in his logbook. Outside, London continues its day, completely unaware that a government conspiracy has just been neutralized by a thirsty drummer.

@@ -1,0 +1,215 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import { calcEpisodeRuntime } from "@/utils/screenplay/calcEpisodeRuntime";
+
+/**
+ * Load collections
+ */
+const episodes = await getCollection("episodes");
+const scenes = await getCollection("scenes");
+
+/**
+ * Scene lookup by id + slug
+ * (supports either reference style in episode frontmatter)
+ */
+const sceneMap = new Map<string, CollectionEntry<"scenes">>();
+
+for (const scene of scenes) {
+  sceneMap.set(scene.id, scene);
+  sceneMap.set(scene.slug, scene);
+}
+
+/**
+ * Sort episodes by episode number
+ */
+const sortedEpisodes = [...episodes].sort(
+  (a, b) => a.data.episode_number - b.data.episode_number
+);
+
+/**
+ * Precompute runtime + page counts per episode
+ */
+type EpisodeRuntimeMeta = {
+  minutes: number;
+  pages: number;
+};
+
+const episodeRuntimeMap = new Map<string, EpisodeRuntimeMeta>();
+
+for (const episode of sortedEpisodes) {
+  const resolvedScenes = episode.data.scenes
+    .map(ref => {
+      const id = typeof ref === "string" ? ref : ref.id;
+      return sceneMap.get(id) ?? null;
+    })
+    .filter(Boolean) as CollectionEntry<"scenes">[];
+
+  const pages = calcEpisodeRuntime(resolvedScenes);
+
+  episodeRuntimeMap.set(episode.slug, {
+    minutes: Math.round(pages),
+    pages,
+  });
+}
+
+/**
+ * Format minutes into human-friendly time
+ */
+function formatTime(minutes: number): string {
+  if (minutes < 60) return `${minutes}m`;
+
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+
+  return remainingMinutes
+    ? `${hours}h ${remainingMinutes}m`
+    : `${hours}h`;
+}
+---
+
+<Layout title="Episodes - Her Majesty's Displeasure">
+  <div class="container">
+    <h1>Episodes</h1>
+    <p>Full episodes assembled from selected scenes</p>
+
+    <div class="items-grid">
+      {
+        sortedEpisodes.map((episode) => {
+          const runtime = episodeRuntimeMap.get(episode.slug);
+
+          return (
+            <div class="item-card">
+              <h3>
+                <a href={`/episodes/${episode.slug}`}>
+                  Episode {episode.data.episode_number}: {episode.data.title}
+                </a>
+              </h3>
+
+              <div class="meta">
+                <span class="episode-num">
+                  Ep {episode.data.episode_number}
+                </span>
+
+                <span class="scene-count">
+                  {episode.data.scenes.length} Scenes
+                </span>
+
+                {runtime && (
+                  <span class="runtime">
+                    ~{formatTime(runtime.minutes)} ({runtime.pages} pages)
+                  </span>
+                )}
+              </div>
+
+              <div class="episode-details">
+                <p>
+                  <strong>Logline:</strong> {episode.data.logline}
+                </p>
+
+                {episode.data.timeframe && (
+                  <p>
+                    <strong>Timeframe:</strong> {episode.data.timeframe}
+                  </p>
+                )}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .item-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .item-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+
+  .item-card a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .item-card a:hover {
+    color: #0066cc;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .episode-num,
+  .scene-count,
+  .runtime {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+
+  .episode-num {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .scene-count {
+    background: #e8f5e8;
+    color: #2e7d32;
+  }
+
+  .runtime {
+    background: #fff3e0;
+    color: #f57c00;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .episode-details p {
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .back-link a:hover {
+    color: #0066cc;
+  }
+</style>

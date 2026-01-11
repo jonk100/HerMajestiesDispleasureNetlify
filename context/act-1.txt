@@ -13,14 +13,11 @@ characters:
 purpose: "Establish The Beatles' irreverent character and nervous energy before the ceremony, setting up their casual disregard for royal protocol that will later trigger Philip's fury."
 conflict: "The tension between their working-class origins and the formal royal setting, manifested through their need to calm their nerves in an unconventional way."
 emotional_beat: "Nervous excitement mixed with rebellious humor as they prepare to enter the most formal setting of their lives."
-page_count: 2
+page_count: 1.5
 status: "draft"
 notes: "Focus on the absurdity of smoking cannabis in the Queen's bathroom. Show each character's personality through their reactions. John leads, Paul worries, George philosophizes, Ringo goes along."
 created: 2025-07-25
 ---
-
-FADE IN:
-
 s-INT. BUCKINGHAM PALACE - PRIVATE BATHROOM - DAY (OCTOBER 26, 1965)
 
 a-An ornate bathroom with marble fixtures and gilded mirrors. Crystal sconces cast warm light over royal appointments that have witnessed centuries of history.
@@ -56,7 +53,7 @@ c-JOHN
 d-Good. Let them print it. Maybe they'll finally understand we're not their trained little monkeys.
 
 c-PAUL
-d-(we just need to get through this ceremony without incident. Smile, say thank you, don't mention the war... religion... Anything controversial—)
+d-We just need to get through this ceremony without incident. Smile, say thank you, don't mention the war... religion... Anything controversial—
 
 c-JOHN
 p-(with a working-class skepticism)
@@ -137,6 +134,7 @@ a- Then John steps forward. He gives a nod and takes the medal from the Queen, h
 
 a- To anyone else, it's nothing. To Philip, it's a fraction too casual — a clear sign of contempt. He looks away, his disapproval hardening into something colder.
 
+
 ---
 title: "The Invasion"
 act: 1
@@ -148,12 +146,12 @@ characters:
   - "royalty/lord-mountbatten"
   - "royalty/prince-phillip"
   - "misc/equerry"
-purpose: "Deliver the story's inciting incident: Philip witnesses John's 'killing people' comment on television, transforming his private irritation into a cold, vengeful fury that launches the conspiracy."
-conflict: "The modern, chaotic world of media (The Beatles) invades the ancient, ordered world of the monarchy (Philip), triggering a declaration of war."
-emotional_beat: "From controlled annoyance to incandescent rage. The moment Philip's personal vendetta is born."
-page_count: 2
+purpose: "Separate the private world of the monarchy from the public spectacle, physically routing Philip away from the Beatles and toward the moment of ignition."
+conflict: "Institutional order asserts control, redirecting potential chaos elsewhere."
+emotional_beat: "Cool, procedural calm — power exercised without friction."
+page_count: .5
 status: "draft"
-notes: "The visual contrast is key: the silent, orderly study vs. the grainy, chaotic television footage. The sound design should emphasize this clash."
+notes: "This is a hinge scene. Its restraint is intentional; the emotional explosion comes later."
 created: 2025-07-26
 ---
 
@@ -168,7 +166,7 @@ d-Your Royal Highness. Your car is waiting at the private west exit. The...
 p-(apologetically clearing his throat)
 d-musical group will be escorted to the press pen in the Grand Entrance.
 
-a-Philip gives a curt, dismissive nod and turns, leading Mountbatten down a long, silent, portrait-lined corridor.
+a-Mountbatten clocks the phrase “musical group” — just a flicker of amusement. Philip gives a curt, dismissive nod and turns, leading Mountbatten down a long, silent, portrait-lined corridor.
 
 ---
 title: "The Invasion"
@@ -183,12 +181,12 @@ characters:
   - "band/george-harrison"
   - "band/ringo-starr"
   - "misc/palace-official"
-purpose: "Deliver the story's inciting incident: Philip witnesses John's 'killing people' comment on television, transforming his private irritation into a cold, vengeful fury that launches the conspiracy."
-conflict: "The modern, chaotic world of media (The Beatles) invades the ancient, ordered world of the monarchy (Philip), triggering a declaration of war."
-emotional_beat: "From controlled annoyance to incandescent rage. The moment Philip's personal vendetta is born."
-page_count: 2
+purpose: "Position the Beatles on the threshold between private instinct and public consequence, foreshadowing the remark that will ignite the story."
+conflict: "Paul’s instinct for caution clashes with John’s reflex toward provocation."
+emotional_beat: "Playful confidence edged with nervous anticipation."
+page_count: .5
 status: "draft"
-notes: "The visual contrast is key: the silent, orderly study vs. the grainy, chaotic television footage. The sound design should emphasize this clash."
+notes: "This is the last calm beat before the public explosion. Keep it light, quick, and ominous in retrospect."
 created: 2025-07-26
 ---
 
@@ -211,7 +209,7 @@ title: "The Invasion"
 act: 1
 sequence: 2
 scene_number: 5
-location: "buckingham-palace-corridors-and-private-study"
+location: "buckingham-palace-grand-entrance"
 time_of_day: "day"
 characters:
   - "band/john-lennon"
@@ -219,12 +217,12 @@ characters:
   - "band/ringo-starr"
   - "band/george-harrison"
   - "misc/reporters"
-purpose: "Deliver the story's inciting incident: Philip witnesses John's 'killing people' comment on television, transforming his private irritation into a cold, vengeful fury that launches the conspiracy."
-conflict: "The modern, chaotic world of media (The Beatles) invades the ancient, ordered world of the monarchy (Philip), triggering a declaration of war."
-emotional_beat: "From controlled annoyance to incandescent rage. The moment Philip's personal vendetta is born."
-page_count: 1
+purpose: "Release John’s offhand remark into the uncontrolled public sphere, stripping it of context and setting up its later weaponization."
+conflict: "Public spectacle and press chaos overwhelm private intent, while Paul senses the consequences before anyone else."
+emotional_beat: "Exuberant chaos curdles into a flicker of unease."
+page_count: .5
 status: "draft"
-notes: "The visual contrast is key: the silent, orderly study vs. the grainy, chaotic television footage. The sound design should emphasize this clash."
+notes: "The audience should not fully hear the quote here. Confusion and momentum are the point."
 created: 2025-07-26
 ---
 
@@ -256,15 +254,15 @@ scene_number: 6
 location: "buckingham-palace-prince-phillip-private-study"
 time_of_day: "evening"
 characters:
-  - "band/john-lennon"
   - "royalty/prince-phillip"
   - "misc/bbc-newscaster"
-purpose: "Deliver the story's inciting incident: Philip witnesses John's 'killing people' comment on television, transforming his private irritation into a cold, vengeful fury that launches the conspiracy."
-conflict: "The modern, chaotic world of media (The Beatles) invades the ancient, ordered world of the monarchy (Philip), triggering a declaration of war."
-emotional_beat: "From controlled annoyance to incandescent rage. The moment Philip's personal vendetta is born."
+  - "band/john-lennon"
+purpose: "To show the moment John’s off-hand remark is interpreted by Philip as a personal and ideological insult, converting irritation into resolve and triggering the call that will become Operation Minuet."
+conflict: "Philip’s rigid worldview collides with a new form of cultural power he cannot control, forcing him to reframe a casual remark as an existential threat."
+emotional_beat: "From controlled composure to focused, incandescent fury."
 page_count: 1
 status: "draft"
-notes: "The visual contrast is key: the silent, orderly study vs. the grainy, chaotic television footage. The sound design should emphasize this clash."
+notes: "This is the moment of meaning-making, not utterance. The study should feel sealed and ritualistic, with the television acting as an intrusive, distorting lens that freezes John into an image Philip can never unsee."
 created: 2025-07-26
 ---
 
@@ -330,7 +328,7 @@ characters:
 purpose: "To show The Beatles in their natural habitat, oblivious to the conspiracy. This creates dramatic irony and establishes the existing hairline fractures in the band that Operation Minuet will exploit."
 conflict: "The celebratory mood is subtly undermined by the natural creative tensions within the group: John's artistic restlessness vs. Paul's commercial drive, and George's simmering creative frustration."
 emotional_beat: "Triumphant celebration gives way to the first hints of creative friction, a glimpse of the fault lines beneath the surface of their unity."
-page_count: 4
+page_count: 2.5
 status: "draft"
 notes: "This scene is the 'control group' before the experiment begins. The audience should see both their incredible bond and the cracks that make them vulnerable."
 created: 2025-07-26
@@ -410,7 +408,7 @@ c-JOHN
 p-(smiling, but distant)
 d-Feels like the beginning of something.. bigger..
 
-a-John looks up raises his glass again.
+a-John looks up. His smile grows wider as he raises his glass again.
 
 c-JOHN
 d-To Ringo. The only sane one among us. And to the toppermost of the poppermost!
@@ -422,13 +420,13 @@ d-To the toppermost!
 
 a-They drink, laughing again — the cracks papered over by history, affection, and shared momentum.
 
-a-The camera holds on the four of them: united, victorious, and utterly unaware of what's to come.
+a-The camera holds on the four of them: united, victorious, and utterly unaware of the massive, brewing firestorm to come.
 
 ---
 title: "The Committee"
 act: 1
 sequence: 3
-scene_number: 7
+scene_number: 8
 location: "buckingham-palace-private-study"
 time_of_day: "evening"
 characters:
@@ -438,7 +436,7 @@ characters:
 purpose: "To formally establish the 'Operation Minuet' conspiracy, transforming Philip's raw fury into a structured plan and revealing the core dynamics between the royal conspirators."
 conflict: "Philip's emotional demand for action clashes with the Queen's pragmatic caution, forcing Mountbatten to architect a plan that satisfies both."
 emotional_beat: "The transformation of personal indignation into a formal, state-sanctioned (if secret) conspiracy. Righteous anger gets a code name."
-page_count: 4
+page_count: 3
 status: "draft"
 notes: "Expanded version. Focus on the triangular dynamic: Philip provides the personal 'why,' Mountbatten the strategic 'how,' and the Queen the historical 'should we?'. Use quotes and traits from their profiles to anchor their voices."
 created: 2025-07-26
@@ -454,17 +452,20 @@ a-QUEEN ELIZABETH II sits opposite him, hands folded in her lap. A corgi sleeps 
 
 c-PRINCE PHILIP
 d-It's a complete mockery. Not just of the honour, but of the entire system. All of us.
-p-(he turns from the fire, his voice low and intense)
+
+a-He turns from the fire.
+
+c-PRINCE PHILIP (CONT'D)
+p-(low and intense)
 d-I wore that uniform. I served on those ships. I knew men who received these medals — many posthumously — for doing their duty without question or comment. And we give the same honour to a... a popinjay who jokes about "killing people" for it.
-p-(gesturing dismissively, his frustration palpable)
+p-(gesturing dismissively)
 d-And, of course, the press lap it up. They treat him like a philosopher king. This is how it starts. The slow, steady erosion of respect. A complete failure to understand the proper order of things.
 
 a-The Queen rises calmly and moves to a side table, adjusting a silver-framed photograph by a fraction of an inch. A small act of order in the face of chaos.
 
 c-QUEEN ELIZABETH II
 p-(quietly, her back to them)
-d-The Crown has weathered unruly poets, pamphleteers, and public figures of every stripe. They are dramatic, their time passes, and the institution endures. One imagines the best course of action is simply to ignore it.
-It will be forgotten in a week.
+d-The Crown has weathered unruly poets, pamphleteers, and public figures of every stripe. They are dramatic, their time passes, and the institution endures. One imagines the best course of action is simply to ignore it. It will be forgotten in a week.
 
 c-PRINCE PHILIP
 d-Will it? Or will it be seen as yet another sign that we have no authority? That we are irrelevant? This is not just a family, it's a firm. And we must protect our interests.
@@ -555,19 +556,20 @@ a-Across from them sit NIGEL FINCH (48) and CLIVE BARROW (41). Nigel is perfectl
 c-SIR DEREK
 d-Gentlemen. Thank you for coming. We have a matter of some national sensitivity. A delicate but vital undertaking that requires the utmost discretion.
 
-a-He slides a thin folder across the table. It is labeled "OPERATION MINUET."
+a-He pulls a thin folder from his very fancy, oversized briefcase and slides it across the table. It is labeled "OPERATION MINUET".
 
 c-SIR DEREK (CONT'D)
 d-This initiative concerns a unique cultural asset. One that has... begun to operate outside of its preferred parameters.
 
+a-Mountbatten cuts in, his voice like iron.
+
 c-LORD MOUNTBATTEN
-p-(cutting in, his voice like iron)
 d-To be precise, it's become a cultural threat. Their influence is organic and it's spreading... It's infectious - cancerous. It can't be commanded, and must be managed with nuance.
 
 a-Clive leans forward, his eyes wide with excitement. He opens the folder and his face lights up.
 
 c-CLIVE
-a-The Beatles. Of course. A classic case of aesthetic subversion! Their semiotic framework is... it's pure psychological warfare wrapped in a three-minute pop song! We must eradicate this disease!
+d-The Beatles. Of course. A classic case of aesthetic subversion! Their semiotic framework is... it's pure psychological warfare wrapped in a three-minute pop song! We must eradicate this disease!
 
 a-Nigel slowly closes his eyes for a single, weary beat. Two fingers land on each temple as he opens his eyes and looks at Sir Derek.
 
@@ -597,7 +599,7 @@ d-... Sitars, sir?
 c-LORD MOUNTBATTEN
 d-Indeed. Some sort of guitar-harp hybrid as I understand it. Nurture that. A man focused on finding the perfect drone is a man less focused on the team. It's a simple pressure point.
 
-a-Nigel attempts to jot a few notes in his notebook, but after crossing out several misspellings of sitar, just ends up with "encourage sitar studies?"
+a-Nigel does his best to get something down in his notebook, but after crossing out several misspellings of sitar, just ends up with: "ENCOURAGE SITAR STUDIES?"
 
 c-NIGEL
 d-And the drummer, sir? Starr?
@@ -1314,9 +1316,7 @@ a-MAUREEN CLEAVE, 32, sharp and professional, sits at her desk reviewing notes.
 
 a-She glances at a discarded fan magazine nearby. The cover reads "PAUL'S FAVORITE FOODS." She rolls her eyes.
 
-a-Her own desk is crowded with Beatles coverage. Reviews of "Rubber Soul," concert reports, and thoughtful essays on cultural impact and artistic evolution.
-
-a-Maureen picks up a copy of "Rubber Soul" and studies the cover.
+a-Her own desk is crowded with Beatles coverage. Reviews of "Rubber Soul," concert reports, and thoughtful essays on cultural impact and artistic evolution. She picks up a copy of "Rubber Soul" and studies the cover.
 
 c-MAUREEN
 p-(to herself)
@@ -1346,7 +1346,7 @@ c-MAUREEN
 p-(interrupting, passionate)
 d-Are they? "In My Life." Indian music. Studio experimentation. These are cultural leaders, not just entertainers.
 
-a-She picks up a philosophy book from her desk.
+a-She picks up a slim paperback from her desk. “Why I Am Not a Christian — Bertrand Russell.” Its pages are dog-eared, underlined.
 
 c-MAUREEN (CONT'D)
 d-The youth are changing. Churches are empty. Concert halls are full. The Beatles are reflecting that shift and driving it.
@@ -1469,7 +1469,6 @@ a-He writes: "Evening Standard profile on LENNON. Monitor closely."
 
 t-SCENE END
 
-
 ---
 title: "Negotiations"
 act: 1
@@ -1481,34 +1480,29 @@ characters: ["brian-epstein", "maureen-cleave"]
 summary: "Brian Epstein and Maureen Cleave negotiate the terms of her in-depth interviews with The Beatles. Epstein carefully controls access and risk, while Cleave presses for intellectual honesty and independence."
 created: 2025-08-02
 ---
-
-s-SCENE START
-
-s-Negotiations
-
-t-FADE IN:
-
 s-INT. BRIAN EPSTEIN'S OFFICE - DAY (FEBRUARY 1966)
-a-A tastefully modern office in central London. Sleek furniture, framed Beatles memorabilia on the walls. The large desk is a model of organized chaos: neat stacks of contracts, a brimming but orderly inbox tray, and a leather-bound calendar black with appointments.
+a-A tastefully modern office in central London. Sleek furniture, framed Beatles memorabilia on the walls. The large desk is a model of organized chaos: neat stacks of contracts, a brimming but orderly inbox tray, and a leather-bound calendar filled with appointments.
 
 a-MAUREEN CLEAVE, 32, sits comfortably but alert across from BRIAN EPSTEIN, 31, who reviews a document with subtle intensity.
 
 c-MAUREEN
 d-I'm not interested in fluff, Brian. This isn't for a teen mag. I want real access. Thoughtful conversations, not just press quotes.
 
+a-Epstein doesn't look up.
+
 c-EPSTEIN
-p-(without looking up)
 d-You have invariably shown finer judgement than most, Maureen. John recognises that.
 
 c-MAUREEN
 d-It's not just John. I want to do all four of the boys — individually. Where they live. Who they are when the fans aren't watching.
 
-c-EPSTEIN
 a-He finally meets her gaze.
+
+c-EPSTEIN
 d-And what are you hoping to find?
 
 c-MAUREEN
-p-(firm)
+p-(with increasing firmness)
 d-Who they're becoming. Not the legend — just the men. It's clear the roles are evolving. Paul's the diplomat. George is searching. Ringo's observing everything. And John... well, he's in flux.
 
 c-EPSTEIN
@@ -1532,10 +1526,9 @@ c-EPSTEIN
 d-We should consider the terms of engagement. No entourage is acceptable. We'll retain copy approval for factual accuracy, naturally. But the substance — the tone — I don't need surprises right now.
 
 c-MAUREEN
-d-You'll have copy approval for factual accuracy.
-d-But the substance — their words, their tone, the framing — that stays mine.
+d-You'll have copy approval for factual accuracy. But the substance — their words, their tone, the framing — that stays mine.
 
-a-Epstein considers this carefully.
+a-Epstein takes a long drag on his cigarette. Considering. Cautiously.
 
 c-EPSTEIN
 d-You'll begin with John?
@@ -1545,7 +1538,7 @@ d-If he's willing.
 
 c-EPSTEIN
 d-He will be. He's been restless. Daring someone to ask real questions. Just...
-p-(measured)
+p-(again, calculating)
 d-We must be careful. His honesty can be utterly forthright when his mind is engaged.
 
 c-MAUREEN
@@ -1554,8 +1547,7 @@ d-I'd expect nothing less.
 a-Epstein returns to his desk and opens a small leather-bound address book.
 
 c-EPSTEIN
-d-I'll schedule it for next week. Kenwood. Weybridge.
-d-My office will coordinate with you.
+d-I'll schedule it for next week. Kenwood. Weybridge. My office will coordinate with you.
 
 c-MAUREEN
 d-Thank you, Brian.
@@ -1569,28 +1561,25 @@ d-Yes, Wendy?
 c-WENDY (V.O.)
 d-Mr. Epstein, the American tour promoters are here for the two o'clock.
 
-c-EPSTEIN
-a-Glances at his watch.
-d-Thank you. Give me two minutes.
+c-EPSTEIN (CONT'D)
+p-glancing at his watch.
+d-Thanks, Wendy. Give me two minutes.
 
 a-He releases the button and turns fully back to Maureen. The outside chaos held at bay.
 
 c-EPSTEIN
-d-This isn't about headlines. It's about their respectability.
-d-Remember that when he starts talking... and where those words might travel.
+d-This isn't about headlines. It's about their respectability. Remember that when he starts talking... consider where those words might travel.
 
 c-MAUREEN
 d-I will.
 
-a-She exits quietly. Epstein exhales and leans back, gazing at the London skyline. Alone now, the control slips.
-
-a-He opens a desk drawer, pulls out a bottle of pills, tosses a handful into his mouth, and swallows.
+a-As Maureen exits quietly, Brian sighs and watches the door close behind her. 
 
 c-EPSTEIN
-p-(to himself)
+p-under his breath
 d-Let's hope the world's ready to hear what he has to say.
 
-s-SCENE END
+a-He sighs deeply again and leans back, gazing at the London skyline. Alone now, the control slips. He pulls a bottle of pills from a desk drawer, casually tosses a handful in his mouth, closes his eyes and swallows.
 
 ---
 title: "The Interview"
@@ -1612,24 +1601,24 @@ status: "draft"
 notes: "Crucial to show the quote in its original conversational context - thoughtful observation, not provocation. Based on actual Maureen Cleave interview research."
 created: 2025-07-28
 ---
-
 s-INT. JOHN'S WEYBRIDGE HOME - LIVING ROOM - DAY (MARCH 4, 1966)
-a-The same room seen earlier. Books everywhere. On the coffee table: eight small green boxes with winking red lights. JOHN LENNON, 25, pokes one whose light has just died.
+a-The same room seen earlier. Books everywhere. On the cluttered coffee table: notebooks, tea cups, a dog-eared paperback — ALDOUS HUXLEY, “THE DOORS OF PERCEPTION,” and eight small green boxes with winking red lights. JOHN LENNON, 25, pokes one whose light has just died.
 
 c-JOHN
 p-(to himself)
-d-Blast. Another one gone.
+d-Another one gone...
 
 a-He settles back into his armchair, a cup of tea balanced precariously. Casual sweater and jeans. Hair longer now, falling across his forehead. Relaxed. At ease.
 
-a-MAUREEN CLEAVE, 32, sits opposite him. Notebook open. Tape recorder on the table between them. The atmosphere is intimate and conversational — two intelligent people thinking aloud.
+a-MAUREEN CLEAVE, 32, sits opposite him. Notebook open. Tape recorder on the table between them. Her eyes move along the shelves: poetry, paperbacks, philosophy. COLIN WILSON. “THE OUTSIDER.”
+
+a-The atmosphere is intimate and conversational — two intelligent people thinking aloud.
 
 c-MAUREEN
-a-Glances at the books.
 d-I have to say, John, this isn’t what most people would expect from a pop star’s living room.
 
 c-JOHN
-p-(slight smile)
+p-smiling slightly
 d-What would they expect? Gold records on the walls and a jukebox?
 
 c-MAUREEN
@@ -1637,29 +1626,31 @@ d-Something like that. Instead, I see...
 
 a-She picks up a book.
 
-c-MAUREEN
-d-Hugh Schonfield. *The Passover Plot.* Not exactly typical reading for someone who sings “She Loves You.”
+c-MAUREEN (CONT'D)
+d-Hugh Schonfield. THE PASSOVER PLOT. Not exactly typical reading for someone who sings “She Loves You.”
+
+a-John leans forward with excitement.
 
 c-JOHN
-a-Leans forward, animated.
+p-animated
 d-That’s exactly the point, isn’t it? Everyone thinks because we sing pop songs, we must be empty-headed. But why can’t you make music and think at the same time?
 
-a-He gestures at the surrounding books.
+a-John reaches for another book, sets it down without ceremony: BERTRAND RUSSELL. “WHY I AM NOT A CHRISTIAN.”
 
-c-JOHN
+c-JOHN (CONT'D)
 d-I read everything I can get my hands on. Philosophy, religion, poetry. The more famous we get, the more I realize how little I actually know about… well, everything.
 
 c-MAUREEN
-a-Making notes.
+p-scribbling with a practiced ease
 d-And what are you discovering in all this reading?
 
 c-JOHN
 p-(thoughtful)
 d-That most of what we’re taught to believe is just… stories. Useful stories, maybe, but stories nonetheless.
 
-a-He picks up a book on Eastern philosophy.
+a-He picks up a slim volume. D.T. SUZUKI. “ZEN BUDDHISM.”
 
-c-JOHN
+c-JOHN (CONT'D)
 d-Take Christianity. I was brought up Church of England, like most people. But then you read about other religions, other ways of thinking, and you realize… it’s all just different attempts to explain the same mysteries.
 
 c-MAUREEN
@@ -1675,41 +1666,39 @@ c-MAUREEN
 d-You mentioned Christianity specifically. How do you see its role in modern Britain?
 
 c-JOHN
-a-Settles back.
+p-settling back
 d-Honestly? I think it’s dying. Not the ideas — some of the ideas are brilliant. Love your neighbor, help the poor, all that. But the institution, the organized bit...
 
 a-He shakes his head.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-Look around. How many young people do you know who actually go to church? Who really believe in all the ritual and ceremony?
 
 c-MAUREEN
 d-And you think that’s significant?
 
 c-JOHN
-a-Warming to the subject.
+p-warming to the subject.
 d-I think it’s inevitable. Christianity will go. It will vanish and shrink. I needn’t argue about that; I’m right and I will be proved right.
 
 a-He pauses, takes a sip of tea. Then, still casually—
 
-c-JOHN
+c-JOHN (CONT'D)
 d-We’re more popular than Jesus now. I don’t know which will go first, rock ’n’ roll or Christianity. Jesus was all right, but his disciples were thick and ordinary. It’s them twisting it that ruins it for me.
 
-a-The words hang briefly. No drama. No emphasis.
-
-a-Maureen writes it down like any other observation.
+a-The words hang briefly. No drama. No emphasis. Maureen writes it down like any other observation.
 
 c-MAUREEN
 p-(thoughtful)
 d-That’s quite a statement.
 
 c-JOHN
-p-(shrugs)
+p-(shrugging)
 d-Is it? Look at the evidence. We fill stadiums with kids who know every word to our songs. When’s the last time you saw that kind of passion in a church?
 
 a-He leans forward, earnest.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-I’m not saying it’s good or bad. I’m just observing what’s happening. The world’s changing. Young people are looking for meaning in different places.
 
 c-MAUREEN
@@ -1719,9 +1708,9 @@ c-JOHN
 p-(considering)
 d-Some of it, maybe. When we sing about love, or confusion, or growing up… maybe that speaks more directly than ancient parables.
 
-a-He picks up *Rubber Soul*.
+a-He picks up RUBBER SOUL.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-We’re trying to say something real here. About memory. Change. Searching for something deeper than entertainment.
 
 c-MAUREEN
@@ -1733,7 +1722,7 @@ d-God, no. Don’t make us sound like prophets. We’re just four lads from Live
 
 a-He trails, then looks at her.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-But if our music helps people think, or feel less alone, or question things they’ve taken for granted… maybe that’s useful.
 
 s-EXT. JOHN'S WEYBRIDGE HOME - CONTINUOUS
@@ -1743,8 +1732,9 @@ c-CLIVE
 p-(whispering)
 d-Twenty-three minutes straight! This is clearly a propaganda session!
 
+a-Nigel lowers the binoculars, sighs, and looks back at Clive.
+
 c-NIGEL
-a-Lowers binoculars.
 d-It’s called an interview, Clive.
 
 c-CLIVE
@@ -1755,14 +1745,14 @@ p-(deadpan)
 d-Or he’s talking.
 
 s-INT. JOHN'S WEYBRIDGE HOME - CONTINUOUS
-a-John shows Maureen another book.
+a-John indicates an open book nearby. JOSEPH CAMPBELL. “THE HERO WITH A THOUSAND FACES.” Marginal notes in pencil.
 
 c-JOHN
 d-All religions start the same. Love. Compassion. Then come the rules. The hierarchies.
 
 a-Dismissive wave.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-Politics. Power instead of truth.
 
 c-MAUREEN
@@ -1773,7 +1763,7 @@ d-Anything that feels imposed. They want authenticity.
 
 a-He sits, thoughtful.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-Maybe that’s why the music connects. We’re not pretending to have answers. We’re figuring it out in public.
 
 c-MAUREEN
@@ -1785,7 +1775,7 @@ d-It makes it urgent. When millions are listening, you can’t waste it.
 
 a-A rare vulnerability.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-Not to preach. Just to be honest.
 
 c-MAUREEN
@@ -1796,14 +1786,14 @@ d-Maybe. Or maybe I’m just trying to understand where the world’s going.
 
 a-He looks out the window.
 
-c-JOHN
+c-JOHN (CONT'D)
 d-The old certainties don’t work anymore.
 
 c-MAUREEN
 d-And sometimes people look to you.
 
 c-JOHN
-p-(smiles)
+p-(smiling)
 d-Scary thought.
 
 a-They laugh. The recorder clicks off.
@@ -1815,7 +1805,7 @@ c-CLIVE
 d-Interview concluded. Recommend debrief.
 
 c-NIGEL
-a-Takes the radio.
+p-takes the radio.
 d-Disregard. Standard interview.
 
 a-He starts the van.
@@ -1823,4 +1813,9 @@ a-He starts the van.
 c-NIGEL
 d-Sometimes, Clive, a conversation is just a conversation.
 
-a-The van pulls away. The house remains. Quiet. Ordinary.
+a-The van pulls away. The house remains. Quiet. Ordinary. 
+
+a-Through the front window, the living room sits exactly as before. Sunlight falls across a low bookshelf. 
+
+a-Tucked between dense paperbacks: a battered copy of “ALICE’S ADVENTURES IN WONDERLAND”. Spine cracked. Well-loved.
+

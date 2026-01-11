@@ -7,7 +7,7 @@ visual_notes: "A room defined by miserable symmetry. Two identical grey metal de
 practical_notes: "The visual language must be pure Wes Anderson / Steven Conrad. The framing should be rigidly symmetrical to emphasize the prison-like nature of their new life. The desaturated color palette is essential. The sound design should be dominated by the constant, mournful sound of the wind outside."
 scenes_used:
   - "s31-the-falklands-desk"
-  - "s33-imagine"
+  - "s59-imagine"
 reference_images:
   - "The office from 'The Double' (2013)"
   - "Barren landscapes of the Falkland Islands"

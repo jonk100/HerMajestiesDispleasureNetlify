@@ -1,26 +1,188 @@
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 
+/**
+ * Explicit alias mapping from screenplay cues → character slugs
+ */
+const CHARACTER_ALIAS_MAP: Record<string, string> = {
+  JOHN: "band/john-lennon",
+  "JOHN LENNON": "band/john-lennon",
+
+  PAUL: "band/paul-mccartney",
+  "PAUL MCCARTNEY": "band/paul-mccartney",
+
+  GEORGE: "band/george-harrison",
+  "GEORGE HARRISON": "band/george-harrison",
+
+  RINGO: "band/ringo-starr",
+  "RINGO STARR": "band/ringo-starr",
+
+  YOKO: "band/yoko-ono",
+
+  BRIAN: "band/brian-epstein",
+  EPSTEIN: "band/brian-epstein",
+  "BRIAN EPSTEIN": "band/brian-epstein",
+
+  NIGEL: "supporting/nigel-finch",
+  "NIGEL FINCH": "supporting/nigel-finch",
+
+  CLIVE: "supporting/clive-barrow",
+  "CLIVE BARROW": "supporting/clive-barrow",
+
+  "SIR DEREK FINCHLEY": "supporting/sir-derrick-finchley",
+  "SIR DEREK": "supporting/sir-derrick-finchley",
+
+  PHILIP: "royalty/prince-phillip",
+  PHILLIP: "royalty/prince-phillip",
+  "PRINCE PHILIP": "royalty/prince-phillip",
+  "PRINCE PHILLIP": "royalty/prince-phillip",
+
+  MOUNTBATTEN: "royalty/lord-mountbatten",
+  "LORD MOUNTBATTEN": "royalty/lord-mountbatten",
+
+  "QUEEN ELIZABETH": "royalty/queen-elizabeth",
+  "QUEEN ELIZABETH II": "royalty/queen-elizabeth",
+  "THE QUEEN": "royalty/queen-elizabeth",
+
+  MARGARET: "royalty/princess-margarette",
+  MARGARETTE: "royalty/princess-margarette",
+  "PRINCESS MARGARET": "royalty/princess-margarette",
+  "PRINCESS MARGARETTE": "royalty/princess-margarette",
+
+  "GEORGE MARTIN": "supporting/george-martin",
+  "GLYN JOHNS": "supporting/glyn-johns",
+  "MAL EVANS": "supporting/mal-evans",
+  "BILLY": "supporting/billy-preston",
+  "BILLY PRESTON": "supporting/billy-preston",
+
+  "RAVI SHANKAR": "supporting/ravi-shankar",
+  LINDA: "supporting/linda-mccartney",
+  MAUREEN: "misc/maureen-cleave",
+  "MAUREEN CLEAVE": "misc/maureen-cleave",
+};
+
+/**
+ * Generic / background roles we intentionally do NOT track
+ */
+const GENERIC_ROLES = new Set<string>([
+  "ALL",
+  "REPORTERS",
+  "EDITOR",
+  "ENGINEER",
+  "WAITRESS",
+  "SECRETARY",
+  "AIDE",
+  "ANNOUNCER",
+  "NEWS REPORTER",
+  "RADIO DJ",
+  "RADIO NEWSCASTER",
+  "BBC NEWSCASTER",
+  "BBC ANNOUNCER",
+  "TV ANCHOR",
+  "PREACHER",
+  "CONDUCTOR",
+  "OFFICE WORKER",
+  "GALLERY OWNER",
+  "ROOMMATE",
+  "COLLEGE STUDENT",
+  "TEENAGER",
+  "TEENAGE GIRL",
+  "YOUNG WOMAN",
+  "JUNIOR REPORTER",
+]);
+
+/**
+ * Normalize screenplay dialogue cue into canonical character slug
+ *
+ * Examples:
+ * - "JOHN (CONT'D)" → band/john-lennon
+ * - "NIGEL (V.O.)" → supporting/nigel-finch
+ * - "PRINCE PHILIP (INTO PHONE)" → royalty/prince-philip
+ */
+function resolveCharacterSlug(cue: string): string | null {
+  const cleaned = cue
+    // remove all parentheticals: (CONT'D), (V.O.), (ON TV), etc
+    .replace(/\(.*?\)/g, "")
+    // remove numbered suffixes: TEENAGER #1 → TEENAGER
+    .replace(/\s+#\d+/g, "")
+    // normalize smart quotes
+    .replace(/[’']/g, "'")
+    .trim()
+    .toUpperCase();
+
+  // ignore background / generic roles entirely
+  if (GENERIC_ROLES.has(cleaned)) {
+    return null;
+  }
+
+  return CHARACTER_ALIAS_MAP[cleaned] ?? null;
+}
+
+
+/**
+ * Parse dialogue lines from raw scene body
+ *
+ * Rule:
+ * - Each `d-` line under a `c-CHARACTER` cue counts as 1 line
+ */
+function extractCharacterLines(sceneBody: string): Map<string, number> {
+  const lines = sceneBody.split(/\r?\n/);
+  const counts = new Map<string, number>();
+
+  let currentSpeaker: string | null = null;
+
+  for (const raw of lines) {
+    const line = raw.trim();
+
+    if (line.startsWith("c-")) {
+      currentSpeaker = line.slice(2).trim();
+      continue;
+    }
+
+    if (line.startsWith("d-") && currentSpeaker) {
+      counts.set(
+        currentSpeaker,
+        (counts.get(currentSpeaker) ?? 0) + 1
+      );
+      continue;
+    }
+
+    // Anything else breaks dialogue context
+    if (!line.startsWith("p-")) {
+      currentSpeaker = null;
+    }
+  }
+
+  return counts;
+}
+
+/**
+ * Public shape consumed by UI
+ */
 export interface CharacterLineStats {
   characterSlug: string;
   characterName: string;
+
   totalLines: number;
   totalScenes: number;
+
   linesByAct: Map<number, number>;
   scenesByAct: Map<number, number>;
-  sceneAppearances: Array<{
+
+  sceneAppearances: {
     slug: string;
     title: string;
     act: number;
     sceneNumber: number;
     lines: number;
-  }>;
+  }[];
+
   firstAppearance: {
     slug: string;
     title: string;
     act: number;
     sceneNumber: number;
   } | null;
+
   lastAppearance: {
     slug: string;
     title: string;
@@ -29,243 +191,121 @@ export interface CharacterLineStats {
   } | null;
 }
 
-export interface AllCharacterStats {
-  [characterSlug: string]: CharacterLineStats;
-}
-
-function extractCharacterLines(sceneContent: string): Map<string, number> {
-  const lines = sceneContent.split(/\r?\n/);
-  const characterLineCounts = new Map<string, number>();
-
-  const isSceneDirection = (trimmed: string) =>
-    /^(INT\.|EXT\.|FADE IN:|FADE OUT|FADE TO BLACK|CUT TO:|DISSOLVE TO:)/.test(trimmed);
-
-  const isCharacterCue = (trimmed: string) => {
-    if (!trimmed) return false;
-    if (trimmed.length >= 40) return false;
-    if (isSceneDirection(trimmed)) return false;
-    // All caps cue, usually single token like JOHN/PAUL, sometimes multi-word like PRINCE PHILIP.
-    // Allow spaces, apostrophes, hyphens, and periods.
-    return /^[A-Z][A-Z0-9\s'.-]+$/.test(trimmed);
-  };
-
-  let currentCharacter: string | null = null;
-
-  for (const rawLine of lines) {
-    const trimmed = rawLine.trim();
-
-    // Ignore explicit markers, but don't kill dialogue state on blank lines
-    if (trimmed === "SCENE START" || trimmed === "SCENE END") {
-      currentCharacter = null;
-      continue;
-    }
-
-    if (isCharacterCue(trimmed)) {
-      const cleaned = trimmed.replace(/\s*\(CONT'D\)\s*/g, "").trim();
-      currentCharacter = cleaned || null;
-      continue;
-    }
-
-    if (!currentCharacter) {
-      continue;
-    }
-
-    // Blank lines are common between dialogue blocks; don't reset the character.
-    if (!trimmed) {
-      continue;
-    }
-
-    // Parentheticals under the cue are indented but shouldn't count as dialogue lines.
-    if (trimmed.startsWith("(") && trimmed.endsWith(")")) {
-      continue;
-    }
-
-    // Count only indented lines as dialogue (your format uses indentation under cues)
-    const isIndentedDialogue = /^\s{2,}\S/.test(rawLine) || /^\t+\S/.test(rawLine);
-    if (!isIndentedDialogue) {
-      // If we hit a non-indented line (action/description), dialogue block ended.
-      currentCharacter = null;
-      continue;
-    }
-
-    // Also ignore scene direction lines even if indented.
-    if (isSceneDirection(trimmed)) {
-      continue;
-    }
-
-    const currentCount = characterLineCounts.get(currentCharacter) || 0;
-    characterLineCounts.set(currentCharacter, currentCount + 1);
-  }
-
-  return characterLineCounts;
-}
-
-function normalizeCharacterName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-");
-}
-
-function findCharacterSlugByName(
-  characterName: string,
-  characters: CollectionEntry<"characters">[]
-): string | null {
-  const normalized = normalizeCharacterName(characterName);
-  const searchLower = characterName.toLowerCase().trim();
-
-  for (const character of characters) {
-    const charNameNormalized = normalizeCharacterName(character.data.name);
-    const charNameLower = character.data.name.toLowerCase().trim();
-    
-    if (charNameNormalized === normalized) {
-      return character.slug;
-    }
-
-    const firstNameMatch = character.data.name.split(" ")[0]?.toLowerCase();
-    if (firstNameMatch && firstNameMatch === searchLower) {
-      return character.slug;
-    }
-
-    const lastNameMatch = character.data.name.split(" ").pop()?.toLowerCase();
-    const searchLastName = characterName.split(" ").pop()?.toLowerCase();
-    
-    if (lastNameMatch && searchLastName && lastNameMatch === searchLastName && characterName.includes(" ")) {
-      return character.slug;
-    }
-
-    if (charNameLower.includes(searchLower) || searchLower.includes(charNameLower.split(" ")[0] || "")) {
-      return character.slug;
-    }
-  }
-
-  return null;
-}
-
-export async function calculateAllCharacterStats(): Promise<AllCharacterStats> {
+/**
+ * Calculate stats for ALL characters across ALL scenes
+ */
+export async function calculateAllCharacterStats() {
   const scenes = await getCollection("scenes");
   const characters = await getCollection("characters");
 
-  const sortedScenes = scenes.sort((a, b) => {
-    if (a.data.act !== b.data.act) return a.data.act - b.data.act;
-    if (a.data.sequence !== b.data.sequence) return a.data.sequence - b.data.sequence;
-    return a.data.scene_number - b.data.scene_number;
-  });
+  const stats: Record<string, CharacterLineStats> = {};
 
-  const stats: AllCharacterStats = {};
+  /**
+   * Initialize all characters up front
+   */
+  for (const char of characters) {
+    stats[char.slug] = {
+      characterSlug: char.slug,
+      characterName: char.data.name,
 
-  for (const character of characters) {
-    stats[character.slug] = {
-      characterSlug: character.slug,
-      characterName: character.data.name,
       totalLines: 0,
       totalScenes: 0,
+
       linesByAct: new Map(),
       scenesByAct: new Map(),
+
       sceneAppearances: [],
       firstAppearance: null,
       lastAppearance: null,
     };
   }
 
-  for (const scene of sortedScenes) {
-    const characterRefs = scene.data.characters || [];
-    
-    for (const charRef of characterRefs) {
-      const characterId = typeof charRef === "string" ? charRef : charRef.id;
-      
-      if (!stats[characterId]) {
-        continue;
-      }
+  /**
+   * Walk scenes in content order
+   */
+  for (const scene of scenes) {
+    const act = scene.data.act ?? 0;
+    const sceneSlug = scene.slug;
 
-      const stat = stats[characterId];
-      
+    /**
+     * ── SCENE PRESENCE (FRONTMATTER ONLY) ──
+     */
+    const presentCharacters = new Set<string>(
+      (scene.data.characters ?? []).map(c =>
+        typeof c === "string" ? c : c.id
+      )
+    );
+
+    for (const slug of presentCharacters) {
+      const stat = stats[slug];
+      if (!stat) continue;
+
       stat.totalScenes += 1;
-      
-      const actScenes = stat.scenesByAct.get(scene.data.act) || 0;
-      stat.scenesByAct.set(scene.data.act, actScenes + 1);
+      stat.scenesByAct.set(act, (stat.scenesByAct.get(act) ?? 0) + 1);
 
-      stat.sceneAppearances.push({
-        slug: scene.slug,
+      const appearance = {
+        slug: sceneSlug,
         title: scene.data.title,
-        act: scene.data.act,
+        act,
         sceneNumber: scene.data.scene_number,
         lines: 0,
-      });
+      };
 
-      if (!stat.firstAppearance) {
-        stat.firstAppearance = {
-          slug: scene.slug,
-          title: scene.data.title,
-          act: scene.data.act,
-          sceneNumber: scene.data.scene_number,
-        };
-      }
+      stat.sceneAppearances.push(appearance);
+
+      stat.firstAppearance ??= {
+        slug: sceneSlug,
+        title: scene.data.title,
+        act,
+        sceneNumber: scene.data.scene_number,
+      };
 
       stat.lastAppearance = {
-        slug: scene.slug,
+        slug: sceneSlug,
         title: scene.data.title,
-        act: scene.data.act,
+        act,
         sceneNumber: scene.data.scene_number,
       };
     }
-  }
 
-  const dialogueNameMap = new Map<string, string>();
-  
-  for (const character of characters) {
-    if (character.data.dialogue_name) {
-      const dialogueNames = Array.isArray(character.data.dialogue_name)
-        ? character.data.dialogue_name
-        : [character.data.dialogue_name];
-      
-      for (const dialogueName of dialogueNames) {
-        dialogueNameMap.set(dialogueName.toUpperCase(), character.slug);
+    /**
+     * ── DIALOGUE (LINES ONLY) ──
+     */
+    const dialogueCounts = extractCharacterLines(scene.body);
+
+    for (const [cue, lines] of dialogueCounts.entries()) {
+      const slug = resolveCharacterSlug(cue);
+      if (!slug) {
+        // generic or intentionally ignored role
+        continue;
+      }
+
+      if (!stats[slug]) {
+        console.warn(`Unmapped cue "${cue}" in scene ${sceneSlug}`);
+        continue;
+      }
+
+      const stat = stats[slug];
+      stat.totalLines += lines;
+      stat.linesByAct.set(act, (stat.linesByAct.get(act) ?? 0) + lines);
+
+      const appearance = stat.sceneAppearances.find(
+        s => s.slug === sceneSlug
+      );
+
+      if (appearance) {
+        appearance.lines += lines;
       }
     }
-    
-    const firstName = character.data.name.split(" ")[0];
-    if (firstName) {
-      dialogueNameMap.set(firstName.toUpperCase(), character.slug);
-    }
-  }
-  
-  for (const scene of sortedScenes) {
-    const sceneBody = scene.body;
-    const sceneCodeMatch = sceneBody.match(/```text\s*\r?\n([\s\S]*?)\r?\n```\s*/);
-    
-    if (!sceneCodeMatch) continue;
-    
-    const sceneContent = sceneCodeMatch[1];
-    const lineCounts = extractCharacterLines(sceneContent);
-    
-    Array.from(lineCounts.entries()).forEach(([characterName, lineCount]) => {
-      const characterSlug = dialogueNameMap.get(characterName.toUpperCase()) || 
-                           findCharacterSlugByName(characterName, characters);
-      
-      if (characterSlug && stats[characterSlug]) {
-        const stat = stats[characterSlug];
-        stat.totalLines += lineCount;
-        
-        const actLines = stat.linesByAct.get(scene.data.act) || 0;
-        stat.linesByAct.set(scene.data.act, actLines + lineCount);
-        
-        const sceneIndex = stat.sceneAppearances.findIndex(
-          s => s.slug === scene.slug
-        );
-        if (sceneIndex !== -1) {
-          stat.sceneAppearances[sceneIndex].lines = lineCount;
-        }
-      }
-    });
   }
 
   return stats;
 }
 
-export async function getCharacterStats(
-  characterSlug: string
-): Promise<CharacterLineStats | null> {
-  const allStats = await calculateAllCharacterStats();
-  return allStats[characterSlug] || null;
+/**
+ * Convenience getter for a single character
+ */
+export async function getCharacterStats(slug: string) {
+  const all = await calculateAllCharacterStats();
+  return all[slug] ?? null;
 }

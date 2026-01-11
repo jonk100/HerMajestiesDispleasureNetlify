@@ -1,33 +1,92 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Layout from "@/layout/Layout.astro";
+import { getScenesForLocation } from "@/utils/getScenesForLocation";
 
+/**
+ * Load all locations and scenes once
+ */
 const locations = await getCollection("locations");
+const scenes = await getCollection("scenes");
+
+/**
+ * Precompute scene usage per location slug
+ */
+const locationSceneMap = new Map<
+  string,
+  CollectionEntry<"scenes">[]
+>();
+
+for (const location of locations) {
+  locationSceneMap.set(
+    location.slug,
+    getScenesForLocation(scenes, location.slug)
+  );
+}
 ---
 
 <Layout title="Locations - Her Majesty's Displeasure">
   <div class="container">
-    <h1>Locations</h1>
-    <p>Settings and places in the story</p>
-    
+    <!-- Header (mirrors Characters index) -->
+    <div class="header-section">
+      <div>
+        <h1>Locations</h1>
+        <p>Settings and places in the story</p>
+      </div>
+
+      <a href="/stats/location-stats" class="stats-link">
+        📊 View Location Statistics
+      </a>
+    </div>
+
     <div class="items-grid">
-      {locations.map((location) => (
-        <div class="item-card">
-          <h3><a href={`/locations/${location.slug}`}>{location.data.name}</a></h3>
-          <div class="meta">
-            <span class="type">{location.data.type}</span>
-            {location.data.mood && (
-              <span class="mood">{location.data.mood}</span>
+      {locations.map((location) => {
+        const scenesUsed =
+          locationSceneMap.get(location.slug) ?? [];
+
+        return (
+          <div class="item-card">
+            <h3>
+              <a href={`/locations/${location.slug}`}>
+                {location.data.name}
+              </a>
+            </h3>
+
+            <div class="meta">
+              <span class="type">{location.data.type}</span>
+              {location.data.mood && (
+                <span class="mood">
+                  {location.data.mood}
+                </span>
+              )}
+            </div>
+
+            <p class="description">
+              {location.data.description}
+            </p>
+
+            {scenesUsed.length > 0 && (
+              <p class="scenes">
+                <strong>Used in scenes:</strong>{" "}
+                {scenesUsed.map((scene, index) => (
+                  <>
+                    <a
+                      href={`/scenes/${scene.slug}`}
+                      class="scene-link"
+                    >
+                      Scene {scene.data.scene_number}
+                    </a>
+                    {index < scenesUsed.length - 1 && ", "}
+                  </>
+                ))}
+              </p>
             )}
           </div>
-          <p class="description">{location.data.description}</p>
-          {location.data.scenes_used && location.data.scenes_used.length > 0 && (
-            <p class="scenes"><strong>Used in scenes:</strong> {location.data.scenes_used.join(", ")}</p>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
-    
+
     <div class="back-link">
       <a href="/">← Back to Collections</a>
     </div>
@@ -40,81 +99,131 @@ const locations = await getCollection("locations");
     margin: 0 auto;
     padding: 2rem;
   }
-  
+
+  /* header parity with character index */
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+
+  .stats-link {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .stats-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .header-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stats-link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(350px, 1fr)
+    );
     gap: 1.5rem;
     margin: 2rem 0;
   }
-  
+
   .item-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1.5rem;
     background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .item-card h3 {
     margin: 0 0 0.5rem 0;
   }
-  
+
   .item-card a {
     text-decoration: none;
     color: #333;
   }
-  
+
   .item-card a:hover {
     color: #0066cc;
   }
-  
+
   .meta {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
   }
-  
-  .type, .accuracy {
+
+  .type,
+  .mood {
     background: #f0f0f0;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.875rem;
     text-transform: capitalize;
   }
-  
+
   .type {
     background: #e8f5e8;
     color: #2e7d32;
   }
-  
-  .accuracy {
-    background: #fff3e0;
-    color: #f57c00;
+
+  .mood {
+    background: #e3f2fd;
+    color: #1565c0;
   }
-  
+
   .description {
     margin: 1rem 0;
     line-height: 1.5;
   }
-  
-  .address {
+
+  .scenes {
     font-size: 0.875rem;
-    color: #666;
-    margin-top: 0.5rem;
+    color: #444;
   }
-  
+
+  .scene-link {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .scene-link:hover {
+    text-decoration: underline;
+  }
+
   .back-link {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #eee;
   }
-  
+
   .back-link a {
     text-decoration: none;
     color: #666;
   }
-  
+
   .back-link a:hover {
     color: #0066cc;
   }

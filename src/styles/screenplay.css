@@ -157,3 +157,15 @@
   margin-left: 1.5in;
   margin-right: 1in;
 }
+
+@media screen {
+  .screenplay-root .action {
+    line-height: 1.1 !important;
+  }
+}
+
+@media print {
+  .screenplay-root .action {
+    line-height: 1 !important;
+  }
+}

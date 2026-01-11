@@ -6,7 +6,7 @@ mood: "Bleak, clandestine, funereal, claustrophobic"
 visual_notes: "Government-issue furniture from the 1950s—a sturdy but ugly table, four uncomfortable chairs. A single, bare lightbulb hangs from the ceiling. The windows are grimy and look out onto a brick air shaft. The air is stale, smelling of old cigarettes, damp, and disinfectant. An overflowing ashtray sits on the table. There are no personal touches; it is a room designed to be forgotten."
 practical_notes: "The space must feel cramped and oppressive to heighten the tension of the scene. It's a non-place, a bureaucratic void where immoral decisions are given the sterile language of official directives. The focus should be entirely on the three men trapped in this grim little room."
 scenes_used:
-  - "s25-operation-elegy"
+  - "s51-operation-elegy"
 reference_images:
   - "Interrogation rooms from 'The Ipcress File'"
   - "Interiors from the BBC's 'Tinker Tailor Soldier Spy'"

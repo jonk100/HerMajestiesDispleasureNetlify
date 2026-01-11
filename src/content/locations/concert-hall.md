@@ -6,7 +6,7 @@ mood: "Juxtaposition: Hopeful & Celebratory vs. Tense & Clandestine"
 visual_notes: "The main hall is filled with the warm colors and vibrant energy of the late 60s counter-culture. The stage is dominated by the 'PEACE' banner. Backstage is a world of organic chaos—cables, instrument cases, half-eaten food. The lighting booth and rafters are sterile, desaturated, and cold. The visual language constantly cuts between these contrasting worlds."
 practical_notes: "The location must accommodate several distinct zones of action simultaneously. The audience, the stage, the wings, the lighting booth, and the high rafters are all crucial and need to feel part of the same whole, yet visually distinct in tone."
 scenes_used:
-  - "s29-instant-karma"
+  - "s55-instant-karma"
 reference_images:
   - "The Lyceum Theatre, London"
   - "Archival footage of 1970s rock concerts"
