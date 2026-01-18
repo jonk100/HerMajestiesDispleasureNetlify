@@ -1,6 +1,6 @@
 ---
 title: "Brian Epstein: Management Style & Business Practices"
-category: "character_research"
+category: ["character_research", "music_industry_1960s"]
 date_range: "1961–1967"
 source: "Biographies ('The Man Who Made The Beatles' by Ray Coleman), business histories ('The Beatles, The Bible and Bodega Bay' by Ken Mansfield), interviews with The Beatles and associates."
 reliability: "verified"

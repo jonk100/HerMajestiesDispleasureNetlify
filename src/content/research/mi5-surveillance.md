@@ -1,6 +1,6 @@
 ---
 title: "MI5 Surveillance Techniques"
-category: "technical_details"
+category: ["technical_details", "political_context", "historical_events"]
 date_range: "1960s-1970s"
 source: "Declassified MI5 manuals"
 reliability: verified

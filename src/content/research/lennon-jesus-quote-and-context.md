@@ -1,6 +1,6 @@
 ---
 title: "John Lennon, Jesus, and the Backlash: The Controversy That Rocked the Beatles"
-category: character_research
+category: ["character_research", "historical_events"]
 date_range: "March–August 1966"
 reliability: verified
 relevance: "Explores the context and fallout of John Lennon's infamous 'more popular than Jesus' remark, detailing its cultural, religious, and commercial impact on The Beatles at the height of their fame."

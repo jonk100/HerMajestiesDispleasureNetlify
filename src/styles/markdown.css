@@ -49,6 +49,34 @@ p {
   margin-left: 0.5rem;
 }
 
+/* Preserve line breaks for song lyrics and poetry */
+.content h2 + p,
+.content h3 + p,
+.content .lyrics {
+  white-space: pre-line;
+}
+
+/* Also preserve line breaks for paragraphs that contain song-like patterns */
+.content p:has(+ hr),
+.content p:has(+ h2),
+.content p:has(+ h3) {
+  white-space: pre-line;
+}
+
+/* Preserve line breaks for all paragraphs within song sections */
+.content h2 ~ p,
+.content h3 ~ p {
+  white-space: pre-line;
+}
+
+/* Explicit lyrics class for better control */
+.lyrics,
+.lyrics p {
+  white-space: pre-line;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
 a {
   color: #00611d;
 }

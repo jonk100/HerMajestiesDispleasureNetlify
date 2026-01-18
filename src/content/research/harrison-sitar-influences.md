@@ -1,6 +1,6 @@
 ---
 title: "George Harrison and the Sitar: A Musical and Spiritual Awakening"
-category: character_research
+category: ["character_research", "music_industry_1960s"]
 date_range: "1965–1969"
 reliability: verified
 relevance: "Details Harrison's journey with the sitar, from initial curiosity to deep study, showing how the instrument became a gateway to his spiritual identity and changed the course of popular music."

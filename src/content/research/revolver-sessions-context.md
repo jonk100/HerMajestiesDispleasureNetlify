@@ -1,6 +1,6 @@
 ---
 title: "Revolver Recording Timeline and Brian Epstein's Role"
-category: "technical_details"
+category: ["technical_details", "music_industry_1960s"]
 date_range: "April–August 1966"
 source: "Studio session logs, Beatles Anthology, engineer interviews, biographies including 'The Complete Beatles Recording Sessions' by Mark Lewisohn"
 reliability: "verified"

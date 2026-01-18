@@ -1,6 +1,6 @@
 ---
 title: "John Lennon's Jesus Comment: Context, Fallout, and the Road to Backlash"
-category: character_research
+category: ["character_research", "historical_events"]
 date_range: "October 1965 – March 1966"
 reliability: verified
 relevance: "Outlines the Beatles’ activities between receiving their MBEs and the publication of Lennon's 'more popular than Jesus' remark, while analyzing American public sentiment in the months leading to the controversy."

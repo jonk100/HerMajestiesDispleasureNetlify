@@ -31,8 +31,9 @@ const { title, filters, resultLabel } = Astro.props;
     },
     
     /**
-     * Filters items based on the active filter
+     * Filters items based on active filter
      * Shows/hides items based on their data-category attribute
+     * Handles both single categories and arrays of categories
      */
     filterItems() {
       const items = document.querySelectorAll('[data-category]');
@@ -42,8 +43,26 @@ const { title, filters, resultLabel } = Astro.props;
           item.style.display = 'block';
           item.classList.remove('filter-hidden');
         } else {
-          const category = item.getAttribute('data-category');
-          if (category === this.activeFilter) {
+          const categoryAttr = item.getAttribute('data-category');
+          let categories = [];
+          
+          // Parse the data-category attribute
+          try {
+            categories = JSON.parse(categoryAttr);
+          } catch (e) {
+            // If it's not valid JSON, treat it as a single category
+            categories = categoryAttr;
+          }
+          
+          // Check if the active filter matches any category
+          let matches = false;
+          if (Array.isArray(categories)) {
+            matches = categories.includes(this.activeFilter);
+          } else {
+            matches = categories === this.activeFilter;
+          }
+          
+          if (matches) {
             item.style.display = 'block';
             item.classList.remove('filter-hidden');
           } else {

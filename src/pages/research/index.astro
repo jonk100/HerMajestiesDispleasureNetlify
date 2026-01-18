@@ -4,6 +4,28 @@ import Layout from "@/layout/Layout.astro";
 import ResearchFilter from "@/components/ResearchFilter.astro";
 
 const research = await getCollection("research");
+
+// Sort research items - master discography first, then by release date, then by title
+const sortedResearch = [...research].sort((a, b) => {
+  // Check if either is the master discography
+  const isMasterA = a.slug === 'discography-and-lyrics/discography-and-lyrics';
+  const isMasterB = b.slug === 'discography-and-lyrics/discography-and-lyrics';
+  
+  // Master discography always comes first
+  if (isMasterA && !isMasterB) return -1;
+  if (!isMasterA && isMasterB) return 1;
+  if (isMasterA && isMasterB) return 0;
+  
+  // If both have release dates, sort by date
+  if (a.data.release_date && b.data.release_date) {
+    return new Date(a.data.release_date).getTime() - new Date(b.data.release_date).getTime();
+  }
+  // If only one has release date, prioritize it
+  if (a.data.release_date) return -1;
+  if (b.data.release_date) return 1;
+  // Otherwise sort by title alphabetically
+  return a.data.title.localeCompare(b.data.title);
+});
 ---
 
 <Layout title="Research - Her Majesty's Displeasure">
@@ -15,20 +37,30 @@ const research = await getCollection("research");
 
     <div class="items-grid">
       {
-        research.map((item) => (
-          <div class="item-card" data-category={item.data.category}>
+        sortedResearch.map((item) => (
+          <div class="item-card" data-category={JSON.stringify(item.data.category)}>
             <h3>
               <a href={`/research/${item.slug}`}>{item.data.title}</a>
             </h3>
             <div class="meta">
-              <span class="category">{item.data.category}</span>
+              <span class="category">
+                {Array.isArray(item.data.category) ? item.data.category.join(', ') : item.data.category}
+              </span>
               <span class="reliability">{item.data.reliability}</span>
             </div>
-            {item.data.date_range && (
-              <p class="date-range">
-                <strong>Period:</strong> {item.data.date_range}
-              </p>
-            )}
+            {(() => {
+              const categories = Array.isArray(item.data.category) ? item.data.category : [item.data.category];
+              const isDiscography = categories.includes('discography_and_lyrics');
+              return isDiscography && item.data.release_date ? (
+                <p class="date-range">
+                  <strong>Released:</strong> {item.data.release_date}
+                </p>
+              ) : item.data.date_range ? (
+                <p class="date-range">
+                  <strong>Period:</strong> {item.data.date_range}
+                </p>
+              ) : null;
+            })()}
             <p class="relevance">{item.data.relevance}</p>
             {item.data.tags && item.data.tags.length > 0 && (
               <div class="tags">

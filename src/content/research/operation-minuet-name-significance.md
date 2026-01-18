@@ -1,6 +1,6 @@
 ---
 title: "The Rationale Behind 'Operation Minuet'"
-category: inspiration
+category: ["inspiration", "political_context", "historical_events"]
 date_range: "1965–1969"
 reliability: verified
 relevance: "Explains the narrative, thematic, and meta-textual significance of the codename 'Operation Minuet' for the conspiracy against The Beatles, justifying its use as a core symbolic element in the screenplay."

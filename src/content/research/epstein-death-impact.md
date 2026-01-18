@@ -1,6 +1,6 @@
 ---
 title: "Brian Epstein’s Death and Its Immediate Impact on The Beatles"
-category: "character_research"
+category: ["character_research", "historical_events"]
 date_range: "August 25–29, 1967"
 source: "Biographies (e.g., 'The Man Who Made The Beatles' by Ray Coleman), Beatles Anthology, interviews, press archives."
 reliability: "verified"
