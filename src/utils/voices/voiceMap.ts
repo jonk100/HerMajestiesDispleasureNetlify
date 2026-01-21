@@ -6,6 +6,7 @@
 export interface VoiceConfig {
   id: string;
   label: string;
+  fallbacks?: string[];
 }
 
 export interface VoiceMap {
@@ -15,13 +16,30 @@ export interface VoiceMap {
 
 export const voiceMap: VoiceMap = {
   narrator: {
-    id: "en-US-narrator-01",
-    label: "Narrator"
+    id: "Microsoft David - English (United States)",
+    label: "Narrator",
+    fallbacks: ["Google US English", "Alex", "en-US"]
   },
   characters: {
-    JOHN: { id: "en-GB-male-01", label: "John" },
-    PAUL: { id: "en-GB-male-02", label: "Paul" },
-    GEORGE: { id: "en-GB-male-03", label: "George" },
-    RINGO: { id: "en-GB-male-04", label: "Ringo" }
+    JOHN: { 
+      id: "Microsoft Mark - English (United States)", 
+      label: "John",
+      fallbacks: ["Google US English Male", "Daniel", "en-US"]
+    },
+    PAUL: { 
+      id: "Microsoft Guy - English (United Kingdom)", 
+      label: "Paul",
+      fallbacks: ["Google UK English Male", "Daniel", "en-GB"]
+    },
+    GEORGE: { 
+      id: "Microsoft Hazel - English (United Kingdom)", 
+      label: "George",
+      fallbacks: ["Google UK English Female", "Karen", "en-GB"]
+    },
+    RINGO: { 
+      id: "Microsoft Zira - English (United States)", 
+      label: "Ringo",
+      fallbacks: ["Google US English", "Samantha", "en-US"]
+    }
   }
 };

@@ -1,6 +1,138 @@
 ---
 /**
- * Spoken dialogue
+ * Dialogue
+ *
+ * - Renders spoken dialogue
+ * - Optionally supports voice playback if `speaker` is provided
  */
+
+import { voiceMap } from "../../utils/voices/voiceMap.ts";
+
+interface Props {
+  speaker?: string;
+}
+
+const { speaker } = Astro.props;
+
+const voice = speaker
+  ? voiceMap.characters[speaker] ?? voiceMap.narrator
+  : null;
 ---
-<div class="dialogue"><slot /></div>
+
+<div class="dialogue" data-voice={voice?.id}>
+  {voice && <button class="speak" aria-label="Play dialogue">▶</button>}
+  <slot />
+</div>
+
+{voice && (
+<script is:inline>
+(() => {
+  // Check if we're on an episode page - if so, let global handler manage it
+  if (window.location.pathname.includes('/episodes/')) {
+    console.log("Episode page detected - skipping individual script");
+    return;
+  }
+  
+  console.log("Dialogue script executing...");
+  
+  // Wait for DOM to be ready
+  const initHandler = () => {
+    // Find all unhandled dialogue elements and take the last one
+    const dialogues = document.querySelectorAll('.dialogue[data-voice]:not([data-handled])');
+    const thisDialogue = dialogues[dialogues.length - 1]; // Take last instead of first
+    
+    console.log("Found dialogue elements:", dialogues.length, "Taking element at index:", dialogues.length - 1);
+    
+    if (thisDialogue) {
+      // Mark as handled to avoid duplicate processing
+      thisDialogue.setAttribute('data-handled', 'true');
+      
+      const btn = thisDialogue.querySelector(".speak");
+      const voiceId = thisDialogue.dataset.voice;
+      
+      console.log("Dialogue script loaded", { btn: !!btn, voiceId });
+      
+      if (btn && voiceId) {
+        let isPlaying = false;
+        let currentUtterance = null;
+        
+        const updateButton = () => {
+          btn.textContent = isPlaying ? '■' : '▶';
+          btn.setAttribute('aria-label', isPlaying ? 'Stop dialogue' : 'Play dialogue');
+        };
+        
+        const extractText = () => {
+          // Clone the element and remove the button, then get text
+          const clone = thisDialogue.cloneNode(true);
+          const button = clone.querySelector('.speak');
+          if (button) button.remove();
+          return clone.textContent?.replace(/\s+/g, " ").trim() ?? "";
+        };
+        
+        btn.addEventListener("click", (e) => {
+          console.log("Dialogue button clicked!", { isPlaying, voiceId });
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (isPlaying) {
+            // Stop speaking
+            window.speechSynthesis.cancel();
+            isPlaying = false;
+            updateButton();
+            console.log("Stopped speaking");
+          } else {
+            // Start speaking
+            const text = extractText();
+            console.log("Speaking:", { text, voiceId });
+            
+            if ('speechSynthesis' in window && text) {
+              currentUtterance = new SpeechSynthesisUtterance(text);
+              
+              currentUtterance.onstart = () => {
+                isPlaying = true;
+                updateButton();
+              };
+              
+              currentUtterance.onend = () => {
+                isPlaying = false;
+                updateButton();
+              };
+              
+              currentUtterance.onerror = (e) => {
+                console.error("Speech error:", e);
+                isPlaying = false;
+                updateButton();
+              };
+              
+              window.speechSynthesis.speak(currentUtterance);
+            } else {
+              console.error("Speech synthesis not supported or no text");
+            }
+          }
+        });
+        
+        // Add debug functionality
+        btn.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          console.log("Available voices:", window.speechSynthesis?.getVoices()?.map(v => v.name));
+          console.log("Current voiceId:", voiceId);
+        });
+        
+        // Initialize button
+        updateButton();
+      }
+    } else {
+      console.log("No unhandled dialogue found");
+    }
+  };
+  
+  // Check if DOM is already ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHandler);
+  } else {
+    initHandler();
+  }
+})();
+</script>
+
+)}

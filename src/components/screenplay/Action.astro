@@ -1,6 +1,130 @@
 ---
 /**
- * Action description
+ * Action
+ *
+ * - Renders scene action
+ * - Uses narrator voice for playback
  */
+
+import { voiceMap } from "../../utils/voices/voiceMap.ts";
+
+const voice = voiceMap.narrator;
 ---
-<div class="action"><slot /></div>
+
+<div class="action" data-voice={voice?.id}>
+  {voice && <button class="speak" aria-label="Play action">▶</button>}
+  <slot />
+</div>
+
+{voice && (
+<script is:inline>
+(() => {
+  // Check if we're on an episode page - if so, let global handler manage it
+  if (window.location.pathname.includes('/episodes/')) {
+    console.log("Episode page detected - skipping individual script");
+    return;
+  }
+  
+  console.log("Action script executing...");
+  
+  // Wait for DOM to be ready
+  const initHandler = () => {
+    // Find all unhandled action elements and take the last one
+    const actions = document.querySelectorAll('.action[data-voice]:not([data-handled])');
+    const thisAction = actions[actions.length - 1]; // Take last instead of first
+    
+    console.log("Found action elements:", actions.length, "Taking element at index:", actions.length - 1);
+    
+    if (thisAction) {
+      // Mark as handled to avoid duplicate processing
+      thisAction.setAttribute('data-handled', 'true');
+      
+      const btn = thisAction.querySelector(".speak");
+      const voiceId = thisAction.dataset.voice;
+      
+      console.log("Action script loaded", { btn: !!btn, voiceId });
+      
+      if (btn && voiceId) {
+        let isPlaying = false;
+        let currentUtterance = null;
+        
+        const updateButton = () => {
+          btn.textContent = isPlaying ? '■' : '▶';
+          btn.setAttribute('aria-label', isPlaying ? 'Stop action' : 'Play action');
+        };
+        
+        const extractText = () => {
+          // Clone the element and remove the button, then get text
+          const clone = thisAction.cloneNode(true);
+          const button = clone.querySelector('.speak');
+          if (button) button.remove();
+          return clone.textContent?.replace(/\s+/g, " ").trim() ?? "";
+        };
+        
+        btn.addEventListener("click", (e) => {
+          console.log("Action button clicked!", { isPlaying, voiceId });
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (isPlaying) {
+            // Stop speaking
+            window.speechSynthesis.cancel();
+            isPlaying = false;
+            updateButton();
+            console.log("Stopped speaking action");
+          } else {
+            // Start speaking
+            const text = extractText();
+            console.log("Speaking action:", { text, voiceId });
+            
+            if ('speechSynthesis' in window && text) {
+              currentUtterance = new SpeechSynthesisUtterance(text);
+              
+              currentUtterance.onstart = () => {
+                isPlaying = true;
+                updateButton();
+              };
+              
+              currentUtterance.onend = () => {
+                isPlaying = false;
+                updateButton();
+              };
+              
+              currentUtterance.onerror = (e) => {
+                console.error("Speech error:", e);
+                isPlaying = false;
+                updateButton();
+              };
+              
+              window.speechSynthesis.speak(currentUtterance);
+            } else {
+              console.error("Speech synthesis not supported or no text");
+            }
+          }
+        });
+        
+        // Add debug functionality
+        btn.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          console.log("Available voices:", window.speechSynthesis?.getVoices()?.map(v => v.name));
+          console.log("Current voiceId:", voiceId);
+        });
+        
+        // Initialize button
+        updateButton();
+      }
+    } else {
+      console.log("No unhandled action found");
+    }
+  };
+  
+  // Check if DOM is already ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHandler);
+  } else {
+    initHandler();
+  }
+})();
+</script>
+
+)}
