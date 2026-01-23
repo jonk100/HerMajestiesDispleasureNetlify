@@ -1,0 +1,572 @@
+---
+interface Props {
+  characters: Array<{ name: string; slug: string }>;
+  narrator?: boolean;
+}
+
+const { characters, narrator = true } = Astro.props;
+
+// Get available browser voices (will be populated client-side)
+---
+
+<div class="voice-configurator">
+  <h3>Voice Configuration</h3>
+  
+  {narrator && (
+    <div class="voice-setting">
+      <label for="narrator-voice">Narrator Voice:</label>
+      <select id="narrator-voice" class="voice-select">
+        <option value="">Loading voices...</option>
+      </select>
+      <div class="speed-control">
+        <label for="narrator-speed">Speed:</label>
+        <input type="range" id="narrator-speed" min="0.5" max="2" step="0.1" value="1" />
+        <span class="speed-value">1.0</span>
+      </div>
+      <div class="pitch-control">
+        <label for="narrator-pitch">Pitch:</label>
+        <input type="range" id="narrator-pitch" min="0.5" max="2" step="0.1" value="1" />
+        <span class="pitch-value">1.0</span>
+      </div>
+    </div>
+  )}
+  
+  {characters.map((char, index) => (
+    <div class="voice-setting">
+      <label for={`character-voice-${index}`}>{char.name} Voice:</label>
+      <select id={`character-voice-${index}`} class="voice-select" data-character={char.name}>
+        <option value="">Loading voices...</option>
+      </select>
+      <div class="speed-control">
+        <label for={`character-speed-${index}`}>Speed:</label>
+        <input type="range" id={`character-speed-${index}`} min="0.5" max="2" step="0.1" value="1" />
+        <span class="speed-value">1.0</span>
+      </div>
+      <div class="pitch-control">
+        <label for={`character-pitch-${index}`}>Pitch:</label>
+        <input type="range" id={`character-pitch-${index}`} min="0.5" max="2" step="0.1" value="1" />
+        <span class="pitch-value">1.0</span>
+      </div>
+    </div>
+  ))}
+  
+  <div class="voice-actions">
+    <button id="save-voice-config" class="save-btn">Save Configuration</button>
+    <button id="test-voices" class="test-btn">Test Voices</button>
+    <button id="reset-voices" class="reset-btn">Reset to Default</button>
+  </div>
+  
+  <div id="voice-status" class="voice-status"></div>
+</div>
+
+<style>
+  .voice-configurator {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .voice-configurator h3 {
+    margin: 0 0 1rem 0;
+    color: #495057;
+    font-size: 1.25rem;
+  }
+  
+  .voice-setting {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .voice-setting label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .voice-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .speed-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .speed-control label {
+    margin-bottom: 0;
+    font-weight: 400;
+    min-width: 50px;
+  }
+  
+  .speed-control input[type="range"] {
+    flex: 1;
+  }
+  
+  .speed-value {
+    min-width: 35px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+  
+  .pitch-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .pitch-control label {
+    margin-bottom: 0;
+    font-weight: 400;
+    min-width: 50px;
+  }
+  
+  .pitch-control input[type="range"] {
+    flex: 1;
+  }
+  
+  .pitch-value {
+    min-width: 35px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+  
+  .voice-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .voice-actions button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  
+  .voice-actions button:hover {
+    background: #f8f9fa;
+  }
+  
+  .save-btn {
+    background: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+  }
+  
+  .save-btn:hover {
+    background: #218838 !important;
+  }
+  
+  .test-btn {
+    background: #007bff !important;
+    color: white !important;
+    border-color: #007bff !important;
+  }
+  
+  .test-btn:hover {
+    background: #0069d9 !important;
+  }
+  
+  .reset-btn {
+    background: #6c757d !important;
+    color: white !important;
+    border-color: #6c757d !important;
+  }
+  
+  .reset-btn:hover {
+    background: #5a6268 !important;
+  }
+  
+  .voice-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    display: none;
+  }
+  
+  .voice-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+  }
+  
+  .voice-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+  }
+  
+  .voice-status.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    display: block;
+  }
+</style>
+
+<script>
+(() => {
+    // Wait for DOM to be ready
+    const initVoiceConfigurator = () => {
+      console.log("Initializing voice configurator...");
+      
+      const voiceStatus = document.getElementById('voice-status');
+      const saveBtn = document.getElementById('save-voice-config');
+      const testBtn = document.getElementById('test-voices');
+      const resetBtn = document.getElementById('reset-voices');
+      
+      // Update speed display
+      const updateSpeedDisplay = (input) => {
+        const valueSpan = input.nextElementSibling;
+        if (valueSpan && valueSpan.classList.contains('speed-value')) {
+          valueSpan.textContent = parseFloat(input.value).toFixed(1);
+        }
+      };
+      
+      // Update pitch display
+      const updatePitchDisplay = (input) => {
+        const valueSpan = input.nextElementSibling;
+        if (valueSpan && valueSpan.classList.contains('pitch-value')) {
+          valueSpan.textContent = parseFloat(input.value).toFixed(1);
+        }
+      };
+      
+      // Load available voices
+      const loadVoices = () => {
+        console.log("Loading voices...");
+        const voices = window.speechSynthesis.getVoices();
+        console.log("Available voices:", voices.length, voices.map(v => v.name));
+        
+        // If no voices available, try again after a delay
+        if (voices.length === 0) {
+          console.log("No voices available yet, retrying...");
+          setTimeout(loadVoices, 500);
+          return;
+        }
+        
+        // Get all select elements
+        const selects = document.querySelectorAll('.voice-select');
+        
+        selects.forEach(select => {
+          // Clear existing options
+          select.innerHTML = '';
+          
+          // Add default option
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Select a voice...';
+          select.appendChild(defaultOption);
+          
+          // Filter voices: English voices + one Japanese female voice
+          const filteredVoices = voices.filter(voice => {
+            const lang = voice.lang.toLowerCase();
+            const name = voice.name.toLowerCase();
+            
+            // Include all English voices
+            if (lang.startsWith('en')) {
+              return true;
+            }
+            
+            // Include one Japanese female voice
+            if (lang.startsWith('ja') && (name.includes('female') || name.includes('woman'))) {
+              return true;
+            }
+            
+            return false;
+          });
+          
+          console.log(`Filtered voices for select:`, filteredVoices.length);
+          
+          // Group by language
+          const voicesByLang = {};
+          filteredVoices.forEach(voice => {
+            if (!voicesByLang[voice.lang]) {
+              voicesByLang[voice.lang] = [];
+            }
+            voicesByLang[voice.lang].push(voice);
+          });
+          
+          // Sort languages and add voices
+          Object.keys(voicesByLang).sort().forEach(lang => {
+            const optgroup = document.createElement('optgroup');
+            const langName = lang.startsWith('en') ? 'English' : 'Japanese';
+            optgroup.label = `${langName} (${voicesByLang[lang].length} voices)`;
+            
+            voicesByLang[lang].forEach(voice => {
+              const option = document.createElement('option');
+              option.value = voice.name;
+              option.textContent = `${voice.name} (${voice.lang})`;
+              optgroup.appendChild(option);
+            });
+            
+            select.appendChild(optgroup);
+          });
+        });
+        
+        // Load saved configuration
+        loadSavedConfig();
+      };
+      
+      // Load saved configuration
+      const loadSavedConfig = () => {
+        const savedConfig = localStorage.getItem('voiceConfig');
+        if (savedConfig) {
+          try {
+            const config = JSON.parse(savedConfig);
+            console.log("Loading saved config:", config);
+            
+            // Set narrator voice, speed, and pitch
+            if (config.narrator) {
+              const narratorSelect = document.getElementById('narrator-voice');
+              const narratorSpeed = document.getElementById('narrator-speed');
+              const narratorPitch = document.getElementById('narrator-pitch');
+              if (narratorSelect && config.narrator.voice) {
+                narratorSelect.value = config.narrator.voice;
+              }
+              if (narratorSpeed && config.narrator.speed) {
+                narratorSpeed.value = config.narrator.speed;
+                updateSpeedDisplay(narratorSpeed);
+              }
+              if (narratorPitch && config.narrator.pitch) {
+                narratorPitch.value = config.narrator.pitch;
+                updatePitchDisplay(narratorPitch);
+              }
+            }
+            
+            // Set character voices, speeds, and pitches
+            if (config.characters) {
+              Object.keys(config.characters).forEach(charName => {
+                const charConfig = config.characters[charName];
+                const select = document.querySelector(`[data-character="${charName}"]`);
+                const index = Array.from(document.querySelectorAll('[data-character]')).findIndex(el => el.dataset.character === charName);
+                const speedInput = document.getElementById(`character-speed-${index}`);
+                const pitchInput = document.getElementById(`character-pitch-${index}`);
+                
+                if (select && charConfig.voice) {
+                  select.value = charConfig.voice;
+                }
+                if (speedInput && charConfig.speed) {
+                  speedInput.value = charConfig.speed;
+                  updateSpeedDisplay(speedInput);
+                }
+                if (pitchInput && charConfig.pitch) {
+                  pitchInput.value = charConfig.pitch;
+                  updatePitchDisplay(pitchInput);
+                }
+              });
+            }
+          } catch (error) {
+            console.error("Error loading saved config:", error);
+          }
+        }
+      };
+      
+      // Save configuration to localStorage
+      const saveConfig = () => {
+        const config = {
+          narrator: {
+            voice: document.getElementById('narrator-voice')?.value || '',
+            speed: parseFloat(document.getElementById('narrator-speed')?.value || '1'),
+            pitch: parseFloat(document.getElementById('narrator-pitch')?.value || '1')
+          },
+          characters: {}
+        };
+        
+        // Save character configurations
+        document.querySelectorAll('[data-character]').forEach(select => {
+          const charName = select.dataset.character;
+          const index = Array.from(document.querySelectorAll('[data-character]')).indexOf(select);
+          const speedInput = document.getElementById(`character-speed-${index}`);
+          const pitchInput = document.getElementById(`character-pitch-${index}`);
+          
+          config.characters[charName] = {
+            voice: select.value || '',
+            speed: parseFloat(speedInput?.value || '1'),
+            pitch: parseFloat(pitchInput?.value || '1')
+          };
+        });
+        
+        localStorage.setItem('voiceConfig', JSON.stringify(config));
+        console.log("Configuration saved:", config);
+        
+        // Update voice map for speech components
+        window.voiceConfig = config;
+        
+        // Trigger a reload of the voice configuration in the global handler
+        if (window.reloadVoiceConfig) {
+          window.reloadVoiceConfig();
+        }
+        
+        showStatus('Configuration saved successfully!', 'success');
+      };
+      
+      // Test all configured voices
+      const testVoices = () => {
+        showStatus('Testing voices...', 'info');
+        
+        const testText = "This is a test of the voice configuration.";
+        let delay = 0;
+        
+        // Test narrator
+        const narratorVoice = document.getElementById('narrator-voice')?.value;
+        const narratorSpeed = parseFloat(document.getElementById('narrator-speed')?.value || '1');
+        const narratorPitch = parseFloat(document.getElementById('narrator-pitch')?.value || '1');
+        
+        if (narratorVoice) {
+          setTimeout(() => {
+            speakWithVoice(testText, narratorVoice, narratorSpeed, narratorPitch, "Narrator");
+          }, delay);
+          delay += 3000;
+        }
+        
+        // Test characters
+        document.querySelectorAll('[data-character]').forEach(select => {
+          const charName = select.dataset.character;
+          const voice = select.value;
+          const index = Array.from(document.querySelectorAll('[data-character]')).indexOf(select);
+          const speedInput = document.getElementById(`character-speed-${index}`);
+          const pitchInput = document.getElementById(`character-pitch-${index}`);
+          const speed = parseFloat(speedInput?.value || '1');
+          const pitch = parseFloat(pitchInput?.value || '1');
+          
+          if (voice) {
+            setTimeout(() => {
+              speakWithVoice(testText, voice, speed, pitch, charName);
+            }, delay);
+            delay += 3000;
+          }
+        });
+        
+        if (delay === 0) {
+          showStatus('No voices configured to test', 'error');
+        }
+      };
+      
+      // Speak with specific voice and speed
+      const speakWithVoice = (text, voiceName, speed, pitch, label) => {
+        console.log(`Testing ${label}:`, { voice: voiceName, speed, pitch });
+        
+        const voices = window.speechSynthesis.getVoices();
+        const voice = voices.find(v => v.name === voiceName);
+        
+        if (voice) {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.voice = voice;
+          utterance.rate = speed;
+          utterance.pitch = pitch;
+          
+          utterance.onstart = () => {
+            showStatus(`Testing ${label}...`, 'info');
+          };
+          
+          utterance.onend = () => {
+            console.log(`Finished testing ${label}`);
+          };
+          
+          utterance.onerror = (e) => {
+            console.error(`Error testing ${label}:`, e);
+            showStatus(`Error testing ${label}`, 'error');
+          };
+          
+          window.speechSynthesis.speak(utterance);
+        } else {
+          console.error(`Voice not found: ${voiceName}`);
+          showStatus(`Voice not found: ${voiceName}`, 'error');
+        }
+      };
+      
+      // Reset to defaults
+      const resetVoices = () => {
+        localStorage.removeItem('voiceConfig');
+        
+        // Reset all selects to default
+        document.querySelectorAll('.voice-select').forEach(select => {
+          select.value = '';
+        });
+        
+        // Reset all speeds to 1.0
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+          input.value = '1';
+          updateSpeedDisplay(input);
+        });
+        
+        showStatus('Configuration reset to defaults', 'success');
+      };
+      
+      // Show status message
+      const showStatus = (message, type) => {
+        if (voiceStatus) {
+          voiceStatus.textContent = message;
+          voiceStatus.className = `voice-status ${type}`;
+          
+          if (type === 'success' || type === 'error') {
+            setTimeout(() => {
+              voiceStatus.className = 'voice-status';
+            }, 3000);
+          }
+        }
+      };
+      
+      // Speed input listeners
+      document.querySelectorAll('input[type="range"]').forEach(input => {
+        input.addEventListener('input', () => {
+          if (input.id.includes('speed')) {
+            updateSpeedDisplay(input);
+          } else if (input.id.includes('pitch')) {
+            updatePitchDisplay(input);
+          }
+        });
+      });
+      
+      // Button event listeners
+      if (saveBtn) {
+        saveBtn.addEventListener('click', saveConfig);
+      }
+      
+      if (testBtn) {
+        testBtn.addEventListener('click', testVoices);
+      }
+      
+      if (resetBtn) {
+        resetBtn.addEventListener('click', resetVoices);
+      }
+      
+      // Load voices (handle async loading)
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+
+      // Always attempt an initial load (some browsers never fire onvoiceschanged)
+      loadVoices();
+    };
+    
+    // Check if DOM is already ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVoiceConfigurator);
+    } else {
+      initVoiceConfigurator();
+    }
+  })();
+</script>

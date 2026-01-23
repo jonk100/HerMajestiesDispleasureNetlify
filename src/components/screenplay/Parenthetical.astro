@@ -3,4 +3,119 @@
  * Dialogue parenthetical
  */
 ---
-<div class="parenthetical">(<slot />)</div>
+
+<div class="parenthetical" data-voice="narrator">
+  <button class="speak" aria-label="Play parenthetical">▶</button>
+  (<slot />)
+</div>
+
+<script is:inline>
+(() => {
+  // Check if we're on an episode page - if so, let global handler manage it
+  if (window.location.pathname.includes('/episodes/')) {
+    console.log("Episode page detected - skipping individual parenthetical script");
+    return;
+  }
+  
+  console.log("Parenthetical script executing...");
+  
+  // Wait for DOM to be ready
+  const initHandler = () => {
+    // Find all unhandled parenthetical elements and take the last one
+    const parentheticals = document.querySelectorAll('.parenthetical[data-voice]:not([data-handled])');
+    const thisParenthetical = parentheticals[parentheticals.length - 1]; // Take last instead of first
+    
+    console.log("Found parenthetical elements:", parentheticals.length, "Taking element at index:", parentheticals.length - 1);
+    
+    if (thisParenthetical) {
+      // Mark as handled to avoid duplicate processing
+      thisParenthetical.setAttribute('data-handled', 'true');
+      
+      const btn = thisParenthetical.querySelector(".speak");
+      const voiceId = thisParenthetical.dataset.voice;
+      
+      console.log("Parenthetical script loaded", { btn: !!btn, voiceId });
+      
+      if (btn && voiceId) {
+        let isPlaying = false;
+        let currentUtterance = null;
+        
+        const updateButton = () => {
+          btn.textContent = isPlaying ? '■' : '▶';
+          btn.setAttribute('aria-label', isPlaying ? 'Stop parenthetical' : 'Play parenthetical');
+        };
+        
+        const extractText = () => {
+          // Clone the element and remove the button, then get text
+          const clone = thisParenthetical.cloneNode(true);
+          const button = clone.querySelector('.speak');
+          if (button) button.remove();
+          return clone.textContent?.replace(/\s+/g, " ").trim() ?? "";
+        };
+        
+        btn.addEventListener("click", (e) => {
+          console.log("Parenthetical button clicked!", { isPlaying, voiceId });
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (isPlaying) {
+            // Stop speaking
+            window.speechSynthesis.cancel();
+            isPlaying = false;
+            updateButton();
+            console.log("Stopped speaking parenthetical");
+          } else {
+            // Start speaking
+            const text = extractText();
+            console.log("Speaking parenthetical:", { text, voiceId });
+            
+            if ('speechSynthesis' in window && text) {
+              currentUtterance = new SpeechSynthesisUtterance(text);
+              
+              currentUtterance.onstart = () => {
+                isPlaying = true;
+                updateButton();
+              };
+              
+              currentUtterance.onend = () => {
+                isPlaying = false;
+                updateButton();
+              };
+              
+              currentUtterance.onerror = (e) => {
+                console.error("Speech error:", e);
+                isPlaying = false;
+                updateButton();
+              };
+              
+              window.speechSynthesis.speak(currentUtterance);
+            } else {
+              console.error("Speech synthesis not supported or no text");
+            }
+          }
+        });
+        
+        // Add debug functionality
+        btn.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          console.log("Available voices:", window.speechSynthesis?.getVoices()?.map(v => v.name));
+          console.log("Current voiceId:", voiceId);
+        });
+        
+        // Initialize button
+        updateButton();
+      }
+    } else {
+      console.log("No unhandled parenthetical found");
+    }
+  };
+  
+  // Check if DOM is already ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHandler);
+  } else {
+    initHandler();
+  }
+})();
+</script>
+</div>

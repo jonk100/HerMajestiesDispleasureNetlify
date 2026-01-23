@@ -309,3 +309,35 @@ export async function getCharacterStats(slug: string) {
   const all = await calculateAllCharacterStats();
   return all[slug] ?? null;
 }
+
+/**
+ * Get character full name from slug
+ */
+export async function getCharacterFullName(slug: string): Promise<string> {
+  const characters = await getCollection("characters");
+  const character = characters.find(c => c.slug === slug);
+  return character?.data.name || slug;
+}
+
+/**
+ * Get character name mapping from screenplay cue to full name
+ */
+export async function getCharacterNameMapping(): Promise<Record<string, string>> {
+  const characters = await getCollection("characters");
+  const mapping: Record<string, string> = {};
+  
+  // Create reverse mapping from slug to full name
+  for (const character of characters) {
+    mapping[character.slug] = character.data.name;
+  }
+  
+  // Add mappings from CHARACTER_ALIAS_MAP to full names
+  for (const [cue, slug] of Object.entries(CHARACTER_ALIAS_MAP)) {
+    const fullName = mapping[slug];
+    if (fullName) {
+      mapping[cue] = fullName;
+    }
+  }
+  
+  return mapping;
+}

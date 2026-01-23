@@ -12,12 +12,12 @@ export function initGlobalSpeechHandler() {
   console.log(`Found ${speakButtons.length} speak buttons`);
   
   speakButtons.forEach((btn, index) => {
-    const parent = btn.closest('.dialogue, .action');
+    const parent = btn.closest('.dialogue, .action, .parenthetical');
     const voiceId = (parent as HTMLElement)?.dataset.voice;
     
     console.log(`Setting up button ${index}:`, { parent: !!parent, voiceId });
     
-    if (parent && voiceId) {
+    if (parent) {
       let isPlaying = false;
       let currentUtterance = null;
       
@@ -72,7 +72,7 @@ export function initGlobalSpeechHandler() {
         } else {
           // Start speaking
           const text = extractText();
-          console.log(`Speaking button ${index}:`, { text, voiceId });
+          console.log(`Speaking button ${index}:`, { text, parentClass: parent.className });
           
           if ('speechSynthesis' in window && text) {
             // Cancel any existing speech first
@@ -80,6 +80,11 @@ export function initGlobalSpeechHandler() {
             
             const utterance = new SpeechSynthesisUtterance(text);
             (newBtn as any).currentUtterance = utterance;
+            
+            // Apply voice configuration (ignore the hardcoded voiceId)
+            console.log("About to apply voice configuration...");
+            applyVoiceConfig(utterance, parent);
+            console.log("Voice configuration applied");
             
             utterance.onstart = () => {
               console.log(`Button ${index} started speaking`);
@@ -122,6 +127,130 @@ export function initGlobalSpeechHandler() {
   });
 }
 
+// Apply voice configuration to utterance
+function applyVoiceConfig(utterance: SpeechSynthesisUtterance, parent: Element) {
+  // Get saved configuration
+  const savedConfig = localStorage.getItem('voiceConfig');
+  if (!savedConfig) {
+    console.log("No saved voice configuration found");
+    return;
+  }
+  
+  try {
+    const config = JSON.parse(savedConfig);
+    console.log("Using voice config:", config);
+    
+    // Determine if this is narrator or character
+    const isAction = parent.classList.contains('action');
+    const isDialogue = parent.classList.contains('dialogue');
+    const isParenthetical = parent.classList.contains('parenthetical');
+    
+    let voiceConfig = null;
+    let voiceSource = '';
+    
+    if (isAction || isParenthetical) {
+      // Use narrator configuration for action and parenthetical
+      voiceConfig = config.narrator;
+      voiceSource = `narrator (${isParenthetical ? 'parenthetical' : 'action'})`;
+      console.log(`Using narrator config for ${isParenthetical ? 'parenthetical' : 'action'}`);
+    } else if (isDialogue) {
+      // For dialogue, find the preceding Character component
+      let characterName = null;
+      
+      // Look for the most recent Character element before this dialogue
+      let previousElement = parent.previousElementSibling;
+      while (previousElement) {
+        if (previousElement.classList.contains('character')) {
+          characterName = previousElement.textContent?.trim();
+          console.log(`Found character: ${characterName}`);
+          break;
+        }
+        previousElement = previousElement.previousElementSibling;
+      }
+      
+      // If no character found in previous siblings, look in parent's previous siblings
+      if (!characterName && parent.parentElement) {
+        let parentSibling = parent.parentElement.previousElementSibling;
+        while (parentSibling) {
+          const charElement = parentSibling.querySelector('.character');
+          if (charElement) {
+            characterName = charElement.textContent?.trim();
+            console.log(`Found character in parent sibling: ${characterName}`);
+            break;
+          }
+          parentSibling = parentSibling.previousElementSibling;
+        }
+      }
+      
+      // If still no character found, search more broadly in the scene
+      if (!characterName) {
+        const allCharacters = document.querySelectorAll('.character');
+        // Get the last character before this dialogue element
+        for (let i = allCharacters.length - 1; i >= 0; i--) {
+          const charElement = allCharacters[i];
+          const charRect = charElement.getBoundingClientRect();
+          const dialogueRect = parent.getBoundingClientRect();
+          
+          // Check if character appears before dialogue (higher up on page)
+          if (charRect.top < dialogueRect.top) {
+            characterName = charElement.textContent?.trim();
+            console.log(`Found character by position: ${characterName}`);
+            break;
+          }
+        }
+      }
+      
+      // Use character configuration if found
+      if (characterName && config.characters[characterName]) {
+        voiceConfig = config.characters[characterName];
+        voiceSource = `character: ${characterName}`;
+        console.log(`Using character config for: ${characterName}`, voiceConfig);
+      }
+      
+      // Fallback to narrator if no character config found
+      if (!voiceConfig && config.narrator) {
+        voiceConfig = config.narrator;
+        voiceSource = 'narrator (fallback)';
+        console.log("Fallback to narrator config");
+      }
+    }
+    
+    console.log(`Voice config for ${voiceSource}:`, voiceConfig);
+    
+    if (voiceConfig) {
+      // Apply voice selection
+      if (voiceConfig.voice && voiceConfig.voice !== '') {
+        const voices = window.speechSynthesis.getVoices();
+        console.log("Available voices for selection:", voices.map(v => v.name));
+        
+        const selectedVoice = voices.find(v => v.name === voiceConfig.voice);
+        if (selectedVoice) {
+          utterance.voice = selectedVoice;
+          console.log(`✅ Applied voice: ${selectedVoice.name} for ${voiceSource}`);
+        } else {
+          console.warn(`❌ Voice not found: ${voiceConfig.voice} for ${voiceSource}`);
+          console.log("Available voices:", voices.map(v => v.name));
+        }
+      } else {
+        console.log(`No voice configured for ${voiceSource}, using default`);
+      }
+      
+      // Apply speed
+      if (voiceConfig.speed && voiceConfig.speed !== 1) {
+        const speed = parseFloat(voiceConfig.speed);
+        utterance.rate = speed;
+        console.log(`✅ Applied speed: ${speed} for ${voiceSource}`);
+      } else {
+        console.log(`Using default speed (1.0) for ${voiceSource}`);
+      }
+    } else {
+      console.log(`No voice configuration found for ${voiceSource}`);
+    }
+  } catch (error) {
+    console.error("Error applying voice configuration:", error);
+  }
+}
+
 // Auto-initialize when DOM is ready
 if (typeof window !== 'undefined') {
   if (document.readyState === 'loading') {
@@ -129,4 +258,11 @@ if (typeof window !== 'undefined') {
   } else {
     initGlobalSpeechHandler();
   }
+  
+  // Add reload function for voice configuration updates
+  window.reloadVoiceConfig = () => {
+    console.log("Reloading voice configuration...");
+    // Re-initialize the speech handler to pick up new configuration
+    initGlobalSpeechHandler();
+  };
 }

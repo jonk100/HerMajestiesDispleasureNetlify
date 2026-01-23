@@ -19,6 +19,73 @@ const voice = voiceMap.narrator;
 {voice && (
 <script is:inline>
 (() => {
+  // Apply voice configuration to utterance
+  function applyVoiceConfig(utterance, voiceType) {
+    // Get saved configuration
+    const savedConfig = localStorage.getItem('voiceConfig');
+    if (!savedConfig) {
+      console.log("No saved voice configuration found");
+      return;
+    }
+    
+    try {
+      const config = JSON.parse(savedConfig);
+      console.log("Using voice config:", config);
+      
+      let voiceConfig = null;
+      let voiceSource = '';
+      
+      if (voiceType === 'narrator') {
+        voiceConfig = config.narrator;
+        voiceSource = 'narrator';
+        console.log("Using narrator config for action");
+      }
+      
+      console.log(`Voice config for ${voiceSource}:`, voiceConfig);
+      
+      if (voiceConfig) {
+        // Apply voice selection
+        if (voiceConfig.voice && voiceConfig.voice !== '') {
+          const voices = window.speechSynthesis.getVoices();
+          console.log("Available voices for selection:", voices.map(v => v.name));
+          
+          const selectedVoice = voices.find(v => v.name === voiceConfig.voice);
+          if (selectedVoice) {
+            utterance.voice = selectedVoice;
+            console.log(`✅ Applied voice: ${selectedVoice.name} for ${voiceSource}`);
+          } else {
+            console.warn(`❌ Voice not found: ${voiceConfig.voice} for ${voiceSource}`);
+            console.log("Available voices:", voices.map(v => v.name));
+          }
+        } else {
+          console.log(`No voice configured for ${voiceSource}, using default`);
+        }
+        
+        // Apply speed
+        if (voiceConfig.speed && voiceConfig.speed !== 1) {
+          const speed = parseFloat(voiceConfig.speed);
+          utterance.rate = speed;
+          console.log(`✅ Applied speed: ${speed} for ${voiceSource}`);
+        } else {
+          console.log(`Using default speed (1.0) for ${voiceSource}`);
+        }
+        
+        // Apply pitch
+        if (voiceConfig.pitch && voiceConfig.pitch !== 1) {
+          const pitch = parseFloat(voiceConfig.pitch);
+          utterance.pitch = pitch;
+          console.log(`✅ Applied pitch: ${pitch} for ${voiceSource}`);
+        } else {
+          console.log(`Using default pitch (1.0) for ${voiceSource}`);
+        }
+      } else {
+        console.log(`No voice configuration found for ${voiceSource}`);
+      }
+    } catch (error) {
+      console.error("Error applying voice configuration:", error);
+    }
+  }
+
   // Check if we're on an episode page - if so, let global handler manage it
   if (window.location.pathname.includes('/episodes/')) {
     console.log("Episode page detected - skipping individual script");
@@ -80,14 +147,21 @@ const voice = voiceMap.narrator;
             if ('speechSynthesis' in window && text) {
               currentUtterance = new SpeechSynthesisUtterance(text);
               
+              // Apply voice configuration
+              console.log("About to apply voice configuration for action...");
+              applyVoiceConfig(currentUtterance, 'narrator');
+              console.log("Voice configuration applied for action");
+              
               currentUtterance.onstart = () => {
                 isPlaying = true;
                 updateButton();
+                console.log("Action started speaking");
               };
               
               currentUtterance.onend = () => {
                 isPlaying = false;
                 updateButton();
+                console.log("Action finished speaking");
               };
               
               currentUtterance.onerror = (e) => {

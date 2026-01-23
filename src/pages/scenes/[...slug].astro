@@ -13,6 +13,7 @@ import Parenthetical from "@/components/screenplay/Parenthetical.astro";
 import Transition from "@/components/screenplay/Transition.astro";
 import ActBreak from "@/components/screenplay/ActBreak.astro";
 import SceneNav from "@/components/SceneNav.astro";
+import VoiceConfigurator from "@/components/VoiceConfigurator.astro";
 
 export async function getStaticPaths() {
   const scenes = await getCollection("scenes");
@@ -110,6 +111,11 @@ const timesOfDay = Array.isArray(scene.data.time_of_day)
           </div>
         </div>
       )}
+      
+      <VoiceConfigurator 
+        characters={characters?.map(char => ({ name: char?.data.name || 'Unknown', slug: char?.slug || '' })) || []} 
+        narrator={true}
+      />
     </div>
     
     <div class="content markdown">
