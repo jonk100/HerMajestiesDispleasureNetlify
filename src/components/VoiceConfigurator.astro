@@ -6,6 +6,28 @@ interface Props {
 
 const { characters, narrator = true } = Astro.props;
 
+// Type definitions for voice configuration
+interface VoiceConfig {
+  narrator: {
+    voice: string;
+    speed: number;
+    pitch: number;
+  };
+  characters: Record<string, {
+    voice: string;
+    speed: number;
+    pitch: number;
+  }>;
+}
+
+// Extend Window interface for voice configuration
+declare global {
+  interface Window {
+    voiceConfig?: VoiceConfig;
+    reloadVoiceConfig?: () => void;
+  }
+}
+
 // Get available browser voices (will be populated client-side)
 ---
 
@@ -238,16 +260,16 @@ const { characters, narrator = true } = Astro.props;
       const resetBtn = document.getElementById('reset-voices');
       
       // Update speed display
-      const updateSpeedDisplay = (input) => {
-        const valueSpan = input.nextElementSibling;
+      const updateSpeedDisplay = (input: HTMLInputElement) => {
+        const valueSpan = input.nextElementSibling as HTMLElement;
         if (valueSpan && valueSpan.classList.contains('speed-value')) {
           valueSpan.textContent = parseFloat(input.value).toFixed(1);
         }
       };
       
       // Update pitch display
-      const updatePitchDisplay = (input) => {
-        const valueSpan = input.nextElementSibling;
+      const updatePitchDisplay = (input: HTMLInputElement) => {
+        const valueSpan = input.nextElementSibling as HTMLElement;
         if (valueSpan && valueSpan.classList.contains('pitch-value')) {
           valueSpan.textContent = parseFloat(input.value).toFixed(1);
         }
@@ -300,7 +322,7 @@ const { characters, narrator = true } = Astro.props;
           console.log(`Filtered voices for select:`, filteredVoices.length);
           
           // Group by language
-          const voicesByLang = {};
+          const voicesByLang: Record<string, SpeechSynthesisVoice[]> = {};
           filteredVoices.forEach(voice => {
             if (!voicesByLang[voice.lang]) {
               voicesByLang[voice.lang] = [];
@@ -314,7 +336,7 @@ const { characters, narrator = true } = Astro.props;
             const langName = lang.startsWith('en') ? 'English' : 'Japanese';
             optgroup.label = `${langName} (${voicesByLang[lang].length} voices)`;
             
-            voicesByLang[lang].forEach(voice => {
+            voicesByLang[lang].forEach((voice: SpeechSynthesisVoice) => {
               const option = document.createElement('option');
               option.value = voice.name;
               option.textContent = `${voice.name} (${voice.lang})`;
@@ -339,9 +361,9 @@ const { characters, narrator = true } = Astro.props;
             
             // Set narrator voice, speed, and pitch
             if (config.narrator) {
-              const narratorSelect = document.getElementById('narrator-voice');
-              const narratorSpeed = document.getElementById('narrator-speed');
-              const narratorPitch = document.getElementById('narrator-pitch');
+              const narratorSelect = document.getElementById('narrator-voice') as HTMLSelectElement;
+              const narratorSpeed = document.getElementById('narrator-speed') as HTMLInputElement;
+              const narratorPitch = document.getElementById('narrator-pitch') as HTMLInputElement;
               if (narratorSelect && config.narrator.voice) {
                 narratorSelect.value = config.narrator.voice;
               }
@@ -359,10 +381,10 @@ const { characters, narrator = true } = Astro.props;
             if (config.characters) {
               Object.keys(config.characters).forEach(charName => {
                 const charConfig = config.characters[charName];
-                const select = document.querySelector(`[data-character="${charName}"]`);
-                const index = Array.from(document.querySelectorAll('[data-character]')).findIndex(el => el.dataset.character === charName);
-                const speedInput = document.getElementById(`character-speed-${index}`);
-                const pitchInput = document.getElementById(`character-pitch-${index}`);
+                const select = document.querySelector(`[data-character="${charName}"]`) as HTMLSelectElement;
+                const index = Array.from(document.querySelectorAll('[data-character]')).findIndex(el => (el as HTMLElement).dataset.character === charName);
+                const speedInput = document.getElementById(`character-speed-${index}`) as HTMLInputElement;
+                const pitchInput = document.getElementById(`character-pitch-${index}`) as HTMLInputElement;
                 
                 if (select && charConfig.voice) {
                   select.value = charConfig.voice;
@@ -385,24 +407,27 @@ const { characters, narrator = true } = Astro.props;
       
       // Save configuration to localStorage
       const saveConfig = () => {
-        const config = {
+        const config: VoiceConfig = {
           narrator: {
-            voice: document.getElementById('narrator-voice')?.value || '',
-            speed: parseFloat(document.getElementById('narrator-speed')?.value || '1'),
-            pitch: parseFloat(document.getElementById('narrator-pitch')?.value || '1')
+            voice: (document.getElementById('narrator-voice') as HTMLSelectElement)?.value || '',
+            speed: parseFloat((document.getElementById('narrator-speed') as HTMLInputElement)?.value || '1'),
+            pitch: parseFloat((document.getElementById('narrator-pitch') as HTMLInputElement)?.value || '1')
           },
           characters: {}
         };
         
         // Save character configurations
-        document.querySelectorAll('[data-character]').forEach(select => {
-          const charName = select.dataset.character;
+        document.querySelectorAll('[data-character]').forEach((select) => {
+          const htmlSelect = select as HTMLSelectElement;
+          const charName = htmlSelect.dataset.character;
+          if (!charName) return;
+          
           const index = Array.from(document.querySelectorAll('[data-character]')).indexOf(select);
-          const speedInput = document.getElementById(`character-speed-${index}`);
-          const pitchInput = document.getElementById(`character-pitch-${index}`);
+          const speedInput = document.getElementById(`character-speed-${index}`) as HTMLInputElement;
+          const pitchInput = document.getElementById(`character-pitch-${index}`) as HTMLInputElement;
           
           config.characters[charName] = {
-            voice: select.value || '',
+            voice: htmlSelect.value || '',
             speed: parseFloat(speedInput?.value || '1'),
             pitch: parseFloat(pitchInput?.value || '1')
           };
@@ -430,9 +455,9 @@ const { characters, narrator = true } = Astro.props;
         let delay = 0;
         
         // Test narrator
-        const narratorVoice = document.getElementById('narrator-voice')?.value;
-        const narratorSpeed = parseFloat(document.getElementById('narrator-speed')?.value || '1');
-        const narratorPitch = parseFloat(document.getElementById('narrator-pitch')?.value || '1');
+        const narratorVoice = (document.getElementById('narrator-voice') as HTMLSelectElement)?.value;
+        const narratorSpeed = parseFloat((document.getElementById('narrator-speed') as HTMLInputElement)?.value || '1');
+        const narratorPitch = parseFloat((document.getElementById('narrator-pitch') as HTMLInputElement)?.value || '1');
         
         if (narratorVoice) {
           setTimeout(() => {
@@ -442,12 +467,15 @@ const { characters, narrator = true } = Astro.props;
         }
         
         // Test characters
-        document.querySelectorAll('[data-character]').forEach(select => {
-          const charName = select.dataset.character;
-          const voice = select.value;
+        document.querySelectorAll('[data-character]').forEach((select) => {
+          const htmlSelect = select as HTMLSelectElement;
+          const charName = htmlSelect.dataset.character;
+          if (!charName) return;
+          
+          const voice = htmlSelect.value;
           const index = Array.from(document.querySelectorAll('[data-character]')).indexOf(select);
-          const speedInput = document.getElementById(`character-speed-${index}`);
-          const pitchInput = document.getElementById(`character-pitch-${index}`);
+          const speedInput = document.getElementById(`character-speed-${index}`) as HTMLInputElement;
+          const pitchInput = document.getElementById(`character-pitch-${index}`) as HTMLInputElement;
           const speed = parseFloat(speedInput?.value || '1');
           const pitch = parseFloat(pitchInput?.value || '1');
           
@@ -465,7 +493,7 @@ const { characters, narrator = true } = Astro.props;
       };
       
       // Speak with specific voice and speed
-      const speakWithVoice = (text, voiceName, speed, pitch, label) => {
+      const speakWithVoice = (text: string, voiceName: string, speed: number, pitch: number, label: string) => {
         console.log(`Testing ${label}:`, { voice: voiceName, speed, pitch });
         
         const voices = window.speechSynthesis.getVoices();
@@ -503,20 +531,21 @@ const { characters, narrator = true } = Astro.props;
         
         // Reset all selects to default
         document.querySelectorAll('.voice-select').forEach(select => {
-          select.value = '';
+          (select as HTMLSelectElement).value = '';
         });
         
         // Reset all speeds to 1.0
         document.querySelectorAll('input[type="range"]').forEach(input => {
-          input.value = '1';
-          updateSpeedDisplay(input);
+          const htmlInput = input as HTMLInputElement;
+          htmlInput.value = '1';
+          updateSpeedDisplay(htmlInput);
         });
         
         showStatus('Configuration reset to defaults', 'success');
       };
       
       // Show status message
-      const showStatus = (message, type) => {
+      const showStatus = (message: string, type: 'success' | 'error' | 'info') => {
         if (voiceStatus) {
           voiceStatus.textContent = message;
           voiceStatus.className = `voice-status ${type}`;
@@ -530,12 +559,13 @@ const { characters, narrator = true } = Astro.props;
       };
       
       // Speed input listeners
-      document.querySelectorAll('input[type="range"]').forEach(input => {
-        input.addEventListener('input', () => {
-          if (input.id.includes('speed')) {
-            updateSpeedDisplay(input);
-          } else if (input.id.includes('pitch')) {
-            updatePitchDisplay(input);
+      document.querySelectorAll('input[type="range"]').forEach((input) => {
+        const htmlInput = input as HTMLInputElement;
+        htmlInput.addEventListener('input', () => {
+          if (htmlInput.id.includes('speed')) {
+            updateSpeedDisplay(htmlInput);
+          } else if (htmlInput.id.includes('pitch')) {
+            updatePitchDisplay(htmlInput);
           }
         });
       });

@@ -7,8 +7,8 @@ const allStats = await calculateAllCharacterStats();
 const characters = await getCollection("characters");
 
 const characterStatsArray = Object.values(allStats)
-  .filter(stat => stat.totalScenes > 0)
-  .map(stat => {
+  .filter((stat: any) => stat.totalScenes > 0)
+  .map((stat: any) => {
     const character = characters.find(c => c.slug === stat.characterSlug);
     return {
       characterSlug: stat.characterSlug,
@@ -23,7 +23,9 @@ const characterStatsArray = Object.values(allStats)
       role: character?.data.role || 'unknown',
       characterType: character?.data.character_type || 'unknown',
     };
-  });
+  })
+  .sort((a, b) => b.totalScenes - a.totalScenes);
+
 ---
 
 <Layout title="Character Statistics">

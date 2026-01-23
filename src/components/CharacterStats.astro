@@ -66,7 +66,7 @@ const acts = [1, 2, 3];
         
         const actLines = linesByActMap.get(act) || 0;
         const actScenes = scenesByActMap.get(act) || 0;
-        const actAppearances = stats.sceneAppearances.filter(s => s.act === act);
+        const actAppearances = stats.sceneAppearances.filter((s: any) => s.act === act);
         
         return (
           <div class="act-section">
@@ -106,7 +106,7 @@ const acts = [1, 2, 3];
                 x-transition:leave-end="opacity-0 max-h-0"
               >
                 <div class="scene-list">
-                  {actAppearances.map((scene) => (
+                  {actAppearances.map((scene: any) => (
                     <div class="scene-item">
                       <a href={`/scenes/${scene.slug}`} class="scene-link">
                         <span class="scene-number">Scene {scene.sceneNumber}</span>
