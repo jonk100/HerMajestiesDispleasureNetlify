@@ -3,7 +3,7 @@
 ## Loglines
 
 ### Option 1 - Balanced, Buyer-Friendly
-- After The Beatles receive MBEs in 1965, a wounded Prince Philip quietly authorizes MI5 to neutralize the band as a growing political embarrassment. Tasked with the operation, two ill-suited intelligence officers stumble through a multi-year campaign of sabotage that escalates alongside John Lennon’s radicalization—until bureaucratic inertia pushes the mission toward consequences no one can fully control.
+- After The Beatles receive MBEs in 1965, a wounded Prince Philip quietly authorizes MI5 to neutralize the band as a growing political embarrassment. Tasked with the operation, Nigel Finch and Clive Barrow stumble through a multi-year campaign of sabotage that escalates alongside John Lennon’s radicalization—until bureaucratic inertia pushes the mission toward consequences no one can fully control.
 
 ### Option 2 - Sharper Stirical Signal (More Conrad / Iannucci)
 - When The Beatles are awarded MBEs in 1965, Prince Philip responds not with pride but by quietly unleashing MI5 to rein them in. Caught between royal paranoia and John Lennon’s growing rebellion, two hapless intelligence officers oversee a campaign that exposes how petty grudges, bad paperwork, and institutional absurdity can reshape history.
@@ -32,6 +32,7 @@ The film's visual language is a deliberate clash of two worlds, inspired by the 
 - *Patriot (Steven Conrad):* For its deadpan humor, bureaucratic melancholy, and the depiction of intelligence work as a soul-crushing office job.
 - *The Royal Tenenbaums (Wes Anderson):* For its portrayal of a dysfunctional, iconic family, its specific visual aesthetic, and its blend of comedy with genuine pathos.
 - *The Death of Stalin (Armando Iannucci):* For its sharp, satirical take on a powerful institution in crisis and its depiction of powerful figures as petty, incompetent, and self-serving.
+- *Breaking Bad / Better Call Saul (Vince Gilligan):* For the use of restrained camera direction to withhold and reveal consequence, and the depiction of institutional harm as a series of reasonable decisions that accumulate into irreversible damage. Gilligan's approach to camera work—using audience-facing language to control knowledge rather than shots—provides the structural spine for how bureaucracy becomes complicit in harm through procedural blindness and delayed moral recognition.
 
 ## Central Dramatic Question
 

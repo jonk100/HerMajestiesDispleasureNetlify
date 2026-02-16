@@ -1,0 +1,149 @@
+---
+/**
+ * EpisodeRenderer - Renders a complete episode with header and all scenes
+ */
+import { getCollection, getEntry } from 'astro:content';
+import Screenplay from './Screenplay.astro';
+import Scene from './Scene.astro';
+import Action from './Action.astro';
+import Character from './Character.astro';
+import Dialogue from './Dialogue.astro';
+import Parenthetical from './Parenthetical.astro';
+import Transition from './Transition.astro';
+import ActBreak from './ActBreak.astro';
+
+interface Props {
+  episodeNumber: number;
+}
+
+const { episodeNumber } = Astro.props;
+
+// Get the episode data
+const episodes = await getCollection('episodes');
+const episode = episodes.find(ep => ep.data.episode_number === episodeNumber);
+
+if (!episode) {
+  throw new Error(`Episode ${episodeNumber} not found`);
+}
+
+// Resolve scene references and render content
+const scenes = await Promise.all(
+  episode.data.scenes.map((sceneRef) => getEntry(sceneRef))
+);
+
+const resolvedScenes = scenes.filter(
+  (s): s is NonNullable<typeof s> => s !== null && s !== undefined
+);
+
+const renderedScenes = await Promise.all(
+  resolvedScenes.map(async (scene) => ({
+    scene,
+    Content: (await scene.render()).Content,
+  }))
+);
+---
+
+<section class="episode">
+  <header class="episode-header">
+    <h1 class="episode-title">Episode {episode.data.episode_number} - {episode.data.title}</h1>
+    {episode.data.logline && (
+      <p class="episode-logline">{episode.data.logline}</p>
+    )}
+    {episode.data.timeframe && (
+      <p class="episode-timeframe">
+        <strong>Timeframe:</strong> {episode.data.timeframe}
+      </p>
+    )}
+    {episode.data.thematic_engine && (
+      <p class="episode-thematic-engine">
+        <strong>Thematic Engine:</strong> {episode.data.thematic_engine}
+      </p>
+    )}
+    {episode.data.estimated_runtime && (
+      <p class="episode-runtime">
+        <strong>Estimated Runtime:</strong> {episode.data.estimated_runtime} minutes
+      </p>
+    )}
+  </header>
+
+  <div class="episode-scenes">
+    {renderedScenes.map(({ scene, Content }) => (
+      <div class="scene-break" id={`scene-${scene.data.scene_number}`}>
+        <Content
+          components={{
+            Screenplay,
+            Scene,
+            Action,
+            Character,
+            Dialogue,
+            Parenthetical,
+            Transition,
+            ActBreak,
+          }}
+        />
+      </div>
+    ))}
+  </div>
+
+  {episode.data.closing_image && (
+    <footer class="episode-footer">
+      <p class="episode-closing-image">
+        <strong>Closing Image:</strong> {episode.data.closing_image}
+      </p>
+    </footer>
+  )}
+</section>
+
+<style>
+  .episode {
+    margin-bottom: 4rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 2rem;
+  }
+
+  .episode-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #666;
+  }
+
+  .episode-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+
+  .episode-logline {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .episode-timeframe,
+  .episode-thematic-engine,
+  .episode-runtime {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .episode-scenes {
+    margin-bottom: 2rem;
+  }
+
+  .scene-break {
+    margin-bottom: 2em;
+  }
+
+  .episode-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #666;
+  }
+
+  .episode-closing-image {
+    font-style: italic;
+    color: #666;
+  }
+</style>

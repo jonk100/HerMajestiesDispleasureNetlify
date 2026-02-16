@@ -1,0 +1,81 @@
+---
+/**
+ * CompleteShow - Renders all episodes in sequence
+ */
+import { getCollection } from 'astro:content';
+import EpisodeRenderer from './EpisodeRenderer.astro';
+
+// Get all episodes and sort by episode number
+const episodes = await getCollection('episodes');
+const sortedEpisodes = episodes.sort((a, b) => a.data.episode_number - b.data.episode_number);
+---
+
+<main class="complete-show">
+  <header class="show-header">
+    <h1 class="show-title">Her Majesty's Displeasure</h1>
+    <p class="show-description">Complete Screenplay</p>
+    <div class="episode-count">
+      <p>Total Episodes: {sortedEpisodes.length}</p>
+    </div>
+  </header>
+
+  <div class="episodes-container">
+    {sortedEpisodes.map((episode) => (
+      <EpisodeRenderer episodeNumber={episode.data.episode_number} />
+    ))}
+  </div>
+</main>
+
+<style>
+  .complete-show {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+  }
+
+  .show-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #000;
+  }
+
+  .show-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+
+  .show-description {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .episode-count {
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  .episodes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .complete-show {
+      padding: 1rem;
+    }
+
+    .show-title {
+      font-size: 2rem;
+    }
+
+    .show-description {
+      font-size: 1.2rem;
+    }
+  }
+</style>

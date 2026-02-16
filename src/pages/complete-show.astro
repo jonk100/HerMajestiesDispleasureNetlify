@@ -1,0 +1,30 @@
+---
+/**
+ * Complete Show Page - Displays the entire screenplay
+ */
+import { getCollection } from 'astro:content';
+import EpisodeRenderer from '../components/screenplay/EpisodeRenderer.astro';
+import Layout from '../layout/Layout.astro';
+import '../styles/screenplay.css';
+import type { CollectionEntry } from 'astro:content';
+
+// Get all episodes and sort by episode number
+const episodes = await getCollection('episodes');
+const sortedEpisodes = episodes.sort((a, b) => a.data.episode_number - b.data.episode_number);
+---
+
+<Layout title="Her Majesty's Displeasure - Complete Screenplay">
+  <header class="show-header">
+    <h1 class="show-title">Her Majesty's Displeasure</h1>
+    <p class="show-description">Complete Screenplay</p>
+    <div class="episode-count">
+      <p>Total Episodes: {sortedEpisodes.length}</p>
+    </div>
+  </header>
+
+  <div class="episodes-container">
+    {sortedEpisodes.map((episode) => (
+      <EpisodeRenderer episodeNumber={episode.data.episode_number} />
+    ))}
+  </div>
+</Layout>

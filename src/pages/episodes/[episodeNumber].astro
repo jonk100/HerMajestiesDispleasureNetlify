@@ -1,0 +1,36 @@
+---
+/**
+ * Individual Episode Page - Displays a single episode
+ */
+import EpisodeRenderer from '../../components/screenplay/EpisodeRenderer.astro';
+import Head from '../../layout/Head.astro';
+import Footer from '../../layout/Footer.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import '../../styles/screenplay.css';
+
+export async function getStaticPaths() {
+  const episodes = await getCollection('episodes');
+  return episodes.map((episode) => ({
+    params: { episodeNumber: episode.data.episode_number.toString() },
+    props: { 
+      episode: episode,
+      episodeNumber: episode.data.episode_number
+    },
+  }));
+}
+
+const { episode, episodeNumber } = Astro.props;
+const episodeData = episode as CollectionEntry<'episodes'>;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Head title={`Episode ${episodeNumber} - ${episodeData.data.title} | Her Majesty's Displeasure`} />
+  </head>
+  <body>
+    <EpisodeRenderer episodeNumber={episodeNumber} />
+    <Footer />
+  </body>
+</html>

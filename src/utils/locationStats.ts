@@ -1,36 +1,5 @@
 import { getCollection } from "astro:content";
-
-/**
- * Public shape consumed by UI
- */
-export interface LocationSceneStats {
-  locationSlug: string;
-  locationName: string;
-
-  totalScenes: number;
-  scenesByAct: Map<number, number>;
-
-  sceneAppearances: {
-    slug: string;
-    title: string;
-    act: number;
-    sceneNumber: number;
-  }[];
-
-  firstAppearance: {
-    slug: string;
-    title: string;
-    act: number;
-    sceneNumber: number;
-  } | null;
-
-  lastAppearance: {
-    slug: string;
-    title: string;
-    act: number;
-    sceneNumber: number;
-  } | null;
-}
+import type { LocationSceneStats } from "./statsInterfaces.ts";
 
 /**
  * Calculate stats for ALL locations across ALL scenes
@@ -73,7 +42,7 @@ export async function calculateAllLocationStats() {
     const locationSlug =
       typeof scene.data.location === "string"
         ? scene.data.location
-        : scene.data.location.id;
+        : (scene.data.location as any).id;
 
     const stat = stats[locationSlug];
     if (!stat) continue;

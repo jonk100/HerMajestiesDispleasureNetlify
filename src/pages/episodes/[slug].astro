@@ -15,6 +15,7 @@ import ActBreak from "@/components/screenplay/ActBreak.astro";
 import PageBreaker from "@/components/screenplay/PageBreaker.astro";
 import PrintToPdf from "@/components/PrintToPdf.astro";
 import EpisodeNav from "@/components/EpisodeNav.astro";
+import VoiceConfigurator from "@/components/VoiceConfigurator.astro";
 
 
 /**
@@ -151,6 +152,13 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
         </div>
       </div>
     </div>
+    
+    <!-- Voice Configuration -->
+    <VoiceConfigurator 
+      characters={sortedCharacters.map(char => ({ name: char.data.name, slug: char.slug }))}
+      narrator={true}
+    />
+    
     <EpisodeNav currentSlug={episode.slug} />
   </div>
 
@@ -329,9 +337,21 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
     margin-bottom: 2em;
   }
 
+  .voice-configurator {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+
   @media print {
     .episode-header {
       page-break-after: always;
+    }
+    
+    .voice-configurator {
+      display: none !important;
     }
   }
 </style>

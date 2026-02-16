@@ -69,8 +69,8 @@ const voice = speaker
         
         console.log(`Cleaned character name: ${cleanedName}`);
         
-        // Use the existing CHARACTER_ALIAS_MAP mapping
-        const characterAliasMap = {
+        // Use the shared character mapping system
+        const characterDisplayNames = {
           'JOHN': 'John Lennon',
           'JOHN LENNON': 'John Lennon',
           'PAUL': 'Paul McCartney',
@@ -113,7 +113,7 @@ const voice = speaker
           'MAUREEN CLEAVE': 'Maureen Cleave'
         };
         
-        const mappedCharacterName = characterAliasMap[cleanedName] || characterName;
+        const mappedCharacterName = characterDisplayNames[cleanedName] || characterName;
         if (mappedCharacterName !== characterName) {
           console.log(`Mapped character name: ${characterName} -> ${mappedCharacterName}`);
         }

@@ -75,6 +75,7 @@ declare global {
   <div class="voice-actions">
     <button id="save-voice-config" class="save-btn">Save Configuration</button>
     <button id="test-voices" class="test-btn">Test Voices</button>
+    <button id="play-episode" class="play-btn">Play Episode</button>
     <button id="reset-voices" class="reset-btn">Reset to Default</button>
   </div>
   
@@ -208,6 +209,25 @@ declare global {
     background: #0069d9 !important;
   }
   
+  .play-btn {
+    background: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+  }
+  
+  .play-btn:hover {
+    background: #218838 !important;
+  }
+  
+  .play-btn.playing {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+  }
+  
+  .play-btn.playing:hover {
+    background: #c82333 !important;
+  }
+  
   .reset-btn {
     background: #6c757d !important;
     color: white !important;
@@ -246,6 +266,13 @@ declare global {
     border: 1px solid #bee5eb;
     display: block;
   }
+  
+  .currently-speaking {
+    background-color: #fff3cd !important;
+    border-left: 4px solid #ffc107 !important;
+    padding-left: 0.5rem !important;
+    transition: all 0.3s ease !important;
+  }
 </style>
 
 <script>
@@ -254,10 +281,11 @@ declare global {
     const initVoiceConfigurator = () => {
       console.log("Initializing voice configurator...");
       
-      const voiceStatus = document.getElementById('voice-status');
-      const saveBtn = document.getElementById('save-voice-config');
-      const testBtn = document.getElementById('test-voices');
-      const resetBtn = document.getElementById('reset-voices');
+      const voiceStatus = document.getElementById('voice-status') as HTMLDivElement;
+      const saveBtn = document.getElementById('save-voice-config') as HTMLButtonElement;
+      const testBtn = document.getElementById('test-voices') as HTMLButtonElement;
+      const playBtn = document.getElementById('play-episode') as HTMLButtonElement;
+      const resetBtn = document.getElementById('reset-voices') as HTMLButtonElement;
       
       // Update speed display
       const updateSpeedDisplay = (input: HTMLInputElement) => {
@@ -544,6 +572,345 @@ declare global {
         showStatus('Configuration reset to defaults', 'success');
       };
       
+      // Play entire episode
+      const playEpisode = () => {
+        const savedConfig = localStorage.getItem('voiceConfig');
+        if (!savedConfig) {
+          showStatus('Please save a voice configuration first', 'error');
+          return;
+        }
+        
+        const config = JSON.parse(savedConfig);
+        
+        // Find all speakable elements in order
+        const speakableElements = document.querySelectorAll('.dialogue, .action, .parenthetical');
+        
+        if (speakableElements.length === 0) {
+          showStatus('No dialogue found to play', 'error');
+          return;
+        }
+        
+        // Cancel any current speech
+        window.speechSynthesis.cancel();
+        
+        // Disable all individual speak buttons during episode playback
+        const allSpeakButtons = document.querySelectorAll('.speak');
+        const originalButtonStates: Array<{button: HTMLButtonElement, onclick: any}> = [];
+        
+        allSpeakButtons.forEach(button => {
+          const htmlButton = button as HTMLButtonElement;
+          originalButtonStates.push({
+            button: htmlButton,
+            onclick: htmlButton.onclick
+          });
+          htmlButton.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Individual speak button disabled during episode playback');
+          };
+          htmlButton.style.opacity = '0.5';
+          htmlButton.style.cursor = 'not-allowed';
+        });
+        
+        // Update button state
+        playBtn.textContent = 'Stop Episode';
+        playBtn.classList.add('playing');
+        showStatus('Playing episode...', 'info');
+        
+        let currentIndex = 0;
+        let isPlaying = true;
+        let currentTimeouts: NodeJS.Timeout[] = [];
+        let currentUtterance: SpeechSynthesisUtterance | null = null;
+        let globalStopFlag = false; // Add global stop flag
+        
+        const stopEpisode = () => {
+          console.log('Stopping episode...');
+          globalStopFlag = true; // Set global stop flag
+          isPlaying = false;
+          
+          // Clear all pending timeouts
+          currentTimeouts.forEach(timeoutId => clearTimeout(timeoutId));
+          currentTimeouts = [];
+          
+          // Cancel current utterance if it exists
+          if (currentUtterance) {
+            currentUtterance.onend = null;
+            currentUtterance.onerror = null;
+            currentUtterance = null;
+          }
+          
+          // Cancel all speech synthesis multiple times
+          for (let i = 0; i < 10; i++) {
+            window.speechSynthesis.cancel();
+          }
+          
+          // Try to pause and resume to force stop
+          if (window.speechSynthesis.speaking) {
+            window.speechSynthesis.pause();
+            setTimeout(() => {
+              window.speechSynthesis.cancel();
+            }, 50);
+          }
+          
+          // Re-enable all individual speak buttons
+          originalButtonStates.forEach(({button, onclick}) => {
+            button.onclick = onclick;
+            button.style.opacity = '';
+            button.style.cursor = '';
+          });
+          
+          // Update UI immediately
+          playBtn.textContent = 'Play Episode';
+          playBtn.classList.remove('playing');
+          showStatus('Episode stopped', 'info');
+          
+          // Remove highlight from all elements
+          document.querySelectorAll('.currently-speaking').forEach(el => {
+            el.classList.remove('currently-speaking');
+          });
+          
+          // Reset button onclick to playEpisode
+          playBtn.onclick = playEpisode;
+          
+          console.log('Episode stop completed');
+        };
+        
+        // Update button onclick to handle stop functionality
+        playBtn.onclick = stopEpisode;
+        
+        const playNextElement = () => {
+          if (!isPlaying || globalStopFlag) return; // Stop if playback was cancelled
+          
+          if (currentIndex >= speakableElements.length) {
+            // Finished playing
+            playBtn.textContent = 'Play Episode';
+            playBtn.classList.remove('playing');
+            showStatus('Episode finished', 'success');
+            
+            // Re-enable all individual speak buttons
+            originalButtonStates.forEach(({button, onclick}) => {
+              button.onclick = onclick;
+              button.style.opacity = '';
+              button.style.cursor = '';
+            });
+            
+            playBtn.onclick = playEpisode;
+            return;
+          }
+          
+          const element = speakableElements[currentIndex];
+          const isDialogue = element.classList.contains('dialogue');
+          const isAction = element.classList.contains('action');
+          const isParenthetical = element.classList.contains('parenthetical');
+          
+          // Extract text from element
+          const clone = element.cloneNode(true) as HTMLElement;
+          const button = clone.querySelector('.speak');
+          if (button) button.remove();
+          const text = clone.textContent?.replace(/\s+/g, " ").trim() ?? "";
+          
+          if (!text) {
+            currentIndex++;
+            playNextElement();
+            return;
+          }
+          
+          // Determine voice configuration and character name
+          let voiceConfig = null;
+          let voiceSource = '';
+          let characterName = null;
+          
+          if (isAction || isParenthetical) {
+            voiceConfig = config.narrator;
+            voiceSource = `narrator (${isParenthetical ? 'parenthetical' : 'action'})`;
+          } else if (isDialogue) {
+            // Find character name
+            let previousElement = element.previousElementSibling;
+            
+            while (previousElement && !characterName) {
+              if (previousElement.classList.contains('character')) {
+                let rawCharacterName = previousElement.textContent?.trim();
+                if (rawCharacterName) {
+                  const cleanedName = rawCharacterName
+                    .replace(/\(.*?\)/g, "")
+                    .replace(/\s+#\d+/g, "")
+                    .replace(/[']/g, "'")
+                    .trim()
+                    .toUpperCase();
+                  
+                  // Character name mapping
+                  const characterDisplayNames: Record<string, string> = {
+                    'JOHN': 'John Lennon',
+                    'JOHN LENNON': 'John Lennon',
+                    'PAUL': 'Paul McCartney',
+                    'PAUL MCCARTNEY': 'Paul McCartney',
+                    'GEORGE': 'George Harrison',
+                    'GEORGE HARRISON': 'George Harrison',
+                    'RINGO': 'Ringo Starr',
+                    'RINGO STARR': 'Ringo Starr',
+                    'YOKO': 'Yoko Ono',
+                    'BRIAN': 'Brian Epstein',
+                    'EPSTEIN': 'Brian Epstein',
+                    'BRIAN EPSTEIN': 'Brian Epstein',
+                    'NIGEL': 'Nigel Finch',
+                    'NIGEL FINCH': 'Nigel Finch',
+                    'CLIVE': 'Clive Barrow',
+                    'CLIVE BARROW': 'Clive Barrow',
+                    'SIR DEREK': 'Sir Derrick Finchley',
+                    'SIR DEREK FINCHLEY': 'Sir Derrick Finchley',
+                    'PHILIP': 'Prince Philip',
+                    'PHILLIP': 'Prince Philip',
+                    'PRINCE PHILIP': 'Prince Philip',
+                    'PRINCE PHILLIP': 'Prince Philip',
+                    'MOUNTBATTEN': 'Lord Mountbatten',
+                    'LORD MOUNTBATTEN': 'Lord Mountbatten',
+                    'QUEEN ELIZABETH': 'Queen Elizabeth',
+                    'QUEEN ELIZABETH II': 'Queen Elizabeth',
+                    'THE QUEEN': 'Queen Elizabeth',
+                    'MARGARET': 'Princess Margarette',
+                    'MARGARETTE': 'Princess Margarette',
+                    'PRINCESS MARGARET': 'Princess Margarette',
+                    'PRINCESS MARGARETTE': 'Princess Margarette',
+                    'GEORGE MARTIN': 'George Martin',
+                    'GLYN JOHNS': 'Glyn Johns',
+                    'MAL EVANS': 'Mal Evans',
+                    'BILLY': 'Billy Preston',
+                    'BILLY PRESTON': 'Billy Preston',
+                    'RAVI SHANKAR': 'Ravi Shankar',
+                    'LINDA': 'Linda McCartney',
+                    'MAUREEN': 'Maureen Cleave',
+                    'MAUREEN CLEAVE': 'Maureen Cleave'
+                  };
+                  
+                  characterName = characterDisplayNames[cleanedName] || rawCharacterName;
+                }
+              }
+              previousElement = previousElement.previousElementSibling;
+            }
+            
+            if (characterName && config.characters[characterName]) {
+              voiceConfig = config.characters[characterName];
+              voiceSource = `character: ${characterName}`;
+            } else if (config.narrator) {
+              voiceConfig = config.narrator;
+              voiceSource = 'narrator (fallback)';
+            }
+          }
+          
+          if (!voiceConfig) {
+            currentIndex++;
+            playNextElement();
+            return;
+          }
+          
+          // Create utterances for character name and dialogue
+          const utterances: SpeechSynthesisUtterance[] = [];
+          
+          // If it's dialogue and we have a character name, add narrator announcement first
+          if (isDialogue && characterName) {
+            const nameUtterance = new SpeechSynthesisUtterance(`${characterName}:`);
+            
+            // Use narrator voice for character name announcement
+            if (config.narrator) {
+              if (config.narrator.voice && config.narrator.voice !== '') {
+                const voices = window.speechSynthesis.getVoices();
+                const voice = voices.find(v => v.name === config.narrator.voice);
+                if (voice) {
+                  nameUtterance.voice = voice;
+                }
+              }
+              nameUtterance.rate = config.narrator.speed || 1;
+              nameUtterance.pitch = config.narrator.pitch || 1;
+            }
+            
+            // Add a slight pause after the name
+            nameUtterance.rate = (config.narrator?.speed || 1) * 0.9; // Slightly slower for clarity
+            utterances.push(nameUtterance);
+          }
+          
+          // Create the main utterance for the actual text
+          const mainUtterance = new SpeechSynthesisUtterance(text);
+          
+          // Apply voice configuration for main text
+          if (voiceConfig.voice && voiceConfig.voice !== '') {
+            const voices = window.speechSynthesis.getVoices();
+            const voice = voices.find(v => v.name === voiceConfig.voice);
+            if (voice) {
+              mainUtterance.voice = voice;
+            }
+          }
+          
+          mainUtterance.rate = voiceConfig.speed || 1;
+          mainUtterance.pitch = voiceConfig.pitch || 1;
+          
+          // Add a small pause between name and dialogue
+          if (isDialogue && characterName) {
+            mainUtterance.text = ` ${text}`; // Add leading space for pause
+          }
+          
+          utterances.push(mainUtterance);
+          
+          // Highlight current element
+          element.classList.add('currently-speaking');
+          setTimeout(() => {
+            element.classList.remove('currently-speaking');
+          }, 3000); // Keep highlight longer for dialogue with name announcement
+          
+          // Play utterances in sequence
+          let utteranceIndex = 0;
+          
+          const playNextUtterance = () => {
+            if (!isPlaying || globalStopFlag) return; // Stop if playback was cancelled
+            
+            if (utteranceIndex >= utterances.length) {
+              // All utterances for this element are done, move to next element
+              currentIndex++;
+              playNextElement();
+              return;
+            }
+            
+            const utterance = utterances[utteranceIndex];
+            currentUtterance = utterance;
+            
+            utterance.onend = () => {
+              if (!isPlaying || globalStopFlag) return; // Stop if playback was cancelled
+              
+              currentUtterance = null;
+              utteranceIndex++;
+              // Add a small pause between name and dialogue
+              if (utteranceIndex < utterances.length) {
+                const timeoutId = setTimeout(() => {
+                  if (isPlaying && !globalStopFlag) playNextUtterance();
+                }, 300);
+                currentTimeouts.push(timeoutId);
+              } else {
+                playNextUtterance();
+              }
+            };
+            
+            utterance.onerror = () => {
+              console.error(`Error playing utterance ${utteranceIndex} for element ${currentIndex}`);
+              if (!isPlaying || globalStopFlag) return; // Stop if playback was cancelled
+              
+              currentUtterance = null;
+              utteranceIndex++;
+              playNextUtterance();
+            };
+            
+            // Final check before speaking
+            if (!globalStopFlag) {
+              window.speechSynthesis.speak(utterance);
+            }
+          };
+          
+          // Start playing the first utterance
+          playNextUtterance();
+        };
+        
+        // Start playing
+        playNextElement();
+      };
+      
       // Show status message
       const showStatus = (message: string, type: 'success' | 'error' | 'info') => {
         if (voiceStatus) {
@@ -577,6 +944,10 @@ declare global {
       
       if (testBtn) {
         testBtn.addEventListener('click', testVoices);
+      }
+      
+      if (playBtn) {
+        playBtn.addEventListener('click', playEpisode);
       }
       
       if (resetBtn) {
