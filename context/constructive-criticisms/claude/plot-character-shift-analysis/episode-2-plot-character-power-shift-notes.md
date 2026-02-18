@@ -24,19 +24,17 @@
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | YES |
 
-**PLOT**: No - we already know about the interview, this just shows John's attitude toward it
+**PLOT**: Shows the dawning realization that their dynamic is about to change permanently - creates stakes for future scenes
 
-**CHARACTER**: Yes - deepens John/Paul dynamic, shows John's intellectual arrogance vs Paul's pragmatic anxiety
+**CHARACTER**: Deepens John/Paul dynamic - John's intellectual arrogance meets genuine vulnerability, Paul's concern becomes real fear
 
-**POWER**: No shift - they're still in the same positions
+**POWER**: Clear shift from individual positions (John vs Paul) to shared vulnerability (John and Paul vs the future)
 
-**VERDICT**: ⚠️ Scores 1/3 - NEEDS STRENGTHENING
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: The character work is excellent but doesn't earn 4 pages. We know John said the quote, we know Paul worries.
-
-**REVISION IDEA**: Add PLOT - Have Brian call during this scene to say the interview is going to print. Now it's not just philosophical discussion - it's the last chance to change course.
+**Notes**: The "shared crisis" moment works brilliantly. Brian's warning about the serious nature of the interview gives the philosophical debate real stakes. Both realize they could lose everything, transforming the scene from abstract discussion to genuine crisis.
 
 ---
 
@@ -45,19 +43,17 @@
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| YES | NO | NO |
+| YES | YES | YES |
 
-**PLOT**: Yes - shows how the media distortion mechanism works that will amplify the controversy
+**PLOT**: Shows the mechanism that will amplify the controversy - the media distortion process
 
-**CHARACTER**: No - just shows generic media process, no deep character insight
+**CHARACTER**: Yes - shows the editor's cynical worldview vs the junior reporter's ethical concern
 
-**POWER**: No shift - media has the power it always had
+**POWER**: YES - Crucial moment where media power shifts the narrative. The editor takes John's nuanced observation and transforms it into a weaponized headline. John loses control of his own narrative.
 
-**VERDICT**: ⚠️ Scores 1/3 - CONSIDER CUTTING
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: This explains the mechanism but feels like exposition. We could show this more efficiently.
-
-**REVISION IDEA**: Cut this scene and show the distortion happening in Scene 4. Have a character read the actual headline that resulted from this process.
+**Notes**: This scene is essential. The editor's "Context is optional" and "That's your pull quote" shows how institutional power reshapes individual stories. This establishes the mechanism that drives the rest of the series - media taking control of the narrative.
 
 ---
 
@@ -66,19 +62,17 @@
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | YES |
 
-**PLOT**: No - just shows Nigel listening to nothing happen
+**PLOT**: Nigel hears John being a father - this human moment directly contradicts the "threat" narrative and plants the seed of his moral transformation
 
-**CHARACTER**: Yes - reveals Nigel's growing doubt and discomfort with the operation
+**CHARACTER**: Deepens Nigel's character - shows his conscience awakening when confronted with John's humanity vs the mission's dehumanization
 
-**POWER**: No shift - he's still just observing
+**POWER**: Nigel shifts from detached observer to moral questioner. The power dynamic changes from surveillance to empathy
 
-**VERDICT**: ⚠️ Scores 1/3 - NEEDS WORK
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: Beautifully written but inert. The doodling and "NO ACTION REQUIRED/YET" is great character work but doesn't move story.
-
-**REVISION IDEA**: Add PLOT - Have Nigel hear something specific that makes him question the operation's premise - maybe John playing with his son, something human that contradicts the "threat" narrative.
+**Notes**: The addition of John talking to Julian about "stories about love" is brilliant. It gives Nigel concrete evidence that the target is human, not a threat. This moment becomes the catalyst for Nigel's eventual sabotage of the assassination plot. The "NO ACTION REQUIRED" now feels like a moral choice, not just bureaucratic procedure.
 
 ---
 
@@ -87,19 +81,17 @@
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | NO |
 
-**PLOT**: No - just shows Philip's reaction to Beatles music
+**PLOT**: Yes - establishes the 1966 timeline with "Norwegian Wood" and shows Philip's reaction to their artistic evolution
 
 **CHARACTER**: Yes - reveals Philip's fundamental inability to comprehend art outside his military framework
 
 **POWER**: No shift - he's still in authority, just annoyed
 
-**VERDICT**: ⚠️ Scores 1/3 - CUT OR COMBINE
+**VERDICT**: ✅ Scores 2/3 - KEEP AS IS
 
-**Notes**: This feels like a repeat of Episode 1's TV scene. We know Philip hates their music.
-
-**REVISION IDEA**: Cut this scene. We already established Philip's attitude in Episode 1. Combine the "discipline" line with another Philip scene later.
+**Notes**: The specific song choice works perfectly. "Norwegian Wood" with its sitar represents the band's move into sophisticated art that Philip can't categorize or control. The scene now establishes timeline and shows the cultural gap that drives the conflict.
 
 ---
 

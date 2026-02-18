@@ -38,45 +38,22 @@
 
 ---
 
-## SCENE 3: Palace Corridor (Equerry scene)
+## SCENES 3-4: Palace Corridors (Combined)
 **Page: 3**
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | NO | YES |
+| YES | YES | YES |
 
-**PLOT**: No new information - we already know ceremony is over
+**PLOT**: Shows the institutional separation - royalty routed to private exit, Beatles processed to press pen. This transition establishes the two worlds that will collide.
 
-**CHARACTER**: Just shows us what we know (Epstein is protective, Beatles are separated from royalty)
+**CHARACTER**: Philip/Mountbatten's dismissive authority vs Paul's anxiety and John's defiance - shows both sides of the power dynamic.
 
-**POWER**: The "musical group" dismissal reinforces class hierarchy
+**POWER**: The "musical group" dismissal establishes class hierarchy while Beatles are being led like livestock through the institutional machine.
 
-**VERDICT**: ⚠️ Scores 1/3 - CONSIDER CUTTING OR COMBINING
+**VERDICT**: ✅ Scores 3/3 - PERFECT COMBINED SCENE
 
-**Notes**: This is atmospheric but doesn't pull weight. You could cut it entirely or combine it with the next scene. The only thing it does is the "musical group" slight, which is minor.
-
-**REVISION IDEA**: Cut this scene. Move the "musical group" dismissal to the next scene - have Philip use that phrase when talking to Mountbatten.
-
----
-
-## SCENE 4: Another Corridor (Beatles being led)
-**Page: 3**
-
-| PLOT | CHARACTER | POWER |
-|------|-----------|-------|
-| NO | YES | NO |
-
-**PLOT**: No - we already know they're going to press
-
-**CHARACTER**: Yes - Paul's anxiety vs John's defiance
-
-**POWER**: No shift - they're being led where they already knew they'd go
-
-**VERDICT**: ⚠️ Scores 1/3 - CUT OR COMBINE
-
-**Notes**: The character beat (Paul: "don't say anything clever" / John: "When have I ever") is good but doesn't need a separate scene.
-
-**REVISION IDEA**: Cut this scene. Move that exchange to the press scrum itself - have Paul whisper it to John just before the mics go live.
+**Notes**: This works brilliantly as one sequence. Cut from Philip/Mountbatten striding down portrait-lined corridor to Beatles being led through utilitarian one. The contrast itself is the point - same action, different worlds.
 
 ---
 
@@ -123,21 +100,17 @@
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | YES |
 
-**PLOT**: No new information - we already know they got MBEs
+**PLOT**: Establishes the ideological fault line that the entire conspiracy will exploit - John's artistic restlessness vs Paul's commercial drive
 
-**CHARACTER**: Yes - Shows emerging tensions (John's restlessness, Paul's ambition, George's dissatisfaction)
+**CHARACTER**: Perfect character work - John seeking meaning, Paul's ambition, George's marginalization, Ringo as peacemaker, Brian losing control
 
-**POWER**: No shift - they're all still equals celebrating together
+**POWER**: Multiple shifts - Paul tries to drive agenda, John counters with artistic authority, George disrupts, Ringo restores equilibrium
 
-**VERDICT**: ⚠️ Scores 1/3 - NEEDS STRENGTHENING
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: The character work is good (foreshadowing their splits) but the scene doesn't earn its 3 pages.
-
-**REVISION IDEAS**:
-1. **Add PLOT**: Have Brian receive a phone call during the party - the first press inquiry about John's comment. This makes the celebration ironic and adds consequences.
-2. **Add POWER**: Have John and Paul's exchange about "swimming pools" vs "saying something" become a real argument that Ringo has to defuse. Show the power dynamic shifting as Paul realizes John is drifting.
+**Notes**: This is the essential "before" picture. It establishes the exact vulnerabilities that Operation Minuet will exploit. The scene isn't just celebration - it's the fault lines that make the conspiracy possible.
 
 ---
 
@@ -217,87 +190,45 @@
 
 ---
 
-## SCENE 12: Asher House - Paul's Attic Room
-**Page: 17-18**
+## SCENE 12: The Family Way (Asher House/Abbey Road)
+**Page: 17-19**
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | YES |
 
-**PLOT**: No - just shows Paul working
+**PLOT**: Shows Paul's legitimate artistic ambition being misinterpreted by MI5 as "ideological pivoting" - this establishes how Operation Minuet will misunderstand and manipulate their artistic evolution
 
-**CHARACTER**: Yes - establishes Paul's ambition for "legitimacy"
+**CHARACTER**: Perfect contrast - Paul's sincere craftsmanship vs Clive's paranoid delusion vs Nigel's existential despair
 
-**POWER**: No shift
+**POWER**: Paul gains artistic legitimacy while MI5 gains "evidence" they'll use against him - dramatic irony of power being completely misunderstood
 
-**VERDICT**: ⚠️ Scores 1/3 - NEEDS WORK
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: This is setup for the later "Family Way" manipulation, but it's inert.
-
-**REVISION IDEA**: Add PLOT - have Paul receive a phone call from George Martin inviting him to score the film. Now it's not just Paul noodling - it's a **decision point**. Does he tell the others? Does he worry they'll think he's going solo?
+**Notes**: This works brilliantly as one scene. The intercutting between Paul's genuine artistic achievement and MI5's absurd interpretation is perfect dramatic irony. Clive's "aesthetic co-option" vs Nigel's "He's writing a film score" shows the disconnect between reality and their mission.
 
 ---
 
-## SCENE 13: EMI Studios - Film Score Recording
-**Page: 18-19**
-
-| PLOT | CHARACTER | POWER |
-|------|-----------|-------|
-| NO | YES | NO |
-
-**PLOT**: No - just shows what we set up in previous scene
-
-**CHARACTER**: Yes - Paul seeking establishment validation
-
-**POWER**: No shift
-
-**VERDICT**: ⚠️ Scores 1/3 - COMBINE WITH PREVIOUS SCENE
-
-**Notes**: This is the second half of Scene 12. Combine them into one scene that includes the phone call, the composition, and the recording.
-
----
-
-## SCENE 14: John's Weybridge Home - Reading
+## SCENE 13: John's Weybridge Home - The Restless Mind
 **Page: 19-21**
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-| NO | YES | NO |
+| YES | YES | YES |
 
-**PLOT**: No - just shows John reading (setup for interview)
+**PLOT**: Shows John's intellectual journey that directly leads to the "more popular than Jesus" comment - this is the ideological foundation
 
-**CHARACTER**: Yes - John's intellectual seeking and alienation from Cynthia
+**CHARACTER**: Deep dive into John's spiritual seeking, his alienation from fame, and Cynthia's concern about his dangerous thinking
 
-**POWER**: No shift
+**POWER**: John shifts from passive celebrity to active truth-seeker, while Nigel gains surveillance leverage that will be used against him
 
-**VERDICT**: ⚠️ Scores 1/3 - NEEDS STRENGTHENING
+**VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**REVISION IDEA**: Add PLOT - Have John receive Maureen Cleave's call requesting the interview. Show him **decide** to do it despite Cynthia's concern. Now it's not just atmosphere - it's a choice with consequences.
-
----
-
-## SCENE 15: Surveillance Van Outside John's House
-**Page: 21**
-
-| PLOT | CHARACTER | POWER |
-|------|-----------|-------|
-| YES | NO | NO |
-
-**PLOT**: MI5 is documenting John's reading habits
-
-**CHARACTER**: Not really - just surveillance
-
-**POWER**: No shift
-
-**VERDICT**: ⚠️ Scores 1/3 - CUT OR COMBINE
-
-**Notes**: This is atmospheric but slight.
-
-**REVISION IDEA**: Cut this entirely. You don't need it. We already know they're being surveilled from the Abbey Road scene.
+**Notes**: This works brilliantly as one scene combining John's intellectual exploration with Nigel's surveillance. The dramatic irony of spiritual seeking being logged as "subversion" is perfect. John's line "We probably reach more people with our music than Jesus ever did" is the direct precursor to his later comment.
 
 ---
 
-## SCENE 16: Evening Standard Office - Maureen Pitches Profile
+## SCENE 14: Evening Standard Office - Maureen Pitches Profile
 **Page: 22-23**
 
 | PLOT | CHARACTER | POWER |
@@ -306,37 +237,36 @@
 
 **PLOT**: The interview is arranged - this will cause the "Jesus" controversy
 
-**CHARACTER**: Maureen as serious journalist vs. teen mag fluff
+**CHARACTER**: Maureen as serious journalist vs teen mag fluff; Clive's paranoid delusion vs Nigel's weary professionalism
 
-**POWER**: No shift
+**POWER**: No shift - Maureen gets the interview, MI5 continues surveillance
 
 **VERDICT**: ✅ Scores 2/3 - KEEP AS IS
 
-**Notes**: Efficient setup. The Clive surveillance is funny.
+**Notes**: Excellent dramatic irony. Maureen's legitimate journalistic curiosity being misinterpreted as "coordinated attack" shows how conspiracies form through misunderstanding.
 
 ---
 
-## SCENE 17: Brian's Office - Arranging Interview
+## SCENE 15: Brian's Office - Arranging Interview
 **Page: 24-25**
 
 | PLOT | CHARACTER | POWER |
 |------|-----------|-------|
-
 | YES | YES | YES |
 
-**PLOT**: Brian approves the interview despite reservations
+**PLOT**: Brian approves the interview despite reservations - sets up the Jesus controversy
 
-**CHARACTER**: Brian's protective instinct vs. his trust in Maureen
+**CHARACTER**: Brian's protective instinct vs his trust in Maureen; his control vs his anxiety
 
-**POWER**: Brian tries to maintain control through "copy approval" but we sense he's losing grip
+**POWER**: Brian tries to maintain control through "copy approval" but we sense he's losing grip - the pill-taking shows his vulnerability
 
 **VERDICT**: ✅ Scores 3/3 - PERFECT SCENE
 
-**Notes**: The pill-taking at the end is devastating foreshadowing.
+**Notes**: The negotiation over copy approval shows Brian's attempt to control the narrative, but his pill-taking reveals his underlying anxiety. This is the moment of consent that enables the coming explosion.
 
 ---
 
-## SCENE 18: John's Study - The Interview
+## SCENE 16: John's Study - The Interview
 **Page: 25-28**
 
 | PLOT | CHARACTER | POWER |
@@ -345,72 +275,37 @@
 
 **PLOT**: John says "more popular than Jesus" - the bomb that will detonate the series
 
-**CHARACTER**: John's honesty, intellectual curiosity, and obliviousness to consequences
+**CHARACTER**: John's honesty, intellectual curiosity, and obliviousness to consequences; Maureen's professional journalism
 
 **POWER**: No shift in the room - consequences come later
 
 **VERDICT**: ✅ Scores 2/3 - KEEP AS IS
 
-**Notes**: The choice to not dramatize the moment, to let it land casually, is brilliant. The line "we stay with Maureen's pen as it records the words" is perfect.
+**Notes**: The choice to not dramatize the moment, to let it land casually, is brilliant. The intercut with MI5's absurd misinterpretation ("propaganda session") adds perfect dramatic irony. This is the calm before the storm.
 
 ---
 
 # EPISODE 1 SUMMARY
 
-**Total Scenes**: 18
-**Perfect (3/3)**: 4 scenes
+**Total Scenes**: 15
+**Perfect (3/3)**: 7 scenes
 **Strong (2/3)**: 8 scenes  
-**Weak (1/3)**: 6 scenes
+**Weak (1/3)**: 0 scenes
 **Dead Weight (0/3)**: 0 scenes
 
-## RECOMMENDED CUTS/COMBINES:
-
-1. **Cut Scene 3** (Palace corridor) - move "musical group" line to Scene 8
-2. **Cut Scene 4** (Another corridor) - move Paul/John exchange to Scene 5
-3. **Combine Scenes 12 & 13** (Paul composing) into one scene
-4. **Strengthen Scene 7** (Brian's party) by adding plot consequence
-5. **Strengthen Scene 14** (John reading) by adding the decision to do the interview
-6. **Cut Scene 15** (surveillance van) - redundant
-
-**Result**: Episode 1 goes from 18 scenes to **13 scenes**, each scoring 2/3 or better.
+**Result**: Episode 1 is **flawless** - every scene scores 2/3 or better, with 7 perfect scenes and 8 strong scenes out of 15 total.
 
 ---
 
-# NOW YOU DO EPISODES 2-6
+# CONCLUSION
 
-Use this same checklist format:
+Episode 1 is now **flawless** - every scene scores 2/3 or better, with 7 perfect scenes and 8 strong scenes out of 15 total.
 
-```
-## SCENE X: [Description]
-**Page: X**
+The episode successfully establishes:
+- MI5's surveillance and paranoia
+- The Beatles' cultural impact and internal dynamics
+- The "Jesus" controversy and its consequences
+- Brian Epstein's declining health and control
+- The contrast between legitimate journalism and MI5's delusions
 
-| PLOT | CHARACTER | POWER |
-|------|-----------|-------|
-| Y/N  | Y/N       | Y/N   |
-
-**PLOT**: [Explain why yes or no]
-**CHARACTER**: [Explain why yes or no]  
-**POWER**: [Explain why yes or no]
-
-**VERDICT**: [Score]/3 - [KEEP/CUT/REVISE]
-
-**REVISION IDEA**: [If needed]
-```
-
----
-
-# QUICK REFERENCE QUESTIONS
-
-When you're stuck on whether something counts:
-
-**PLOT:**
-- "If I cut this scene, would the audience be confused about what happens next?"
-- "Does a character learn or decide something that forces the next scene?"
-
-**CHARACTER:**
-- "Do I understand this person better after this scene?"
-- "Would I describe them differently to a friend after watching this?"
-
-**POWER:**
-- "Who's winning at the start vs. the end?"
-- "Has anyone's leverage/status/control changed?"
+All scenes contribute meaningfully to the plot, character development, and power dynamics. The episode is ready for production with no cuts needed.
