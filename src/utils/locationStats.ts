@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
-import type { LocationSceneStats } from "./statsInterfaces.ts";
+import { createSceneToEpisodeMap } from "./episodeMapping.ts";
+import type { LocationSceneStats, LocationEpisodeStats } from "./statsInterfaces.ts";
 
 /**
  * Calculate stats for ALL locations across ALL scenes
@@ -70,9 +71,100 @@ export async function calculateAllLocationStats() {
 }
 
 /**
+ * Calculate stats for ALL locations across ALL scenes grouped by EPISODE
+ */
+export async function calculateAllLocationStatsByEpisode(): Promise<Record<string, LocationEpisodeStats>> {
+  const scenes = await getCollection("scenes");
+  const locations = await getCollection("locations");
+
+  const stats: Record<string, LocationEpisodeStats> = {};
+
+  /**
+   * Initialize all locations
+   */
+  for (const loc of locations) {
+    stats[loc.slug] = {
+      locationSlug: loc.slug,
+      locationName: loc.data.name,
+
+      totalScenes: 0,
+      scenesByAct: new Map(),
+      scenesByEpisode: new Map(),
+
+      sceneAppearances: [],
+      firstAppearance: null,
+      lastAppearance: null,
+    };
+  }
+
+  /**
+   * Create a mapping from scene slug to episode number using reusable function
+   */
+  const sceneToEpisodeMap = await createSceneToEpisodeMap();
+
+  /**
+   * Walk scenes in content order
+   */
+  for (const scene of scenes) {
+    const act = scene.data.act ?? 0;
+    const sceneSlug = scene.slug;
+    const episodeNumber = sceneToEpisodeMap.get(sceneSlug);
+
+    if (!scene.data.location) continue;
+
+    /**
+     * Normalize single location reference
+     */
+    const locationSlug =
+      typeof scene.data.location === "string"
+        ? scene.data.location
+        : (scene.data.location as any).id;
+
+    const stat = stats[locationSlug];
+    if (!stat) continue;
+
+    stat.totalScenes += 1;
+    stat.scenesByAct.set(
+      act,
+      (stat.scenesByAct.get(act) ?? 0) + 1
+    );
+
+    if (episodeNumber) {
+      stat.scenesByEpisode.set(
+        episodeNumber,
+        (stat.scenesByEpisode.get(episodeNumber) ?? 0) + 1
+      );
+    }
+
+    const appearance = {
+      slug: sceneSlug,
+      title: scene.data.title,
+      act,
+      sceneNumber: scene.data.scene_number ?? 0,
+      episodeNumber,
+    };
+
+    stat.sceneAppearances.push(appearance);
+
+    stat.firstAppearance ??= appearance;
+    stat.lastAppearance = appearance;
+  }
+
+  return stats;
+}
+
+/**
  * Convenience getter for a single location
  */
 export async function getLocationStats(slug: string) {
   const all = await calculateAllLocationStats();
+  return all[slug] ?? null;
+}
+
+/**
+ * Convenience getter for a single location's episode stats
+ */
+export async function getLocationEpisodeStats(slug: string) {
+  const all = await calculateAllLocationStatsByEpisode();
   return all[slug] ?? null;
 }

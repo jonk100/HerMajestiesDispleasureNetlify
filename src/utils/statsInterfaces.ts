@@ -68,6 +68,80 @@ export interface CharacterLineStats {
 }
 
 /**
+ * Character-specific stats with episode-based breakdown
+ */
+export interface CharacterEpisodeStats {
+  characterSlug: string;
+  characterName: string;
+
+  totalLines: number;
+  totalScenes: number;
+
+  linesByAct: Map<number, number>;
+  scenesByAct: Map<number, number>;
+  
+  linesByEpisode: Map<number, number>;
+  scenesByEpisode: Map<number, number>;
+
+  sceneAppearances: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+    lines: number;
+    episodeNumber?: number;
+  }[];
+
+  firstAppearance: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+  } | null;
+
+  lastAppearance: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+  } | null;
+}
+
+/**
+ * Location-specific stats with episode-based breakdown
+ */
+export interface LocationEpisodeStats {
+  locationSlug: string;
+  locationName: string;
+
+  totalScenes: number;
+  scenesByAct: Map<number, number>;
+  scenesByEpisode: Map<number, number>;
+
+  sceneAppearances: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+    episodeNumber?: number;
+  }[];
+
+  firstAppearance: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+  } | null;
+
+  lastAppearance: {
+    slug: string;
+    title: string;
+    act: number;
+    sceneNumber: number;
+  } | null;
+}
+
+/**
  * Location-specific stats with all required properties
  */
 export interface LocationSceneStats {

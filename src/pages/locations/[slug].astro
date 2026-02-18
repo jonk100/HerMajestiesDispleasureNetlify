@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Layout from "@/layout/collections/LocationsLayout.astro";
 import { getScenesForLocation } from "@/utils/getScenesForLocation";
+import LocationStats from "@/components/LocationStats.astro";
 
 /**
  * Static paths for all locations
@@ -18,12 +19,6 @@ export async function getStaticPaths() {
 
 const { location }: { location: CollectionEntry<"locations"> } = Astro.props;
 
-// Load all scenes once
-const scenes = await getCollection("scenes");
-
-// Find scenes that use this location
-const scenesUsed = getScenesForLocation(scenes, location.slug);
-
 const { Content } = await location.render();
 ---
 
@@ -37,6 +32,8 @@ const { Content } = await location.render();
         {location.data.mood && <span class="mood">{location.data.mood}</span>}
       </div>
     </header>
+
+    <LocationStats locationSlug={location.slug} showSceneDetails={true} />
 
     <section class="location-info">
       <p>
@@ -53,22 +50,6 @@ const { Content } = await location.render();
         <p>
           <strong>Practical Notes:</strong> {location.data.practical_notes}
         </p>
-      )}
-
-      {scenesUsed.length > 0 && (
-        <div class="scenes-section">
-          <strong>Used in Scenes:</strong>
-
-          <ul class="scenes">
-            {scenesUsed.map((scene) => (
-              <li class="scene">
-                <a href={`/scenes/${scene.slug}`}>
-                  Scene {scene.data.scene_number}: {scene.data.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       )}
 
       {location.data.reference_images.length > 0 && (

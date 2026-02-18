@@ -1,10 +1,12 @@
 ---
 import Layout from "@/layout/Layout.astro";
-import { calculateAllCharacterStats } from "@/utils/characterStats";
+import { calculateAllCharacterStats, calculateAllCharacterStatsByEpisode } from "@/utils/characterStats";
 import { getCollection } from "astro:content";
 
 const allStats = await calculateAllCharacterStats();
+const allEpisodeStats = await calculateAllCharacterStatsByEpisode();
 const characters = await getCollection("characters");
+const episodes = await getCollection("episodes");
 
 const characterStatsArray = Object.values(allStats)
   .filter((stat: any) => stat.totalScenes > 0)
@@ -26,6 +28,28 @@ const characterStatsArray = Object.values(allStats)
   })
   .sort((a, b) => b.totalScenes - a.totalScenes);
 
+const characterEpisodeStatsArray = Object.values(allEpisodeStats)
+  .filter((stat: any) => stat.totalScenes > 0)
+  .map((stat: any) => {
+    const character = characters.find(c => c.slug === stat.characterSlug);
+    return {
+      characterSlug: stat.characterSlug,
+      characterName: stat.characterName,
+      totalLines: stat.totalLines,
+      totalScenes: stat.totalScenes,
+      linesByAct: Array.from(stat.linesByAct.entries()),
+      scenesByAct: Array.from(stat.scenesByAct.entries()),
+      linesByEpisode: Array.from(stat.linesByEpisode.entries()),
+      scenesByEpisode: Array.from(stat.scenesByEpisode.entries()),
+      sceneAppearances: stat.sceneAppearances,
+      firstAppearance: stat.firstAppearance,
+      lastAppearance: stat.lastAppearance,
+      role: character?.data.role || 'unknown',
+      characterType: character?.data.character_type || 'unknown',
+    };
+  })
+  .sort((a, b) => b.totalScenes - a.totalScenes);
+
 ---
 
 <Layout title="Character Statistics">
@@ -36,21 +60,33 @@ const characterStatsArray = Object.values(allStats)
     </div>
 
     <div class="stats-container" x-data={`{
-      characters: ${JSON.stringify(characterStatsArray)},
+      actStats: ${JSON.stringify(characterStatsArray)},
+      episodeStats: ${JSON.stringify(characterEpisodeStatsArray)},
+      episodes: ${JSON.stringify(episodes.map(e => ({ number: e.data.episode_number, title: e.data.title })))},
+      breakdownType: 'act',
       sortBy: 'totalLines',
       sortDirection: 'desc',
       filterRole: 'all',
       filterAct: 'all',
+      filterEpisode: 'all',
+      get currentStats() {
+        return this.breakdownType === 'act' ? this.actStats : this.episodeStats;
+      },
       get filteredAndSortedCharacters() {
-        let filtered = this.characters;
+        let filtered = this.currentStats;
         
         if (this.filterRole !== 'all') {
           filtered = filtered.filter(c => c.role === this.filterRole);
         }
         
-        if (this.filterAct !== 'all') {
+        if (this.breakdownType === 'act' && this.filterAct !== 'all') {
           const act = parseInt(this.filterAct);
           filtered = filtered.filter(c => c.scenesByAct.some(([a]) => a === act));
+        }
+        
+        if (this.breakdownType === 'episode' && this.filterEpisode !== 'all') {
+          const episode = parseInt(this.filterEpisode);
+          filtered = filtered.filter(c => c.scenesByEpisode.some(([e]) => e === episode));
         }
         
         filtered.sort((a, b) => {
@@ -74,6 +110,14 @@ const characterStatsArray = Object.values(allStats)
     }`}>
       
       <div class="controls">
+        <div class="control-group">
+          <label for="breakdown-type">Breakdown by:</label>
+          <select id="breakdown-type" x-model="breakdownType">
+            <option value="act">Act</option>
+            <option value="episode">Episode</option>
+          </select>
+        </div>
+
         <div class="control-group">
           <label for="sort-by">Sort by:</label>
           <select id="sort-by" x-model="sortBy">
@@ -102,15 +146,29 @@ const characterStatsArray = Object.values(allStats)
           </select>
         </div>
 
-        <div class="control-group">
-          <label for="filter-act">Act:</label>
-          <select id="filter-act" x-model="filterAct">
-            <option value="all">All Acts</option>
-            <option value="1">Act 1</option>
-            <option value="2">Act 2</option>
-            <option value="3">Act 3</option>
-          </select>
-        </div>
+        <template x-if="breakdownType === 'act'">
+          <div class="control-group">
+            <label for="filter-act">Act:</label>
+            <select id="filter-act" x-model="filterAct">
+              <option value="all">All Acts</option>
+              <option value="1">Act 1</option>
+              <option value="2">Act 2</option>
+              <option value="3">Act 3</option>
+            </select>
+          </div>
+        </template>
+
+        <template x-if="breakdownType === 'episode'">
+          <div class="control-group">
+            <label for="filter-episode">Episode:</label>
+            <select id="filter-episode" x-model="filterEpisode">
+              <option value="all">All Episodes</option>
+              <template x-for="episode in episodes" :key="episode.number">
+                <option :value="episode.number" x-text="`Episode ${episode.number}: ${episode.title}`"></option>
+              </template>
+            </select>
+          </div>
+        </template>
       </div>
 
       <div class="stats-summary">
@@ -121,6 +179,10 @@ const characterStatsArray = Object.values(allStats)
         <div class="summary-card">
           <div class="summary-label">Total Lines</div>
           <div class="summary-value" x-text="filteredAndSortedCharacters.reduce((sum, c) => sum + c.totalLines, 0)"></div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-label">Total Scenes</div>
+          <div class="summary-value" x-text="new Set(filteredAndSortedCharacters.flatMap(c => c.sceneAppearances.map(a => a.slug))).size"></div>
         </div>
         <div class="summary-card">
           <div class="summary-label">Avg Lines/Character</div>
@@ -145,9 +207,19 @@ const characterStatsArray = Object.values(allStats)
                 Scenes
                 <span class="sort-indicator" x-show="sortBy === 'totalScenes'" x-text="sortDirection === 'asc' ? '▲' : '▼'"></span>
               </th>
-              <th>Act 1</th>
-              <th>Act 2</th>
-              <th>Act 3</th>
+              
+              <template x-if="breakdownType === 'act'">
+                <template x-for="actNum in [1, 2, 3]" :key="actNum">
+                  <th>Act <span x-text="actNum"></span></th>
+                </template>
+              </template>
+              
+              <template x-if="breakdownType === 'episode'">
+                <template x-for="episode in episodes" :key="episode.number">
+                  <th>E<span x-text="episode.number"></span></th>
+                </template>
+              </template>
+              
               <th>First/Last</th>
             </tr>
           </thead>
@@ -164,18 +236,25 @@ const characterStatsArray = Object.values(allStats)
                   <span class="highlight-value" x-text="char.totalLines"></span>
                 </td>
                 <td class="numeric-cell" x-text="char.totalScenes"></td>
-                <td class="numeric-cell">
-                  <span x-text="char.linesByAct.find(([act]) => act === 1)?.[1] || 0"></span>
-                  <span class="scene-count" x-text="`(${char.scenesByAct.find(([act]) => act === 1)?.[1] || 0})`"></span>
-                </td>
-                <td class="numeric-cell">
-                  <span x-text="char.linesByAct.find(([act]) => act === 2)?.[1] || 0"></span>
-                  <span class="scene-count" x-text="`(${char.scenesByAct.find(([act]) => act === 2)?.[1] || 0})`"></span>
-                </td>
-                <td class="numeric-cell">
-                  <span x-text="char.linesByAct.find(([act]) => act === 3)?.[1] || 0"></span>
-                  <span class="scene-count" x-text="`(${char.scenesByAct.find(([act]) => act === 3)?.[1] || 0})`"></span>
-                </td>
+                
+                <template x-if="breakdownType === 'act'">
+                  <template x-for="actNum in [1, 2, 3]" :key="actNum">
+                    <td class="numeric-cell">
+                      <span x-text="char.linesByAct.find(([act]) => act === actNum)?.[1] || 0"></span>
+                      <span class="scene-count" x-text="`(${char.scenesByAct.find(([act]) => act === actNum)?.[1] || 0})`"></span>
+                    </td>
+                  </template>
+                </template>
+                
+                <template x-if="breakdownType === 'episode'">
+                  <template x-for="episode in episodes" :key="episode.number">
+                    <td class="numeric-cell">
+                      <span x-text="char.linesByEpisode.find(([ep]) => ep === episode.number)?.[1] || 0"></span>
+                      <span class="scene-count" x-text="`(${char.scenesByEpisode.find(([ep]) => ep === episode.number)?.[1] || 0})`"></span>
+                    </td>
+                  </template>
+                </template>
+                
                 <td class="appearance-cell">
                   <template x-if="char.firstAppearance">
                     <div>
