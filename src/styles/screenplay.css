@@ -168,4 +168,70 @@
   .screenplay-root .action {
     line-height: 1 !important;
   }
+  
+  /* Hide speak buttons when printing */
+  .speak {
+    display: none !important;
+  }
+}
+
+/* =========================
+   SPEAK BUTTON HOVER STYLES
+   ========================= */
+
+/* Hide speak buttons by default */
+.speak {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  position: absolute;
+  left: -1.5em;
+  top: 0;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  font-size: 0.8em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Show speak buttons when hovering over parent elements */
+.dialogue:hover .speak,
+.action:hover .speak,
+.character:hover .speak,
+.parenthetical:hover .speak,
+.transition:hover .speak {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Position speak buttons relative to their parent elements */
+.dialogue,
+.action,
+.character,
+.parenthetical,
+.transition {
+  position: relative;
+}
+
+/* Ensure speak buttons don't affect screenplay layout */
+.speak:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+/* On episode pages, make speak buttons more subtle */
+.screenplay-root .speak {
+  background: rgba(51, 51, 51, 0.8);
+  backdrop-filter: blur(2px);
+}
+
+.screenplay-root .speak:hover {
+  background: rgba(85, 85, 85, 0.9);
 }
