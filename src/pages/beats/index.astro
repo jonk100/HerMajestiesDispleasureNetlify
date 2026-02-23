@@ -3,35 +3,113 @@ import { getCollection } from "astro:content";
 import Layout from "@/layout/Layout.astro";
 import BeatsFilter from "@/components/BeatsFilter.astro";
 
-const beats = await getCollection("beats");
+/**
+ * Fetch and sort beats in story order.
+ */
+const beats = (await getCollection("beats")).sort((a, b) => {
+  const A = a.data;
+  const B = b.data;
+
+  if (A.episode !== B.episode) return A.episode - B.episode;
+  if (A.act !== B.act) return A.act - B.act;
+  if (A.sequence !== B.sequence) return A.sequence - B.sequence;
+  if (A.scene_number !== B.scene_number) return A.scene_number - B.scene_number;
+  return A.beat_index - B.beat_index;
+});
+
+/**
+ * Group beats by scene.
+ */
+const scenes = beats.reduce((acc: Record<string, any>, beat) => {
+  const key = `ep${beat.data.episode}-act${beat.data.act}-scene${beat.data.scene_number}`;
+
+  if (!acc[key]) {
+    acc[key] = {
+      episode: beat.data.episode,
+      act: beat.data.act,
+      sequence: beat.data.sequence,
+      scene_number: beat.data.scene_number,
+      location: (beat.data as any).location || 'Unknown Location',
+      summary: (beat.data as any).scene_summary || 'Scene Summary',
+      beats: []
+    };
+  }
+
+  acc[key].beats.push(beat);
+  return acc;
+}, {} as Record<string, any>);
 ---
 
-<Layout title="Story Beats - Her Majesty's Displeasure">
+<Layout title="Story Beats">
   <div class="container">
     <h1>Story Beats</h1>
-    <p>Key story moments and plot points</p>
-    
+    <p class="subtitle">Structural dashboard</p>
+
     <BeatsFilter />
-    
-    <div class="items-grid">
-      {beats.map((beat) => (
-        <div class="item-card" data-category={beat.data.beat_type}>
-          <h3><a href={`/beats/${beat.slug}`}>{beat.data.title}</a></h3>
-          <div class="meta">
-            <span class="act">Act {beat.data.act}</span>
-            <span class="type">{beat.data.beat_type}</span>
+
+    <div class="scenes-wrapper">
+
+      {Object.values(scenes).map((scene) => (
+        <details class="scene-block" open>
+          <summary class="scene-summary">
+
+            <div class="scene-meta">
+              <span>
+                Ep {scene.episode} · 
+                Act {scene.act} · 
+                Scene {scene.scene_number}
+              </span>
+              <span class="location">{scene.location}</span>
+            </div>
+
+            <h2>{scene.summary}</h2>
+
+          </summary>
+
+          <div class="scene-beats">
+            {scene.beats.map((beat: any) => (
+              <div class="beat-card" data-category={beat.data.beat_type}>
+
+                <div class="beat-position">
+                  Beat {beat.data.beat_index}
+                </div>
+
+                <h3>
+                  <a href={`/beats/${beat.slug}`}>
+                    {beat.data.title}
+                  </a>
+                </h3>
+
+                <div class="beat-meta">
+                  <span class="type">{beat.data.beat_type}</span>
+                  <span class="character">{beat.data.primary_character}</span>
+                </div>
+
+                <p class="shift">
+                  <strong>Shift:</strong> {beat.data.shift}
+                </p>
+
+                <div class="mini-meta">
+                  <span><strong>Stakes:</strong> {beat.data.stakes}</span>
+                  <span><strong>Power:</strong> {beat.data.power_shift}</span>
+                </div>
+
+                <!-- Pressure Bar -->
+                <div class="pressure">
+                  <div 
+                    class="pressure-fill"
+                    style={`width: ${(beat.data as any).pressure_level ? (beat.data as any).pressure_level * 20 : 50}%`}
+                  ></div>
+                </div>
+
+              </div>
+            ))}
           </div>
-          <p class="description">{beat.data.description}</p>
-          {beat.data.characters_involved && beat.data.characters_involved.length > 0 && (
-            <p class="characters"><strong>Characters:</strong> {beat.data.characters_involved.join(", ")}</p>
-          )}
-          {beat.data.page_target && (
-            <p class="page-target"><strong>Target Pages:</strong> {beat.data.page_target}</p>
-          )}
-        </div>
+        </details>
       ))}
+
     </div>
-    
+
     <div class="back-link">
       <a href="/">← Back to Collections</a>
     </div>
@@ -39,87 +117,165 @@ const beats = await getCollection("beats");
 </Layout>
 
 <style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  
-  .item-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .item-card h3 {
-    margin: 0 0 0.5rem 0;
-  }
-  
-  .item-card a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .item-card a:hover {
-    color: #0066cc;
-  }
-  
-  .meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .act, .type {
-    background: #f0f0f0;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    text-transform: capitalize;
-  }
-  
-  .act {
-    background: #e3f2fd;
-    color: #1976d2;
-  }
-  
-  .type {
-    background: #fff3e0;
-    color: #f57c00;
-  }
-  
-  .purpose {
-    margin: 1rem 0;
-    line-height: 1.5;
-  }
-  
-  .emotion {
-    font-size: 0.875rem;
-    color: #666;
-    margin-top: 0.5rem;
-  }
-  
-  .back-link {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-  }
-  
-  .back-link a {
-    text-decoration: none;
-    color: #666;
-  }
-  
-  .back-link a:hover {
-    color: #0066cc;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.scenes-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.scene-block {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.scene-summary {
+  cursor: pointer;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+  list-style: none;
+}
+
+.scene-summary::-webkit-details-marker {
+  display: none;
+}
+
+.scene-meta {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.location {
+  font-style: italic;
+}
+
+.scene-summary h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.scene-beats {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.beat-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: #fafafa;
+  transition: background 0.2s ease;
+}
+
+.beat-card:hover {
+  background: #f4f4f4;
+}
+
+.beat-position {
+  font-size: 0.75rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.beat-card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.beat-card a {
+  text-decoration: none;
+  color: #222;
+}
+
+.beat-card a:hover {
+  color: #0066cc;
+}
+
+.beat-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.type {
+  background: #fff3e0;
+  color: #f57c00;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+}
+
+.character {
+  background: #f0f0f0;
+  color: #444;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.shift {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.mini-meta {
+  font-size: 0.75rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Pressure bar */
+
+.pressure {
+  height: 6px;
+  background: #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pressure-fill {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #cfd8dc,
+    #ff9800,
+    #d32f2f
+  );
+  transition: width 0.3s ease;
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #666;
+}
+
+.back-link a:hover {
+  color: #0066cc;
+}
 </style>

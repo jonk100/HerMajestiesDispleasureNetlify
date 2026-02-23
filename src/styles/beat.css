@@ -1,0 +1,99 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+  margin: 0 0 1rem 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.act,
+.type,
+.scene {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.act {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.type {
+  background: #fff3e0;
+  color: #f57c00;
+  text-transform: capitalize;
+}
+
+.scene {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.section {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.movement p {
+  margin: 0.75rem 0;
+}
+
+.shift {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #000;
+  border-radius: 4px;
+}
+
+.subtle {
+  background: #fafafa;
+}
+
+.content {
+  line-height: 1.6;
+}
+
+.content h2,
+.content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #666;
+}
+
+.back-link a:hover {
+  color: #0066cc;
+}

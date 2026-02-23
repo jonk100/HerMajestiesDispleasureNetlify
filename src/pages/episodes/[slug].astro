@@ -63,7 +63,7 @@ const characters = await Promise.all(
 );
 const sortedCharacters = characters
   .filter((c): c is NonNullable<typeof c> => Boolean(c))
-  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+  .sort((a, b) => (a as any).data.name.localeCompare((b as any).data.name));
 
 /**
  * Collect unique locations across episode
@@ -82,7 +82,7 @@ const locations = await Promise.all(
 );
 const sortedLocations = locations
   .filter((l): l is NonNullable<typeof l> => Boolean(l))
-  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+  .sort((a, b) => (a as any).data.name.localeCompare((b as any).data.name));
 
 /**
  * Render scene MDX
@@ -134,8 +134,8 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
         <strong>Locations:</strong>
         <div class="tag-list">
           {sortedLocations.map((loc) => (
-            <a href={`/locations/${loc.slug}`} class="tag location-tag">
-              {loc.data.name}
+            <a href={`/locations/${(loc as any).slug}`} class="tag location-tag">
+              {(loc as any).data.name}
             </a>
           ))}
         </div>
@@ -145,8 +145,8 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
         <strong>Characters:</strong>
         <div class="tag-list">
           {sortedCharacters.map((char) => (
-            <a href={`/characters/${char.slug}`} class="tag character-tag">
-              {char.data.name}
+            <a href={`/characters/${(char as any).slug}`} class="tag character-tag">
+              {(char as any).data.name}
             </a>
           ))}
         </div>
@@ -155,11 +155,11 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
     
     <!-- Voice Configuration -->
     <VoiceConfigurator 
-      characters={sortedCharacters.map(char => ({ name: char.data.name, slug: char.slug }))}
+      characters={sortedCharacters.map(char => ({ name: (char as any).data.name, slug: (char as any).slug }))}
       narrator={true}
     />
     
-    <EpisodeNav currentSlug={episode.slug} />
+    <EpisodeNav currentSlug={(episode as any).slug} />
   </div>
 
   <div class="screenplay-container"> 
@@ -185,7 +185,7 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
           </div>
         ))}
       </div>
-      <EpisodeNav currentSlug={episode.slug} />
+      <EpisodeNav currentSlug={(episode as any).slug} />
     </div>
   </div>
 

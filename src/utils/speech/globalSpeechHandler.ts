@@ -317,7 +317,7 @@ if (typeof window !== 'undefined') {
   }
   
   // Add reload function for voice configuration updates
-  window.reloadVoiceConfig = () => {
+  (window as any).reloadVoiceConfig = () => {
     console.log("Reloading voice configuration...");
     // Re-initialize the speech handler to pick up new configuration
     initGlobalSpeechHandler();

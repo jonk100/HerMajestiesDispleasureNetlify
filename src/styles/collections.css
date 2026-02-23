@@ -1,0 +1,326 @@
+/**
+ * Shared Collection Styles
+ * 
+ * Centralizes common styling patterns used across collection pages
+ * to eliminate duplication and ensure consistency.
+ */
+
+/* Container Layout */
+.collection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Section */
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.collection-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.collection-header p {
+  margin: 0.5rem 0 0 0;
+  color: var(--color-text-secondary, #666666);
+  font-size: 1.1rem;
+}
+
+/* Stats Link */
+.stats-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Items Grid */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Item Card */
+.item-card {
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--color-surface, white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.item-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--color-text-primary, #333);
+}
+
+.item-card a {
+  text-decoration: none;
+  color: var(--color-text-primary, #333);
+  transition: color 0.2s ease;
+}
+
+.item-card a:hover {
+  color: var(--color-primary, #0066cc);
+}
+
+/* Meta Information */
+.meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta span {
+  background: var(--color-background, #f0f0f0);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* Meta Type Variants */
+.meta .act {
+  background: var(--color-primary-bg, #e3f2fd);
+  color: var(--color-primary, #1976d2);
+}
+
+.meta .type,
+.meta .beat_type {
+  background: var(--color-accent-bg, #fff3e0);
+  color: var(--color-accent, #f57c00);
+}
+
+.meta .role {
+  background: var(--color-primary-bg, #e3f2fd);
+  color: var(--color-primary, #1976d2);
+}
+
+.meta .character_type {
+  background: var(--color-secondary-bg, #f3e5f5);
+  color: var(--color-secondary, #7b1fa2);
+}
+
+.meta .episode-num {
+  background: var(--color-primary-bg, #e3f2fd);
+  color: var(--color-primary, #1976d2);
+  font-weight: bold;
+}
+
+.meta .scene-count {
+  background: var(--color-success-bg, #e8f5e8);
+  color: var(--color-success, #2e7d32);
+  font-weight: bold;
+}
+
+.meta .runtime {
+  background: var(--color-accent-bg, #fff3e0);
+  color: var(--color-accent, #f57c00);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+}
+
+.meta .speaker {
+  background: var(--color-primary-bg, #e3f2fd);
+  color: var(--color-primary, #1976d2);
+  font-weight: bold;
+}
+
+.meta .context {
+  background: var(--color-secondary-bg, #f3e5f5);
+  color: var(--color-secondary, #7b1fa2);
+}
+
+/* Description and Details */
+.description,
+.purpose,
+.emotional-impact,
+.scene-ref,
+.occupation,
+.age-info {
+  margin: 1rem 0;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #666666);
+}
+
+.description strong,
+.purpose strong,
+.emotional-impact strong,
+.scene-ref strong,
+.occupation strong {
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+/* Tags and Lists */
+.character-list,
+.theme-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.character,
+.theme {
+  background: var(--color-surface, white);
+  color: var(--color-text-secondary, #666666);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  border: 1px solid var(--color-border, #ddd);
+}
+
+/* Back Link */
+.back-link {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border, #eee);
+  text-align: center;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: var(--color-text-secondary, #666666);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link a:hover {
+  color: var(--color-primary, #0066cc);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .collection-container {
+    padding: 1rem;
+  }
+  
+  .collection-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stats-link {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .items-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .meta {
+    gap: 0.5rem;
+  }
+  
+  .meta span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Single Item Page Styles */
+.single-item-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.single-item-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border, #eee);
+}
+
+.single-item-header h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.item-info {
+  background: var(--color-background, #f9f9f9);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.item-info p {
+  margin: 0.5rem 0;
+  color: var(--color-text-secondary, #666666);
+}
+
+.item-info strong {
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.age-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.age-info span {
+  background: var(--color-surface, white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #666666);
+}
+
+.content {
+  line-height: 1.6;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.content h2,
+.content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+@media (max-width: 768px) {
+  .single-item-container {
+    padding: 1rem;
+  }
+  
+  .single-item-header h1 {
+    font-size: 2rem;
+  }
+  
+  .age-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

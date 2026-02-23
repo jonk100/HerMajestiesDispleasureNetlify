@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@/layout/Layout.astro";
+import Layout from "@/layout/collections/BeatsLayout.astro";
 
 export async function getStaticPaths() {
   const beats = await getCollection("beats");
@@ -14,162 +14,83 @@ const { beat } = Astro.props;
 const { Content } = await beat.render();
 ---
 
-<Layout title={`${beat.data.title} - Story Beats`}>
+<Layout title={`${beat.data.title} - Beats`}>
   <div class="container">
     <div class="header">
       <h1>{beat.data.title}</h1>
       <div class="meta">
         <span class="act">Act {beat.data.act}</span>
         <span class="type">{beat.data.beat_type}</span>
+        <span class="scene">
+          Ep {beat.data.episode} · Seq {beat.data.sequence} · Scene {beat.data.scene_number}
+        </span>
       </div>
     </div>
-    
-    <div class="beat-info">
-      <div class="description">
-        <strong>Description:</strong> {beat.data.description}
+
+    <!-- Structural Movement -->
+    <div class="section">
+      <h2>Structural Movement</h2>
+
+      <div class="movement">
+        <p><strong>Before:</strong> {beat.data.status_quo_before}</p>
+        <p class="shift">
+          <strong>Shift:</strong> {beat.data.shift}
+        </p>
+        <p><strong>After:</strong> {beat.data.status_quo_after}</p>
       </div>
-      
-      {beat.data.page_target && (
-        <div class="page-target">
-          <strong>Target Pages:</strong> {beat.data.page_target}
-        </div>
+    </div>
+
+    <!-- Engine -->
+    <div class="section">
+      <h2>Story Engine</h2>
+
+      <p><strong>Structural Role:</strong> {beat.data.structural_role}</p>
+
+      {beat.data.triggered_by && (
+        <p><strong>Triggered By:</strong> {beat.data.triggered_by}</p>
       )}
-      
-      {beat.data.notes && (
-        <div class="notes">
-          <strong>Notes:</strong> {beat.data.notes}
-        </div>
-      )}
-      
-      {beat.data.characters_involved && beat.data.characters_involved.length > 0 && (
-        <div class="characters">
-          <strong>Characters Involved:</strong>
-          <div class="character-list">
-            {beat.data.characters_involved.map((character) => (
-              <span class="character">{character}</span>
-            ))}
-          </div>
-        </div>
-      )}
-      
-      {beat.data.themes && beat.data.themes.length > 0 && (
-        <div class="themes">
-          <strong>Themes:</strong>
-          <div class="theme-list">
-            {beat.data.themes.map((theme: string) => (
-              <span class="theme">{theme}</span>
-            ))}
-          </div>
-        </div>
+
+      {beat.data.leads_to && (
+        <p><strong>Leads To:</strong> {beat.data.leads_to}</p>
       )}
     </div>
-    
+
+    <!-- Conflict -->
+    <div class="section">
+      <h2>Conflict & Power</h2>
+
+      <p><strong>Primary Character:</strong> {beat.data.primary_character}</p>
+      <p><strong>Opposition:</strong> {beat.data.opposition}</p>
+      <p><strong>Stakes:</strong> {beat.data.stakes}</p>
+      <p><strong>Power Shift:</strong> {beat.data.power_shift}</p>
+      <p><strong>Axis:</strong> {beat.data.public_private_axis}</p>
+    </div>
+
+    {(beat.data.plant || beat.data.payoff) && (
+      <div class="section subtle">
+        <h2>Setup / Payoff</h2>
+        {beat.data.plant && (
+          <p><strong>Plant:</strong> {beat.data.plant}</p>
+        )}
+        {beat.data.payoff && (
+          <p><strong>Payoff:</strong> {beat.data.payoff}</p>
+        )}
+      </div>
+    )}
+
+    <!-- Theme -->
+    <div class="section">
+      <h2>Theme Expression</h2>
+      <p>{beat.data.theme}</p>
+    </div>
+
+    <!-- Content Notes -->
     <div class="content">
       <Content />
     </div>
-    
+
     <div class="back-link">
-      <a href="/beats">← Back to Story Beats</a>
+      <a href="/beats">← Back to Beats</a>
     </div>
   </div>
 </Layout>
-
-<style>
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #eee;
-  }
-  
-  .header h1 {
-    margin: 0 0 1rem 0;
-  }
-  
-  .meta {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .act, .type {
-    background: #f0f0f0;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    text-transform: capitalize;
-  }
-  
-  .act {
-    background: #e3f2fd;
-    color: #1976d2;
-  }
-  
-  .type {
-    background: #fff3e0;
-    color: #f57c00;
-  }
-  
-  .beat-info {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-  }
-  
-  .purpose, .emotional-impact, .scene-ref {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: white;
-    border-radius: 4px;
-    border-left: 4px solid #0066cc;
-  }
-  
-  .tags-section {
-    margin-top: 1rem;
-  }
-  
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .tag {
-    background: white;
-    color: #666;
-    padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    border: 1px solid #ddd;
-  }
-  
-  .content {
-    line-height: 1.6;
-  }
-  
-  .content h2, .content h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .back-link {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-  }
-  
-  .back-link a {
-    text-decoration: none;
-    color: #666;
-  }
-  
-  .back-link a:hover {
-    color: #0066cc;
-  }
-</style>
