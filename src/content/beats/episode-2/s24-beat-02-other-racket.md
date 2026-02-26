@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 24
 beat_index: 2
-beat_type: "turn"
 structural_role: "Nigel introduces contrast between Paul's melody and experimental music"
 triggered_by: "2_S24_B1"
 leads_to: "2_S24_B3"
-
 status_quo_before: "Paul feels confident about his melodic approach"
 shift: "Nigel deliberately creates distinction between 'nice tunes' and 'other racket'"
 status_quo_after: "Paul's musical identity becomes positioned against experimental direction"
-
 primary_character: "supporting/nigel-finch"
 opposition: "experimental music"
-
 stakes: "The value of melodic accessibility vs artistic challenge"
 theme: "Popular taste vs artistic evolution"
 power_shift: "Nigel gains authority through working-class authenticity"
 public_private_axis: "private"
-
 plant: "The discordant note as symbol of musical disruption"
 payoff: "Later reference to 'Norwegian Wood' giving headache"
 page_range: "4-7"
-
 pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Nigel deliberately hits discordant note. PING.
 
 "Not like that other racket."

@@ -5,7 +5,6 @@ act: 1
 sequence: 1
 scene_number: 2
 beat_index: 2
-beat_type: "plant"
 structural_role: "Plants the seed of Philip's personal offense"
 status_quo_before: "Philip maintains formal observational distance"
 shift: "From formal observation to personal irritation."
@@ -27,8 +26,10 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "plant"
+scope: "primary_plot"
 ---
-
 John's faint smirk registers.
 
 To others: nerves.  

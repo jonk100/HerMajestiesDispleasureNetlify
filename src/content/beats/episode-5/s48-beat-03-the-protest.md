@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 48
 beat_index: 3
-beat_type: "escalation"
 structural_role: "John's voiceover explains his protest while Brenda processes the package"
 triggered_by: "His declaration that he's returning a medal"
 leads_to: "The anticlimactic completion of the transaction"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

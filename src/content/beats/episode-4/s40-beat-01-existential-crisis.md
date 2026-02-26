@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40
 beat_index: 1
-beat_type: "setup"
 structural_role: "The band questions their fundamental purpose"
 triggered_by: "The accumulated tensions and lack of progress"
 leads_to: "Paul's desperate plea for enthusiasm"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31
 beat_index: 3
-beat_type: "turn"
 structural_role: "Philip's emotional response reveals his investment in the outcome"
 triggered_by: "Seeing the full extent of the cultural chaos"
 leads_to: "Philip's decisive action to end the observation"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

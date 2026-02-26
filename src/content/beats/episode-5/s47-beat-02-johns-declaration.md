@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 2
-beat_type: "turn"
 structural_role: "John announces he's leaving the group"
 triggered_by: "Paul's paranoid conspiracy accusations"
 leads_to: "The complete collapse of Paul's argument"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

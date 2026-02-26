@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 27
 beat_index: 3
-beat_type: "escalation"
 structural_role: "Nigel distinguishes between technical skill and spiritual understanding"
 triggered_by: "2_S27_B2"
 leads_to: "2_S27_B4"
-
 status_quo_before: "George sees sitar limitation as technical problem"
 shift: "Nigel reframes limitation as spiritual rather than technical"
 status_quo_after: "George's musical problem becomes spiritual quest"
-
 primary_character: "supporting/nigel-finch"
 opposition: "technical musical approach"
-
 stakes: "George's approach to musical mastery"
 theme: "Spiritual discipline vs technical skill"
 power_shift: "Nigel gains authority through philosophical insight"
 public_private_axis: "private"
-
 plant: "The concept of 'silence between the notes' as spiritual truth"
 payoff: "George's later acceptance that path requires spiritual commitment"
 page_range: "9-13"
-
 pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 "Ah. Yes. A common observation. One can acquire the instrument, but the philosophy... that must be sought."
 
 Word "philosophy" lands perfectly. Exactly what George feels is missing.

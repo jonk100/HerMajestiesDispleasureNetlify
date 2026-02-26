@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Philip terminates Operation Minuet and activates Operation Elegy"
 triggered_by: "His decision that John must be permanently silenced"
 leads_to: "The royal directive for assassination"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

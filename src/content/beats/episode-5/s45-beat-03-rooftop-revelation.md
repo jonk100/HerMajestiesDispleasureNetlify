@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 3
-beat_type: "escalation"
 structural_role: "Paul sees the potential and gets excited"
 triggered_by: "The rooftop suggestion and view of London"
 leads_to: "The planning and logistics discussion"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

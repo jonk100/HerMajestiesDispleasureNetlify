@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33.1
 beat_index: 2
-beat_type: "escalation"
 structural_role: "The critics use exactly Margaret's suggested language to praise Paul"
 triggered_by: "The critics approaching Paul and George Martin"
 leads_to: "Paul's subconscious recognition that this praise is orchestrated"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

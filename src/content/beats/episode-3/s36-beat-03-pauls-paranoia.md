@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36
 beat_index: 3
-beat_type: "turn"
 structural_role: "Paul witnesses the exchange and misinterprets it as conspiracy"
 triggered_by: "Seeing Clive give Yoko his business card"
 leads_to: "Paul's suspicion being misdirected from the real conspiracy"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

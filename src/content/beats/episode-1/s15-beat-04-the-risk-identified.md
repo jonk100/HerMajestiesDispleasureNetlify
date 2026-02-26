@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 15
 beat_index: 4
-beat_type: "plant"
 structural_role: "Explicitly foreshadow uncontrolled statement"
 status_quo_before: "The interview seems professionally contained."
 shift: "Epstein warns that John's honesty can travel unpredictably."
@@ -23,6 +22,8 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "plant"
+scope: "primary_plot"
 ---
-
 Epstein cautions Maureen about where John's words might travel.

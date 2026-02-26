@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Philip reasserts control by ending the observation and embracing silence"
 triggered_by: "His satisfaction with the observed chaos"
 leads_to: "Complete confirmation of institutional authority"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

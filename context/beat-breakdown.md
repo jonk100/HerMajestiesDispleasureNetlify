@@ -23,7 +23,7 @@ Your task:
 3. Create one markdown file per beat using the `beats` collection schema below.
 4. Do NOT force a specific number of beats.
 5. Only create a new beat when there is an actual structural shift.
-6. Label beat types accurately (`setup`, `escalation`, `turn`, `reveal`, `reversal`, `plant`, `payoff`, `character_shift`).
+6. Assign ALL FIVE required axes: movement_type, information_type, scope, pressure_level, irreversibility
 7. Keep pressure_level realistic (1–10 scale).
 8. Treat irreversibility seriously — only mark "historical" if it truly alters public record or legacy.
 
@@ -56,7 +56,9 @@ sequence: [sequence_number]
 scene_number: [scene_number]
 beat_index: [beat_index]
 
-beat_type: "[one of the allowed enums]"
+movement_type: "[escalation | deescalation | reversal | turn | stasis | internal_shift]"
+information_type: "[none | setup | reveal | plant | payoff | withholding | misdirect]"
+scope: "[internal | interpersonal | subplot | primary_plot | global]"
 structural_role: "[what this beat is doing in the scene]"
 
 triggered_by: "[optional]"
@@ -88,6 +90,46 @@ created: 2026-02-22
 ```
 
 Do not include commentary. Only output the beat files.
+
+---
+
+### FIVE-AXIS STRUCTURED REASONING
+
+When generating a beat, follow this exact sequence:
+
+**Step 1 — Determine movement_type:**
+- Does power change between characters? (escalation/deescalation/reversal)
+- Does direction shift without full power flip? (turn)
+- Is there no power movement? (stasis)
+- Is it internal change only? (internal_shift)
+
+**Step 2 — Determine information_type:**
+- Is information introduced? (setup)
+- Revealed? (reveal)
+- Planted for future? (plant)
+- Resolving prior setup? (payoff)
+- Withheld? (withholding)
+- Misdirecting? (misdirect)
+- Or none? (none)
+
+**Step 3 — Determine scope:**
+- Does this affect one character only? (internal)
+- A relationship? (interpersonal)
+- A secondary engine? (subplot)
+- The main narrative engine? (primary_plot)
+- The whole story world? (global)
+
+**Step 4 — Assign pressure_level:**
+- Rate immediate tension intensity (1–10).
+
+**Step 5 — Assign irreversibility:**
+- Rate how permanent the consequences are (none/personal/public/historical).
+
+**Critical distinctions:**
+- High pressure does not equal high scope.
+- Global does not equal irreversible.
+- Internal shifts can be highly irreversible.
+- A beat may escalate without new information.
 
 ---
 

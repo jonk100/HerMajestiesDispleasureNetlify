@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 49
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Philip decides to escalate from psychological warfare to elimination"
 triggered_by: "John's personal insult and mockery"
 leads_to: "The transformation from game to vendetta"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

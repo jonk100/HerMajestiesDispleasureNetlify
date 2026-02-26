@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 16
 beat_index: 4
-beat_type: "character_shift"
 structural_role: "Dramatic irony—authority focuses on the wrong threat"
 status_quo_before: "MI5 suspects ideological radicalization."
 shift: "They misinterpret tone and gesture while missing the actual quote."
@@ -21,4 +20,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-22
+movement_type: "internal_shift"
+information_type: "none"
+scope: "interpersonal"
 ---

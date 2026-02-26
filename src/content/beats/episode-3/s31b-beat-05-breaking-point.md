@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31.1
 beat_index: 5
-beat_type: "reversal"
 structural_role: "The aftermath where the band realizes touring is no longer viable"
 triggered_by: "The escape from the press conference and the reality of their situation"
 leads_to: "The decision to stop touring and the beginning of a new era"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 15
 beat_index: 3
-beat_type: "turn"
 structural_role: "Formalize conditional approval"
 status_quo_before: "Interview access is uncertain."
 shift: "Epstein grants access with factual copy approval but not tonal control."
@@ -22,6 +21,8 @@ pressure_level: 7
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-22
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 They negotiate boundaries. Epstein senses John may speak too freely.

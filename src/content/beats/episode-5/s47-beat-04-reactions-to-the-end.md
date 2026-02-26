@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 4
-beat_type: "escalation"
 structural_role: "The different reactions to John's announcement"
 triggered_by: "John's declaration that he wants a divorce"
 leads_to: "The MI5 celebration and Nigel's sadness"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "The cumulative effect of interruptions destroys creative flow"
 triggered_by: "The repeated production and technical interruptions"
 leads_to: "The band's inability to maintain musical connection"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

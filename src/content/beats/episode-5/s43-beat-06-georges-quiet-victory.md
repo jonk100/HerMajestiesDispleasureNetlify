@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 6
-beat_type: "character_shift"
 structural_role: "George recognizes he saved the sessions but needed an outsider"
 triggered_by: "Watching Billy transform the band's dynamic"
 leads_to: "His bittersweet understanding of what it took"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "internal_shift"
+information_type: "none"
+scope: "internal"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 1
-beat_type: "setup"
 structural_role: "George has returned but the atmosphere is still tentative"
 triggered_by: "The move to Apple Studios and George's return"
 leads_to: "The arrival of Billy Preston"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 16
 beat_index: 5
-beat_type: "turn"
 structural_role: "Clarify John's intent before the episode ends"
 status_quo_before: "John's statement could imply arrogance."
 shift: "He rejects prophetic status and frames himself as honest, not messianic."
@@ -21,4 +20,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-22
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---

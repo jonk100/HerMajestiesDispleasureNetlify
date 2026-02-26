@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33
 beat_index: 3
-beat_type: "turn"
 structural_role: "Margaret outlines the specific method of using establishment praise as a weapon"
 triggered_by: "Her analysis of Paul's psychological vulnerabilities"
 leads_to: "The implementation of a sophisticated psychological operation"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

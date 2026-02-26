@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 3
-beat_type: "turn"
 structural_role: "John reveals the pattern of Paul's rejection of all criticism"
 triggered_by: "Paul's attempts to defend his creative approach"
 leads_to: "Paul's reluctant acceptance of the truth"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

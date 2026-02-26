@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.1
 beat_index: 3
-beat_type: "escalation"
 structural_role: "John and Paul immediately take credit for George's solution"
 triggered_by: "The song suddenly working"
 leads_to: "George's realization of his invisibility"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

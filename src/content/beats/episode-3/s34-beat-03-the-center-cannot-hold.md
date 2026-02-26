@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 34
 beat_index: 3
-beat_type: "turn"
 structural_role: "The Beatles receive the devastating news and their unified peace shatters"
 triggered_by: "The aide delivering the news of Brian's death"
 leads_to: "Each Beatle expressing their individual grief and understanding of the loss"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 16
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish John as intellectually serious, not a pop caricature"
 status_quo_before: "John is publicly perceived as a shallow pop idol."
 shift: "The interview reveals his philosophical depth and restless curiosity."
@@ -21,4 +20,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "setup"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 6
-beat_type: "reversal"
 structural_role: "Finchley exits, leaving the agents to their terrible choices"
 triggered_by: "His threats and demands for a plan"
 leads_to: "The final entrapment of both agents"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

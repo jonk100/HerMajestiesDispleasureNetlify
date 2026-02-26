@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 7
-beat_type: "reversal"
 structural_role: "Finchley is trapped in the assassination conspiracy"
 triggered_by: "Mountbatten's acceptance of the royal directive"
 leads_to: "The complete moral collapse of the operation"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

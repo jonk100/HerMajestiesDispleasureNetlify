@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 32.1
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Reveal how each Beatle is becoming an independent business problem"
 triggered_by: "Brian reviewing the files on each Beatle's independent activities"
 leads_to: "His realization that the unified entity he managed is dissolving"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

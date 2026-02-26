@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Clive celebrates their success while Nigel feels the weight"
 triggered_by: "John's announcement that he's leaving the band"
 leads_to: "The completion of their mission and its moral cost"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "historical"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

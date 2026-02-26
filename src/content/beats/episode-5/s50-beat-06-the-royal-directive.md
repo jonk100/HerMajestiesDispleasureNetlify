@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 6
-beat_type: "reversal"
 structural_role: "Mountbatten reluctantly agrees to the assassination plan"
 triggered_by: "Philip's activation of Operation Elegy"
 leads_to: "Finchley's entrapment in the conspiracy"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

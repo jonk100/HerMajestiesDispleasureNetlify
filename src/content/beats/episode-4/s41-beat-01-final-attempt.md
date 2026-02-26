@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 41
 beat_index: 1
-beat_type: "setup"
 structural_role: "Paul makes one last attempt to get the band to play together"
 triggered_by: "The unspoken tension and George's decision to leave"
 leads_to: "The final attempt at playing together"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

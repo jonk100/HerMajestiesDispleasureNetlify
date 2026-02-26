@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "The telegram confirms the operation's success to the audience"
 triggered_by: "The ongoing praise and Paul's reaction"
 leads_to: "The audience understanding that this is indeed a conspiracy"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "public"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

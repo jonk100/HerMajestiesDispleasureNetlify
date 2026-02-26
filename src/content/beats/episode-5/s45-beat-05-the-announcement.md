@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Paul announces the rooftop plan with renewed energy"
 triggered_by: "The successful planning and his excitement"
 leads_to: "The band's agreement and renewed purpose"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

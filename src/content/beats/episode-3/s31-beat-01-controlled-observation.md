@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish Philip's position as detached observer of cultural chaos"
 triggered_by: "News footage of American backlash to Lennon's Jesus quote"
 leads_to: "Philip's satisfaction with institutional order reasserting itself"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

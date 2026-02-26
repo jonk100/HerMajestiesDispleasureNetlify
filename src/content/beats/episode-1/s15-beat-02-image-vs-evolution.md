@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 15
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Articulate what is at risk narratively"
 status_quo_before: "The Beatles are presented as unified cultural icons."
 shift: "Maureen frames them as evolving individuals with divergent identities."
@@ -21,6 +20,8 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 She outlines Paul the diplomat, George the seeker, John in flux. Epstein recognizes exposure risk.

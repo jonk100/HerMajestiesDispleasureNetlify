@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 48
 beat_index: 1
-beat_type: "setup"
 structural_role: "John and Yoko stand in line at the post office, anonymous"
 triggered_by: "John's decision to return his MBE as protest"
 leads_to: "The mundane transaction of returning a medal"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

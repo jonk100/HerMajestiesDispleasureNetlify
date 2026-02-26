@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Paul recognizes the trade-off between individual success and band unity"
 triggered_by: "His solo recognition and George Martin's warning"
 leads_to: "Paul's internal conflict about his dual identities"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

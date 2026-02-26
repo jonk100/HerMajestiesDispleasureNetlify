@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 41
 beat_index: 3
-beat_type: "reversal"
 structural_role: "George's quiet departure ends The Beatles"
 triggered_by: "The complete breakdown of their musical connection"
 leads_to: "The end of the band as they knew it"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

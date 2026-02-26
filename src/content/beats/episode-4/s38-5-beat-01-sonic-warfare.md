@@ -5,7 +5,6 @@ act: 2
 sequence: 9
 scene_number: 38.5
 beat_index: 1
-beat_type: "setup"
 structural_role: "Clive analyzes Revolution 9 as encrypted Soviet communication"
 triggered_by: "Six hours of surveillance listening to the White Album"
 leads_to: "Nigel's psychological breakdown"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31.1
 beat_index: 2
-beat_type: "escalation"
 structural_role: "John is pressured to read Brian's prepared apology statement"
 triggered_by: "Brian's intervention and Paul's urging to just read the statement"
 leads_to: "John's reluctant compliance and internal resentment"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

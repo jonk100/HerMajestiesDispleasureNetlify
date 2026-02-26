@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 3
-beat_type: "reversal"
 structural_role: "John delivers the final blow - he wants a divorce"
 triggered_by: "Paul's confusion about John leaving"
 leads_to: "The complete silence and shock"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

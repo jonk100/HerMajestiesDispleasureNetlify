@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "John accepts his imprisonment in golden suburban life and embraces Yoko's escape"
 triggered_by: "Cynthia's departure and final words about cages"
 leads_to: "John's complete surrender to Yoko's conceptual world"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 4
-beat_type: "turn"
 structural_role: "Paul's paranoid flashback connects Klaus to the conspiracy"
 triggered_by: "His suspicion about the timing of the knighthood"
 leads_to: "His complete misinterpretation of the situation"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

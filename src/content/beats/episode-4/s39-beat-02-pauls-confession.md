@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Paul vulnerably confesses his fear of being the boss"
 triggered_by: "George's statement that Paul doesn't annoy him anymore"
 leads_to: "His desperate plea for support and understanding"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 7
-beat_type: "reversal"
 structural_role: "Six months later, Clive continues his impossible work"
 triggered_by: "The passage of time and his obsessive dedication"
 leads_to: "The acceptance of his endless, futile mission"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

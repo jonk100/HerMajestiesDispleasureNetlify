@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 3
-beat_type: "turn"
 structural_role: "George articulates the reality that they're performing an autopsy"
 triggered_by: "John's declaration that the music is trying to tell them it's over"
 leads_to: "The final acceptance of the band's death"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

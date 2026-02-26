@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.2
 beat_index: 4
-beat_type: "reversal"
 structural_role: "The bureaucracy continues while missing everything important"
 triggered_by: "Their elaborate categorization of behavior"
 leads_to: "Their complete unpreparedness for what's actually coming"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40
 beat_index: 3
-beat_type: "turn"
 structural_role: "George names the core problem - they've been in doldrums for a year"
 triggered_by: "Paul's frustration and threat that this should be their last"
 leads_to: "Paul's admission about Brian Epstein's death"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

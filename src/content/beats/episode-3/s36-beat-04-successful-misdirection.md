@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Clive succeeds in his mission while Paul focuses on wrong threat"
 triggered_by: "Paul's paranoid interpretation of the exchange"
 leads_to: "The conspiracy successfully misdirects attention from the real operation"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

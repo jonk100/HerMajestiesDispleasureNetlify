@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 44
 beat_index: 3
-beat_type: "reversal"
 structural_role: "The band records the definitive version of 'Get Back'"
 triggered_by: "The release of tension through laughter"
 leads_to: "The renewed confidence and celebration"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

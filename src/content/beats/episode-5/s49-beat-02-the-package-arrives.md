@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 49
 beat_index: 2
-beat_type: "turn"
 structural_role: "The Queen receives John's returned MBE"
 triggered_by: "The arrival of the package from the post room"
 leads_to: "Philip's discovery of John's defiance"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

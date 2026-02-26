@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Clive explains his theory of subliminal conditioning"
 triggered_by: "His work painting microscopic symbols"
 leads_to: "The revelation of the true scale of his task"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

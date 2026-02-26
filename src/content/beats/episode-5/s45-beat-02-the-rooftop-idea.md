@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 2
-beat_type: "turn"
 structural_role: "Michael Lindsay-Hogg suggests playing on the roof"
 triggered_by: "Paul's need for a climax and payoff"
 leads_to: "Paul's excitement and the transformation of the project"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

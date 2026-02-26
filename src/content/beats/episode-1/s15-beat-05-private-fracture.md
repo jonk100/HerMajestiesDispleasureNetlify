@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 15
 beat_index: 5
-beat_type: "reveal"
 structural_role: "Expose Epstein's hidden instability"
 status_quo_before: "Epstein appears composed and in control."
 shift: "Alone, he turns to pills."
@@ -21,6 +20,8 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 After Maureen exits, Epstein's composure drops. The machinery of control relies on chemical steadiness.

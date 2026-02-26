@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 1
-beat_type: "setup"
 structural_role: "Paul expresses frustration about the lack of climax"
 triggered_by: "The improved sessions but missing sense of purpose"
 leads_to: "The rooftop proposal"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

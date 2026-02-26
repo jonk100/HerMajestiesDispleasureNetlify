@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 6
-beat_type: "reversal"
 structural_role: "Both acknowledge the truth applies to each of them"
 triggered_by: "John's admission of his own guilt"
 leads_to: "The painful understanding that they're all trapped in the same pattern"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

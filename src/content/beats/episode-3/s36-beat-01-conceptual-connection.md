@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36
 beat_index: 1
-beat_type: "setup"
 structural_role: "Clive attempts to recruit Yoko while genuinely connecting with her art"
 triggered_by: "His mission to infiltrate the Beatles' inner circle"
 leads_to: "His accidental understanding of conceptual art"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

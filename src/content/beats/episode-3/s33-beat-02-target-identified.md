@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Margaret identifies Paul as the vulnerable target and explains his psychology"
 triggered_by: "Her dismissal of focusing on John"
 leads_to: "The development of a psychological weapon against Paul"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

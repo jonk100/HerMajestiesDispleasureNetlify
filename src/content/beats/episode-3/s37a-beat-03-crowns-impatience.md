@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "Philip rejects bureaucratic complexity and demands escalation"
 triggered_by: "Clive's metrics and countermeasures"
 leads_to: "The final command to destroy the Beatles"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

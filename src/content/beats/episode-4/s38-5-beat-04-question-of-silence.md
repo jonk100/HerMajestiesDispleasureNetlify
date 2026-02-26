@@ -5,7 +5,6 @@ act: 2
 sequence: 9
 scene_number: 38.5
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Nigel asks if they'll ever hear silence again"
 triggered_by: "His complete psychological collapse"
 leads_to: "Clive's moment of uncertainty and concern"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

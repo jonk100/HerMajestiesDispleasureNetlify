@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "Cynthia delivers the fatal question about Yoko's identity"
 triggered_by: "John's defensive attempts to explain Yoko's conceptual art"
 leads_to: "John's inability to answer and final acknowledgment of marriage failure"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

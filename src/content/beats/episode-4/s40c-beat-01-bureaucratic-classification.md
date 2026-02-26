@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.2
 beat_index: 1
-beat_type: "setup"
 structural_role: "MI5 categorizes the Beatles' behavior instead of understanding it"
 triggered_by: "Their surveillance of the Twickenham sessions"
 leads_to: "Their complete misinterpretation of the band's dynamics"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

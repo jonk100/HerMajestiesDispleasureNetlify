@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 1
-beat_type: "setup"
 structural_role: "Finchley delivers the news that Operation Minuet is concluded"
 triggered_by: "Philip's royal directive for assassination"
 leads_to: "The revelation of the new deadly mission"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

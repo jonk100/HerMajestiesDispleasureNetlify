@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish the hostile environment and the band's vulnerable position"
 triggered_by: "American reporters ready to confront John about the Jesus quote"
 leads_to: "John being forced to defend his statement"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "cultural"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 44
 beat_index: 2
-beat_type: "turn"
 structural_role: "John's deadpan humor breaks through the tension"
 triggered_by: "Their experimentation and near-perfect take"
 leads_to: "The perfect take and genuine laughter"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

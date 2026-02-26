@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "George's silent acknowledgment becomes his decision to leave"
 triggered_by: "His complete erasure from the creative process"
 leads_to: "His quiet withdrawal from the band"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

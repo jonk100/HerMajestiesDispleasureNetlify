@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35
 beat_index: 2
-beat_type: "escalation"
 structural_role: "John and Yoko find common ground through conceptual play"
 triggered_by: "The gallery owner suggesting a compromise"
 leads_to: "John and Yoko's mutual recognition of kindred spirits"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 14
 beat_index: 4
-beat_type: "turn"
 structural_role: "Institutionalize suspicion"
 status_quo_before: "Nigel doubts Clive's alarm."
 shift: "Nigel logs the interview formally."
@@ -22,6 +21,8 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-22
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Nigel writes: "Monitor closely." Ink dries. The system prepares its interpretation before the event occurs.

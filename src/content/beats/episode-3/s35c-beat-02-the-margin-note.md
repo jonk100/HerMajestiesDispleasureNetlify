@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35.2
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Cynthia finds John's written acknowledgment of their disconnection"
 triggered_by: "Her examination of John's new philosophical books"
 leads_to: "Her understanding that he has consciously documented their separation"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

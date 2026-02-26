@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 12
 beat_index: 4
-beat_type: "character_shift"
 structural_role: "Nigel recognizes the absurdity of their mandate."
 triggered_by: "Clive declaring ideological pivot."
 status_quo_before: "Nigel performs surveillance dutifully."
@@ -22,8 +21,10 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "internal_shift"
+information_type: "none"
+scope: "interpersonal"
 ---
-
 He's writing a film score.
 
 Ink scratches across paper.

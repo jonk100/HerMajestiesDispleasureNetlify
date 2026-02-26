@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "Technical requirements further disrupt the creative process"
 triggered_by: "The band's attempt to regain momentum"
 leads_to: "George's withdrawal and the erosion of creative spirit"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

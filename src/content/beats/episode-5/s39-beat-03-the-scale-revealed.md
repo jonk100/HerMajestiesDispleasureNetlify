@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 3
-beat_type: "turn"
 structural_role: "The camera reveals the true scale of Clive's delusion"
 triggered_by: "His explanation of his subliminal conditioning theory"
 leads_to: "The Coen Brothers-style futility of his task"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "Paul weighs practical concerns against artistic ideals"
 triggered_by: "John's declaration and George's support for studio work"
 leads_to: "Paul's reluctant acceptance of the decision"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

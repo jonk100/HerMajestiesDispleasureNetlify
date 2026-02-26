@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 49
 beat_index: 3
-beat_type: "escalation"
 structural_role: "Philip reads John's protest letter and his victory turns to ash"
 triggered_by: "The Queen handing him the letter"
 leads_to: "His transformation from victor to enraged"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

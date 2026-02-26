@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 6
-beat_type: "escalation"
 structural_role: "Clive paints a microscopic portrait of Queen Elizabeth"
 triggered_by: "His months of obsessive work"
 leads_to: "The revelation of his minimal progress"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

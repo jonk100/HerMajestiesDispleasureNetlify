@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 12
 beat_index: 5
-beat_type: "turn"
 structural_role: "Paul secures institutional validation while surveillance escalates."
 status_quo_before: "Paul seeks legitimacy."
 shift: "He receives professional approval from the orchestra."
@@ -22,8 +21,10 @@ pressure_level: 6
 irreversibility: "public"
 engine: "cultural"
 created: 2025-10-26
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 The orchestra finishes.
 
 Bows tap lightly.

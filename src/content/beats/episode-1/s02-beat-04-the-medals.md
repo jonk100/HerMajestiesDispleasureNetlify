@@ -5,7 +5,6 @@ act: 1
 sequence: 1
 scene_number: 2
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Internalizes the affront to Philip's military identity"
 status_quo_before: "Philip feels general irritation at disrespect"
 shift: "From irritation to wounded pride."
@@ -27,8 +26,10 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Philip touches his naval ribbons.
 
 A reflex.

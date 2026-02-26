@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35.2
 beat_index: 1
-beat_type: "setup"
 structural_role: "Cynthia discovers the physical evidence of John's emotional departure"
 triggered_by: "Her daily maintenance of the home"
 leads_to: "Her recognition that John is already gone"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

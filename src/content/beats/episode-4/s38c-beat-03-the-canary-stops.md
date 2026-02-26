@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38.3
 beat_index: 3
-beat_type: "reversal"
 structural_role: "Ringo's final repetition confirms the band's death"
 triggered_by: "The changed meaning of his words"
 leads_to: "The complete acceptance of their dissolution"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

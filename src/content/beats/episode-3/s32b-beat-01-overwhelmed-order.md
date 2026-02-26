@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 32.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish Brian's office as a space of apparent order hiding chaos"
 triggered_by: "The aftermath of the Chicago press conference"
 leads_to: "Brian's realization that he's losing control"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

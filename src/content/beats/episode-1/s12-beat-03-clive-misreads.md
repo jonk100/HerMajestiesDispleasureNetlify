@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 12
 beat_index: 3
-beat_type: "reveal"
 structural_role: "Reveal Operation Minuet's paranoid misinterpretation."
 status_quo_before: "Paul's orchestral work is artistic exploration."
 shift: "Clive reframes it as strategic ideological infiltration."
@@ -21,8 +20,10 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Observe, Nigel.
 
 Not rebellion.

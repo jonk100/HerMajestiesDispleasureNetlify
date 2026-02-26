@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 4
-beat_type: "turn"
 structural_role: "Nigel speaks the ugly truth: assassination"
 triggered_by: "Clive's enthusiastic response to the kill order"
 leads_to: "Finchley's threatening response"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

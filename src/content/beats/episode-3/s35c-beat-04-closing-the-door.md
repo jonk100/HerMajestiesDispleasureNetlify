@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35.2
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Cynthia makes the decision to leave with quiet dignity"
 triggered_by: "Her complete understanding that John is emotionally gone"
 leads_to: "Her departure and the end of their marriage"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

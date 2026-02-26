@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "Clive reports Operation Minuet's success to the Crown"
 triggered_by: "The ongoing psychological operations against the Beatles"
 leads_to: "The Crown's assessment of their campaign"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

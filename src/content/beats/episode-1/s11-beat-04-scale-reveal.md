@@ -5,7 +5,6 @@ act: 1
 sequence: 4
 scene_number: 11
 beat_index: 4
-beat_type: "reveal"
 structural_role: "Reveal scale mismatch between state surveillance and public devotion"
 triggered_by: "1_S11_B3"
 leads_to: "1_S11_B5"
@@ -25,8 +24,10 @@ pressure_level: 7
 irreversibility: "public"
 engine: "cultural"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Three hundred.
 Four hundred.
 

@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 21
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Philip dismisses artistic complexity as meaningless noise"
 triggered_by: "2_S21_B3"
 leads_to: "2_S21_B5"
-
 status_quo_before: "Philip struggles to categorize the music's artistic complexity"
 shift: "Philip reduces the music to meaningless noise to restore cognitive order"
 status_quo_after: "Artistic expression is dismissed rather than understood"
-
 primary_character: "royalty/prince-phillip"
 opposition: "artistic complexity"
-
 stakes: "The ability of institutional power to dismiss cultural threats"
 theme: "Simplification as defense mechanism"
 power_shift: "Philip regains control by reducing complexity to simplicity"
 public_private_axis: "private"
-
 plant: "The dismissal as 'noise' rather than engagement with meaning"
 payoff: "The final institutional verdict of 'no discipline'"
 page_range: "7-9"
-
 pressure_level: 5
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 "It's just... noise."
 
 The verdict delivered. Philip reduces the sophisticated musical complexity to meaningless noise. The sitar's Eastern tones, the abstract lyrics, the overlapping voices - all collapsed into simple dismissal.

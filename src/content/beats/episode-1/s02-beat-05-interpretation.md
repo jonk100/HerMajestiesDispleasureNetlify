@@ -5,7 +5,6 @@ act: 1
 sequence: 1
 scene_number: 2
 beat_index: 5
-beat_type: "turn"
 structural_role: "Locks Philip's resentment into fixed judgment"
 status_quo_before: "Philip feels wounded but uncertain about John's intent"
 shift: "From ambiguity to fixed judgment."
@@ -27,8 +26,10 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2025-10-26
+movement_type: "turn"
+information_type: "plant"
+scope: "primary_plot"
 ---
-
 John accepts the medal.
 
 A nod. A glance around the room.

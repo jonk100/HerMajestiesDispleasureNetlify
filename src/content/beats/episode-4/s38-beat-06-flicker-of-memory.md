@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 6
-beat_type: "character_shift"
 structural_role: "The remaining three share a moment of genuine connection"
 triggered_by: "John's departure and the finality of his words"
 leads_to: "The quiet acceptance of their shared history"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "internal_shift"
+information_type: "none"
+scope: "internal"
 ---

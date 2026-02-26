@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35
 beat_index: 4
-beat_type: "reversal"
 structural_role: "John and Yoko acknowledge their intellectual and artistic connection"
 triggered_by: "John's experience with the 'YES' and his changed demeanor"
 leads_to: "The foundation for their future partnership"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

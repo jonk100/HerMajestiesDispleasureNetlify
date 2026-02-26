@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 1
-beat_type: "setup"
 structural_role: "Philip's rage has cooled into dangerous calm"
 triggered_by: "John's defiance and personal insult"
 leads_to: "The escalation to assassination planning"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

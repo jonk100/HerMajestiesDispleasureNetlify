@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Ringo asks the question that confirms the band's death"
 triggered_by: "George's declaration that they're performing an autopsy"
 leads_to: "John's final pronouncement and departure"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

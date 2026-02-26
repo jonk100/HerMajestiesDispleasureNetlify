@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 5
-beat_type: "reversal"
 structural_role: "John delivers the final pronouncement of the band's death"
 triggered_by: "Ringo's question about when they last laughed"
 leads_to: "The remaining three accepting the reality"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

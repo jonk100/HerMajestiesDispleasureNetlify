@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40
 beat_index: 5
-beat_type: "reversal"
 structural_role: "George suggests divorce and John makes a joke about custody"
 triggered_by: "The devastating admission about Brian's death"
 leads_to: "The momentary levity that doesn't solve anything"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

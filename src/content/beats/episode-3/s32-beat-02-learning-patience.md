@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 32
 beat_index: 2
-beat_type: "escalation"
 structural_role: "George confronts the difference between rock guitar technique and sitar mastery"
 triggered_by: "His first attempt to play the sitar"
 leads_to: "His commitment to the long path of genuine learning"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

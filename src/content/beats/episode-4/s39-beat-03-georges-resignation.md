@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39
 beat_index: 3
-beat_type: "turn"
 structural_role: "George offers to do whatever Paul wants, revealing his complete disengagement"
 triggered_by: "Paul's continued attempts to direct the creative process"
 leads_to: "The final breakdown of their working relationship"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

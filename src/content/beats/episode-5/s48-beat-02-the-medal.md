@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 48
 beat_index: 2
-beat_type: "turn"
 structural_role: "John declares he's returning a medal to Buckingham Palace"
 triggered_by: "Brenda's question about the contents"
 leads_to: "The processing of his protest as routine mail"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

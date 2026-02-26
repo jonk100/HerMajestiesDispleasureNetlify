@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37
 beat_index: 1
-beat_type: "setup"
 structural_role: "John and Paul confront the reality of the band's dissolution"
 triggered_by: "The accumulated pressures and transformations"
 leads_to: "The acknowledgment that the band may be over"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

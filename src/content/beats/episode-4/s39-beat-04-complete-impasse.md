@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39
 beat_index: 4
-beat_type: "reversal"
 structural_role: "The band reaches complete creative deadlock"
 triggered_by: "George's resignation and Paul's frustration"
 leads_to: "The acknowledgment that being together is the problem"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 44
 beat_index: 5
-beat_type: "reversal"
 structural_role: "The band celebrates with chaotic multilingual versions"
 triggered_by: "The success of the perfect take"
 leads_to: "The complete return of their creative joy and confidence"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

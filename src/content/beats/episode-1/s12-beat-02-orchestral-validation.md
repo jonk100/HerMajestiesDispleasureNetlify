@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 12
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Demonstrate Paul integrating into establishment artistry."
 triggered_by: "Completion of the film theme."
 status_quo_before: "Paul experiments privately with orchestral writing."
@@ -21,8 +20,10 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "payoff"
+scope: "primary_plot"
 ---
-
 Studio One.
 
 Thirty musicians.

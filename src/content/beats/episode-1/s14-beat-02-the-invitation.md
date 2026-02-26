@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 14
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Create structural access to ignition moment"
 status_quo_before: "John's ideas remain domestic."
 shift: "Maureen proposes an intimate Weybridge interview."
@@ -21,6 +20,8 @@ pressure_level: 5
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 The interview is approved.

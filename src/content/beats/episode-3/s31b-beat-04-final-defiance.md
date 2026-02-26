@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31.1
 beat_index: 4
-beat_type: "turn"
 structural_role: "John's final act of defiance that seals his resentment of the press"
 triggered_by: "The reporter asking if he would say it again"
 leads_to: "The complete breakdown of any goodwill in the room"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

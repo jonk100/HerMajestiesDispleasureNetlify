@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 6
-beat_type: "reversal"
 structural_role: "The band unites behind the rooftop plan with renewed purpose"
 triggered_by: "Paul's announcement and energy"
 leads_to: "The beginning of rehearsals for the rooftop concert"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

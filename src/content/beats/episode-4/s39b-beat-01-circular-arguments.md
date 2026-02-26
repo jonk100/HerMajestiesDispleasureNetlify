@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "John and Paul argue in circles while George observes"
 triggered_by: "Their inability to resolve 'Get Back' structure"
 leads_to: "George's moment of insight"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

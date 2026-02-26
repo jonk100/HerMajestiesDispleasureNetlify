@@ -5,7 +5,6 @@ act: 1
 sequence: 4
 scene_number: 11
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Comedic reversal exposing institutional inadequacy."
 triggered_by: "Recognition of generational scale."
 status_quo_before: "MI5 maintains procedural confidence."
@@ -23,8 +22,10 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "reversal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 A boy studies the album like doctrine.
 
 Nigel studies his files.

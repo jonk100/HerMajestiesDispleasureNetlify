@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 48
 beat_index: 5
-beat_type: "reversal"
 structural_role: "John and Yoko disappear into the anonymous crowd"
 triggered_by: "The completion of the bureaucratic transaction"
 leads_to: "The quiet journey of rebellion to the heart of power"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

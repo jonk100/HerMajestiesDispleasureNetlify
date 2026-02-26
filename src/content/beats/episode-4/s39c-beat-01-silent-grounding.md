@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.2
 beat_index: 1
-beat_type: "setup"
 structural_role: "Yoko provides silent grounding for John during creative work"
 triggered_by: "The band's attempt to work together on harmonies"
 leads_to: "Paul's misinterpretation of their connection"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 12
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish Paul's sincere artistic ambition beyond pop music."
 status_quo_before: "Paul is globally successful within pop music."
 shift: "He pursues orchestral composition and film scoring."
@@ -20,8 +19,10 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "setup"
+scope: "primary_plot"
 ---
-
 An attic room.
 
 Lead sheets. Pinter. Berio.

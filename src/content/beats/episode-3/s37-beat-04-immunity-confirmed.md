@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Nigel officially documents Ringo's immunity and the operation's failure"
 triggered_by: "Ringo's defeat of the poisoning attempt"
 leads_to: "The conspiracy's recognition that some people cannot be broken"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

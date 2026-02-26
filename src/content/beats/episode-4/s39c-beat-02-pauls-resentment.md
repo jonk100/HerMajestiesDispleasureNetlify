@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.2
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Paul's resentment grows as he misinterprets Yoko's support"
 triggered_by: "Repeated instances of John seeking Yoko's grounding"
 leads_to: "His direct confrontation about her influence"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Clive prepares to poison John with psychoactive compounds"
 triggered_by: "The command to escalate operations against the Beatles"
 leads_to: "The attempt to chemically manipulate John"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

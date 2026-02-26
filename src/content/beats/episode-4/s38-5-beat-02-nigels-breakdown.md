@@ -5,7 +5,6 @@ act: 2
 sequence: 9
 scene_number: 38.5
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Nigel begins to mentally collapse from repetitive exposure"
 triggered_by: "Six hours of listening to Revolution 9"
 leads_to: "His complete psychological unraveling"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

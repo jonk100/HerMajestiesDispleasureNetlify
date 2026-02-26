@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 3
-beat_type: "escalation"
 structural_role: "John immediately invites Billy to join the album"
 triggered_by: "Billy's presence and the need for live piano"
 leads_to: "Billy's acceptance and the anticipation of playing together"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

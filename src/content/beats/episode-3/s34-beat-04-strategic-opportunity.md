@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 34
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Philip recognizes Brian's death as a strategic advantage and moves to exploit it"
 triggered_by: "The news of Brian's death reaching Buckingham Palace"
 leads_to: "The conspiracy's final phase as the Beatles are left vulnerable"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "historical"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

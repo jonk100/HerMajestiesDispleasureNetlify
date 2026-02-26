@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.2
 beat_index: 4
-beat_type: "reversal"
 structural_role: "MI5 recognizes Apple as a new strategic vulnerability"
 triggered_by: "The formation of Apple Corps"
 leads_to: "The conspiracy's plan to infiltrate at board level"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "public"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "George plays correctly but is already emotionally departed"
 triggered_by: "His realization that Paul will never change"
 leads_to: "His quiet exit from the band"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

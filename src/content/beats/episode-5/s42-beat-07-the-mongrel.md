@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 7
-beat_type: "escalation"
 structural_role: "Paul admits they treated George like a mongrel"
 triggered_by: "Their mutual recognition of the pattern"
 leads_to: "The final painful truth about their treatment of George"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

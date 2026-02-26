@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Mountbatten argues the operation was successful"
 triggered_by: "Philip's icy resolve"
 leads_to: "Philip's rejection of strategic success"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

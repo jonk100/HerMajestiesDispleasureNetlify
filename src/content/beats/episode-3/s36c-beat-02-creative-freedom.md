@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.2
 beat_index: 2
-beat_type: "escalation"
 structural_role: "The Beatles imagine their new creative possibilities"
 triggered_by: "Signing the Apple Corps documents"
 leads_to: "Their giddy optimism about artistic control"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

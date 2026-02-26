@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 2
-beat_type: "turn"
 structural_role: "Finchley reveals the assassination directive in euphemisms"
 triggered_by: "The conclusion of Operation Minuet"
 leads_to: "The agents' different reactions to the kill order"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "historical"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

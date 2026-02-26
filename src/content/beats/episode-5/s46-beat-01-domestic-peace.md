@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 1
-beat_type: "setup"
 structural_role: "Paul enjoys a rare moment of domestic peace and creativity"
 triggered_by: "The relative calm after the rooftop concert planning"
 leads_to: "The arrival of the royal letter"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

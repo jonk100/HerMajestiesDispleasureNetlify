@@ -5,7 +5,6 @@ act: 1
 sequence: 1
 scene_number: 2
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establishes institutional power and cultural disruption"
 status_quo_before: "The Crown maintains absolute dignity and control"
 shift: "From public celebration to institutional gravity."
@@ -27,8 +26,10 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2025-10-26
+movement_type: "escalation"
+information_type: "setup"
+scope: "primary_plot"
 ---
-
 The Investiture Room overwhelms. Gold, crystal, ancestral portraits.  
 
 Philip stands rigid, observing. The room belongs to history — not youth.

@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 32.1
 beat_index: 3
-beat_type: "turn"
 structural_role: "Brian attempts to manage the American crisis but receives worse news"
 triggered_by: "His phone call to handle the Jesus fallout"
 leads_to: "The realization that a bigger crisis is emerging"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "public"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

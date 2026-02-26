@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Show the escalating intensity of the cultural backlash"
 triggered_by: "News coverage continuing to show more extreme reactions"
 leads_to: "Philip's satisfaction with the effectiveness of cultural backlash"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "public"
 engine: "cultural"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

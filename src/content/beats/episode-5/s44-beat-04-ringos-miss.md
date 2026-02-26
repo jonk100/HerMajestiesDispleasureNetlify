@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 44
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Ringo forgets the ending, but it doesn't matter"
 triggered_by: "The intensity of the perfect take"
 leads_to: "The practical solution and continued celebration"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

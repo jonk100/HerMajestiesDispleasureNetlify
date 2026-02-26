@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish Margaret's arrival and her contempt for the current approach"
 triggered_by: "The ongoing conspiracy against The Beatles"
 leads_to: "Margaret's more sophisticated and cruel approach"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

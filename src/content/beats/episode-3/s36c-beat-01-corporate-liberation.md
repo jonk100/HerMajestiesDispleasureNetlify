@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.2
 beat_index: 1
-beat_type: "setup"
 structural_role: "The Beatles form Apple Corps in naive excitement"
 triggered_by: "Their desire to control their own business and creative destiny"
 leads_to: "Their unwitting creation of a target for institutional manipulation"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

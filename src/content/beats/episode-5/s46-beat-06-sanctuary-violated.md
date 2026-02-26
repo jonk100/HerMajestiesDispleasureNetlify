@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 6
-beat_type: "reversal"
 structural_role: "Paul's domestic sanctuary is violated by his paranoia"
 triggered_by: "His complete misinterpretation of the knighthood"
 leads_to: "The shattering of domestic peace and Linda's worry"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

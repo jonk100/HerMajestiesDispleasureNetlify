@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 1
-beat_type: "setup"
 structural_role: "John articulates George's festering wound from creative compromise"
 triggered_by: "George's departure three days earlier"
 leads_to: "Their deeper analysis of their creative dysfunction"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

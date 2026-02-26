@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.2
 beat_index: 3
-beat_type: "turn"
 structural_role: "Nigel categorizes George's withdrawal as psychological phase"
 triggered_by: "George's silence during the sessions"
 leads_to: "Their failure to understand his impending departure"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.2
 beat_index: 3
-beat_type: "turn"
 structural_role: "Yoko becomes a mirror reflecting Paul's true feelings"
 triggered_by: "Paul's bitter question about whose words John speaks"
 leads_to: "The revelation of Paul's displacement and John's survival"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

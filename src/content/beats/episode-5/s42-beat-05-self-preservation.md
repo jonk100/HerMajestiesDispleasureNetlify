@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 5
-beat_type: "turn"
 structural_role: "John admits his own guilt and self-preservation"
 triggered_by: "Paul's acknowledgment of the power structure"
 leads_to: "The mutual recognition of their shared responsibility"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -1,5 +1,5 @@
 /**
- * fieldDefinitions.ts
+ * collectionFieldDefinitions.ts
  *
  * Central semantic registry for all content collections.
  *
@@ -227,7 +227,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
 
   beats: {
     description:
-      "Micro-level units of change. Beats represent shifts in power, knowledge, status, or emotion.",
+      "Micro-level units of change. Beats represent shifts in power, knowledge, status, or emotion.\n\nThe five axes are orthogonal and diagnostic:\n\n- movement_type vs information_type: Power can move without new information, and information can be revealed without power shift.\n- scope vs pressure_level: A beat can have high pressure but limited scope (intense personal moment), or large scope but low pressure (gradual institutional change).\n- scope vs irreversibility: Global changes can be reversible (policy shift), while internal changes can be permanent (character realization).\n- pressure_level vs irreversibility: High tension doesn't guarantee permanent consequences.\n\nThis model enables precise structural diagnosis and pattern analysis.",
     fields: {
       title: { description: "Beat label." },
       episode: { description: "Episode reference." },
@@ -235,25 +235,6 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       sequence: { description: "Sequence grouping." },
       scene_number: { description: "Parent scene." },
       beat_index: { description: "Order within scene." },
-      beat_type: {
-        description: "Structural function of beat.",
-        intent:
-          "Describes mechanical role in narrative structure.",
-        enumValues: {
-          setup: "Introduces information or condition.",
-          escalation: "Raises stakes or pressure.",
-          turn: "Shifts direction of scene.",
-          reveal: "Uncovers hidden information.",
-          reversal: "Flips power or expectation.",
-          plant: "Installs future payoff element.",
-          payoff: "Resolves prior plant.",
-          character_shift: "Internal transformation.",
-        },
-        examples: [
-          "reversal — crowd turns against protagonist",
-          "plant — subtle mention of recording contract",
-        ],
-      },
       structural_role: {
         description: "Clarifies exact structural mechanism.",
       },
@@ -310,11 +291,81 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       page_range: {
         description: "Script page span.",
       },
+      movement_type: {
+        description: "Change in power or direction.",
+        intent:
+          "Describes how power dynamics or narrative trajectory shift.",
+        enumValues: {
+          escalation: "Power or stakes increase.",
+          deescalation: "Power or stakes decrease.",
+          reversal: "Power or direction flips completely.",
+          turn: "Direction shifts without full reversal.",
+          stasis: "No power movement; structural holding pattern.",
+          internal_shift: "Internal change without external power shift.",
+        },
+        examples: [
+          "escalation — antagonist gains institutional support",
+          "reversal — protagonist's ally becomes enemy",
+          "turn — scene shifts from political to personal",
+          "stasis — character maintains position despite pressure",
+          "internal_shift — character realizes truth but doesn't act",
+          "deescalation — threat level diminishes",
+        ],
+      },
+
+      information_type: {
+        description: "Change in knowledge or expectation.",
+        intent:
+          "Describes how information moves the narrative. Informational beats may not move power.",
+        enumValues: {
+          none: "No new information introduced.",
+          setup: "Installs context or conditions.",
+          reveal: "Uncovers hidden information.",
+          plant: "Installs element for future payoff.",
+          payoff: "Resolves prior planted information.",
+          withholding: "Deliberately holds back information.",
+          misdirect: "Points toward false conclusion.",
+        },
+        examples: [
+          "reveal — protagonist learns of betrayal",
+          "plant — character mentions seemingly casual detail",
+          "payoff — earlier planted clue becomes relevant",
+          "withholding — character knows something but doesn't speak",
+          "misdirect — evidence suggests wrong culprit",
+          "setup — scene establishes political climate",
+          "none — pure power struggle without new information",
+        ],
+      },
+
+      scope: {
+        description: "Structural radius of impact.",
+        intent:
+          "Describes how widely the beat resonates. Scope is distinct from intensity and stakes.",
+        enumValues: {
+          internal: "Affects one character's internal state.",
+          interpersonal: "Affects relationship between characters.",
+          subplot: "Affects secondary narrative engine.",
+          primary_plot: "Affects main narrative engine.",
+          global: "Affects entire story world.",
+        },
+        examples: [
+          "internal — character has realization",
+          "interpersonal — trust between two characters breaks",
+          "subplot — secondary character's storyline advances",
+          "primary_plot — main conflict escalates",
+          "global — political system changes",
+        ],
+      },
       pressure_level: {
         description: "Dramatic intensity 1–10.",
+        intent:
+          "Measures immediate tension intensity, not size of impact. High pressure does not imply high scope.",
       },
+
       irreversibility: {
         description: "Degree of permanence.",
+        intent:
+          "Measures permanence of consequence. A beat may be global but reversible.",
         enumValues: {
           none: "Temporary shift.",
           personal: "Permanent internal change.",

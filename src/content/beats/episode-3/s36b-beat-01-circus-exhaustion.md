@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish the band's collective exhaustion after final concert"
 triggered_by: "The physical and emotional toll of constant touring"
 leads_to: "Their collective decision to stop performing live"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

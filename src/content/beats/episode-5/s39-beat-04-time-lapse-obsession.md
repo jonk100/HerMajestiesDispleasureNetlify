@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Montage shows Clive's obsessive work over months"
 triggered_by: "The revelation of the scale of his task"
 leads_to: "His voiceover reporting progress to Sir Derek"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

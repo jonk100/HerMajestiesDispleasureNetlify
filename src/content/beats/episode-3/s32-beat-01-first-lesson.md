@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 32
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish George as a humble student before a true master"
 triggered_by: "George seeking spiritual refuge from Beatles chaos"
 leads_to: "His fundamental reorientation as a musician and person"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

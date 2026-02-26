@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 14
 beat_index: 1
-beat_type: "setup"
 structural_role: "Introduce catalyst character"
 status_quo_before: "The Beatles are covered as pop phenomenon."
 shift: "Maureen reframes them as cultural thinkers."
@@ -21,6 +20,8 @@ pressure_level: 6
 irreversibility: "public"
 engine: "cultural"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "setup"
+scope: "primary_plot"
 ---
-
 Maureen argues the band has evolved artistically.

@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 23
 beat_index: 2
-beat_type: "turn"
 structural_role: "External world enters creative sanctuary"
 triggered_by: "2_S23_B1"
 leads_to: "2_S23_B3"
-
 status_quo_before: "The band operates in pure creative flow"
 shift: "Brian enters with real-world concerns and hidden newspaper"
 status_quo_after: "The collision between artistic creation and public crisis begins"
-
 primary_character: "band/brian-epstein"
 opposition: "the band's creative unity"
-
 stakes: "Brian's role as manager vs artistic guardian"
 theme: "Business reality vs artistic truth"
 power_shift: "External reality threatens creative sanctuary"
 public_private_axis: "collision"
-
 plant: "The folded newspaper with 'MORE POPULAR THAN JESUS' headline"
 payoff: "Brian's realization that he manages fallout rather than builds careers"
 page_range: "5-8"
-
 pressure_level: 5
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 The control room door opens. Brian Epstein enters, impeccably dressed in dark suit - visiting headmaster stepping into art room during finger-painting session.
 
 He carries folder under one arm and, half-hidden inside it, folded newspaper with loud American headline. He tries not to look at it.

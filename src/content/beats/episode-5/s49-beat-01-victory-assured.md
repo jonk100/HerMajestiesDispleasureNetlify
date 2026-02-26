@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 49
 beat_index: 1
-beat_type: "setup"
 structural_role: "Philip expects triumph as the band is broken"
 triggered_by: "The success of Operation Minuet"
 leads_to: "The arrival of John's returned MBE"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

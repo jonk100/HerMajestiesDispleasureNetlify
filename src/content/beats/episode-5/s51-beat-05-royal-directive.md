@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 5
-beat_type: "escalation"
 structural_role: "Finchley threatens Nigel with his pension and career"
 triggered_by: "Nigel speaking the truth about assassination"
 leads_to: "Nigel's complete defeat and entrapment"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

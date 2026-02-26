@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 13
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish internal crisis beneath fame"
 status_quo_before: "John is materially successful but spiritually unexamined."
 shift: "Exposure to radical theological reinterpretation destabilizes inherited belief."
@@ -22,6 +21,8 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "setup"
+scope: "primary_plot"
 ---
-
 John sits cross-legged in a mansion overtaken by books. He reads *The Passover Plot*, underlining passages that question Christ's divinity. The luxury around him feels hollow. His intellectual search is no longer casual—it's urgent. He begins to doubt foundational beliefs.

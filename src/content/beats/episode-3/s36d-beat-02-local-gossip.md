@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.3
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Ringo overhears how the public perceives the Beatles' transformations"
 triggered_by: "The locals' loud conversation near the bar"
 leads_to: "Ringo's quiet wisdom about the situation"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "cultural"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 41
 beat_index: 2
-beat_type: "turn"
 structural_role: "The band discovers they can no longer play together"
 triggered_by: "Their attempt to play 'Get Back' one final time"
 leads_to: "The complete breakdown of their musical connection"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

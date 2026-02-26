@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 5
-beat_type: "reversal"
 structural_role: "John's spontaneous declaration and the return of real laughter"
 triggered_by: "The magical transformation of their sound"
 leads_to: "The genuine joy and hope for the future"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 6
-beat_type: "reversal"
 structural_role: "John's final departure and Paul's complete shock"
 triggered_by: "The end of the meeting and John's decision"
 leads_to: "Paul's realization that he missed the real conspiracy"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 1
-beat_type: "setup"
 structural_role: "Clive paints microscopic patriotic symbols on animation cels"
 triggered_by: "His delusional mission to subliminally influence children"
 leads_to: "The revelation of the scale of his task"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

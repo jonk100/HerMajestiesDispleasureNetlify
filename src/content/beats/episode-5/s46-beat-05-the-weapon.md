@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Paul declares the knighthood is a weapon to split the band"
 triggered_by: "His paranoid connection to Klaus"
 leads_to: "The complete corruption of the honor"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

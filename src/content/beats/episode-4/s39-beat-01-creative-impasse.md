@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish the band's inability to work together on 'Two of Us'"
 triggered_by: "The accumulated tensions and creative differences"
 leads_to: "Paul's frustration and George's disengagement"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

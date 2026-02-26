@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "The band accepts their new identity and walks out united"
 triggered_by: "The collective decision to stop touring"
 leads_to: "Their transition to studio-only existence"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

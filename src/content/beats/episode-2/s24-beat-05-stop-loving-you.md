@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 24
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Nigel delivers final psychological blow"
 triggered_by: "2_S24_B4"
 leads_to: ""
-
 status_quo_before: "Paul struggles with role as emotional anchor"
 shift: "Nigel explicitly states that experimental music will cost Paul love"
 status_quo_after: "Paul's artistic choices become terror of losing audience affection"
-
 primary_character: "supporting/nigel-finch"
 opposition: "band/paul-mccartney's confidence"
-
 stakes: "Paul's artistic integrity vs fear of abandonment"
 theme: "Love as currency in popular art"
 power_shift: "Nigel achieves complete psychological control"
 public_private_axis: "private"
-
 plant: "The phrase 'they'll stop loving you' as ultimate threat"
 payoff: "Paul scribbling out abstract lines for direct emotional ones"
 page_range: "13-17"
-
 pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 "They'll stop loving you, won't they?"
 
 The words land cleanly. Surgically.

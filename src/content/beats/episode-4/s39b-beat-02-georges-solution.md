@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 39.1
 beat_index: 2
-beat_type: "turn"
 structural_role: "George silently solves the musical problem"
 triggered_by: "His observation of John and Paul's circular arguments"
 leads_to: "The song suddenly working"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

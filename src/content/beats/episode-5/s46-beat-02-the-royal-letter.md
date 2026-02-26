@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 2
-beat_type: "turn"
 structural_role: "The knighthood offer arrives, bringing initial joy"
 triggered_by: "The mail delivery and the royal crest envelope"
 leads_to: "Paul's pride and Linda's celebration"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

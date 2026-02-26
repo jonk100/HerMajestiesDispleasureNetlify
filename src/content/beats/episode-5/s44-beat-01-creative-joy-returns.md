@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 44
 beat_index: 1
-beat_type: "setup"
 structural_role: "The band experiments with joy and laughter"
 triggered_by: "Billy Preston's presence transforming their dynamic"
 leads_to: "The perfect take of 'Get Back'"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

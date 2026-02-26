@@ -5,29 +5,34 @@ import BaseFilter from "./BaseFilter.astro";
 
 /**
  * Beats-specific filter component
- * Filters story beats by beat_type field
+ * Filters story beats by movement_type, information_type, and scope fields
  */
 
 const beatsFilters = {
   all: 'All Beats',
-  inciting_incident: 'Inciting Incident',
-  plot_point_1: 'Plot Point 1',
-  midpoint: 'Midpoint',
-  plot_point_2: 'Plot Point 2',
-  climax: 'Climax',
-  resolution: 'Resolution',
-  conspiracy_revelation: 'Conspiracy Revelation',
   escalation: 'Escalation',
-  betrayal: 'Betrayal',
-  cover_up: 'Cover Up',
-  character_moment: 'Character Moment',
+  deescalation: 'Deescalation',
+  reversal: 'Reversal',
+  turn: 'Turn',
+  stasis: 'Stasis',
+  internal_shift: 'Internal Shift',
   setup: 'Setup',
-  payoff: 'Payoff'
+  reveal: 'Reveal',
+  plant: 'Plant',
+  payoff: 'Payoff',
+  withholding: 'Withholding',
+  misdirect: 'Misdirect',
+  none: 'No Information',
+  internal: 'Internal',
+  interpersonal: 'Interpersonal',
+  subplot: 'Subplot',
+  primary_plot: 'Primary Plot',
+  global: 'Global'
 };
 ---
 
 <BaseFilter 
-  title="Filter by Beat Type"
+  title="Filter by Beat Attributes"
   filters={beatsFilters}
   resultLabel="beats"
 />

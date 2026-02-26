@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.1
 beat_index: 3
-beat_type: "reversal"
 structural_role: "George realizes this pattern will never stop"
 triggered_by: "Paul's immediate return to directing during a good moment"
 leads_to: "His final decision to leave"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

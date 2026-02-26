@@ -5,7 +5,6 @@ act: 1
 sequence: 2
 scene_number: 7
 beat_index: 2
-beat_type: "character_shift"
 structural_role: "Paul immediately pivots celebration toward commercial propulsion"
 triggered_by: "1_S7_B1"
 leads_to: "1_S7_B3"
@@ -27,8 +26,10 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2025-10-26
+movement_type: "internal_shift"
+information_type: "none"
+scope: "interpersonal"
 ---
-
 Paul cannot sit still inside victory.
 
 Studio time. Next melody. Keep it moving.

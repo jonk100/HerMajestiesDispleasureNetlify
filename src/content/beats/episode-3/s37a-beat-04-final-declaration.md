@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37.1
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Philip declares the end of the campaign and the decade"
 triggered_by: "His frustration with bureaucracy and proximity to victory"
 leads_to: "The final phase of the conspiracy"
@@ -23,4 +22,7 @@ pressure_level: 10
 irreversibility: "historical"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

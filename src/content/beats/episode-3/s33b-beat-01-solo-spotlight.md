@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 33.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish Paul in a new context - solo artist at a film premiere"
 triggered_by: "The release of The Family Way film score"
 leads_to: "Paul experiencing individual recognition separate from The Beatles"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

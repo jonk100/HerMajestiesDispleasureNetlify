@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 37.1
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Clive identifies Ringo as immune and proposes countermeasures"
 triggered_by: "Philip's demand for results"
 leads_to: "The conspiracy's focus on breaking the unbreakable member"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.1
 beat_index: 2
-beat_type: "turn"
 structural_role: "Paul reflexively reverts to directing mode"
 triggered_by: "The moment of genuine connection and enthusiasm"
 leads_to: "The immediate destruction of the good moment"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

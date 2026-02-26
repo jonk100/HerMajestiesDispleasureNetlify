@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40.2
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Nigel explains his completely wrong understanding of the band"
 triggered_by: "Clive's confusion about the classifications"
 leads_to: "Further institutional misunderstanding"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

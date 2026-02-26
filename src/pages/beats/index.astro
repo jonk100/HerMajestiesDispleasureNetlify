@@ -68,7 +68,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
 
           <div class="scene-beats">
             {scene.beats.map((beat: any) => (
-              <div class="beat-card" data-category={beat.data.beat_type}>
+              <div class="beat-card" data-category={beat.data.movement_type}>
 
                 <div class="beat-position">
                   Beat {beat.data.beat_index}
@@ -81,7 +81,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
                 </h3>
 
                 <div class="beat-meta">
-                  <span class="type">{beat.data.beat_type}</span>
+                  <span class="type">{beat.data.movement_type}/{beat.data.information_type}/{beat.data.scope}</span>
                   <span class="character">{beat.data.primary_character}</span>
                 </div>
 

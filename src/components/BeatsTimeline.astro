@@ -8,7 +8,9 @@ interface Props {
       sequence: number;
       scene_number: number;
       beat_index: number;
-      beat_type: string;
+      movement_type: string;
+      information_type: string;
+      scope: string;
       pressure_level: number;
       shift: string;
       primary_character: string;
@@ -21,11 +23,10 @@ interface Props {
 
 const { beats, title = "Story Beats & Pressure Timeline" } = Astro.props;
 
-// Sort beats by act, then sequence, then beat_index
+// Sort beats by scene_number, then beat_index
 const sortedBeats = beats
   .sort((a, b) => {
-    if (a.data.act !== b.data.act) return a.data.act - b.data.act;
-    if (a.data.sequence !== b.data.sequence) return a.data.sequence - b.data.sequence;
+    if (a.data.scene_number !== b.data.scene_number) return a.data.scene_number - b.data.scene_number;
     return a.data.beat_index - b.data.beat_index;
   });
 ---
@@ -74,7 +75,7 @@ const sortedBeats = beats
                 const y = 180 - (beat.data.pressure_level * 18);
                 return (
                   <circle cx={x} cy={y} r="4" fill="#3b82f6" class="data-point">
-                    <title>{beat.data.title}: Pressure {beat.data.pressure_level}</title>
+                    <title>S{beat.data.scene_number}, B{beat.data.beat_index}: {beat.data.title} (Pressure {beat.data.pressure_level})</title>
                   </circle>
                 );
               })}
@@ -99,11 +100,14 @@ const sortedBeats = beats
                 <div class="beat-card" data-pressure={beat.data.pressure_level}>
                   <div class="beat-header">
                     <span class="beat-title">{beat.data.title}</span>
-                    <span class="beat-pressure">P{beat.data.pressure_level}</span>
+                    <div class="beat-header-right">
+                      <span class="beat-index">#{beat.data.beat_index}</span>
+                      <span class="beat-pressure">P{beat.data.pressure_level}</span>
+                    </div>
                   </div>
                   <div class="beat-details">
                     <div class="beat-meta">
-                      <span class="beat-type">{beat.data.beat_type}</span>
+                      <span class="beat-type">{beat.data.movement_type}/{beat.data.information_type}/{beat.data.scope}</span>
                       <span class="beat-act">Act {beat.data.act}</span>
                       <span class="beat-scene">Scene {beat.data.scene_number}</span>
                     </div>
@@ -267,12 +271,29 @@ const sortedBeats = beats
     margin-bottom: 0.75rem;
   }
 
+  .beat-header-right {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
   .beat-title {
     font-weight: 600;
     color: #1f2937;
     font-size: 0.875rem;
     flex: 1;
     margin-right: 0.5rem;
+  }
+
+  .beat-index {
+    background: #6b7280;
+    color: white;
+    padding: 0.125rem 0.375rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 28px;
+    text-align: center;
   }
 
   .beat-pressure {

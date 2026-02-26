@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 25
 beat_index: 6
-beat_type: "reversal"
 structural_role: "Nigel realizes the true nature of cultural intelligence work"
 triggered_by: "2_S25_B5"
 leads_to: ""
-
 status_quo_before: "Nigel sees surveillance as traditional intelligence gathering"
 shift: "Nigel understands cultural threat requires redirection not arrest"
 status_quo_after: "The operation's purpose transforms from observation to manipulation"
-
 primary_character: "supporting/nigel-finch"
 opposition: "traditional law enforcement"
-
 stakes: "The entire approach to cultural security"
 theme: "The evolution of intelligence work in cultural age"
 power_shift: "Nigel gains new understanding of his role"
 public_private_axis: "private"
-
 plant: "The concept of redirection as intelligence strategy"
 payoff: "Clive's final decision to 'manufacture' a voice"
 page_range: "23-26"
-
 pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 "So what sort of threat is that?" Clive asks, confused.
 
 Nigel stands, pushing briefcase toward Clive. He places understandingly exact change on table.

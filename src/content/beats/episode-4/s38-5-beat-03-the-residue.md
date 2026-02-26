@@ -5,7 +5,6 @@ act: 2
 sequence: 9
 scene_number: 38.5
 beat_index: 3
-beat_type: "turn"
 structural_role: "Nigel acknowledges the psychological damage Clive predicted"
 triggered_by: "His complete mental breakdown"
 leads_to: "His physical manifestation of the damage"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

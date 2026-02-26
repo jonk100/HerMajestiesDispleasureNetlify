@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 51
 beat_index: 3
-beat_type: "escalation"
 structural_role: "Clive responds to the assassination order with creative glee"
 triggered_by: "Finchley's euphemistic kill order"
 leads_to: "His immediate planning of the assassination as a performance piece"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 45
 beat_index: 4
-beat_type: "escalation"
 structural_role: "The practical planning and permission discussion"
 triggered_by: "Paul's excitement about the rooftop idea"
 leads_to: "The acceptance of the police shutdown as part of the fun"
@@ -23,4 +22,7 @@ pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

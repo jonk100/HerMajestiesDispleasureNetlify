@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 32
 beat_index: 3
-beat_type: "reveal"
 structural_role: "George receives the philosophical key that explains his entire dissatisfaction"
 triggered_by: "The peaceful setting of Dal Lake and Ravi's teaching"
 leads_to: "George's fundamental reorientation away from material success"
@@ -23,4 +22,7 @@ pressure_level: 3
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---

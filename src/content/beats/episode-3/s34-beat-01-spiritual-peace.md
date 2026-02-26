@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 34
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish the Beatles in a rare moment of unified peace"
 triggered_by: "Their retreat with the Maharishi in Bangor"
 leads_to: "The shattering of this peace by devastating news"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

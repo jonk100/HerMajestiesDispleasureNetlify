@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 16
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Move from intellectual curiosity into explicit religious commentary"
 triggered_by: "Maureen's questions about his reading and beliefs."
 leads_to: "John articulating a broader cultural observation."
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---

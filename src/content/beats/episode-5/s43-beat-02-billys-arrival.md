@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 2
-beat_type: "turn"
 structural_role: "George brings Billy Preston into the studio"
 triggered_by: "George seeing Billy at the door"
 leads_to: "The immediate shift in energy"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

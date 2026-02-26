@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38.1
 beat_index: 1
-beat_type: "setup"
 structural_role: "The Beatles find genuine creative momentum in rehearsal"
 triggered_by: "The morning session at Twickenham"
 leads_to: "The first interruption that breaks their flow"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

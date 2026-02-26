@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 23.5
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Clive reveals his terrible album cover ideas"
 triggered_by: "2_S23-5_B3"
 leads_to: "2_S23-5_B5"
-
 status_quo_before: "Clive's theoretical framework is already absurd"
 shift: "Clive shows mock album cover with Beatles heads as Victorian monuments"
 status_quo_after: "The cultural operation reaches peak incompetence"
-
 primary_character: "supporting/clive-barrow"
 opposition: "artistic taste"
-
 stakes: "Any remaining credibility of the operation"
 theme: "Institutional misunderstanding of artistic symbolism"
 power_shift: "Art critics gain complete superiority through taste"
 public_private_axis: "collision"
-
 plant: "The Victorian monuments as symbol of institutional thinking"
 payoff: "The critics fleeing from 'cultural insurgency' discussion"
 page_range: "13-16"
-
 pressure_level: 7
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---
-
 Clive pulls out another sketch. Mock album cover with each Beatles head replaced by different sad-looking Victorian monument.
 
 "Think about it. The burden of fame. The weight of history. The fountain as metaphor for..."

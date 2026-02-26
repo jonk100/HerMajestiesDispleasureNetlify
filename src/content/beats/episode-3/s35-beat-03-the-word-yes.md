@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35
 beat_index: 3
-beat_type: "turn"
 structural_role: "John discovers the affirmative message that transforms his perspective"
 triggered_by: "Climbing the ladder to experience Ceiling Painting"
 leads_to: "John's emotional breakthrough and recognition of Yoko's artistic vision"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Yoko speaks, violating unspoken rules and escalating tensions"
 triggered_by: "The band's inability to communicate authentically"
 leads_to: "John's complete rejection of the band's pretense"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

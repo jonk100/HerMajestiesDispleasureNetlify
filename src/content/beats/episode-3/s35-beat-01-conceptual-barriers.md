@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 35
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish John's cynicism and Yoko's artistic seriousness"
 triggered_by: "John visiting the Indica gallery looking for distraction"
 leads_to: "Their intellectual and artistic confrontation"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

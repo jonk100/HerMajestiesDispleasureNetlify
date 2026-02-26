@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Paul erupts about their lack of enthusiasm and support"
 triggered_by: "John's casual approach and the band's apathy"
 leads_to: "His admission about lacking support"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

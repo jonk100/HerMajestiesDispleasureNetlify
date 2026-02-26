@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.1
 beat_index: 2
-beat_type: "escalation"
 structural_role: "John articulates his rejection of touring and embrace of art"
 triggered_by: "The collective discussion about their exhaustion"
 leads_to: "The band's shift toward studio artistry"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "historical"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

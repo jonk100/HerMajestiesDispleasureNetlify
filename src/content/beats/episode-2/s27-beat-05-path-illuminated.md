@@ -5,23 +5,18 @@ act: 2
 sequence: 7
 scene_number: 27
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Nigel completes manipulation by making George think discovery is his own"
 triggered_by: "2_S27_B4"
 leads_to: ""
-
 status_quo_before: "George determined but uncertain how to approach Shankar"
 shift: "Nigel provides contact while maintaining illusion of George's agency"
 status_quo_after: "George believes he has discovered spiritual path through own insight"
-
 primary_character: "supporting/nigel-finch"
 opposition: "band/george-harrison's spiritual authenticity"
-
 stakes: "George's spiritual journey and artistic evolution"
 theme: "The sophistication of truth-based manipulation"
 power_shift: "Nigel achieves perfect manipulation through authenticity"
 public_private_axis: "private"
-
 plant: "The slip of paper with \"Ravi Shankar\" \" as key"
 payoff: "Nigel's operational log entry about successful sabotage"
 page_range: "17-21"
@@ -29,8 +24,10 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 "He says Shankar is... particular. He doesn't suffer fools or dilettantes. One must demonstrate a genuine spiritual commitment."
 
 Nigel performs most sophisticated manipulation: using truth. He's not inventing path; merely illuminating it, framing it as challenge worthy of George's deep spirit, while positioning "frantic" Brian Jones as someone who has already started journey.

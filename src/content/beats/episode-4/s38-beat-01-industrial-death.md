@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 38
 beat_index: 1
-beat_type: "setup"
 structural_role: "Establish the complete breakdown of Beatles unity in sterile environment"
 triggered_by: "The accumulated pressures of Operation Minuet and internal tensions"
 leads_to: "The final acknowledgment that the band can no longer function"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "personal"
 engine: "institution"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

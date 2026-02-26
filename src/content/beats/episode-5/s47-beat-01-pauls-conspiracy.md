@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 47
 beat_index: 1
-beat_type: "setup"
 structural_role: "Paul confronts the band about his paranoid conspiracy theory"
 triggered_by: "His belief that the knighthood is a weapon to split them"
 leads_to: "John's unexpected announcement"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "stasis"
+information_type: "setup"
+scope: "subplot"
 ---

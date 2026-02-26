@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 8
-beat_type: "reversal"
 structural_role: "They understand everything but can't solve it"
 triggered_by: "Their complete analysis of the problem"
 leads_to: "The recognition that understanding doesn't equal solution"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

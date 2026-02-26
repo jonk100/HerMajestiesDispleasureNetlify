@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 50
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Philip declares John is now a dissident who must be managed"
 triggered_by: "His explanation of the Joan of Arc problem"
 leads_to: "The declaration of a new protocol"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

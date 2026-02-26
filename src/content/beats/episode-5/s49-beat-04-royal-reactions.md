@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 49
 beat_index: 4
-beat_type: "escalation"
 structural_role: "The different royal reactions to John's defiance"
 triggered_by: "Philip's discovery of John's protest"
 leads_to: "Philip's decision to escalate the conflict"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,33 +5,29 @@ act: 2
 sequence: 7
 scene_number: 25
 beat_index: 2
-beat_type: "turn"
 structural_role: "Clive reveals mystical surveillance theory"
 triggered_by: "2_S25_B1"
 leads_to: "2_S25_B3"
-
 status_quo_before: "Surveillance appears to be standard audio monitoring"
 shift: "Clive explains they're listening for 'psychic residue of celebrity'"
 status_quo_after: "The operation transcends physical reality into metaphysical absurdity"
-
 primary_character: "supporting/clive-barrow"
 opposition: "physical reality"
-
 stakes: "The boundary between intelligence and mysticism"
 theme: "Institutional overreach into metaphysical territory"
 power_shift: "Clive gains authority through theoretical sophistication"
 public_private_axis: "private"
-
 plant: "The concept of 'sound adjacent' as surveillance category"
 payoff: "The later discovery that they're listening to kettles and buses"
 page_range: "5-9"
-
 pressure_level: 5
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "turn"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Clive opens briefcase enough to peer inside. Tangled mess of wires, valves, dials.
 
 "I've recalibrated the receiver. Narrowed the frequency band. Reduced interference."

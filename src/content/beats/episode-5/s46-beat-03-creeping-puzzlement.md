@@ -5,7 +5,6 @@ act: 2
 sequence: 11
 scene_number: 46
 beat_index: 3
-beat_type: "escalation"
 structural_role: "Paul's joy turns to suspicion about the timing"
 triggered_by: "His initial celebration of the knighthood"
 leads_to: "His paranoid connection to Klaus"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

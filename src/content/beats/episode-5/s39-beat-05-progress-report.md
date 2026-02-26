@@ -5,7 +5,6 @@ act: 3
 sequence: 1
 scene_number: 39
 beat_index: 5
-beat_type: "reversal"
 structural_role: "Clive's voiceover reports delusional progress"
 triggered_by: "Months of obsessive work"
 leads_to: "The continuation of his impossible mission"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

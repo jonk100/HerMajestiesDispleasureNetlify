@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Paul tries to explain his attempts to give George more freedom"
 triggered_by: "John's analysis of George's dissatisfaction"
 leads_to: "John's deeper accusation about Paul's controlling nature"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

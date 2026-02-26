@@ -5,7 +5,6 @@ act: 1
 sequence: 1
 scene_number: 2
 beat_index: 3
-beat_type: "character_shift"
 structural_role: "Provides counterpoint perspective to Philip's reaction"
 status_quo_before: "Philip sees only disrespect and cultural threat"
 shift: "From emotional reaction to political analysis."
@@ -27,8 +26,10 @@ pressure_level: 4
 irreversibility: "none"
 engine: "institution"
 created: 2025-10-26
+movement_type: "internal_shift"
+information_type: "reveal"
+scope: "interpersonal"
 ---
-
 Philip murmurs: "There's a carelessness about that one."
 
 Mountbatten counters calmly: influence. Authenticity.

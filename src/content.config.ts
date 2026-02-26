@@ -119,15 +119,31 @@ const beats = defineCollection({
     sequence: z.number(),
     scene_number: z.number(),
     beat_index: z.number(),
-    beat_type: z.enum([
-      "setup",
-      "escalation", 
-      "turn",
-      "reveal",
+    movement_type: z.enum([
+      "escalation",
+      "deescalation",
       "reversal",
+      "turn",
+      "stasis",
+      "internal_shift"
+    ]),
+
+    information_type: z.enum([
+      "none",
+      "setup",
+      "reveal",
       "plant",
       "payoff",
-      "character_shift"
+      "withholding",
+      "misdirect"
+    ]).default("none"),
+
+    scope: z.enum([
+      "internal",
+      "interpersonal",
+      "subplot",
+      "primary_plot",
+      "global"
     ]),
     structural_role: z.string(),
     triggered_by: z.string().optional(),

@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 43
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Billy's playing transforms the Beatles back into The Beatles"
 triggered_by: "Billy sitting at the electric piano and playing"
 leads_to: "The return of their joy and musical connection"
@@ -23,4 +22,7 @@ pressure_level: 4
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

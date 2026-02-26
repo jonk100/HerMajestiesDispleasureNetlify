@@ -5,7 +5,6 @@ act: 2
 sequence: 8
 scene_number: 31.1
 beat_index: 3
-beat_type: "character_shift"
 structural_role: "Reveal how each Beatle responds differently to the crisis"
 triggered_by: "The ongoing press interrogation and John's reluctant compliance"
 leads_to: "The band's unity beginning to fracture under pressure"
@@ -23,4 +22,7 @@ pressure_level: 6
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "internal_shift"
+information_type: "none"
+scope: "internal"
 ---

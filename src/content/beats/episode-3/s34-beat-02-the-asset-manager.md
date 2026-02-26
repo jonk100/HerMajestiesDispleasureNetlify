@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 34
 beat_index: 2
-beat_type: "escalation"
 structural_role: "Nigel receives the news and immediately recognizes the strategic implications"
 triggered_by: "The phone call about Brian's death"
 leads_to: "Nigel's understanding that this creates a power vacuum"
@@ -23,4 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "institution"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---

@@ -5,7 +5,6 @@ act: 1
 sequence: 6
 scene_number: 16
 beat_index: 3
-beat_type: "reveal"
 structural_role: "Deliver the catalytic line that will later explode"
 triggered_by: "John expanding his argument about Christianity's decline."
 leads_to: "Future international controversy."
@@ -25,4 +24,7 @@ pressure_level: 6
 irreversibility: "public"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---

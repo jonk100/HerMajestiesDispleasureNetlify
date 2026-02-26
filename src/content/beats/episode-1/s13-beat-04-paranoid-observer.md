@@ -5,7 +5,6 @@ act: 1
 sequence: 5
 scene_number: 13
 beat_index: 4
-beat_type: "reveal"
 structural_role: "Recontextualize private searching as political threat"
 status_quo_before: "John's inquiry exists only inside the home."
 shift: "Nigel logs the reading as ideological drift."
@@ -22,6 +21,8 @@ pressure_level: 7
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-22
+movement_type: "escalation"
+information_type: "reveal"
+scope: "primary_plot"
 ---
-
 Nigel watches through binoculars, dictating book titles into a recorder. Philosophy becomes "radicalization." Isolation becomes "ideological drift." He writes: "Day 47 — Intellectual subversion continues." John's inner life is reclassified as threat.

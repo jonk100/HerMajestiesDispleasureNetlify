@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 40
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Paul admits the core truth - Brian's death left them orphaned"
 triggered_by: "George naming the doldrums"
 leads_to: "The devastating holiday camp metaphor"
@@ -23,4 +22,7 @@ pressure_level: 9
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

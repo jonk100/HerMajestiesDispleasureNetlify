@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 36.3
 beat_index: 4
-beat_type: "reversal"
 structural_role: "Ringo leaves with quiet dignity, accepting his true identity"
 triggered_by: "His moment of clarity about the band's humanity"
 leads_to: "His peaceful acceptance of himself outside Beatle identity"
@@ -23,4 +22,7 @@ pressure_level: 2
 irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
+movement_type: "reversal"
+information_type: "none"
+scope: "primary_plot"
 ---

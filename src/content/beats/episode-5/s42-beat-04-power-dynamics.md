@@ -5,7 +5,6 @@ act: 2
 sequence: 10
 scene_number: 42
 beat_index: 4
-beat_type: "escalation"
 structural_role: "Paul acknowledges John has always been boss, he was secondary"
 triggered_by: "The revelation of Paul's rejection of criticism"
 leads_to: "The fundamental truth about their power structure"
@@ -23,4 +22,7 @@ pressure_level: 8
 irreversibility: "none"
 engine: "character"
 created: 2026-02-26
+movement_type: "escalation"
+information_type: "none"
+scope: "primary_plot"
 ---
