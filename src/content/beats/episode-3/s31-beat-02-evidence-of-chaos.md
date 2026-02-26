@@ -23,6 +23,6 @@ irreversibility: "public"
 engine: "cultural"
 created: 2026-02-26
 movement_type: "escalation"
-information_type: "none"
+information_type: "reveal"
 scope: "primary_plot"
 ---

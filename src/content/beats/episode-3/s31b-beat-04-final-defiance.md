@@ -23,6 +23,6 @@ irreversibility: "public"
 engine: "character"
 created: 2026-02-26
 movement_type: "turn"
-information_type: "none"
+information_type: "reveal"
 scope: "primary_plot"
 ---

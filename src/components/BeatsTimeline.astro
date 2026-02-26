@@ -29,13 +29,23 @@ const sortedBeats = beats
     if (a.data.scene_number !== b.data.scene_number) return a.data.scene_number - b.data.scene_number;
     return a.data.beat_index - b.data.beat_index;
   });
+
+// Determine context and create count text
+const totalCount = sortedBeats.length;
+const isEpisodeContext = title === "Story Beats & Pressure Timeline";
+const countText = isEpisodeContext 
+  ? `${totalCount} beat${totalCount !== 1 ? 's' : ''} in episode`
+  : `${totalCount} beat${totalCount !== 1 ? 's' : ''} in scene`;
 ---
 
 {sortedBeats.length > 0 && (
   <div class="beats-accordion">
     <details class="accordion-item">
       <summary class="accordion-header">
-        <h3>{title}</h3>
+        <div class="header-left">
+          <h3>{title}</h3>
+          <span class="beat-count">{countText}</span>
+        </div>
         <span class="accordion-toggle">▼</span>
       </summary>
       <div class="accordion-content">
@@ -162,6 +172,13 @@ const sortedBeats = beats
     list-style: none;
   }
 
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
   .accordion-header::-webkit-details-marker {
     display: none;
   }
@@ -171,6 +188,12 @@ const sortedBeats = beats
     font-size: 1.125rem;
     font-weight: 600;
     color: #1f2937;
+  }
+
+  .beat-count {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
   }
 
   .accordion-toggle {

@@ -22,7 +22,7 @@ pressure_level: 7
 irreversibility: "public"
 engine: "cultural"
 created: 2026-02-26
-movement_type: "stasis"
+movement_type: "escalation"
 information_type: "setup"
-scope: "subplot"
+scope: "primary_plot"
 ---

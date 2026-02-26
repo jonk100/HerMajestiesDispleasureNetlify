@@ -22,7 +22,7 @@ pressure_level: 6
 irreversibility: "none"
 engine: "institution"
 created: 2026-02-26
-movement_type: "stasis"
+movement_type: "escalation"
 information_type: "setup"
-scope: "subplot"
+scope: "primary_plot"
 ---

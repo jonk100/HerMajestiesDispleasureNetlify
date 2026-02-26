@@ -23,6 +23,6 @@ irreversibility: "personal"
 engine: "character"
 created: 2026-02-26
 movement_type: "internal_shift"
-information_type: "none"
-scope: "internal"
+information_type: "reveal"
+scope: "primary_plot"
 ---
