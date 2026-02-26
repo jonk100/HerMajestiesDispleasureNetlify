@@ -50,7 +50,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
     <div class="scenes-wrapper">
 
       {Object.values(scenes).map((scene) => (
-        <details class="scene-block" open>
+        <details class="scene-block">
           <summary class="scene-summary">
 
             <div class="scene-meta">
@@ -98,7 +98,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
                 <div class="pressure">
                   <div 
                     class="pressure-fill"
-                    style={`width: ${(beat.data as any).pressure_level ? (beat.data as any).pressure_level * 20 : 50}%`}
+                    style={`width: ${(beat.data as any).pressure_level ? (beat.data as any).pressure_level * 10 : 50}%`}
                   ></div>
                 </div>
 
@@ -131,7 +131,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
 .scenes-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 0.5rem;
 }
 
 .scene-block {
@@ -142,7 +142,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
 
 .scene-summary {
   cursor: pointer;
-  padding: 1.5rem;
+  padding: .5rem;
   border-bottom: 1px solid #eee;
   list-style: none;
 }

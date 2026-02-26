@@ -149,6 +149,19 @@ const beats = defineCollection({
     plant: z.string().optional(),
     payoff: z.string().optional(),
     page_range: z.string().optional(),
+    // Narrative analysis fields
+    pressure_level: z.number().min(1).max(10),
+    irreversibility: z.enum([
+      "none",
+      "personal", 
+      "public",
+      "historical"
+    ]).default("none"),
+    engine: z.enum([
+      "character",
+      "institution", 
+      "cultural"
+    ]),
     created: z.date(),
   }),
 });

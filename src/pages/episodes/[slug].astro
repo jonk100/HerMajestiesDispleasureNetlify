@@ -97,6 +97,19 @@ const renderedScenes = await Promise.all(
 // Calculate runtime dynamically
 const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
 
+/**
+ * Load beats for this episode
+ */
+const allBeats = await getCollection("beats");
+const episodeBeats = allBeats
+  .filter(beat => beat.data.episode === episode.data.episode_number)
+  .sort((a, b) => {
+    // Sort by act, then sequence, then beat_index
+    if (a.data.act !== b.data.act) return a.data.act - b.data.act;
+    if (a.data.sequence !== b.data.sequence) return a.data.sequence - b.data.sequence;
+    return a.data.beat_index - b.data.beat_index;
+  });
+
 ---
 
 <Layout title={`Episode ${episode.data.episode_number} – ${episode.data.title}`}>
@@ -152,6 +165,104 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
         </div>
       </div>
     </div>
+    
+    <!-- Beats Pressure Timeline Accordion -->
+    {episodeBeats.length > 0 && (
+      <div class="beats-accordion">
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <h3>Story Beats & Pressure Timeline</h3>
+            <span class="accordion-toggle">▼</span>
+          </summary>
+          <div class="accordion-content">
+            <!-- Pressure Timeline Graph -->
+            <div class="pressure-timeline">
+              <h4>Pressure Level Timeline</h4>
+              <div class="timeline-container">
+                <svg class="pressure-graph" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+                  <!-- Grid lines -->
+                  <defs>
+                    <pattern id="grid" width="80" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 80 0 L 0 0 0 20" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+                    </pattern>
+                  </defs>
+                  <rect width="800" height="200" fill="url(#grid)" />
+                  
+                  <!-- Y-axis labels (Pressure levels 1-10) -->
+                  {Array.from({length: 10}, (_, i) => (
+                    <text x="10" y={20 + i * 18} class="axis-label" text-anchor="start">{10 - i}</text>
+                  ))}
+                  
+                  <!-- Pressure line -->
+                  <polyline
+                    points={episodeBeats.map((beat, index) => {
+                      const x = 50 + (index * (700 / Math.max(episodeBeats.length - 1, 1)));
+                      const y = 180 - (beat.data.pressure_level * 18);
+                      return `${x},${y}`;
+                    }).join(' ')}
+                    fill="none"
+                    stroke="#3b82f6"
+                    stroke-width="2"
+                  />
+                  
+                  <!-- Data points -->
+                  {episodeBeats.map((beat, index) => {
+                    const x = 50 + (index * (700 / Math.max(episodeBeats.length - 1, 1)));
+                    const y = 180 - (beat.data.pressure_level * 18);
+                    return (
+                      <circle cx={x} cy={y} r="4" fill="#3b82f6" class="data-point">
+                        <title>{beat.data.title}: Pressure {beat.data.pressure_level}</title>
+                      </circle>
+                    );
+                  })}
+                  
+                  <!-- X-axis labels (Beat numbers) -->
+                  {episodeBeats.map((beat, index) => {
+                    const x = 50 + (index * (700 / Math.max(episodeBeats.length - 1, 1)));
+                    return (
+                      <text x={x} y="195" class="beat-label" text-anchor="middle">{beat.data.beat_index}</text>
+                    );
+                  })}
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Beats List -->
+            <div class="beats-list">
+              <h4>Story Beats</h4>
+              <div class="beats-grid">
+                {episodeBeats.map((beat) => (
+                  <div class="beat-card" data-pressure={beat.data.pressure_level}>
+                    <div class="beat-header">
+                      <span class="beat-title">{beat.data.title}</span>
+                      <span class="beat-pressure">P{beat.data.pressure_level}</span>
+                    </div>
+                    <div class="beat-details">
+                      <div class="beat-meta">
+                        <span class="beat-type">{beat.data.beat_type}</span>
+                        <span class="beat-act">Act {beat.data.act}</span>
+                        <span class="beat-scene">Scene {beat.data.scene_number}</span>
+                      </div>
+                      <div class="beat-shift">
+                        <strong>Shift:</strong> {beat.data.shift}
+                      </div>
+                      <div class="beat-character">
+                        <strong>Primary:</strong> {beat.data.primary_character}
+                      </div>
+                      {beat.data.opposition && (
+                        <div class="beat-opposition">
+                          <strong>Opposition:</strong> {beat.data.opposition}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    )}
     
     <!-- Voice Configuration -->
     <VoiceConfigurator 
@@ -343,6 +454,224 @@ const calculatedRuntime = calcEpisodeRuntime(resolvedScenes);
     background: #f8fafc;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
+  }
+
+  /* Beats Accordion Styles */
+  .beats-accordion {
+    margin: 1.5rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .accordion-item {
+    border: none;
+  }
+
+  .accordion-item[open] .accordion-toggle {
+    transform: rotate(180deg);
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    list-style: none;
+  }
+
+  .accordion-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .accordion-toggle {
+    transition: transform 0.2s ease;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .accordion-content {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  /* Pressure Timeline Styles */
+  .pressure-timeline {
+    margin-bottom: 2rem;
+  }
+
+  .pressure-timeline h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .timeline-container {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .pressure-graph {
+    width: 100%;
+    height: 200px;
+    max-width: 800px;
+  }
+
+  .axis-label {
+    font-size: 10px;
+    fill: #6b7280;
+  }
+
+  .beat-label {
+    font-size: 10px;
+    fill: #6b7280;
+  }
+
+  .data-point {
+    cursor: pointer;
+    transition: r 0.2s ease;
+  }
+
+  .data-point:hover {
+    r: 6;
+  }
+
+  /* Beats List Styles */
+  .beats-list h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .beats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .beat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .beat-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+  }
+
+  .beat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .beat-title {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.875rem;
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+
+  .beat-pressure {
+    background: #3b82f6;
+    color: white;
+    padding: 0.125rem 0.375rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .beat-details {
+    font-size: 0.813rem;
+    color: #4b5563;
+  }
+
+  .beat-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .beat-type,
+  .beat-act,
+  .beat-scene {
+    background: #f3f4f6;
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+  }
+
+  .beat-type {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .beat-act {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .beat-scene {
+    background: #e0e7ff;
+    color: #3730a3;
+  }
+
+  .beat-shift,
+  .beat-character,
+  .beat-opposition {
+    margin-bottom: 0.375rem;
+  }
+
+  .beat-shift strong,
+  .beat-character strong,
+  .beat-opposition strong {
+    color: #1f2937;
+  }
+
+  /* Pressure level color coding */
+  .beat-card[data-pressure="1"],
+  .beat-card[data-pressure="2"],
+  .beat-card[data-pressure="3"] {
+    border-left: 4px solid #10b981;
+  }
+
+  .beat-card[data-pressure="4"],
+  .beat-card[data-pressure="5"],
+  .beat-card[data-pressure="6"] {
+    border-left: 4px solid #f59e0b;
+  }
+
+  .beat-card[data-pressure="7"],
+  .beat-card[data-pressure="8"],
+  .beat-card[data-pressure="9"],
+  .beat-card[data-pressure="10"] {
+    border-left: 4px solid #ef4444;
   }
 
   @media print {

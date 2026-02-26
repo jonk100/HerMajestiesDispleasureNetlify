@@ -2,8 +2,9 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Layout from "@/layout/collections/LocationsLayout.astro";
-import { getScenesForLocation } from "@/utils/getScenesForLocation";
+import { getScenesForLocation } from "@/utils/getScenesForLocation.ts";
 import LocationStats from "@/components/LocationStats.astro";
+import LocationStatsNative from "@/components/LocationStatsNative.astro";
 
 /**
  * Static paths for all locations
@@ -33,7 +34,8 @@ const { Content } = await location.render();
       </div>
     </header>
 
-    <LocationStats locationSlug={location.slug} showSceneDetails={true} />
+    <!-- <LocationStats locationSlug={location.slug} showSceneDetails={true} /> -->
+    <LocationStatsNative locationSlug={location.slug} showSceneDetails={true} />
 
     <section class="location-info">
       <p>

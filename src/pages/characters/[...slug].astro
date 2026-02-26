@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layout/collections/CharactersLayout.astro";
 import CharacterStats from "@/components/CharacterStats.astro";
+import CharacterStatsAlt from "@/components/CharacterStatsNative.astro";
 
 export async function getStaticPaths() {
   const characters = await getCollection("characters");
@@ -68,7 +69,8 @@ const { Content } = await character.render();
       } -->
     </div>
 
-    <CharacterStats characterSlug={character.slug} showSceneDetails={true} />
+    <!-- <CharacterStats characterSlug={character.slug} showSceneDetails={true} /> -->
+    <CharacterStatsAlt characterSlug={character.slug} showSceneDetails={true} />
 
     <div class="content">
       <Content />
