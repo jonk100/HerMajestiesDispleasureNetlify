@@ -14,6 +14,7 @@ import Transition from "@/components/screenplay/Transition.astro";
 import ActBreak from "@/components/screenplay/ActBreak.astro";
 import SceneNav from "@/components/SceneNav.astro";
 import VoiceConfigurator from "@/components/VoiceConfigurator.astro";
+import BeatsTimeline from "@/components/BeatsTimeline.astro";
 
 export async function getStaticPaths() {
   const scenes = await getCollection("scenes");
@@ -40,6 +41,18 @@ const locations = Array.isArray(scene.data.location)
 const timesOfDay = Array.isArray(scene.data.time_of_day)
   ? scene.data.time_of_day
   : [scene.data.time_of_day];
+
+/**
+ * Load beats for this scene
+ */
+const allBeats = await getCollection("beats");
+const sceneBeats = allBeats
+  .filter(beat => 
+    beat.data.act === scene.data.act && 
+    beat.data.sequence === scene.data.sequence && 
+    beat.data.scene_number === scene.data.scene_number
+  )
+  .sort((a, b) => a.data.beat_index - b.data.beat_index);
 ---
 
 <Layout title={`${scene.data.title} - Scenes`}>
@@ -111,6 +124,9 @@ const timesOfDay = Array.isArray(scene.data.time_of_day)
           </div>
         </div>
       )}
+
+      <!-- Scene Beats Timeline -->
+      <BeatsTimeline beats={sceneBeats} title={`Scene ${scene.data.scene_number} Story Beats`} />
       
       <VoiceConfigurator 
         characters={characters?.map(char => ({ name: char?.data.name || 'Unknown', slug: char?.slug || '' })) || []} 
