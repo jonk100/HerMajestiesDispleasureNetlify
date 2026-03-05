@@ -68,7 +68,10 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
 
           <div class="scene-beats">
             {scene.beats.map((beat: any) => (
-              <div class="beat-card" data-category={beat.data.movement_type}>
+              <div
+                class="beat-card"
+                data-category={beat.data.movement_type || 'unclassified'}
+              >
 
                 <div class="beat-position">
                   Beat {beat.data.beat_index}
@@ -81,24 +84,41 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
                 </h3>
 
                 <div class="beat-meta">
-                  <span class="type">{beat.data.movement_type}/{beat.data.information_type}/{beat.data.scope}</span>
+                  <span class="type">
+                    {(beat.data.movement_type ?? 'n/a')}/{(beat.data.information_type ?? 'n/a')}/{(beat.data.scope ?? 'n/a')}
+                  </span>
                   <span class="character">{beat.data.primary_character}</span>
                 </div>
 
-                <p class="shift">
-                  <strong>Shift:</strong> {beat.data.shift}
-                </p>
+                {beat.data.shift && (
+                  <p class="shift">
+                    <strong>Shift:</strong> {beat.data.shift}
+                  </p>
+                )}
 
-                <div class="mini-meta">
-                  <span><strong>Stakes:</strong> {beat.data.stakes}</span>
-                  <span><strong>Power:</strong> {beat.data.power_shift}</span>
-                </div>
+                {(beat.data.stakes || beat.data.power_shift) && (
+                  <div class="mini-meta">
+                    {beat.data.stakes && (
+                      <span><strong>Stakes:</strong> {beat.data.stakes}</span>
+                    )}
+                    {beat.data.power_shift && (
+                      <span><strong>Power:</strong> {beat.data.power_shift}</span>
+                    )}
+                  </div>
+                )}
 
                 <!-- Pressure Bar -->
                 <div class="pressure">
                   <div 
                     class="pressure-fill"
-                    style={`width: ${(beat.data as any).pressure_level ? (beat.data as any).pressure_level * 10 : 50}%`}
+                    style={() => {
+                      const raw = (beat.data as any).pressure_level;
+                      if (typeof raw === 'number') {
+                        const clamped = Math.min(Math.max(raw, 1), 10);
+                        return `width: ${clamped * 10}%`;
+                      }
+                      return 'width: 50%';
+                    }}
                   ></div>
                 </div>
 

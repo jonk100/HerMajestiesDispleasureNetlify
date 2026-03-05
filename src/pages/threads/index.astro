@@ -1,0 +1,319 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+
+/**
+ * Fetch and sort threads by episode and status
+ */
+const threads = (await getCollection("threads")).sort((a, b) => {
+  const A = a.data;
+  const B = b.data;
+  
+  // Sort by episode first, then by status
+  if (A.opened_in_episode !== B.opened_in_episode) {
+    return A.opened_in_episode - B.opened_in_episode;
+  }
+  
+  // Sort by status: open first, then dormant, then closed, then abandoned
+  const statusOrder = { open: 0, dormant: 1, closed: 2, abandoned: 3 };
+  const statusA = statusOrder[A.status as keyof typeof statusOrder] ?? 999;
+  const statusB = statusOrder[B.status as keyof typeof statusOrder] ?? 999;
+  
+  return statusA - statusB;
+});
+
+/**
+ * Group threads by episode
+ */
+const threadsByEpisode = threads.reduce((acc: Record<number, any[]>, thread) => {
+  const episode = thread.data.opened_in_episode;
+  if (!acc[episode]) {
+    acc[episode] = [];
+  }
+  acc[episode].push(thread);
+  return acc;
+}, {} as Record<number, any[]>);
+
+/**
+ * Status color mapping
+ */
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'open': return '#4caf50';      // green
+    case 'dormant': return '#ff9800';   // orange
+    case 'closed': return '#2196f3';    // blue
+    case 'abandoned': return '#f44336'; // red
+    default: return '#9e9e9e';         // gray
+  }
+};
+
+/**
+ * Thread type color mapping
+ */
+const getTypeColor = (type: string) => {
+  switch (type) {
+    case 'character_arc': return '#e91e63';  // pink
+    case 'relationship': return '#9c27b0';   // purple
+    case 'operational': return '#3f51b5';    // indigo
+    case 'thematic': return '#009688';       // teal
+    case 'motif': return '#795548';          // brown
+    case 'plot': return '#607d8b';           // blue-gray
+    default: return '#9e9e9e';               // gray
+  }
+};
+---
+
+<Layout title="Narrative Threads">
+  <div class="container">
+    <h1>Narrative Threads</h1>
+    <p class="subtitle">Cross-episode connective tissue tracking</p>
+
+    <div class="threads-wrapper">
+      {Object.entries(threadsByEpisode).map(([episode, episodeThreads]) => (
+        <div class="episode-section">
+          <h2 class="episode-title">Episode {episode}</h2>
+          
+          <div class="threads-grid">
+            {episodeThreads.map((thread) => (
+              <div class="thread-card">
+                <div class="thread-header">
+                  <h3>
+                    <a href={`/threads/${thread.slug}`}>
+                      {thread.data.title}
+                    </a>
+                  </h3>
+                  <div class="thread-badges">
+                    <span 
+                      class="status-badge"
+                      style={`background-color: ${getStatusColor(thread.data.status)}`}
+                    >
+                      {thread.data.status}
+                    </span>
+                    <span 
+                      class="type-badge"
+                      style={`background-color: ${getTypeColor(thread.data.thread_type)}`}
+                    >
+                      {thread.data.thread_type.replace('_', ' ')}
+                    </span>
+                  </div>
+                </div>
+
+                <p class="thread-description">{thread.data.description}</p>
+
+                <div class="thread-meta">
+                  <div class="episode-range">
+                    {thread.data.closed_in_episode ? (
+                      <span>Ep {thread.data.opened_in_episode} → {thread.data.closed_in_episode}</span>
+                    ) : (
+                      <span>Ep {thread.data.opened_in_episode} → ongoing</span>
+                    )}
+                  </div>
+                  
+                  {thread.data.characters && thread.data.characters.length > 0 && (
+                    <div class="characters">
+                      <strong>Characters:</strong> {thread.data.characters.join(', ')}
+                    </div>
+                  )}
+                </div>
+
+                {thread.data.intended_payoff && (
+                  <div class="payoff">
+                    <strong>Intended Payoff:</strong> {thread.data.intended_payoff}
+                  </div>
+                )}
+
+                <div class="thread-actions">
+                  <a href={`/threads/${thread.slug}`} class="view-btn">
+                    View Thread Map →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="back-link">
+      <a href="/">← Back to Collections</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.threads-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.episode-section {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.episode-title {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.threads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.thread-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.thread-card:hover {
+  background: #f4f4f4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.thread-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.thread-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.thread-header a {
+  text-decoration: none;
+  color: #222;
+}
+
+.thread-header a:hover {
+  color: #0066cc;
+}
+
+.thread-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.status-badge,
+.type-badge {
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.thread-description {
+  margin: 0 0 1rem 0;
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.thread-meta {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.episode-range {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.characters {
+  font-style: italic;
+}
+
+.payoff {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f0f7ff;
+  border-left: 3px solid #2196f3;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.thread-actions {
+  text-align: right;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #0052a3;
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #666;
+}
+
+.back-link a:hover {
+  color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .threads-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .thread-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .thread-badges {
+    flex-direction: row;
+    align-self: flex-start;
+  }
+}
+</style>

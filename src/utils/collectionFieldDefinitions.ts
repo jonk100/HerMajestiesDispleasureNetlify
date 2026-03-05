@@ -27,6 +27,8 @@ export type CollectionFieldDefinitions = {
 };
 
 export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
+  
+  /* Characters Collection */
   characters: {
     description:
       "Dramatic agents of the story. Characters drive conflict, theme, and structural movement.",
@@ -84,6 +86,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Scenes Collection */
   scenes: {
     description:
       "Dramatic containers of conflict. Scenes should cause change.",
@@ -169,6 +172,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Episodes Collection */
   episodes: {
     description:
       "Macro structural arcs. Episodes contain thematic and dramatic escalation.",
@@ -225,6 +229,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Beats Collection */
   beats: {
     description:
       "Micro-level units of change. Beats represent shifts in power, knowledge, status, or emotion.\n\nThe five axes are orthogonal and diagnostic:\n\n- movement_type vs information_type: Power can move without new information, and information can be revealed without power shift.\n- scope vs pressure_level: A beat can have high pressure but limited scope (intense personal moment), or large scope but low pressure (gradual institutional change).\n- scope vs irreversibility: Global changes can be reversible (policy shift), while internal changes can be permanent (character realization).\n- pressure_level vs irreversibility: High tension doesn't guarantee permanent consequences.\n\nThis model enables precise structural diagnosis and pattern analysis.",
@@ -235,6 +240,40 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       sequence: { description: "Sequence grouping." },
       scene_number: { description: "Parent scene." },
       beat_index: { description: "Order within scene." },
+      beat_function: {
+        description: "Primary dramatic function.",
+        intent: "What this beat is primarily doing.",
+        enumValues: {
+          setup: "Installs conditions for future beats.",
+          payoff: "Resolves prior setup.",
+          setup_payoff: "Does both simultaneously.",
+          reversal: "Power or direction flips completely.",
+          mirror: "Echoes earlier beat with changed meaning.",
+          establishment: "Introduces character element.",
+          development: "Advances character element.",
+          revelation: "Character discovers something.",
+          departure: "Character leaves situation.",
+          decision: "Character commits to course.",
+          conception: "Operational element begins.",
+          deployment: "Operational element executes.",
+          misfire: "Operational element fails.",
+          escalation: "Operational tension increases.",
+          collapse: "Operational structure breaks down.",
+          burial: "Operational element is concealed.",
+          comedy: "Beat provides comic relief.",
+          elegy: "Beat mourns loss.",
+          irony: "Beat undercuts expectations.",
+          satire: "Beat critiques through exaggeration.",
+          tension: "Beat creates suspense.",
+          thesis: "States thematic position.",
+          counter: "Opposes thematic position.",
+          synthesis: "Resolves thematic conflict.",
+        },
+      },
+      beat_function_secondary: {
+        description: "Additional dramatic functions.",
+        intent: "Other things this beat is doing simultaneously.",
+      },
       structural_role: {
         description: "Clarifies exact structural mechanism.",
       },
@@ -271,6 +310,10 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       },
       power_shift: {
         description: "Explicit power movement.",
+      },
+      thread_effects: {
+        description: "Named narrative threads this beat affects.",
+        intent: "Queryable cross-episode tracking.",
       },
       public_private_axis: {
         description: "Scope of consequence.",
@@ -381,10 +424,76 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
           cultural: "Driven by societal pressure.",
         },
       },
+      quality_note: {
+        description: "Editorial assessment.",
+        intent: "Whether this beat is working and why/why not.",
+      },
+      needs_revision: {
+        description: "Flag for beats needing attention.",
+        intent: "Structural problems, missed payoffs, tonal inconsistencies.",
+      },
+      revision_note: {
+        description: "Specific revision guidance.",
+      },
       created: { description: "Creation timestamp." },
     },
   },
 
+  /* Threads Collection */
+  threads: {
+    description:
+      "Cross-episode connective tissue. Named narrative threads that span multiple beats and episodes.",
+    fields: {
+      slug: {
+        description: "Unique identifier auto-defined by filename",
+        intent: "Must match thread IDs used in beat thread_effects.",
+      },
+      title: { description: "Thread display name." },
+      description: {
+        description: "What this thread is about.",
+      },
+      thread_type: {
+        description: "Classification of thread type.",
+        enumValues: {
+          character_arc: "A character's internal journey.",
+          relationship: "Between two or more characters.",
+          operational: "The MI5 operation and its components.",
+          thematic: "A recurring idea or argument.",
+          motif: "A visual or verbal recurring element.",
+          plot: "A causal chain of events.",
+        },
+      },
+      opened_in_episode: {
+        description: "Episode where thread first appears.",
+      },
+      closed_in_episode: {
+        description: "Episode where thread resolves, if known.",
+      },
+      status: {
+        description: "Current thread state.",
+        enumValues: {
+          open: "Currently active and advancing.",
+          dormant: "Acknowledged but paused.",
+          closed: "Resolved.",
+          abandoned: "Opened but never paid off.",
+        },
+      },
+      intended_payoff: {
+        description: "What was supposed to happen.",
+        intent: "Critical for revision if abandoned.",
+      },
+      characters: {
+        description: "Characters involved in this thread.",
+      },
+      notes: {
+        description: "Editorial notes on thread health.",
+      },
+      created: { description: "Creation timestamp." },
+      updated: { description: "Last modification timestamp." },
+    },
+  },
+
+  /* Locations Collection */
   locations: {
     description:
       "Physical environments that shape mood and conflict.",
@@ -420,6 +529,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Dialogue Collection */
   dialogue: {
     description:
       "Standalone dialogue fragments for reuse or analysis.",
@@ -447,6 +557,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Research Collection */
   research: {
     description:
       "Factual and inspirational grounding material.",
@@ -484,6 +595,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Themes Collection */
   themes: {
     description:
       "Core philosophical or ideological tensions.",
@@ -508,6 +620,7 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     },
   },
 
+  /* Timeline Collection */
   timeline: {
     description:
       "Chronological record of real and fictional events.",

@@ -1,0 +1,585 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import ThreadTimeline from "@/components/ThreadTimeline.astro";
+
+export async function getStaticPaths() {
+  const threads = await getCollection("threads");
+  return threads.map((thread) => ({
+    params: { slug: thread.slug },
+    props: { thread },
+  }));
+}
+
+const { thread } = Astro.props;
+const { Content } = await thread.render();
+
+/**
+ * Get all beats that reference this thread
+ */
+const allBeats = await getCollection("beats");
+const threadBeats = allBeats.filter(beat => 
+  beat.data.thread_effects && 
+  beat.data.thread_effects.some((effect: any) => effect.thread === thread.slug)
+).sort((a, b) => {
+  // Sort by story order
+  if (a.data.episode !== b.data.episode) return a.data.episode - b.data.episode;
+  if (a.data.act !== b.data.act) return a.data.act - b.data.act;
+  if (a.data.sequence !== b.data.sequence) return a.data.sequence - b.data.sequence;
+  if (a.data.scene_number !== b.data.scene_number) return a.data.scene_number - b.data.scene_number;
+  return a.data.beat_index - b.data.beat_index;
+});
+
+/**
+ * Prepare data for ThreadTimeline component
+ */
+const timelineBeats = threadBeats.map(beat => ({
+  beat: beat,
+  effect: beat.data.thread_effects.find((e: any) => e.thread === thread.slug),
+  episode: beat.data.episode,
+  sequence: beat.data.sequence,
+  scene_number: beat.data.scene_number,
+  beat_index: beat.data.beat_index,
+}));
+
+/**
+ * Group beats by episode for visualization
+ */
+const beatsByEpisode = threadBeats.reduce((acc: Record<number, any[]>, beat) => {
+  const episode = beat.data.episode;
+  if (!acc[episode]) {
+    acc[episode] = [];
+  }
+  acc[episode].push(beat);
+  return acc;
+}, {} as Record<number, any[]>);
+
+/**
+ * Get thread effect statistics
+ */
+const effectStats = threadBeats.reduce((stats: any, beat) => {
+  const effect = beat.data.thread_effects.find((e: any) => e.thread === thread.slug);
+  if (effect) {
+    stats[effect.effect] = (stats[effect.effect] || 0) + 1;
+  }
+  return stats;
+}, {});
+
+/**
+ * Status color mapping
+ */
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'open': return '#4caf50';      // green
+    case 'dormant': return '#ff9800';   // orange
+    case 'closed': return '#2196f3';    // blue
+    case 'abandoned': return '#f44336'; // red
+    default: return '#9e9e9e';         // gray
+  }
+};
+
+/**
+ * Effect color mapping
+ */
+const getEffectColor = (effect: string) => {
+  switch (effect) {
+    case 'opens': return '#4caf50';      // green
+    case 'advances': return '#2196f3';    // blue
+    case 'closes': return '#f44336';     // red
+    case 'dormant': return '#ff9800';     // orange
+    case 'complicates': return '#9c27b0';  // purple
+    case 'resolves': return '#009688';     // teal
+    default: return '#9e9e9e';            // gray
+  }
+};
+---
+
+<Layout title={`${thread.data.title} - Thread`}>
+  <div class="container">
+    <div class="thread-header">
+      <h1>{thread.data.title}</h1>
+      <div class="thread-meta">
+        <span class="type-badge">{thread.data.thread_type.replace('_', ' ')}</span>
+        <span 
+          class="status-badge"
+          style={`background-color: ${getStatusColor(thread.data.status)}`}
+        >
+          {thread.data.status}
+        </span>
+      </div>
+    </div>
+
+    <div class="thread-overview">
+      <p class="description">{thread.data.description}</p>
+      
+      <div class="episode-range">
+        {thread.data.closed_in_episode ? (
+          <span>Episode {thread.data.opened_in_episode} → Episode {thread.data.closed_in_episode}</span>
+        ) : (
+          <span>Episode {thread.data.opened_in_episode} → Ongoing</span>
+        )}
+      </div>
+
+      {thread.data.characters && thread.data.characters.length > 0 && (
+        <div class="characters">
+          <strong>Characters:</strong> {thread.data.characters.join(', ')}
+        </div>
+      )}
+    </div>
+
+    <!-- Thread Timeline -->
+    <div class="timeline-section">
+      <ThreadTimeline threadBeats={timelineBeats} threadTitle={thread.data.title} />
+    </div>
+
+    <!-- Thread Visualization -->
+    <div class="visualization-section">
+      <h2>Thread Journey Map</h2>
+      
+      <div class="thread-timeline">
+        {Object.entries(beatsByEpisode).map(([episode, beats]) => (
+          <div class="episode-block">
+            <h3 class="episode-title">Episode {episode}</h3>
+            
+            <div class="beats-container">
+              {beats.map((beat, index) => {
+                const effect = beat.data.thread_effects.find((e: any) => e.thread === thread.slug);
+                const isLastInEpisode = index === beats.length - 1;
+                
+                return (
+                  <div class="beat-node">
+                    <div class="beat-info">
+                      <div class="beat-title">
+                        <a href={`/beats/${beat.slug}`}>{beat.data.title}</a>
+                      </div>
+                      <div class="beat-location">
+                        Scene {beat.data.scene_number} · Beat {beat.data.beat_index}
+                      </div>
+                      <div 
+                        class="effect-badge"
+                        style={`background-color: ${getEffectColor(effect.effect)}`}
+                      >
+                        {effect.effect}
+                      </div>
+                    </div>
+                    
+                    {effect.note && (
+                      <div class="effect-note">{effect.note}</div>
+                    )}
+                    
+                    {!isLastInEpisode && (
+                      <div class="connection-line"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Episode to Episode connection */}
+            {parseInt(episode) < Math.max(...Object.keys(beatsByEpisode).map(Number)) && (
+              <div class="episode-connection"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats-section">
+      <h2>Thread Statistics</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Appearances</h3>
+          <div class="stat-value">{threadBeats.length}</div>
+          <div class="stat-label">beats across {Object.keys(beatsByEpisode).length} episodes</div>
+        </div>
+        
+        <div class="stat-card">
+          <h3>Effects Distribution</h3>
+          <div class="effects-list">
+            {Object.entries(effectStats).map(([effect, count]) => (
+              <div class="effect-stat">
+                <span 
+                  class="effect-dot"
+                  style={`background-color: ${getEffectColor(effect)}`}
+                ></span>
+                <span class="effect-name">{effect}</span>
+                <span class="effect-count">{count}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h3>Thread Health</h3>
+          <div class="health-indicator">
+            {thread.data.status === 'closed' && (
+              <div class="health-status resolved">
+                ✓ Resolved
+              </div>
+            )}
+            {thread.data.status === 'open' && (
+              <div class="health-status active">
+                ⟳ Active
+              </div>
+            )}
+            {thread.data.status === 'dormant' && (
+              <div class="health-status dormant">
+                ⏸ Dormant
+              </div>
+            )}
+            {thread.data.status === 'abandoned' && (
+              <div class="health-status abandoned">
+                ⚠ Abandoned
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thread Content -->
+    <div class="content-section">
+      <h2>Thread Details</h2>
+      <div class="thread-content">
+        <Content />
+      </div>
+      
+      {thread.data.intended_payoff && (
+        <div class="payoff-section">
+          <h3>Intended Payoff</h3>
+          <p>{thread.data.intended_payoff}</p>
+        </div>
+      )}
+    </div>
+
+    <div class="back-link">
+      <a href="/threads">← Back to Threads</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.thread-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.thread-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.thread-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.type-badge,
+.status-badge {
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.thread-overview {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.description {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.episode-range {
+  font-weight: 600;
+  color: #0066cc;
+  margin-bottom: 0.5rem;
+}
+
+.characters {
+  color: #666;
+}
+
+.visualization-section {
+  margin-bottom: 3rem;
+}
+
+.thread-timeline {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.episode-block {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.episode-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  color: #333;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 0.5rem;
+}
+
+.beats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.beat-node {
+  position: relative;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.beat-node:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.beat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.beat-title {
+  flex: 1;
+}
+
+.beat-title a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+}
+
+.beat-title a:hover {
+  color: #0066cc;
+}
+
+.beat-location {
+  font-size: 0.8rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.effect-badge {
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.effect-note {
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.connection-line {
+  position: absolute;
+  left: 2rem;
+  top: 100%;
+  width: 2px;
+  height: 1.5rem;
+  background: #ddd;
+  z-index: 1;
+}
+
+.episode-connection {
+  position: absolute;
+  left: 2rem;
+  top: 100%;
+  width: 2px;
+  height: 2rem;
+  background: linear-gradient(to bottom, #ddd, transparent);
+  z-index: 1;
+}
+
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.stat-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0066cc;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.effects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.effect-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.effect-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.effect-name {
+  flex: 1;
+  text-transform: capitalize;
+}
+
+.effect-count {
+  font-weight: 600;
+  color: #333;
+}
+
+.health-indicator {
+  text-align: center;
+}
+
+.health-status {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.health-status.resolved {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.health-status.active {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.health-status.dormant {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.health-status.abandoned {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.thread-content {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.payoff-section {
+  background: #f0f7ff;
+  border-left: 4px solid #2196f3;
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.payoff-section h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1565c0;
+}
+
+.back-link {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #666;
+}
+
+.back-link a:hover {
+  color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .thread-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .beat-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

@@ -23,9 +23,11 @@ Your task:
 3. Create one markdown file per beat using the `beats` collection schema below.
 4. Do NOT force a specific number of beats.
 5. Only create a new beat when there is an actual structural shift.
-6. Assign ALL FIVE required axes: movement_type, information_type, scope, pressure_level, irreversibility
+6. Assign the five analytical axes when relevant: movement_type, information_type, scope, pressure_level, irreversibility
 7. Keep pressure_level realistic (1–10 scale).
 8. Treat irreversibility seriously — only mark "historical" if it truly alters public record or legacy.
+9. Use beat_function for primary dramatic function when clear.
+10. Use thread_effects for cross-episode narrative tracking.
 
 ---
 
@@ -56,34 +58,49 @@ sequence: [sequence_number]
 scene_number: [scene_number]
 beat_index: [beat_index]
 
-movement_type: "[escalation | deescalation | reversal | turn | stasis | internal_shift]"
-information_type: "[none | setup | reveal | plant | payoff | withholding | misdirect]"
-scope: "[internal | interpersonal | subplot | primary_plot | global]"
+beat_function: "[optional: setup | payoff | setup_payoff | reversal | mirror | establishment | development | revelation | departure | decision | conception | deployment | misfire | escalation | collapse | burial | comedy | elegy | irony | satire | tension | thesis | counter | synthesis]"
+beat_function_secondary: ["[optional array of additional beat functions]"]
+
+movement_type: "[optional: escalation | deescalation | reversal | turn | stasis | internal_shift]"
+information_type: "[optional: none | setup | reveal | plant | payoff | withholding | misdirect]"
+scope: "[optional: internal | interpersonal | subplot | primary_plot | global]"
 structural_role: "[what this beat is doing in the scene]"
 
 triggered_by: "[optional]"
 leads_to: "[optional]"
 
-status_quo_before: "[state before beat]"
-shift: "[what changes in this beat]"
-status_quo_after: "[new state after beat]"
+status_quo_before: "[optional: state before beat]"
+shift: "[optional: what changes in this beat]"
+status_quo_after: "[optional: new state after beat]"
 
 primary_character: "[character driving or most affected]"
-opposition: "[who or what resists them]"
-stakes: "[what can be lost]"
-theme: "[optional thematic articulation]"
-power_shift: "[who gains/loses power]"
+opposition: "[optional: who or what resists them]"
+stakes: "[optional: what can be lost]"
+theme: "[optional: thematic articulation]"
+power_shift: "[optional: who gains/loses power]"
 
-public_private_axis: "[public | private | collision | private_with_public_threat]"
+thread_effects: [
+  {
+    thread: "[thread_slug]",
+    effect: "[opens | advances | closes | reopens | dormant]",
+    note: "[optional: context for this thread effect]"
+  }
+]
+
+public_private_axis: "[optional: public | private | collision | private_with_public_threat]"
 
 plant: "[optional]"
 payoff: "[optional]"
 
 page_range: "[optional if known]"
 
-pressure_level: [1-10]
-irreversibility: "[none | personal | public | historical]"
-engine: "[character | institution | cultural]"
+pressure_level: [optional: 1-10]
+irreversibility: "[optional: none | personal | public | historical]"
+engine: "[optional: character | institution | cultural]"
+
+quality_note: "[optional: editorial assessment]"
+needs_revision: [optional: boolean, default false]
+revision_note: "[optional: specific revision guidance]"
 
 created: 2026-02-22
 ---
@@ -93,17 +110,17 @@ Do not include commentary. Only output the beat files.
 
 ---
 
-### FIVE-AXIS STRUCTURED REASONING
+### FIVE-AXIS STRUCTURED REASONING (WHEN APPLICABLE)
 
-When generating a beat, follow this exact sequence:
+When generating a beat, consider this sequence for analytical axes:
 
-**Step 1 — Determine movement_type:**
+**Step 1 — Determine movement_type (if applicable):**
 - Does power change between characters? (escalation/deescalation/reversal)
 - Does direction shift without full power flip? (turn)
 - Is there no power movement? (stasis)
 - Is it internal change only? (internal_shift)
 
-**Step 2 — Determine information_type:**
+**Step 2 — Determine information_type (if applicable):**
 - Is information introduced? (setup)
 - Revealed? (reveal)
 - Planted for future? (plant)
@@ -112,24 +129,31 @@ When generating a beat, follow this exact sequence:
 - Misdirecting? (misdirect)
 - Or none? (none)
 
-**Step 3 — Determine scope:**
+**Step 3 — Determine scope (if applicable):**
 - Does this affect one character only? (internal)
 - A relationship? (interpersonal)
 - A secondary engine? (subplot)
 - The main narrative engine? (primary_plot)
 - The whole story world? (global)
 
-**Step 4 — Assign pressure_level:**
+**Step 4 — Assign pressure_level (if applicable):**
 - Rate immediate tension intensity (1–10).
 
-**Step 5 — Assign irreversibility:**
-- Rate how permanent the consequences are (none/personal/public/historical).
+**Step 5 — Assign irreversibility (if applicable):**
+- Rate how permanent consequences are (none/personal/public/historical).
+
+**Step 6 — Consider beat_function (if applicable):**
+- What is the primary dramatic function? (setup, payoff, reversal, etc.)
+- Are there secondary functions? (use beat_function_secondary array)
+
+**Step 7 — Check thread_effects (if applicable):**
+- Does this beat affect any named narrative threads?
+- Use thread slug and effect (opens, advances, closes, etc.)
 
 **Critical distinctions:**
 - High pressure does not equal high scope.
 - Global does not equal irreversible.
 - Internal shifts can be highly irreversible.
-- A beat may escalate without new information.
 
 ---
 

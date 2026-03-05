@@ -8,11 +8,11 @@ interface Props {
       sequence: number;
       scene_number: number;
       beat_index: number;
-      movement_type: string;
-      information_type: string;
-      scope: string;
-      pressure_level: number;
-      shift: string;
+      movement_type?: string;
+      information_type?: string;
+      scope?: string;
+      pressure_level?: number;
+      shift?: string;
       primary_character: string;
       opposition?: string;
     };
@@ -71,7 +71,9 @@ const countText = isEpisodeContext
               <polyline
                 points={sortedBeats.map((beat, index) => {
                   const x = 50 + (index * (700 / Math.max(sortedBeats.length - 1, 1)));
-                  const y = 180 - (beat.data.pressure_level * 18);
+                  const pressure = beat.data.pressure_level ?? 5;
+                  const clamped = Math.min(Math.max(pressure, 1), 10);
+                  const y = 180 - (clamped * 18);
                   return `${x},${y}`;
                 }).join(' ')}
                 fill="none"
@@ -82,10 +84,15 @@ const countText = isEpisodeContext
               <!-- Data points -->
               {sortedBeats.map((beat, index) => {
                 const x = 50 + (index * (700 / Math.max(sortedBeats.length - 1, 1)));
-                const y = 180 - (beat.data.pressure_level * 18);
+                const pressure = beat.data.pressure_level ?? 5;
+                const clamped = Math.min(Math.max(pressure, 1), 10);
+                const y = 180 - (clamped * 18);
                 return (
                   <circle cx={x} cy={y} r="4" fill="#3b82f6" class="data-point">
-                    <title>S{beat.data.scene_number}, B{beat.data.beat_index}: {beat.data.title} (Pressure {beat.data.pressure_level})</title>
+                    <title>
+                      S{beat.data.scene_number}, B{beat.data.beat_index}: {beat.data.title}
+                      {" "}(Pressure {beat.data.pressure_level ?? "–"})
+                    </title>
                   </circle>
                 );
               })}
@@ -107,23 +114,32 @@ const countText = isEpisodeContext
           <div class="beats-grid">
             {sortedBeats.map((beat) => (
               <a href={`/beats/${beat.slug}`} class="beat-card-link">
-                <div class="beat-card" data-pressure={beat.data.pressure_level}>
+                <div
+                  class="beat-card"
+                  data-pressure={typeof beat.data.pressure_level === "number"
+                    ? String(beat.data.pressure_level)
+                    : undefined}
+                >
                   <div class="beat-header">
                     <span class="beat-title">{beat.data.title}</span>
                     <div class="beat-header-right">
                       <span class="beat-index">#{beat.data.beat_index}</span>
-                      <span class="beat-pressure">P{beat.data.pressure_level}</span>
+                      <span class="beat-pressure">P{beat.data.pressure_level ?? "–"}</span>
                     </div>
                   </div>
                   <div class="beat-details">
                     <div class="beat-meta">
-                      <span class="beat-type">{beat.data.movement_type}/{beat.data.information_type}/{beat.data.scope}</span>
+                      <span class="beat-type">
+                        {(beat.data.movement_type ?? "n/a")}/{(beat.data.information_type ?? "n/a")}/{(beat.data.scope ?? "n/a")}
+                      </span>
                       <span class="beat-act">Act {beat.data.act}</span>
                       <span class="beat-scene">Scene {beat.data.scene_number}</span>
                     </div>
-                    <div class="beat-shift">
-                      <strong>Shift:</strong> {beat.data.shift}
-                    </div>
+                    {beat.data.shift && (
+                      <div class="beat-shift">
+                        <strong>Shift:</strong> {beat.data.shift}
+                      </div>
+                    )}
                     <div class="beat-character">
                       <strong>Primary:</strong> {beat.data.primary_character}
                     </div>

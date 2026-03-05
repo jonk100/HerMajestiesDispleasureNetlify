@@ -6,6 +6,8 @@ A comprehensive analytics dashboard for screenplay data, built with Astro, TypeS
 
 - ✅ Character statistics with act/episode breakdowns
 - ✅ Location statistics with act/episode breakdowns  
+- ✅ Story beats analysis with pressure timelines and movement tracking
+- ✅ Thread tracking for cross-episode narrative elements
 - ✅ Collapsible interface for progressive disclosure
 - ✅ Episode mapping and scene analysis
 - ✅ Responsive design with smooth transitions
@@ -19,20 +21,33 @@ A comprehensive analytics dashboard for screenplay data, built with Astro, TypeS
 │   ├── components/
 │   │   ├── CollapsibleSection.astro    # Reusable collapsible section component
 │   │   ├── CharacterStats.astro       # Character-specific statistics component
-│   │   └── LocationStats.astro        # Location-specific statistics component
+│   │   ├── LocationStats.astro        # Location-specific statistics component
+│   │   ├── BeatsTimeline.astro        # Story beats pressure timeline visualization
+│   │   ├── BeatsFilter.astro          # Filter beats by movement type, scope, etc.
+│   │   └── BaseFilter.astro          # Generic filter component
 │   ├── content/
 │   │   ├── characters/               # Character content collection
 │   │   ├── episodes/                 # Episode content collection  
 │   │   ├── locations/                # Location content collection
-│   │   └── scenes/                   # Scene content collection
+│   │   ├── scenes/                   # Scene content collection
+│   │   ├── beats/                    # Story beats collection with analytical fields
+│   │   ├── threads/                  # Cross-episode narrative threads
+│   │   ├── dialogue/                 # Dialogue fragments collection
+│   │   ├── research/                 # Research and reference material
+│   │   ├── themes/                   # Thematic elements collection
+│   │   └── timeline/                 # Historical timeline events
 │   ├── pages/
 │   │   ├── stats/                   # Statistics overview pages
 │   │   ├── characters/[...slug].astro # Character detail pages
-│   │   └── locations/[slug].astro   # Location detail pages
+│   │   ├── locations/[slug].astro   # Location detail pages
+│   │   ├── beats/[slug].astro       # Beat detail pages
+│   │   ├── scenes/[...slug].astro   # Scene detail pages
+│   │   └── episodes/[slug].astro    # Episode detail pages with beat timelines
 │   └── utils/
 │       ├── characterStats.ts          # Character statistics calculations
 │       ├── locationStats.ts           # Location statistics calculations
 │       ├── episodeMapping.ts          # Shared episode-to-scene mapping
+│       ├── collectionFieldDefinitions.ts # Field definitions and documentation
 │       └── statsInterfaces.ts        # TypeScript interfaces for stats
 ├── astro.config.mjs
 ├── package.json
@@ -92,7 +107,7 @@ export async function createSceneToEpisodeMap(): Promise<Map<string, number>> {
 ```
 
 ### Statistics Components
-Modular components for character and location analytics.
+Modular components for character, location, and story beats analytics.
 
 **Target Audience:** Developers learning modular component architecture
 
@@ -107,6 +122,34 @@ Modular components for character and location analytics.
 - Collapsible act and episode breakdowns
 - Scene detail lists
 - Consistent styling with character stats
+
+**BeatsTimeline.astro Features:**
+- Pressure level visualization across story beats
+- Movement type tracking (escalation, reversal, stasis, etc.)
+- Interactive data points with detailed tooltips
+- SVG-based timeline rendering
+
+**BeatsFilter.astro Features:**
+- Filter beats by movement_type, information_type, and scope
+- Real-time filtering with Alpine.js
+- Support for multiple filter categories
+
+### Story Beats Schema
+The beats collection uses a comprehensive analytical schema with five orthogonal axes:
+
+**Movement Type:** How power dynamics shift (escalation, deescalation, reversal, turn, stasis, internal_shift)
+**Information Type:** How information moves (setup, reveal, plant, payoff, withholding, misdirect, none)
+**Scope:** Structural radius of impact (internal, interpersonal, subplot, primary_plot, global)
+**Pressure Level:** Dramatic intensity (1-10 scale)
+**Irreversibility:** Permanence of consequences (none, personal, public, historical)
+
+### Thread Tracking System
+Cross-episode narrative threads that connect beats across the series:
+
+**Thread Types:** character_arc, relationship, operational, thematic, motif, plot
+**Thread Effects:** opens, advances, closes, reopens, dormant
+**Status Tracking:** open, dormant, closed, abandoned
+**Editorial Features:** intended_payoff field for abandoned threads
 
 ## 🎯 DRY Principles Implementation
 
