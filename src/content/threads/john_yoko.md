@@ -1,14 +1,15 @@
 ---
 title: John and Yoko
-description: 'The relationship that offers John his first genuine alternative to both institutional pressure and fan adoration. Yoko speaks his language — not about fame or art, but about possibility. Their connection begins with creative negotiation (the imaginary nail) and becomes recognition (YES). This thread represents John finding someone who doesn''t defer to his fame and offers something different from both the institutional machinery trying to contain him and the fan culture trying to consume him.'
+description: The relationship that offers John his first genuine alternative to both institutional pressure and fan adoration. Yoko speaks his language — not about fame or art, but about possibility. Their connection begins with creative negotiation (the imaginary nail) and becomes recognition (YES). This thread represents John finding someone who doesn't defer to his fame and offers something different from both the institutional machinery trying to contain him and the fan culture trying to consume him.
 thread_type: relationship
 opened_in_episode: 3
-status: open
-intended_payoff: 'John finding someone who understands his need for creative and personal freedom, and Yoko finding someone who recognizes her art without being intimidated by his fame.'
+closed_in_episode: 6
+status: closed
+intended_payoff: Yoko's avant-garde scream accidentally saving John during Operation Elegy, showing that her authentic self is what protects him.
 characters:
 - john-lennon
 - yoko-ono
-notes: 'The relationship begins as a game (imaginary nail) and becomes recognition (YES). Both are finding something genuine in a world of performance and pressure. The thread advances John''s radicalization by giving him an alternative to institutional opposition, and represents Yoko as the first person who engages with John as an artist rather than a celebrity.'
+notes: The relationship begins as a game (imaginary nail) and becomes recognition (YES). The thread closes when Yoko's avant-garde scream accidentally saves John from assassination, proving that her authentic self is what protects him.
 created: 2026-02-27
 ---
 

@@ -1,1704 +1,2382 @@
-You're right, I can see it in the document above. Let me work through it now.Good — Episode 6 is fully in the document. Eight scenes: 41 (Abbey Road cover), 52 (safe house briefing), 53 (Philip approves), 54 (Percy/Q-Branch), 55 (concert/assassination attempt), 56 (debriefing), 58 (Queen's sitting room), 59 (montage/Falklands). Scene 57 is missing from the script — notable gap between 56 and 58, likely the missing pages. Let me do the full breakdown.
+# Claude beat breakdown - Episode 6
 
----
+  - title: "The Crown Endures"
+  - page_count: 56
+  - runtime_minutes: 68
+  - grade: "A"
+  - grade_note: >
+      Contingent on Julian notebook callback in Falklands 1980 scene.
+      Without it: A-. With it: A. The notebook closes the Episode 2 loop
+      at the exact moment irreversibility becomes total. One caveat: sc57
+      (Cynthia's flat) is slightly overlong — camera lingers on inner state
+      a beat past where the post box should end the scene. Tighten by
+      one-third and the grade is clean.
 
-## Episode 6: The Crown Endures — Full Beat Breakdown + Expansion
+  - series_position: "finale"
 
----
+## Thread Registry:
 
-```yaml
+  - id: nigel_conscience
+    status: closes_ep6
+    closes_at: sc_falklands_1980
+  - id: operation_elegy
+    status: closes_ep6
+    closes_at: sc56
+  - id: operation_minuet
+    status: closes_ep6
+    closes_at: sc57p1
+  - id: institution_absurdity
+    status: closes_ep6
+    closes_at: sc58
+  - id: institution_records
+    status: closes_ep6
+    closes_at: sc56p2b
+  - id: mountbatten_thread
+    status: closes_ep6
+    closes_at: sc53p1
+  - id: julian_thread
+    status: closes_ep6
+    closes_at: sc_falklands_1980
+  - id: cynthia_thread
+    status: closes_ep6
+    closes_at: sc57
+  - id: george_thread
+    status: closes_ep6
+    closes_at: sc59p1
+  - id: paul_thread
+    status: closes_ep6
+    closes_at: sc59p2
+  - id: ringo_thread
+    status: closes_ep6
+    closes_at: sc59p3
+  - id: john_thread
+    status: closes_ep6
+    closes_at: sc_falklands_1980
+  - id: nigel_clive
+    status: closes_ep6
+    closes_at: sc_falklands_1980
+  - id: crown_power
+    status: closes_ep6
+    closes_at: sc58
+  - id: animation_cel
+    status: closes_ep6
+    closes_at: sc56p2b
+  - id: series_metaphor
+    status: closes_ep6
+    closes_at: sc41
+
+## Movements:
+
+  - number: 1
+    scenes: [sc41, sc52, sc53, sc53p1, sc54, sc54p1]
+    label: "The Institution in Motion"
+    register: "dark comedy"
+    note: >
+      The machinery of Operation Elegy established, procedurally cursed,
+      and set in motion. The institution is absurd but operational.
+  - number: 2
+    scenes: [sc55, sc56, sc56p2a, sc56p2b]
+    label: "Outcome and Processing"
+    register: "irony shading into consequence"
+    note: >
+      The operation's outcome and its institutional digestion. Still ironic
+      but the consequences are real. Nigel and Clive are being interred alive
+      in the Falklands and the institution is processing that as standard paperwork.
+  - number: 3
+    scenes: [sc57, sc57p1, sc58, sc59p1, sc59p2, sc59p3]
+    label: "The Private Reckonings"
+    register: "elegy"
+    note: >
+      Outside the institutional frame entirely. Cynthia's letter. The Falklands
+      arrival. The Queen's verdict. George's garden. Paul's farm. Ringo's sandwich.
+      The people the institution was watching had lives that continued after its
+      interest ended, and some found their way to something real.
+  - number: 4
+    scenes: [montage, sc_falklands_1980]
+    label: "The Ending"
+    register: "silence"
+    note: >
+      John alone at Tittenhurst. The radio. The notebook. The crossed-out word.
+      The wind. The title card. The ending doesn't explain itself.
+
+## SCENES:
+
+### SCENE 41
+
+  - scene_id: "ep6_sc41"
+  - scene_title: "Abbey Road — Nigel Controls the Composition"
+  - location: "Abbey Road, London"
+  - characters: [Nigel, Police Constable, Iain Macmillan, The Beatles (peripheral)]
+  - page_range: "1-5"
+  - date_in_story: "August 1969"
+  - new_scene: false
+  - movement: 1
+
+### Beats:
+
+#### Beat 1
+
+- beat_id: "s41-beat-1-pedestrian-flow-pattern-documentation"
+
+```YAML
+title: "Pedestrian Flow Pattern Documentation"
 episode: 6
-title: "The Crown Endures"
-scenes:
+act: 1
+sequence: 1
+scene_number: 41
+beat_index: 1
 
-# ============================================================
-# SCENE 41
-# ============================================================
-- scene_id: "ep6_sc41"
-  scene_title: "Abbey Road — Nigel Controls the Composition"
-  location: "Abbey Road, London"
-  characters: [Nigel, Police Constable, Iain Macmillan, The Beatles (peripheral)]
-  page_range: "1-5"
-  date_in_story: "August 1969"
+beat_function: irony
+beat_function_secondary: [comedy, payoff]
+movement_type: stasis
+information_type: payoff
+scope: primary_plot
+engine: institution
+public_private_axis: collision
 
-  beats:
+primary_character: "Nigel"
+opposition: "Police Constable"
+stakes: >
+  The cover story — and the series' governing metaphor
+  made literal for the first and last time.
 
-    - beat_id: "ep6_sc41_b01"
-      title: "Pedestrian Flow Patterns"
-      episode: 6
-      act: 1
-      sequence: 1
-      scene_number: 41
-      beat_index: 1
+structural_role: >
+  A perfect London morning. Nigel on the pavement with a
+  radio antenna extended stiffly upward, coordinating traffic
+  around The Beatles' Abbey Road cover shoot as 'Ministry of
+  Transport pedestrian flow pattern documentation.' The
+  Constable confused. Macmillan on his ladder. A taxi trying
+  to breach the perimeter. Nigel: 'Control, we have an
+  unauthorized vehicle attempting to breach the perimeter.'
+  The Constable: 'Sir, the photographer is getting impatient.
+  And I think John Lennon just flipped off the taxi driver.'
+  Nigel: 'Noted. Standard celebrity behavior. Document and
+  continue.' The perfect take achieved. Macmillan: 'Got it!
+  That's the one!' Nigel bending to pick up a cigarette butt
+  and placing it in an evidence bag. 'Without a context, it's
+  litter. With a context, it's potentially compromising
+  material.' Constable: 'Compromising what, sir?' Nigel
+  looking at the butt, the studio, the crossing. 'Compromising
+  everything, Constable. Everything.' Walking away, to himself:
+  'The purpose was to control the composition. The purpose
+  was always to control the composition.'
+triggered_by: >
+  The Abbey Road session (August 1969) — the series' last
+  institutional deployment in the field.
+leads_to: "sc52 — the safe house briefing and Operation Elegy"
 
-      beat_function: "irony"
-      beat_function_secondary: ["comedy", "payoff"]
-      movement_type: "stasis"
-      information_type: "payoff"
-      scope: "subplot"
-      engine: "institution"
-      public_private_axis: "collision"
+status_quo_before: >
+  Operation Minuet is terminated. Operation Elegy is being
+  planned. The Beatles have broken up. John has returned his
+  MBE. It is August 1969.
+shift: >
+  The series' governing metaphor — controlling the composition
+  — made completely literal. Nigel has been managing the frame
+  since Episode 1. Here he literally manages the pedestrian
+  traffic so the Abbey Road photograph can be taken. History
+  made with his fingerprints invisible on it.
+status_quo_after: >
+  The photograph exists. The cigarette butt is in an evidence
+  bag. The operation is one step closer to its conclusion.
+  The metaphor is complete.
 
-      primary_character: "Nigel"
-      opposition: "The Police Constable"
-      stakes: "The cover story — and the series' governing metaphor made explicit"
+thread_effects:
+  - thread: "series_metaphor"
+    effect: closes
+    note: >
+      'The purpose was to control the composition' is the
+      series' governing irony stated explicitly — and the last
+      time it will be stated. Correct place: the opener, before
+      the institution's final operation.
+  - thread: "nigel_conscience"
+    effect: advances
+    note: >
+      Still performing the function. The conscience hasn't
+      surfaced yet — that's the ending. Here Nigel is competent,
+      deadpan, and fully institutional.
+  - thread: "institution_absurdity"
+    effect: advances
+    note: >
+      Peak expression of the operational mode: filing a cigarette
+      butt as potentially compromising material while the Beatles
+      make their most famous photograph ten feet away.
 
-      structural_role: >
-        A perfect London morning. Nigel on the pavement
-        with a radio antenna extended stiffly upward.
-        Coordinating traffic around The Beatles' Abbey
-        Road cover shoot as 'pedestrian flow pattern
-        documentation.' The Constable confused. Nigel's
-        cover: Ministry of Transport. 'The identity of the
-        pedestrians is irrelevant to the data collection.'
-        The Beatles crossing again and again. Macmillan on
-        his ladder. A taxi trying to get through. Nigel:
-        'Control, we have an unauthorized vehicle attempting
-        to breach the perimeter.' The Constable: 'Sir, the
-        photographer is getting impatient. And I think John
-        Lennon just flipped off the taxi driver.' Nigel: 'Noted.
-        Standard celebrity behavior. Document and continue.'
-        The perfect take achieved. Macmillan: 'Got it! That's
-        the one!' Nigel bending to pick up a cigarette butt
-        from the pavement and placing it in an evidence bag.
-        'Without a context, Constable, it's just litter.
-        With a context, it's potentially compromising material.'
-        Constable: 'Compromising what, sir?' Nigel looking
-        at the butt, the studio, the crossing. 'Compromising
-        everything, Constable. Everything.' Walking away.
-        To himself: 'The purpose was to control the composition.
-        The purpose was always to control the composition.'
-      triggered_by: "The Abbey Road session (August 1969) / the series' last institutional deployment"
-      leads_to: "The safe house briefing / Episode 6's present-tense action"
+theme: >
+  The institution's fingerprints on history — invisible,
+  pointless, and completely sincere.
+pressure_level: 2
+irreversibility: none
 
-      status_quo_before: >
-        Operation Minuet has been terminated (sc50, Episode 5).
-        Operation Elegy is being planned. The Beatles have
-        broken up. John has returned his MBE. It is August 1969.
-      shift: >
-        The series' opener is a payoff to its governing visual
-        metaphor. Nigel has been trying to control the
-        composition since Episode 1. Here he literally does —
-        managing traffic so the Abbey Road photograph can be
-        taken, picking up the cigarette butt so no operational
-        trace remains. The cover is complete. History has been
-        made. The institution's fingerprints are invisible.
-      status_quo_after: >
-        The photograph exists. The cigarette butt is in a bag.
-        The Volkswagen is abandoned. The operation is one step
-        closer to its conclusion.
+quality_note: >
+  The cigarette butt in the evidence bag is the scene's best
+  visual detail. Trust it. Don't underline it. The Constable's
+  straight-faced engagement with Nigel's cover story is what
+  makes the comedy work — he's not playing dumb, he genuinely
+  doesn't know what's happening, which is the correct
+  institutional condition.
+needs_revision: false
+```
 
-      thread_effects:
-        - thread: "nigel_conscience"
-          effect: "advances"
-          note: >
-            'The purpose was to control the composition. The
-            purpose was always to control the composition.'
-            Said to himself, so quietly no one can hear. Nigel's
-            self-description as the operation's meaning is the
-            thread's penultimate beat. He knows what he is and
-            what he does. The question is whether he can act
-            against it.
-        - thread: "operation_elegy"
-          effect: "setup"
-          note: >
-            This scene is set in August 1969 — four months
-            before Operation Elegy is conceived. The opening
-            is a prequel to the episode's main action, establishing
-            Nigel's competence and composure before showing him
-            deploy them as sabotage in sc55.
+## SCENE 52
 
-      payoff: >
-        Payoff to the series' governing visual metaphor.
-        'Control the composition' has been Nigel's method
-        since Episode 1. Here it becomes his self-description.
-      theme: >
-        The institution that controls what history
-        looks like — even when history is being made
-        in plain sight
-      pressure_level: 4
-      irreversibility: "historical"
-      public_private_axis: "collision"
-
-      quality_note: >
-        This is the series' best opening scene. The deadpan
-        comedy is precisely calibrated — Nigel managing traffic
-        as 'pedestrian flow documentation,' the Constable's
-        bafflement, the radio crackles. 'The purpose was always
-        to control the composition' as the series' thesis
-        restated in Nigel's private voice is the correct
-        closing note. The cigarette butt in the evidence bag
-        is the scene's best detail. Do not add anything after
-        'The purpose was always to control the composition.'
-        The opening credits should begin immediately.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 52
-# ============================================================
 - scene_id: "ep6_sc52"
-  scene_title: "MI5 Safe House — The Pigeon Gambit Briefing"
-  location: "MI5 Safe House"
-  characters: [Sir Derek Finchley, Nigel, Clive]
-  page_range: "5-8"
-  date_in_story: "January 1970"
+- scene_title: "MI5 Safe House — The Assassination Directive"
+- location: "MI5 Safe House, London"
+- characters: [Nigel, Clive, Finchley]
+- page_range: "6-9"
+- date_in_story: "Late 1969"
+- new_scene: false
+- movement: 1
 
-  beats:
+### Beats:
 
-    - beat_id: "ep6_sc52_b01"
-      title: "The Third Act"
-      episode: 6
-      act: 1
-      sequence: 2
-      scene_number: 52
-      beat_index: 1
+#### Beat 1
 
-      beat_function: "escalation"
-      beat_function_secondary: ["comedy", "irony"]
-      movement_type: "escalation"
-      information_type: "none"
-      scope: "primary_plot"
-      engine: "institution"
-      public_private_axis: "private"
+- beat_id: "ep6_sc52_b01"
 
-      primary_character: "Clive"
-      opposition: "Nigel"
-      stakes: "The assassination plan taking shape — in Clive's register"
-
-      structural_role: >
-        The safe house briefing from Episode 5 sc51
-        reconvened and extended. Sir Derek's 'permanently
-        retired' landing again. Clive leaping to the
-        chalkboard: 'My God. It's the third act.'
-        The Pigeon Gambit laid out — Ono Obfuscation,
-        isolating spotlight, air rifle from the rafters.
-        'The irony is sublime! He delivers himself to us.'
-        Nigel's argument: not morality but pragmatism.
-        'A car accident. A faulty gas heater. These are
-        the classics for a reason. They are tidy.' Clive
-        horrified: 'Tidy? We are composing an elegy, Nigel,
-        not tidying the garage! It needs psychological
-        resonance!' Sir Derek watching 'with the detached
-        interest of a scientist observing two different
-        species of insect.' Then: 'I expect a preliminary
-        plan on my desk by Monday. Something... memorable.'
-        Exits with a soft, final CLICK. Clive turns back
-        to the chalkboard. Nigel stares at his cold cup of tea.
-      triggered_by: "Philip's Operation Elegy directive (Episode 5 sc50)"
-      leads_to: "Philip approving the plan (sc53)"
-
-      status_quo_before: >
-        Operation Elegy has been ordered. Nigel has
-        refused and been overridden. The plan needs
-        to be formed.
-      shift: >
-        Clive names it: the Pigeon Gambit. The assassination
-        plan as a creative work, a 'composition.' Nigel's
-        counter — pragmatism, not morality — is the
-        thread's most interesting beat: he cannot argue
-        wrong because he cannot admit what he is planning
-        to do about it. The scene is a near-repeat of
-        Episode 5 sc51 but extends it with the chalkboard
-        planning sequence that gives Clive's delusion its
-        most complete form.
-      status_quo_after: >
-        The plan exists. Nigel knows what he is going
-        to do and cannot say it. Clive is sketching
-        arrows and stick figures. Sir Derek's fingerprints
-        are on nothing.
-
-      thread_effects:
-        - thread: "clive_delusion"
-          effect: "advances"
-          note: >
-            'An artist works with his materials, Arthur.'
-            'We are composing an elegy, Nigel, not tidying
-            the garage.' Clive's delusion at its most
-            fully articulated — the assassination as art
-            form, the target as compositional subject.
-            The chalkboard of arrows and stick figures
-            is the delusion's visual peak.
-        - thread: "nigel_conscience"
-          effect: "advances"
-          note: >
-            Nigel arguing pragmatism — 'a car accident,
-            a faulty gas heater' — rather than morality.
-            He cannot argue morality because he would have
-            to explain why he is planning to sabotage
-            the operation rather than refuse it. The
-            pragmatic argument is his cover for what
-            he has already decided.
-
-      quality_note: >
-        The scene is slightly redundant with Episode 5
-        sc51 but justified because it extends the briefing
-        with the chalkboard sequence — Clive's plan
-        taking visual form — which the prior episode
-        didn't have room for. 'An artist works with his
-        materials' is the scene's best line.
-        'Something... memorable.' from Sir Derek with
-        his 'hint of a smile' is the correct closing note —
-        the bureaucrat who has given the order and will
-        now deny it, already performing his own deniability.
-      needs_revision: false
-
-    - beat_id: "ep6_sc52_b02"
-      title: "Cold Tea"
-      episode: 6
-      act: 1
-      sequence: 3
-      scene_number: 52
-      beat_index: 2
-
-      beat_function: "elegy"
-      beat_function_secondary: ["tension", "decision"]
-      movement_type: "internal_shift"
-      information_type: "none"
-      scope: "interpersonal"
-      engine: "character"
-      public_private_axis: "private"
-
-      primary_character: "Nigel"
-      stakes: "The conscience finding its action — what Nigel has decided and cannot say"
-
-      structural_role: >
-        Sir Derek exits. Clive at the chalkboard, possessed
-        by his muse. Nigel alone at the table. He stares at
-        his cold cup of tea. 'He is a man trapped between
-        his duty, his pension, and a conscience he never
-        knew he had. The quiet, bureaucratic melancholy he
-        has carried for years has curdled into pure dread.'
-        He does not move. He does not speak. He watches Clive
-        sketch. The FADE OUT comes before Nigel makes a
-        visible choice.
-      triggered_by: "Sir Derek's exit"
-      leads_to: "Nigel at the lighting board in sc55"
-
-      status_quo_before: >
-        Nigel has refused the directive and been overridden.
-      shift: >
-        Nigel's stillness is the decision. The scene
-        does not show him resolving — it shows him sitting
-        with the weight of what he has already decided.
-        The cold tea is the correct image: something that
-        was warm has gone cold while he was watching
-        other people plan.
-      status_quo_after: >
-        The decision is made invisibly. Episode 6 will
-        show it as action in sc55.
-
-      thread_effects:
-        - thread: "nigel_conscience"
-          effect: "advances"
-          note: >
-            'The quiet, bureaucratic melancholy he has
-            carried for years has curdled into pure dread.'
-            The thread's penultimate beat before sc55's
-            action. The decision is in the stillness.
-
-      theme: >
-        The conscience deciding in silence —
-        the action not yet visible but already taken
-      pressure_level: 7
-      irreversibility: "personal"
-
-      quality_note: >
-        The cold tea is the correct closing image for
-        this beat. Do not add internal monologue.
-        Do not add a meaningful look from Nigel toward
-        the chalkboard. His stillness is what makes
-        the scene work. The FADE OUT should come
-        without any additional stage direction after
-        'pure dread.'
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 53
-# ============================================================
-- scene_id: "ep6_sc53"
-  scene_title: "Buckingham Palace — Philip Approves the Pigeon Gambit"
-  location: "Buckingham Palace Private Study"
-  characters: [Philip, Mountbatten, Sir Derek Finchley]
-  page_range: "8-10"
-  date_in_story: "February 1970"
-
-  beats:
-
-    - beat_id: "ep6_sc53_b01"
-      title: "I Like It"
-      episode: 6
-      act: 1
-      sequence: 4
-      scene_number: 53
-      beat_index: 1
-
-      beat_function: "irony"
-      beat_function_secondary: ["escalation", "development"]
-      movement_type: "reversal"
-      information_type: "none"
-      scope: "primary_plot"
-      engine: "institution"
-      public_private_axis: "private"
-
-      primary_character: "Philip"
-      opposition: "Mountbatten"
-      stakes: "The plan approved — and Philip's judgment finally gone"
-
-      structural_role: >
-        Mountbatten dismantling the Pigeon Gambit:
-        'Convoluted. Amateurish. Too many variables.
-        One might as well rely on the weather.' Finchley
-        presenting it with diplomatic gloss. Philip
-        considering. 'No.' A beat. 'I like it.' Mountbatten
-        genuinely surprised — 'this defies all military
-        and strategic logic.' Philip: 'Let the little
-        revolutionary be undone by a spectacle. He lives
-        his life as performance art. Let him die by it.
-        There's a certain... symmetry.' A small, cruel
-        smile. 'He is no longer the pragmatic guardian
-        of the Crown. He is the author of a revenge plot,
-        savoring the final chapter. He is thinking not
-        like Mountbatten, but like Margaret.' Mountbatten:
-        'Philip, this is unwise. It is an indulgence.'
-        Philip: 'He indulged himself when he sent back my
-        wife's medal with a note about his pop song. The
-        time for prudence is over.'
-      triggered_by: "The Pigeon Gambit presentation"
-      leads_to: "Percy / Q-Branch"
-
-      status_quo_before: >
-        The plan has been designed by Clive.
-        Mountbatten opposes it on strategic grounds.
-        Philip's approval is required.
-      shift: >
-        Philip approves the plan not because it is good —
-        Mountbatten is clearly right that it isn't — but
-        because it is symmetrical. The revenge plot has
-        eclipsed the strategic operation. Philip is now
-        'thinking like Margaret' — savoring the drama
-        rather than managing the risk. His judgment has
-        finally gone.
-      status_quo_after: >
-        The plan is approved. Mountbatten has been
-        overruled again. 'He has given his advice, it
-        has been rejected, and now he must follow the
-        chain of command, no matter how disastrous
-        the destination.'
-
-      thread_effects:
-        - thread: "philip_obsession"
-          effect: "advances"
-          note: >
-            'He is thinking not like Mountbatten, but
-            like Margaret.' The obsession's terminal
-            expression: Philip choosing spectacle over
-            strategy, symmetry over competence. The
-            thread closed in Episode 5 but its consequence
-            continues to unfold here as the decision
-            it produced plays out.
-        - thread: "mountbatten_strategy"
-          effect: "closes"
-          note: >
-            Mountbatten's last strategic objection overruled.
-            'He has given his advice, it has been rejected.'
-            He will follow the chain of command to its
-            disastrous end. The thread closes here —
-            the cold strategist defeated by the wounded
-            avenger.
-
-      theme: >
-        Strategy defeated by symmetry — the revenge
-        plot eclipsing the operation
-      pressure_level: 7
-      irreversibility: "institutional"
-
-      quality_note: >
-        'He is thinking not like Mountbatten, but like
-        Margaret.' This is the scene's best line and
-        the sharpest character observation in Episode 6.
-        Margaret understood John better than Philip ever
-        did — her appreciation of the 'Cold Turkey' insult
-        was genuine aesthetic recognition. Philip adopting
-        Margaret's sensibility at his most dangerous
-        moment is the correct irony. The cruel smile
-        should be small — Philip is not enjoying himself
-        the way Margaret would. He thinks he is, but
-        there is no real pleasure in it. Just obsession
-        wearing the costume of satisfaction.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 54
-# ============================================================
-- scene_id: "ep6_sc54"
-  scene_title: "MI5 Q-Branch — Percy and the Anschütz"
-  location: "MI5 Q-Branch"
-  characters: [Percy, Nigel, Clive]
-  page_range: "11-13"
-  date_in_story: "February 1970"
-
-  beats:
-
-    - beat_id: "ep6_sc54_b01"
-      title: "Form 18-G"
-      episode: 6
-      act: 1
-      sequence: 5
-      scene_number: 54
-      beat_index: 1
-
-      beat_function: "comedy"
-      beat_function_secondary: ["payoff", "satire"]
-      movement_type: "deescalation"
-      information_type: "payoff"
-      scope: "subplot"
-      engine: "institution"
-      public_private_axis: "private"
-
-      primary_character: "Percy"
-      opposition: "Clive"
-      stakes: "The weapon — and the operation's physical embodiment"
-
-      structural_role: >
-        Percy polishing a deactivated landmine.
-        Clive: 'We require a long-range, high-velocity
-        pneumatic delivery system. Silenced. With a
-        custom telescopic sight. For pest control.'
-        Percy's look of 'ancient weariness.' Form 18-G —
-        'Lethal Ordinance Requisition. Requires sign-off
-        from the Deputy Director and God himself. And we
-        don't have one. Not since the '62 budget cuts.'
-        Percy disappearing into the aisles. Returning
-        with the canvas-wrapped Anschütz — '1930s Nazi
-        sympathizer, confiscated in '41. The sights are
-        a bit foggy and it pulls to the left, but she's
-        a lovely piece.' Clive's grand vision crumbling.
-        Percy: 'You will clean it with the supplied oil
-        — and only the supplied oil — after every use.
-        You will not expose it to damp. And if you lose
-        a single one of these retaining screws, the cost
-        will be deducted from your travel stipend for the
-        next five years.' Nigel accepting the tiny bag of
-        screws 'with the gravity of a man receiving a death
-        sentence.' Nigel signing with a steady hand.
-        'The weapon is a joke. It's beautiful, useless,
-        and perfect.'
-      triggered_by: "The Pigeon Gambit approved"
-      leads_to: "The concert / assassination attempt"
-
-      status_quo_before: >
-        Operation Elegy needs a weapon.
-        Clive has a vision. Percy has a storeroom.
-      shift: >
-        The operation's physical embodiment: a fogged,
-        left-pulling antique rifle that belongs in a
-        museum. The gap between the operation's self-
-        image (a precisely calibrated national elegy)
-        and its material reality (a 1930s hunting rifle
-        with retaining screw anxiety) is the scene's
-        argument. Nigel signing 'with a steady hand' —
-        he knows this weapon will not succeed, which
-        is precisely why he is signing for it.
-      status_quo_after: >
-        The Anschütz is signed out. Percy's retaining
-        screws are in Nigel's pocket. The operation has
-        its weapon. It is exactly the weapon it deserves.
-
-      thread_effects:
-        - thread: "percy_equipment_thread"
-          effect: "closes"
-          note: >
-            Percy setup from Episode 2 — the 1953 German
-            parabolic device, the inadequate equipment,
-            'we don't have one. Not since the '62 budget
-            cuts' — closing perfectly. The antique rifle
-            is the correct payoff: beautiful, museum-worthy,
-            functionally inadequate. Percy's retaining
-            screw anxiety as his final moral authority
-            is the thread's best closing beat.
-        - thread: "nigel_conscience"
-          effect: "advances"
-          note: >
-            Nigel signing 'with a steady hand.' He knows
-            this weapon won't work. He is making sure
-            of it in every way available to him.
-
-      payoff: >
-        Payoff to the Percy setup from Episode 2.
-        The 1953 parabolic device has become a 1930s
-        Nazi hunting rifle. The equipment has gotten
-        older and more inadequate with each episode.
-        The payoff earns the setup completely.
-      theme: >
-        The institution that gets the weapon it deserves
-        — beautiful, useless, and perfect
-      pressure_level: 4
-      irreversibility: "none"
-
-      quality_note: >
-        Percy is the series' most reliable comic presence.
-        'If you lose a single one of these retaining screws,
-        the cost will be deducted from your travel stipend
-        for the next five years' is the scene's best line
-        and a perfect Percy line: procedural, petty, and
-        delivered with the full weight of a man who has
-        been betrayed by careless operatives before.
-        The deactivated landmine he is polishing at the
-        start of the scene — a thing designed for destruction
-        being carefully maintained for no purpose — is the
-        series' best visual metaphor for the institutional
-        apparatus itself.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 55
-# ============================================================
-- scene_id: "ep6_sc55"
-  scene_title: "Concert Hall — The Pigeon Gambit"
-  location: "UNICEF Concert Hall (Lyceum Theatre)"
-  characters: [John, Yoko, Nigel, Clive, Arthur Jenkins, Asset]
-  page_range: "13-16"
-  date_in_story: "March 1970"
-
-  beats:
-
-    - beat_id: "ep6_sc55_b01"
-      title: "This Is for Peace"
-      episode: 6
-      act: 2
-      sequence: 6
-      scene_number: 55
-      beat_index: 1
-
-      beat_function: "irony"
-      beat_function_secondary: ["elegy", "tension"]
-      movement_type: "escalation"
-      information_type: "none"
-      scope: "primary_plot"
-      engine: "character"
-      public_private_axis: "public"
-
-      primary_character: "John"
-      opposition: "None — he doesn't know"
-      stakes: "John's life / the series' central irony at its most literal"
-
-      structural_role: >
-        Dressing room. John pacing, tuning guitar.
-        White clothes, looking 'vulnerable without the
-        armor of The Beatles.' Yoko serene in matching
-        white. John: 'It feels strange. Doing this without
-        the others. Like I've forgotten how to stand on
-        my own.' Yoko: 'You are not on your own. You have
-        me. And you have the song. The rest is just... noise.'
-        John managing a small, nervous smile. Then the
-        stage: John leaning into the microphone. 'This is
-        for peace.' The opening chords of 'Instant Karma.'
-        In the rafters: Clive prone, Arthur trying to
-        secure the Anschütz. 'The bracket's not flush.
-        There's a wobble.' In the lighting booth: Nigel
-        at the main board, calmly sipping tea.
-      triggered_by: "The Pigeon Gambit approved and equipped"
-      leads_to: "The Ono Obfuscation / the sabotage"
-
-      status_quo_before: >
-        John is performing alone for the first time
-        without the Beatles. He is unaware of what
-        is happening in the rafters.
-      shift: >
-        'This is for peace.' John dedicating the song
-        to the audience while the apparatus that has
-        been trying to disrupt his life for five years
-        prepares to end it. 'The rest is just noise'
-        — Yoko's line landing as the scene's deepest irony.
-        The noise is the rifle wobbling in the rafters
-        sixty feet above him.
-      status_quo_after: >
-        The Ono Obfuscation is about to be executed.
-        Nigel is at the lighting board.
-
-      thread_effects:
-        - thread: "john_yoko"
-          effect: "advances"
-          note: >
-            'You are not on your own. You have me. And
-            you have the song.' Yoko as the anchor —
-            not the disruptive force the operation
-            tried to make her but the source of stability
-            John needed. The thread's penultimate beat.
-        - thread: "nigel_conscience"
-          effect: "climax"
-          note: >
-            Nigel at the lighting board, sipping tea.
-            His composure is the decision: he knows
-            exactly what he is going to do, has known
-            since the cold tea in sc52, and is waiting
-            for the correct moment. The thread reaches
-            its action point.
-
-      quality_note: >
-        'The rest is just noise.' Yoko's line must
-        be played completely sincerely — she means
-        exactly what she says and has no idea it is
-        the episode's central irony. John's nervous
-        smile is correct. He is scared in the right
-        way: the healthy fear of performing alone,
-        not the fear of what is in the rafters.
-        The intercut structure — dressing room,
-        rafters, lighting booth, stage — should
-        establish each location cleanly before the
-        Obfuscation sequence begins.
-      needs_revision: false
-
-    - beat_id: "ep6_sc55_b02"
-      title: "Too Much Light"
-      episode: 6
-      act: 2
-      sequence: 7
-      scene_number: 55
-      beat_index: 2
-
-      beat_function: "payoff"
-      beat_function_secondary: ["comedy", "reversal"]
-      movement_type: "reversal"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "character"
-      public_private_axis: "public"
-
-      primary_character: "Nigel"
-      opposition: "Clive's plan"
-      stakes: "John's life — and the conscience acting"
-
-      structural_role: >
-        Clive into walkie-talkie: 'Execute the Obfuscation!'
-        Nigel giving the Asset a single, curt nod. 'Now.'
-        The Asset yanks the lever. Not a single spotlight —
-        'a biblical flood of pure, white light. EVERY SINGLE
-        STAGE LIGHT — hundreds of them — slams on at maximum
-        intensity.' The stage disappearing into 'an overexposed,
-        blinding white void.' The crowd gasping. John stumbling
-        back, blinded. In the rafters: the glare reflecting
-        off Arthur's scope. 'Negative visibility! It's a total
-        washout!' Clive: 'What is happening?! The subtlety!
-        Where is the bloody subtlety?!' Nigel watching the
-        chaos unfold, 'his face a perfect mask of bureaucratic
-        indifference.' Taking another slow sip of tea.
-      triggered_by: "Clive's command to execute"
-      leads_to: "Yoko's scream / PEA E"
-
-      status_quo_before: >
-        The Ono Obfuscation is designed to isolate
-        Yoko in a single spotlight, drawing the crowd's
-        attention and giving Arthur a clear shot.
-      shift: >
-        Nigel executes the opposite of the plan —
-        all lights, maximum intensity, everything visible,
-        nothing isolatable. The sabotage is complete.
-        Arthur is blind. Clive's composition is
-        a train wreck. Nigel sips his tea. The conscience
-        has acted — not through refusal, not through
-        protest, but through the precise application
-        of too much light.
-      status_quo_after: >
-        The shot cannot be taken. John is alive.
-        Yoko is about to step forward.
-
-      thread_effects:
-        - thread: "nigel_conscience"
-          effect: "payoff"
-          note: >
-            Five episodes of weary conscience reaching
-            its action. Nigel doesn't stop the assassination
-            by confessing or confronting — he stops it
-            by doing his job wrong in exactly the right
-            way. The bureaucrat as hero through
-            deliberate incompetence. 'He saved a man's
-            life with too much light.' The thread's
-            correct payoff — not dramatic, not announced,
-            just a nod and a lever.
-        - thread: "clive_delusion"
-          effect: "collapse"
-          note: >
-            'The subtlety! Where is the bloody subtlety?!'
-            Clive's masterpiece dissolving into a train
-            wreck. His artistic vision meeting its
-            institutional reality. The delusion hasn't
-            been destroyed — Clive still thinks in terms
-            of composition and artistry — but its
-            object has been removed. He cannot compose
-            anything from a blinding void.
-
-      payoff: >
-        Payoff to the nigel_conscience thread running
-        across five episodes and 21+ scenes. The action
-        is correct — quiet, deniable, executed through
-        the tools of his position rather than against them.
-        Nigel doesn't break; he bends the instrument
-        until it does what he needs.
-      theme: >
-        The conscience that acts through its own
-        tools — too much light as the moral choice
-      pressure_level: 9
-      irreversibility: "historical"
-      public_private_axis: "public"
-
-      quality_note: >
-        'He saved a man's life with too much light.'
-        This is the series' moral center stated in
-        its most economic form. The stage direction
-        should be exactly that sentence, nothing more.
-        Nigel's face 'a perfect mask of bureaucratic
-        indifference' while sipping tea is the correct
-        visual register — not heroism, just professionalism
-        deployed in service of the right thing.
-        Clive's 'Where is the bloody subtlety?!' is
-        the scene's funniest line and must be delivered
-        at full horror — not the horror of a foiled
-        killer but the horror of an artist whose canvas
-        has been destroyed.
-      needs_revision: false
-
-    - beat_id: "ep6_sc55_b03"
-      title: "PEA E"
-      episode: 6
-      act: 2
-      sequence: 8
-      scene_number: 55
-      beat_index: 3
-
-      beat_function: "comedy"
-      beat_function_secondary: ["payoff", "elegy"]
-      movement_type: "deescalation"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "institution"
-      public_private_axis: "public"
-
-      primary_character: "Yoko"
-      opposition: "None — she is the solution and doesn't know it"
-      stakes: "The banner / the series' best visual gag"
-
-      structural_role: >
-        Yoko does not see a technical fault. She sees
-        a canvas. She steps forward into the blinding
-        white void. Takes the microphone. And lets out
-        a single, piercing, primal SCREAM. 'A sound
-        that rips through the hall, a bolt of pure,
-        avant-garde energy. It is not a scream of fear.
-        It is a scream of art.' The audience stunned.
-        A few people in the front beginning to applaud
-        uncertainly. In the rafters: Yoko's shriek cuts
-        through Arthur's professional composure. He
-        flinches violently. His finger jerks on the trigger.
-        The shot goes wild. Hits the 'UNICEF: CONCERT FOR
-        PEACE' banner. The 'C' in 'PEACE' rips and flaps
-        down, dangling by a thread. The message now reads:
-        PEA E. Clive staring at the ruined banner: 'The
-        Pigeon has flown the coop... Abort. Abort the
-        composition.' Then: John recovering, stepping
-        back to the microphone, finishing the final chords.
-        The audience erupting in confused but thunderous
-        applause. John and Yoko taking a bow. 'They are
-        alive. They are oblivious.'
-      triggered_by: "The blinding light / Arthur's blinded scope"
-      leads_to: "Nigel walking away backstage / the debriefing"
-
-      status_quo_before: >
-        The shot cannot be taken. Arthur is blinded.
-        Yoko steps forward.
-      shift: >
-        Yoko's avant-garde scream — the very thing the
-        operation spent five years trying to frame as
-        disruptive — accidentally saves John's life by
-        causing Arthur to flinch and fire wild. The
-        operation's own target for mockery becomes its
-        undoing. PEA E: the series' best visual gag
-        and its thesis stated as typography.
-      status_quo_after: >
-        John and Yoko are alive. Oblivious. The banner
-        says PEA E. The operation is over.
-
-      thread_effects:
-        - thread: "john_yoko"
-          effect: "closes"
-          note: >
-            Yoko's scream saving John — not through
-            intention but through being exactly who she
-            is. The operation tried to use Yoko against
-            John from Episode 2 onward. In the end,
-            Yoko's authentic self is what saves him.
-            The thread closes correctly.
-        - thread: "clive_delusion"
-          effect: "closes"
-          note: >
-            'The Pigeon has flown the coop... Abort.
-            Abort the composition.' The plan collapses
-            into a typo. Clive's masterpiece is PEA E.
-            The delusion's correct ending: not destroyed,
-            just rendered absurd by its own execution.
-
-      payoff: >
-        The series' best visual gag. Five episodes of
-        institutional overreach ending in a missing
-        letter. PEA E as the operation's epitaph.
-      theme: >
-        The avant-garde that saves what the classical
-        could not protect — Yoko's scream as the
-        series' last artistic argument
-      pressure_level: 7
-      irreversibility: "historical"
-
-      quality_note: >
-        PEA E must be held on screen long enough for
-        the audience to read it, absorb it, and feel
-        it. The banner dangling 'by a thread' is correct.
-        Clive's 'The Pigeon has flown the coop' should
-        be quiet — not screamed, not dramatic. The
-        masterpiece ending in a typo is more devastating
-        at low volume. Nigel backstage: 'his face is
-        a portrait of profound, soul-crushing relief.'
-        The relief is the thread's emotional payoff.
-        Let it be felt without annotation.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 56
-# ============================================================
-- scene_id: "ep6_sc56"
-  scene_title: "MI5 Debriefing Room — The Cauterization"
-  location: "MI5 Debriefing Room"
-  characters: [Philip, Sir Derek Finchley, Mountbatten]
-  page_range: "17-19"
-  date_in_story: "March 1970"
-
-  beats:
-
-    - beat_id: "ep6_sc56_b01"
-      title: "A Tomb"
-      episode: 6
-      act: 2
-      sequence: 9
-      scene_number: 56
-      beat_index: 1
-
-      beat_function: "satire"
-      beat_function_secondary: ["irony", "payoff"]
-      movement_type: "deescalation"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "institution"
-      public_private_axis: "private"
-
-      primary_character: "Mountbatten"
-      opposition: "Philip"
-      stakes: "The operation buried — and Philip defeated by his own bureaucracy"
-
-      structural_role: >
-        Debriefing room: sterile, windowless, 'designed
-        for institutional blame-shifting.' Philip ramrod
-        straight, 'contained, incandescent fury.' Sir Derek
-        smooth. Mountbatten examining a photograph of London.
-        Philip: 'A lighting fault. And a lucky shot that hit
-        a banner. That is the official explanation for this...
-        monumental incompetence.' Sir Derek's 'unforeseen
-        on-site variables' and 'sub-optimal outcome.' Philip:
-        'Do not use that management jargon with me.' Mountbatten
-        finally: 'The mission is compromised beyond recovery.
-        Any further action is impossible. The assets are a
-        liability.' Philip: 'They should be court-martialed.'
-        Mountbatten: 'You cannot court-martial a secret.'
-        Sir Derek: 'The Falklands desk has two sudden vacancies.'
-        Philip scoffs. Mountbatten: 'It's not a reward, Philip.
-        It's a tomb. They will spend the rest of their careers
-        counting penguins and processing shipping manifests.
-        They will be erased. The operation never happened.
-        The file will be sealed. And we will never speak
-        of it again.' Philip's jaw working silently.
-        'He has been utterly defeated, not by Lennon, but
-        by the sheer, soul-crushing inertia of the bureaucracy
-        he commands.' Sir Derek: 'I will make the necessary
-        arrangements.' Mountbatten simply nods.
-      triggered_by: "The Pigeon Gambit's failure"
-      leads_to: "The Queen's sitting room"
-
-      status_quo_before: >
-        The operation has failed. Philip wants accountability.
-        The institution wants burial.
-      shift: >
-        The institution wins, as it always does. Philip's
-        demand for accountability is dissolved by Mountbatten's
-        'you cannot court-martial a secret.' The Falklands
-        desk as a tomb. Philip defeated not by John Lennon
-        but by the bureaucracy he set in motion. Sir Derek's
-        'necessary arrangements' as the operation's final
-        euphemism.
-      status_quo_after: >
-        Nigel and Clive are going to the Falklands.
-        The file is sealed. The operation never happened.
-        The institution has protected itself.
-
-      thread_effects:
-        - thread: "operation_elegy"
-          effect: "closes"
-          note: >
-            'The operation never happened. The file will
-            be sealed. And we will never speak of it again.'
-            The thread closes through institutional erasure
-            — the operation's final form is its own
-            non-existence. Correctly closed.
-        - thread: "nigel_conscience"
-          effect: "advances"
-          note: >
-            Nigel and Clive sent to the Falklands as
-            'a tomb.' Nigel's reward for saving John
-            Lennon is a decade counting penguins.
-            The conscience thread's penultimate beat —
-            the action was correct, the consequence
-            is exile. This is the correct moral structure.
-
-      payoff: >
-        Payoff to the operation's entire institutional
-        arc. 'You cannot court-martial a secret.'
-        Mountbatten's line is the series' most complete
-        expression of how the institution works:
-        it doesn't punish failure, it erases it.
-      theme: >
-        The institution that protects itself as
-        the only victory that matters — defeat
-        converted to administrative procedure
-      pressure_level: 6
-      irreversibility: "institutional"
-
-      quality_note: >
-        'It's not a reward, Philip. It's a tomb.'
-        Mountbatten's line is the scene's best and
-        must land with full weight. Philip's jaw 'working
-        silently' — no words, just the defeated body —
-        is the correct physical response. Sir Derek's
-        'necessary arrangements' as the final line
-        before FADE OUT is correct: the bureaucrat
-        performing deniability to the end.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 58
-# ============================================================
-- scene_id: "ep6_sc58"
-  scene_title: "Queen's Sitting Room — All We Ever Had to Do Was Wait"
-  location: "Queen's Sitting Room, Buckingham Palace"
-  characters: [Queen Elizabeth, Philip]
-  page_range: "19-20"
-  date_in_story: "May 1970"
-
-  beats:
-
-    - beat_id: "ep6_sc58_b01"
-      title: "A Temporary Folly"
-      episode: 6
-      act: 3
-      sequence: 10
-      scene_number: 58
-      beat_index: 1
-
-      beat_function: "irony"
-      beat_function_secondary: ["payoff", "elegy"]
-      movement_type: "deescalation"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "character"
-      public_private_axis: "private"
-
-      primary_character: "Queen Elizabeth"
-      opposition: "Philip"
-      stakes: "The operation's verdict — and the series' thesis"
-
-      structural_role: >
-        The sitting room: 'profound, unshakable calm.'
-        Sunlight through tall windows, soft colors, floral
-        patterns, perfectly ordered family photographs.
-        A corgi asleep by the fireplace. Philip entering
-        — 'utterly defeated. The military rigidity gone,
-        replaced by the weary slump of a man who has lost
-        a long and pointless war.' Standing adrift in the
-        center of the room. The Queen not looking up from
-        her puzzle. 'Seven down. A temporary folly. Nine
-        letters.' She fills in the answer. Then sets the
-        newspaper aside. 'Is it over?' Philip: 'Yes.' The
-        Queen rising, moving to a side table, adjusting
-        'a silver-framed photograph of her father by a
-        fraction of an inch. A small, perfect act of order.'
-        'The Crown does not hold grudges. It has no time
-        for them. It simply... endures. They were a pop
-        group. They were always going to burn out. All we
-        ever had to do was wait.' Philip standing alone in
-        the center of the room. 'A man who tried to command
-        history and was swept aside by it.' He turns and
-        slowly exits. The Queen returns to her crossword.
-      triggered_by: "The operation's burial / the debriefing"
-      leads_to: "The montage / Falklands"
-
-      status_quo_before: >
-        Philip has been defeated. The operation is
-        buried. He goes to the Queen.
-      shift: >
-        The series' thesis stated in its most complete
-        form. The Queen adjusting her father's photograph
-        — the photo_motif returned with its second
-        meaning — and naming what was always true:
-        'All we ever had to do was wait.' Philip's
-        five years of rage, conspiracy, and obsession
-        made unnecessary by the simple passage of time.
-        He is dismissed. She returns to her crossword.
-      status_quo_after: >
-        The Queen endures. Philip has been dismissed.
-        The institution continues.
-
-      thread_effects:
-        - thread: "photo_motif"
-          effect: "closes"
-          note: >
-            In Episode 1 the Queen nudged the photograph
-            into perfect alignment as silent consent to
-            the operation. Here she adjusts her father's
-            photograph — a different photograph — as the
-            opposite gesture: not consent but order restored.
-            The motif closes with its second meaning in place.
-        - thread: "queens_wisdom"
-          effect: "closes"
-          note: >
-            'All we ever had to do was wait.' The thread
-            that has been advancing since Episode 1's
-            'the Crown has weathered unruly poets' closes
-            with its thesis fully stated. The Queen was
-            right from the beginning. The tragedy is that
-            no one listened.
-
-      payoff: >
-        Payoff to the photo_motif and queens_wisdom threads.
-        The series' thesis: 'All we ever had to do was wait.'
-        The crossword clue — 'A temporary folly, nine letters'
-        — as the operation's epitaph. (The answer is OBSESSION.)
-      theme: >
-        The institution that endures by doing nothing —
-        and the tragedy of the man who couldn't
-      pressure_level: 7
-      irreversibility: "historical"
-
-      quality_note: >
-        'Seven down. A temporary folly. Nine letters.'
-        The crossword clue as the operation's silent verdict
-        is the scene's best idea and the series' finest
-        single joke. The answer must never be shown — the
-        audience must supply it. OBSESSION has nine letters.
-        Philip doesn't need to see it. He is it. The corgi
-        sleeping by the fireplace is the correct environmental
-        note — the corgi has been asleep since before the
-        operation began and will be asleep long after.
-        Philip's exit without another word is correct.
-        The Queen returning to her crossword is correct.
-        Do not add a closing line from either character
-        after 'All we ever had to do was wait.' That
-        sentence is the series' moral center and its
-        final spoken truth.
-      needs_revision: false
-
-
-# ============================================================
-# SCENE 59
-# ============================================================
-- scene_id: "ep6_sc59"
-  scene_title: "Montage / Falklands — The Cosmic Joke"
-  location: "Various / Falklands Office"
-  characters: [John, Yoko, Paul, George, Ringo, Nigel, Clive]
-  page_range: "20-21"
-  date_in_story: "1971-1980"
-
-  beats:
-
-    - beat_id: "ep6_sc59_b01"
-      title: "Imagine"
-      episode: 6
-      act: 3
-      sequence: 11
-      scene_number: 59
-      beat_index: 1
-
-      beat_function: "elegy"
-      beat_function_secondary: ["payoff", "irony"]
-      movement_type: "deescalation"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "character"
-      public_private_axis: "public"
-
-      primary_character: "John"
-      stakes: "The lives the Beatles lived — and what the operation failed to prevent"
-
-      structural_role: >
-        The simple, hopeful piano intro of 'Imagine.'
-        Warm, grainy, organic 16mm footage. John and Yoko
-        in white at Tittenhurst Park, walking hand-in-hand
-        through a misty garden. John smiling, 'genuinely
-        at peace.' Paul bearded, laughing on his Scotland
-        farm, giving his daughter a piggyback through wildflowers.
-        'He is a father. A husband. A man far from the chaos.'
-        George patiently tending his Friar Park garden, looking
-        up at the sun with a 'quiet, contemplative smile.'
-        'He has found his own kind of enlightenment.' Ringo
-        in flamboyant costume on a film set, sharing a joke
-        with a fellow actor, throwing his head back and laughing.
-        'A picture of uncomplicated joy.' The piano melody
-        continuing, 'full of hope and possibility...' And then,
-        abruptly, it cuts to:
-      triggered_by: "The Queen dismissing Philip / the operation buried"
-      leads_to: "The Falklands / the radio"
-
-      status_quo_before: >
-        The operation is over. The Beatles are living
-        their separate lives. A decade is passing.
-      shift: >
-        The Beatles at peace — separately, in their
-        own forms, on their own terms. The operation
-        failed to prevent any of it. John making Imagine.
-        Paul on a farm. George in his garden. Ringo
-        on a film set. The operation's entire premise
-        — that they were a cultural threat that needed
-        containing — proven wrong by the simple fact
-        of their contentment.
-      status_quo_after: >
-        Abrupt cut. December 8, 1980. The Falklands.
-
-      thread_effects:
-        - thread: "george_sitar"
-          effect: "closes"
-          note: >
-            George in his garden at Friar Park — the
-            sitar thread's correct ending. The Eastern
-            spiritual journey that began in Episode 1's
-            briefing room joke has arrived here: a man
-            tending a garden, looking up at the sun,
-            at peace. Not a dissident. Not a threat.
-            A gardener.
-        - thread: "ringo_immunity"
-          effect: "closes"
-          note: >
-            'A picture of uncomplicated joy.' Ringo
-            on a film set, laughing. The immunity thread's
-            correct closure: Ringo is exactly what the
-            Episode 1 briefing said he was — psychologically
-            inert, a control group. Impervious. Joyful.
-            The institution's most accurate assessment
-            in the entire series.
-
-      quality_note: >
-        The Imagine montage is the series' most contested
-        sequence. The prior analysis flagged it as the
-        wrong register — 'soft-focus 16mm sentimentality
-        after six episodes of fluorescent light and damp
-        wool.' This assessment holds, but with a qualification:
-        the montage works if it is genuinely warm and brief.
-        The problem in its current form is length — it risks
-        becoming elegiac in the wrong way, mourning what
-        was lost rather than celebrating what was lived.
-        The cut to the Falklands must be abrupt enough
-        to be a physical jolt. If the montage earns the
-        cut by being genuinely hopeful rather than sad,
-        the Falklands arrives as the correct answer to it.
-      needs_revision: true
-      revision_note: >
-        Trim the montage to two images per Beatle rather
-        than extended sequences. The abruptness of the
-        cut to the Falklands is the montage's most
-        important beat — everything before it should
-        feel genuine and warm and slightly too comfortable,
-        so the cut hurts correctly.
-
-    - beat_id: "ep6_sc59_b02"
-      title: "The Cosmic Joke"
-      episode: 6
-      act: 3
-      sequence: 12
-      scene_number: 59
-      beat_index: 2
-
-      beat_function: "elegy"
-      beat_function_secondary: ["irony", "payoff"]
-      movement_type: "stasis"
-      information_type: "payoff"
-      scope: "primary_plot"
-      engine: "character"
-      public_private_axis: "private"
-
-      primary_character: "Nigel"
-      opposition: "None — just the radio"
-      stakes: "The series' final human moment"
-
-      structural_role: >
-        Falklands. December 8, 1980. The howling wind.
-        Ten years have passed. The room unchanged —
-        'a tomb of perfect, miserable symmetry.'
-        An older Nigel (63) and older Clive (56) at
-        their identical desks. Greyer, heavier, worn down.
-        The transistor radio crackles: '...Reports from
-        New York are confirming that John Lennon, the
-        musician and former Beatle, has been shot and
-        killed outside his Manhattan apartment building.
-        Police have a suspect in custody, described as a
-        deranged fan...' Nigel slowly stops writing.
-        Looks up. Stares across the room at Clive.
-        Clive's face a blank mask. 'A random madman has
-        achieved with a single, vulgar act what all the
-        machinery of the state could not. The ultimate,
-        cosmic joke. They just look at each other. Two
-        old men in a forgotten office at the bottom of
-        the world.' The wind howling. FADE TO BLACK.
-        The title card: 'There is no evidence the British
-        Monarchy or intelligence services had any involvement
-        in the death of John Lennon.'
-      triggered_by: "The Imagine montage / ten years passing"
-      leads_to: "The title card / the end"
-
-      status_quo_before: >
-        Nigel and Clive have been in the Falklands for
-        a decade. Counting penguins. Processing shipping
-        manifests. The operation buried.
-      shift: >
-        The radio brings the news. A stranger with a gun
-        has achieved what five years of state machinery
-        could not. The cosmic joke. Nigel and Clive just
-        looking at each other. The two men who know the
-        whole absurd secret history of a war that was
-        fought and lost for absolutely nothing, sitting
-        in a forgotten office at the bottom of the world
-        while history happens without them.
-      status_quo_after: >
-        The title card. The series ends.
-
-      thread_effects:
-        - thread: "nigel_conscience"
-          effect: "closes"
-          note: >
-            Nigel saved John Lennon's life with too much
-            light. A decade later, a stranger killed him
-            anyway. The conscience thread closes in the
-            most devastating possible way: not with
-            failure, not with triumph, but with the
-            cosmic irrelevance of the correct choice.
-            He was right to save him. It didn't matter.
-            Both things are true simultaneously.
-        - thread: "clive_delusion"
-          effect: "closes"
-          note: >
-            'The ultimate, cosmic joke.' Clive's blank
-            mask is the delusion's correct ending —
-            not destroyed, not enlightened, just silenced.
-            The universe has outdone him. His masterpiece
-            was PEA E. The real ending was a deranged
-            fan. There is no artistry in it. Clive has
-            nothing to say.
-
-      payoff: >
-        Payoff to every Nigel and Clive scene in the series.
-        Payoff to the series' central irony: the operation
-        was always unnecessary. The title card is the
-        correct final beat — acknowledging the fiction
-        while the history speaks for itself.
-      theme: >
-        The correct choice that didn't matter —
-        and the two men who know it, at the bottom of the world
-      pressure_level: 10
-      irreversibility: "historical"
-
-      quality_note: >
-        The camera must hold on their faces for longer
-        than is comfortable before FADE TO BLACK.
-        Nigel and Clive just looking at each other —
-        no words, no gestures, just the recognition
-        passing between the only two people on Earth
-        who understand the full scope of the absurd
-        secret history they've been part of. The Julian
-        notebook callback (flagged as missed opportunity
-        in the prior analysis) should be inserted here:
-        see Expansion Recommendations below. The title
-        card must appear over complete darkness, in
-        plain white text, with no music. The wind cuts
-        at FADE TO BLACK. Silence before the title card.
-        Then the title card alone.
-      needs_revision: true
-      revision_note: >
-        Add the Julian notebook callback before FADE TO BLACK.
-        See Expansion Recommendations, Section 3.
-```
-
----
-
-## Episode 6 — Beat Summary
-
-```yaml
+```YAML
+title: "Finchley Presents the Directive"
 episode: 6
-total_beats: 12
+act: 1
+sequence: 2
+scene_number: 52
+beat_index: 1
 
-beat_function_counts:
-  primary:
-    irony: 4
-    elegy: 3
-    comedy: 2
-    payoff: 1
-    escalation: 1
-    satire: 1
+beat_function: escalation
+beat_function_secondary: [irony, tension]
+movement_type: escalation
+information_type: reveal
+scope: primary_plot
+engine: institution
+public_private_axis: private
 
-pressure_curve:
-  - ep6_sc41_b01:   4   # Pedestrian flow patterns
-  - ep6_sc52_b01:   6   # The third act
-  - ep6_sc52_b02:   7   # Cold tea
-  - ep6_sc53_b01:   7   # I like it
-  - ep6_sc54_b01:   4   # Form 18-G
-  - ep6_sc55_b01:   7   # This is for peace
-  - ep6_sc55_b02:   9   # Too much light
-  - ep6_sc55_b03:   7   # PEA E
-  - ep6_sc56_b01:   6   # A tomb
-  - ep6_sc58_b01:   7   # All we ever had to do was wait
-  - ep6_sc59_b01:   5   # Imagine
-  - ep6_sc59_b02:  10   # The cosmic joke
+primary_character: "Finchley"
+opposition: "Nigel (internal)"
+stakes: >
+  Operation Elegy confirmed as an assassination directive.
+  The series escalates from surveillance to state murder.
 
-threads_closed_this_episode:
-  - nigel_conscience        # CLOSES in ep6_sc55_b02 + ep6_sc59_b02
-  - clive_delusion          # CLOSES in ep6_sc55_b03 + ep6_sc59_b02
-  - john_yoko               # CLOSES in ep6_sc55_b03
-  - operation_elegy         # CLOSES in ep6_sc56_b01
-  - photo_motif             # CLOSES in ep6_sc58_b01
-  - queens_wisdom           # CLOSES in ep6_sc58_b01
-  - mountbatten_strategy    # CLOSES in ep6_sc53_b01
-  - percy_equipment_thread  # CLOSES in ep6_sc54_b01
-  - george_sitar            # CLOSES in ep6_sc59_b01
-  - ringo_immunity          # CLOSES in ep6_sc59_b01
+structural_role: >
+  Finchley lays out Operation Elegy. Formal language throughout.
+  The word 'termination' used precisely once, then not again.
+  Clive asks for clarification. Finchley doesn't provide it.
+  Nigel listening with the expression of a man taking minutes
+  at a meeting he will need to forget. The directive exists as
+  paper. The paper is presented. The meeting continues.
+triggered_by: "The accumulated threat assessment of Episodes 1-5"
+leads_to: "sc52_b02 — the Pigeon Gambit"
 
-threads_unresolved:
-  - cynthia_arc
-    status: UNRESOLVED — SERIES' MOST SIGNIFICANT OMISSION
+status_quo_before: >
+  Operation Minuet (surveillance/disruption) has been closed.
+  The institution has determined that a more permanent solution
+  is required.
+shift: >
+  The series crosses a threshold. This is no longer about
+  managing perception or disrupting creativity. The Crown wants
+  John dead. The institution processes this as standard
+  operational planning.
+status_quo_after: >
+  The directive exists. Nigel has heard it. Clive has heard it.
+  Neither has objected. The meeting is still in progress.
+
+thread_effects:
+  - thread: "operation_elegy"
+    effect: opens
     note: >
-      Cynthia does not appear in Episode 6. The wardrobe
-      scene from Episode 3 is the series' most disciplined
-      sequence and it has received no payoff across three
-      episodes. The structural debt is unrecoverable
-      without a new scene. See Expansion Recommendations,
-      Section 1.
-  - julian_notebook
-    status: UNRESOLVED — MISSED OPPORTUNITY
+      The operation's formal initiation. Procedurally cursed
+      from this moment — 'termination' used once then carefully
+      not used again. The institution can't even name what
+      it's doing.
+  - thread: "nigel_conscience"
+    effect: advances
     note: >
-      Nigel's 'stories about love / no action required'
-      notebook entry from Episode 2 is the series' moral
-      center and was identified in the prior analysis as
-      the Falklands scene's missing callback. Without it,
-      the Falklands ending is good. With it, it's devastating.
-      See Expansion Recommendations, Section 3.
+      The pressure begins. Nigel hears the directive and takes
+      minutes. His conscience is present but not yet in conflict
+      — that comes with the rifle, then with the concert.
 
-episode_grade: "B+"
-grade_note: >
-  Episode 6 as written is the right ending for the wrong
-  length. Every scene is doing its job. The Abbey Road
-  opener is the series' best cold open. Percy is the
-  series' most reliable payoff. PEA E is the series'
-  best visual gag. 'All we ever had to do was wait' is
-  the series' finest line. The Falklands ending with
-  the title card is correct.
+theme: "Institutional language as moral laundering"
+pressure_level: 7
+irreversibility: personal
 
-  What prevents A: the episode is approximately half
-  the length it should be. The missing ~25 pages leave
-  five significant structural gaps — the Cynthia payoff,
-  the Julian notebook callback, individual Beatle scenes
-  that give each thread a proper close, a Ringo immunity
-  payoff scene, and a scene giving the Crown's institutional
-  machinery a final beat separate from Philip. Each of
-  these is addressable. See Expansion Recommendations.
+quality_note: >
+  'Termination' used once, then not again — the scene's
+  controlling detail. The institution is literate enough to know
+  the word is dangerous and uses it once (to be precise) then
+  buries it in procedure. Nigel writing it in the minutes is
+  the beat.
+needs_revision: false
 ```
 
----
+#### Beat 2
 
-## Thread Closure Audit — Full Series
+- beat_id: "ep6_sc52_b02"
+
+```YAML
+title: "The Pigeon Gambit"
+episode: 6
+act: 1
+sequence: 3
+scene_number: 52
+beat_index: 2
+
+beat_function: comedy
+beat_function_secondary: [satire, development]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: institution
+public_private_axis: private
+
+primary_character: "Clive"
+opposition: "Finchley"
+stakes: "The intellectual frame through which the operation will proceed"
+
+structural_role: >
+  Clive proposes the Pigeon Gambit. Nigel asks what a Pigeon
+  Gambit is. Clive explains at some length. Finchley: 'That's
+  not a gambit. That's a filing error with ambitions.' The
+  institutional frame consuming even its own worst impulse.
+  But the directive stands. The Pigeon Gambit will not be used,
+  but it will be filed.
+triggered_by: "The assassination directive / Clive's need to contribute"
+leads_to: "sc53 — Philip approves the operation"
+
+status_quo_before: "A murder directive has just been presented."
+shift: >
+  The institutional response to a murder directive is to
+  immediately generate an absurd alternative plan, have it
+  rejected, and then file it. The murder directive is not
+  rejected. The filing error with ambitions is. This is the
+  institution's moral hierarchy.
+status_quo_after: >
+  The Pigeon Gambit is on record. Operation Elegy proceeds
+  without it. The gap between what was proposed and what was
+  dismissed says everything about the institution's internal
+  logic.
+
+thread_effects:
+  - thread: "clive_loyalty"
+    effect: advances
+    note: >
+      Clive follows. He proposes alternatives — absurd ones —
+      but doesn't refuse. His loyalty to the institution is
+      established here as the thing that will define his
+      Falklands arrival.
+  - thread: "institution_absurdity"
+    effect: advances
+    note: >
+      The murder directive proceeds; the filing error with
+      ambitions is rejected. The hierarchy is completely inverted.
+
+theme: "Bureaucratic energy redirected away from moral confrontation"
+pressure_level: 4
+irreversibility: none
+
+quality_note: >
+  Don't explain the Pigeon Gambit too fully. Clive's explanation
+  should be just long enough to be clearly elaborate and clearly
+  wrong. Finchley's dismissal should be faster than the
+  explanation deserves.
+needs_revision: false
+```
+
+## SCENE 53
+
+scene_id: "ep6_sc53"
+scene_title: "Palace Study — Philip Approves"
+location: "Buckingham Palace, private study"
+characters: [Philip, Mountbatten, Finchley (reporting)]
+page_range: "10-12"
+date_in_story: "Late 1969"
+new_scene: false
+movement: 1
+
+### Beats:
+
+#### Beat 1
+
+- beat_id: "ep6_sc53_b01"
+
+```YAML
+title: "Over Mountbatten's Objection"
+episode: 6
+act: 1
+sequence: 4
+scene_number: 53
+beat_index: 1
+
+beat_function: escalation
+beat_function_secondary: [development, tension]
+movement_type: escalation
+information_type: none
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Philip"
+opposition: "Mountbatten"
+stakes: >
+  Royal sanction for the assassination. The directive moves
+  from institutional paper to Crown authority.
+
+structural_role: >
+  Philip approves Operation Elegy. Mountbatten in the room,
+  visibly uncomfortable. He objects once, quietly, and is not
+  acknowledged. Philip: 'They were always going to burn out.
+  We simply need to manage the timing.' The institutional voice
+  as calm as an actuarial table. Mountbatten's objection
+  disappears into the room without leaving a mark.
+triggered_by: "Operation Elegy directive / Finchley's formal presentation"
+leads_to: "sc53p1 — Mountbatten in the corridor alone"
+
+status_quo_before: >
+  The directive exists institutionally. It requires Royal
+  sanction to proceed to operational phase.
+shift: >
+  Sanction granted. The operation is now active. Mountbatten's
+  private objection is noted and ignored — the institution's most
+  efficient mechanism: it doesn't refuse dissent, it simply
+  doesn't register it.
+status_quo_after: >
+  Operation Elegy is sanctioned. Mountbatten's objection is on
+  no record anywhere. Philip is already reading something else.
+
+thread_effects:
+  - thread: "crown_power"
+    effect: advances
+    note: >
+      Philip's 'manage the timing' is the Crown's coldest line.
+      Not malicious — actuarial. The institution's hubris is that
+      it believes it controls the variable. It doesn't.
+  - thread: "mountbatten_thread"
+    effect: advances
+    note: >
+      The objection that isn't heard. Setup for sc53p1 — the
+      private registration of what just happened. And the
+      foreshadow of his 1979 assassination: the man who objected
+      quietly and was ignored, consumed by the system he served.
+
+theme: "Power exercised as temperament — not malice, just ease"
+pressure_level: 8
+irreversibility: public
+
+quality_note: >
+  Philip should not be playing a villain. He's doing what seems
+  obvious and correct to him. The horror is in how reasonable he
+  sounds. Mountbatten's objection should be almost inaudible —
+  one sentence, no emphasis. He knows it won't matter.
+needs_revision: false
+```
+
+## SCENE 53.1
+
+scene_id: "ep6_sc53p1"
+scene_title: "Palace Corridor — Elegy Approved"
+location: "Buckingham Palace corridor"
+characters: [Mountbatten]
+page_range: "13-14"
+date_in_story: "Late 1969, immediately after sc53"
+new_scene: true
+movement: 1
+
+### Beats:
+
+#### Beat 1
+
+- beat_id: "ep6_sc53p1_b01"
 
 ```yaml
-threads_closed_cleanly:
-  - ringo_immunity       # Good
-  - photo_motif          # Excellent
-  - percy_equipment      # Excellent
-  - george_sitar         # Good
-  - queens_wisdom        # Excellent
-  - nigel_conscience     # Excellent
-  - clive_delusion       # Excellent
-  - john_yoko            # Good
-  - operation_minuet     # Excellent
-  - philip_obsession     # Good
-  - john_paul_dynamic    # Good
-  - operation_elegy      # Good
+title: "Brandy and the Notebook"
+episode: 6
+act: 1
+sequence: 5
+scene_number: 53.1
+beat_index: 1
 
-threads_closed_with_weakness:
-  - business_card        # Plant was underplayed in Ep3
-  - brian_obsolescence   # Second closure in Ep4 correct but pill callback missed
-  - mountbatten_strategy # Quiet close in sc53, could be sharper
+beat_function: thesis
+beat_function_secondary: [setup, development]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
 
-threads_never_closed:
-  - cynthia_arc          # CRITICAL — needs new scene
-  - julian_notebook      # Important — needs Falklands callback
-  - animation_cel        # Minor — needs Ep3 plant + Ep6 image
+primary_character: "Mountbatten"
+opposition: "none"
+stakes: >
+  The only moment in the episode where an institutional figure
+  privately registers what the directive means.
+
+structural_role: >
+  Mountbatten pours brandy alone in the corridor. He opens a
+  small notebook. He writes: 'Elegy approved. God help us.' He
+  looks at the words for a moment. He caps the pen. He pockets
+  the notebook. He walks back toward the light. The corridor is
+  empty. The only witness is the notation.
+triggered_by: "Philip's approval / Mountbatten's unacknowledged objection"
+leads_to: "sc54 — Q-Branch operational phase begins"
+
+status_quo_before: >
+  Mountbatten has objected once and been ignored. The operation
+  is sanctioned. He is in a corridor with brandy.
+shift: >
+  He writes the notation. This is his moral act: a private record
+  in a private notebook that will never be shown to anyone, that
+  cannot change anything. He knows this. He writes it anyway.
+status_quo_after: >
+  The notation exists. The operation proceeds. The notation will
+  do nothing. Mountbatten's fate in 1979 is foreshadowed: the man
+  who objected quietly and kept a private record, consumed by the
+  system he served faithfully.
+
+thread_effects:
+  - thread: "mountbatten_thread"
+    effect: closes
+    note: >
+      His final beat. The notebook rhymes with Nigel's —
+      private moral registrations in an institution that runs
+      on public indifference. Both men write things down that
+      no one will read. One crosses a word out ten years later.
+      One is gone by then.
+  - thread: "nigel_notebook"
+    effect: advances
+    note: >
+      The thematic rhyme is structural: Mountbatten's 'God help
+      us' and Nigel's 'no action required / yet.' Two private
+      moral moments in an institution with no mechanism for
+      private moral moments. The notebooks are the only place
+      the truth lives.
+
+theme: >
+  Private conscience as the institution's only moral record —
+  written in notebooks that change nothing.
+pressure_level: 6
+irreversibility: none
+
+quality_note: >
+  This scene should be very short and very quiet. Mountbatten
+  doesn't monologue. He doesn't editorialize beyond the four
+  words. The brandy, the notebook, the corridor. Resist the urge
+  to expand it — its power is entirely in what it doesn't say.
+needs_revision: false
 ```
 
----
+## SCENE 54
+
+scene_id: "ep6_sc54"
+scene_title: "Q-Branch — Percy and the Faulty Rifle"
+location: "MI5 Technical Division"
+characters: [Nigel, Percy]
+page_range: "15-17"
+date_in_story: "Late 1969"
+new_scene: false
+movement: 1
+
+### Beats:
+
+#### Beat 1
+
+- beat_id: "ep6_sc54_b01"
+  
+```yaml
+title: "It Passed Inspection"
+episode: 6
+act: 1
+sequence: 6
+scene_number: 54
+beat_index: 1
+
+beat_function: comedy
+beat_function_secondary: [satire, irony]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: institution
+public_private_axis: private
+
+primary_character: "Percy"
+opposition: "Nigel"
+stakes: "The operational weapon — and the institution's relationship to its own standards."
+
+structural_role: >
+  Percy issues the rifle. It is obviously faulty: a percussion
+  mechanism from a different model, a sight not calibrated since
+  Korea. Nigel notes both problems. Percy: 'It passed inspection.'
+  Nigel: 'What inspection?' Percy: 'The inspection I conducted
+  this morning.' Nigel: 'Were you present for the inspection?'
+  Percy: 'I conducted it, yes.' A beat. 'In the sense that I was
+  present for it.' The weapon is both certified and defective
+  because the certifier cannot acknowledge the defect without
+  producing a paper trail that implicates him in certifying it.
+  Nigel takes the rifle.
+triggered_by: "Operation Elegy's operational phase / weapons issuance"
+leads_to: "sc54p1 — Registry / Ringo's empty file"
+
+status_quo_before: "Operation Elegy is sanctioned and moving to operational phase. Nigel needs a weapon."
+shift: >
+  The weapon is defective and certified. The institution has
+  produced an assassination operation equipped with a rifle that
+  doesn't work, certified by the man who knows it doesn't work,
+  who cannot say so without implicating himself. Nigel takes it anyway.
+status_quo_after: >
+  Nigel has the rifle. It is certified. It will not function
+  correctly. This is the operational baseline.
+
+thread_effects:
+  - thread: "operation_elegy"
+    effect: advances
+    note: >
+      Procedurally cursed from issuance. The operation cannot
+      succeed with this rifle. Percy knows this. Nigel knows
+      this. The paperwork says otherwise.
+  - thread: "institution_absurdity"
+    effect: advances
+    note: >
+      The murder operation equipped with a broken rifle because
+      the certifier cannot admit the rifle is broken. The
+      institution's self-protective logic operating precisely as
+      designed — to protect itself, not its objectives.
+  - thread: "nigel_conscience"
+    effect: advances
+    note: >
+      He takes the rifle knowing what it is. His conscience is
+      not yet in direct conflict — he doesn't know yet what he'll
+      do at the concert. But he knows the operation is compromised.
+
+theme: >
+  Institutional self-protection as the primary operational value
+  — superseding the actual operation.
+pressure_level: 5
+irreversibility: personal
+
+quality_note: >
+  'In the sense that I was present for it' is the scene's best
+  line. Don't rush past it. Percy should be completely sincere
+  — he did conduct an inspection, in the sense that he was there.
+  That's not a lie. It's something worse than a lie.
+needs_revision: false
+```
+
+## SCENE 54.1 — NEW
+
+scene_id: "ep6_sc54p1"
+scene_title: "MI5 Registry — Ringo's Empty File"
+location: "MI5 Registry"
+characters: [Nigel, Finchley]
+page_range: "18-19"
+date_in_story: "Late 1969"
+new_scene: true
+movement: 1
 
-## Expansion Recommendations
+### Beats
 
-Six scene additions to bring Episode 6 to approximately 50 pages. Each is designed to close a structural debt, deepen an existing thread, or give the series' ending the weight it has earned.
+#### Beat 1
 
----
-
-### Section 1: The Cynthia Scene
-
-**~6 pages. Insert between sc56 (debriefing) and sc58 (Queen's sitting room).**
-
-The series' most critical structural debt. The wardrobe scene in Episode 3 is the most disciplined sequence in the series — Cynthia alone, the photograph, the feather, everything put back exactly where it was, the phone call to Mimi. It closed the thread as an event. It never received its payoff.
-
-**New Scene: sc57 — EXT./INT. KENWOOD / CYNTHIA'S NEW FLAT — DAY (LATE 1969)**
-
-Cynthia in a new flat. Small, quiet, hers. The boxes from Kenwood still half-unpacked — she's been here a few months but hasn't quite committed to being here. A photograph of Julian on the windowsill. No photograph of John.
-
-She is reading something — a newspaper, a magazine — and she sets it down when something catches her eye. We see what she sees: a small item in the arts pages. Not a headline. A footnote. John and Yoko's latest conceptual art project — a bag event, perhaps, or the Bed-In coverage. The photograph in the paper shows John and Yoko in bed, white sheets, at peace. John is laughing.
-
-She looks at it for a long moment. Her expression is not angry, not sad. It is something more complicated — the face of a person who has been waiting to feel something and has discovered they feel less than expected.
-
-She folds the newspaper carefully and sets it on the table. She looks around her flat — the boxes, the photograph of Julian, the afternoon light through an unfamiliar window.
-
-Then she picks up a pen and a piece of paper and begins to write. We don't see what she writes. She writes steadily, without crossing anything out.
-
-When she finishes, she puts the pen down and reads what she's written. She makes one small addition. Then she folds the paper and puts it in an envelope and addresses it.
-
-We see the address: Julian. Her handwriting on the envelope is careful, deliberate.
-
-She puts a stamp on it. She looks at it for a moment. Then she puts her coat on, picks up the envelope, and walks to the post box on the corner. She drops it in.
-
-She stands at the post box for a moment, her hand still extended where the letter went. Then she withdraws her hand, puts it in her coat pocket, and walks back toward her flat. Not quickly. Not slowly. Just walking.
-
-The scene ends on the post box. A red post box on a grey London street.
-
-**Why this works:** The scene doesn't give Cynthia resolution — it gives her continuation. She isn't healed. She isn't angry. She is a person who has decided to write a letter to her son, which is what you do when everything else has been decided for you. The post box as the closing image echoes Brenda in Episode 5 — the bureaucratic object that carries the private act into the world without comment. The scene is three or four minutes long and costs nothing emotionally from the audience except the recognition that she is still here, still moving forward, still Cynthia.
-
----
-
-### Section 2: The Ringo Immunity Payoff Scene
-
-**~4 pages. Insert after sc54 (Percy) and before sc55 (concert).**
-
-The immunity thread has the correct final image in the montage — Ringo on a film set, laughing, uncomplicated joy. But the series has been building toward a specific institutional payoff: the Percy blank file. The prior analysis identified this as the thread's correct closing beat. It's missing.
-
-**New Scene: sc54a — INT. MI5 REGISTRY — DAY (FEBRUARY 1970)**
-
-Percy, alone in the registry after Nigel and Clive have left with the Anschütz. He's filing the sign-out form. Standard procedure. He opens the operational subject files to log the equipment deployment against the relevant subject.
-
-He opens Lennon's file. Thick — five years of reports, transcripts, psychological assessments, field notes. He opens McCartney's file. Slightly thinner but substantial. He opens Harrison's file. Respectable volume. He opens Starr's file.
-
-It is almost entirely empty. Three sheets of paper. 
-
-He examines the three sheets. The first: the original Episode 1 briefing assessment. 'Subject displays a baseline level of contentment impervious to psycho-chemical manipulation. Recommend: ignore.' Signed Finch. The second: a single field report from Episode 3. 'Subject encountered in public house. Locals unable to recall his name. Ring something.' Signed Barrow. The third: a blank form with 'No Significant Activity to Report' printed at the top, with the dates spanning 1965-1969. Filed by... nobody. It was pre-printed. No one ever found anything to report.
-
-Percy stares at the three sheets. He looks at the three thick files. He looks back at the thin one. He carefully replaces the three sheets in the Starr file and closes it. He places it back in the cabinet. He closes the drawer.
-
-He picks up his landmine and resumes polishing.
-
-**Why this works:** The blank file is the immunity thread's correct institutional payoff — the bureaucracy's own records confirming what the series has been demonstrating. 'Recommend: ignore' from Nigel's initial assessment as the last word on Ringo. Percy finding no significant activity to report for five years and accepting it with complete equanimity is the correct emotional register. The landmine resumed is Percy's version of the Queen's crossword: continuity as its own answer.
-
----
-
-### Section 3: The Julian Notebook Callback
-
-**~1 page addition to sc59. Insert before FADE TO BLACK.**
-
-The prior analysis identified this as the Falklands scene's single most important missing element. The 'stories about love / no action required' entry from Episode 2 is the series' moral center — Nigel hearing John explain guitar strings to Julian and writing his verdict in the surveillance notebook. It was identified in Episode 2's beat breakdown as the series' emotional core and should have been recalled in the finale.
-
-**Addition to sc59 — After the radio announcement, before FADE TO BLACK:**
-
-After the news plays. After Nigel stops writing. After he and Clive just look at each other.
-
-Nigel slowly opens his desk drawer. He removes a surveillance notebook — old, worn, the same one from Episode 2. He opens it. We see his handwriting. He turns to a page near the beginning.
-
-**CLOSE ON THE PAGE:** 'Subject observed explaining guitar string composition to young son, Julian. Subject states the instrument is capable of "stories about love." — No action required.'
-
-Nigel looks at it for a long moment. Then he closes the notebook. He places it back in the drawer. He closes the drawer.
-
-He looks across at Clive. Clive looks back at him. The wind howls.
-
-FADE TO BLACK.
-
-**Why this works:** The notebook callback does three things simultaneously. It closes the series' emotional thread — the moment where Nigel understood what John was and chose 'no action required' — by returning to it at the moment John is gone. It recontextualizes the Falklands scene from 'two men receiving ironic news' into 'a man confronting the full weight of what he knew and what he chose and what it meant.' And it gives Nigel's stillness — which is correct but currently incomplete — a physical object to organize around. The notebook is small, worn, and five years old. Everything the series was about is in it. He closes it and puts it away. That's the ending.
-
----
-
-### Section 4: George in the Garden / Nigel in the Bookshop
-
-**~5 pages. Insert before or within the montage, as a standalone scene rather than montage image.**
-
-The George arc is the series' most carefully constructed thread — from the briefing room sitar joke in Episode 1 through the bookshop manipulation in Episode 2 through the Ravi Shankar scenes through 'see you round the clubs' in Episode 4. The montage gives it a single image (George at Friar Park). The series has earned a fuller close.
-
-**New Scene: sc59a — EXT. FRIAR PARK GARDENS — DAY (1973)**
-
-George in his garden at Friar Park. Not a montage image — a real scene. He is working on a section of the garden that has been previously neglected — clearing weeds, turning soil. Patient, methodical, not in a hurry.
-
-He becomes aware of someone watching and looks up. Standing at the garden gate, looking uncertain, is an older man in a brown raincoat. Nigel. Not in an operational capacity — he's been in the Falklands for two years by now, but this is clearly set slightly earlier, or perhaps he's returned briefly for leave. He looks like what he is: a civil servant who has wandered slightly out of his way.
-
-George looks at him without recognition. Just a man at the gate.
-
-GEORGE: Can I help you?
-
-NIGEL: I — no. I'm sorry. I was just — the gardens are extraordinary. I didn't mean to intrude.
-
-He clearly means it. He's not surveilling. He's just here.
-
-George looks at him for a moment. Something in the man's manner — the weariness, the genuine appreciation — makes him open the gate rather than close the conversation.
-
-GEORGE: Come in, then. Mind the sitar.
-
-NIGEL: *(caught off guard)* I beg your pardon?
-
-George gestures. There is a sitar resting against a garden wall in the sun.
-
-GEORGE: I leave it out sometimes. *(beat)* To remind me.
-
-NIGEL: *(quietly)* Of what?
-
-GEORGE: *(back to his weeding)* That things that seem complicated are usually just... sitting in the garden. Waiting.
-
-Nigel stands in the garden for a moment, looking at the sitar, the roses, the extraordinary grounds. Then he nods, thanks George, and leaves. George watches him go, slightly puzzled but not concerned. He returns to his weeding.
-
-Nigel walks down the lane away from Friar Park. He takes out his old notebook. He opens it to a blank page. He writes one word. We don't see what it is.
-
-He puts the notebook away and keeps walking.
-
-**Why this works:** This scene does something the series hasn't done — it lets Nigel and one of his subjects share a moment of genuine human contact, without surveillance, without cover story, without agenda. George doesn't know who Nigel is. Nigel doesn't need George to know. The sitar completing the thread — from Episode 1 briefing joke to Episode 3 Ravi Shankar to Episode 4 withdrawal to here, in the garden, in the sun — is the george_sitar thread's correct emotional close. 'Things that seem complicated are usually just sitting in the garden. Waiting.' Is the series' thesis in George's register: the same as the Queen's 'all we ever had to do was wait,' arrived at from the opposite direction.
-
----
-
-### Section 5: Paul at the Farm — The Unsung Song
-
-**~3 pages. Insert in the montage sequence as a standalone beat.**
-
-Paul's arc — the establishment grooming, the knighthood, the paranoid conspiracy theory, the crumpled letter — ends without resolution. His individual close in the montage is the most generic image (laughing with daughter in field). Paul deserves a scene that gives his arc a specific close.
-
-**New Scene: sc59b — EXT./INT. HIGH PARK FARM, SCOTLAND — DAY (1971)**
-
-Paul at the farm. Beard. Wellies. The Scotland greyness. He is carrying a guitar — not performing, just carrying it from the barn to the farmhouse. He stops on the path, stands in the grey morning air, and plays a few chords. Not a song. Not 'Maybe I'm Amazed' or 'Ram' or anything finished. Just chords.
-
-He changes the chord. Listens. Changes it again.
-
-He is finding something. The thing he was trying to find when Linda said 'that's a nice one, what is it?' in Episode 5. The answer, here, is the same: 'Don't know yet. It's just... there.'
-
-He plays the fragment again. Stops. Looks out at the Scottish hills. The morning grey.
-
-Then he plays it a third time — slightly differently — and this time he keeps going. He plays for thirty seconds. Not a finished song. A direction. He walks the rest of the way to the farmhouse, still playing.
-
-Linda appears at the door with a mug of tea, camera around her neck. She hears the fragment. She doesn't say anything. She just watches him come up the path.
-
-He gets to the door. Stops playing. Takes the tea.
-
-PAUL: I think I've got one.
-
-LINDA: *(smiling)* What's it called?
-
-PAUL: *(thinks)* Nothing yet.
-
-He goes inside. Linda watches him go, then raises her camera and takes a photograph of the empty path where he was standing.
-
-**Why this works:** The fragment connects to Episode 5 sc46's 'gentle, unformed melody' — the thing that was interrupted by the knighthood letter. Here it's found again, on the other side of everything. Paul's arc closes not with the establishment honor but with the music — the thing that preceded every operation, every institutional grooming campaign, every letter and flashback and boardroom confrontation. The melody returns. Linda photographs the empty path — her instinct for the image of absence, which is the series' recurring motif, done by the right person. The scene is three pages long and answers every structural question the Paul arc raised without explaining any of them.
-
----
-
-### Section 6: Nigel's Last Report
-
-**~2 pages. Insert between sc56 (debriefing) and the new Cynthia scene.**
-
-The series needs one more institutional beat before the Queen's sitting room — something that shows the bureaucratic machinery processing its own failure, not from Philip's perspective but from the paper trail's perspective. This scene also gives the animation cel thread its missing close.
-
-**New Scene: sc56a — INT. MI5 REGISTRY — DAY (MARCH 1970)**
-
-Sir Derek Finchley alone in the registry. Filing. He is removing files from an active drawer and placing them in a sealed box. He works systematically, without expression. The box will be marked 'CLOSED — SEALED — RESTRICTED' and placed in a secondary archive where it will sit, undisturbed, for thirty years.
-
-He removes the Beatles files — all four. He removes the Operation Minuet file. He removes the Operation Elegy file. He removes the Clive Barrow Blue Meanie animation file (a single slim folder, containing one progress report: '47 cels completed out of approximately 3,000. Methodology: sound. Timeline: 1987. Status: ongoing.'). He places them all in the box.
-
-He places on top of the box a single unsigned memo: 'This file has been reviewed and assessed as containing no material of ongoing operational significance. Contents classified. Access restricted. No further action required.'
-
-He seals the box with tape.
-
-He looks at it for a moment.
-
-Then he writes on the outside with a marker, in his neat civil servant hand: 'Operation Minuet / Operation Elegy. Concluded. Filed.'
-
-He places it on a shelf. The shelf already contains a dozen identical boxes. His contribution to the archive is indistinguishable from any other.
-
-He turns off the light. He exits.
-
-**Why this works:** The animation cel thread gets its close — '47 cels completed, methodology sound, timeline 1987, status ongoing' — in the official record, as absurd as Clive intended and as futile as the prior analysis identified. More importantly, the scene completes Sir Derek's character function: the bureaucrat who makes terrible things sound reasonable, now making reasonable things sound permanent. 'No further action required' as the series' last institutional word — closing the loop on 'no action required / yet' from Episode 2's blackboard. The archive box indistinguishable from a dozen others is the correct image of how power buries its failures. Nobody will ever find it. Nobody will ever look.
-
----
-
-## Revised Episode 6 Running Order
+- beat_id: "ep6_sc54p1_b01"
 
 ```yaml
-revised_scene_order:
-  - sc41    # Abbey Road cover — the composition controlled (existing)
-  - sc52    # Safe house — the Pigeon Gambit (existing)
-  - sc53    # Philip approves — thinking like Margaret (existing)
-  - sc54    # Percy / Q-Branch — the Anschütz (existing)
-  - sc54a   # Registry — Ringo's blank file (NEW, ~4pp)
-  - sc55    # Concert — the Pigeon Gambit / PEA E (existing)
-  - sc56    # Debriefing — a tomb (existing)
-  - sc56a   # Registry — Finchley files everything (NEW, ~2pp)
-  - sc57    # Cynthia's flat — the letter to Julian (NEW, ~6pp)
-  - sc58    # Queen's sitting room — all we ever had to do was wait (existing)
-  - sc59    # Montage + Falklands (existing, trimmed)
-  - sc59a   # George in garden / Nigel at the gate (NEW, ~5pp)
-  - sc59b   # Paul at the farm — the unsung song (NEW, ~3pp)
-  - sc59    # Return to Falklands — radio news + Julian notebook (existing + NEW callback ~1pp)
 
-estimated_new_pages: 21
-existing_pages: 25
-revised_total: 46
+title: "Three Pages"
+episode: 6
+act: 1
+sequence: 7
+scene_number: 54.1
+beat_index: 1
 
-note: >
-  46 pages versus the target of ~50. The gap can be closed
-  by expanding any of the new scenes — particularly the
-  Cynthia scene (could run to 8 pages) or the George/Nigel
-  garden scene (could run to 7 pages) — without changing
-  their structural function. Alternatively, a brief new scene
-  giving Mountbatten a private final moment — perhaps looking
-  at a photograph of the naval map, realizing the operation
-  was always a mistake, saying nothing — would add 2 pages
-  and close the mountbatten_strategy thread more cleanly
-  than its current close in sc53.
+beat_function: irony
+beat_function_secondary: [development, thesis]
+movement_type: stasis
+information_type: payoff
+scope: subplot
+engine: institution
+public_private_axis: private
+
+primary_character: "Finchley"
+opposition: "none"
+stakes: "The institution's confession: it was never watching the right people."
+
+structural_role: >
+  Finchley retrieves the operational files. Ringo's is nearly
+  empty. Three pages. A note: 'Subject assessed as non-threatening.
+  No further surveillance recommended.' A later addendum:
+  'Previous assessment confirmed.' A later addendum to the
+  addendum: 'See previous.' Finchley holds the thin file. Nigel:
+  'What does it say?' Finchley: 'It says we don't really have
+  much on Ringo.' Nigel: 'Were we watching him?' Finchley: 'In
+  the sense that he was part of the group we were watching, yes.'
+  A beat. 'Specifically, no.'
+triggered_by: "Operational file retrieval for Operation Elegy briefing"
+leads_to: "sc55 — the concert / assassination attempt"
+
+status_quo_before: >
+  The institution has been surveilling The Beatles for five
+  episodes. Its files are presumably comprehensive.
+shift: >
+  The Ringo file contains three pages and a chain of addenda that
+  reference each other in a closed loop. The institution surveilled
+  the wrong people thoroughly and the right people not at all.
+  Ringo — the most contented, most stable, least damaged — has
+  the emptiest file.
+status_quo_after: >
+  The institution's archival record revealed as a monument to what
+  it missed. The file is filed. The operation proceeds.
+
+thread_effects:
+  - thread: "ringo_thread"
+    effect: advances
+    note: >
+      The institution never understood him. His file proves it.
+      The 'see previous' loop is the archive's most honest
+      statement: we checked, found nothing, checked again, found
+      nothing, see previous. He was genuinely not a threat.
+      They couldn't categorize that.
+  - thread: "institution_records"
+    effect: advances
+    note: >
+      The archive as monument to institutional blindness. Files
+      extensive for John, Paul, and George — not because they
+      were more dangerous but because they were more legible.
+      Ringo was illegible. The institution documented what it
+      could see.
+
+theme: "The archive as record of what the institution couldn't see"
+pressure_level: 3
+irreversibility: none
+
+quality_note: >
+  'In the sense that he was part of the group we were watching,
+  yes. Specifically, no.' — Finchley's best line in the episode.
+  The 'see previous' addendum chain is the scene's best visual
+  joke. Let the file do the work; Nigel doesn't need to comment.
+needs_revision: false
+```
+
+## SCENE 55
+
+scene_id: "ep6_sc55"
+scene_title: "UNICEF Concert — PEA E"
+location: "Concert Hall, London"
+characters: [Nigel, Clive, Arthur (asset), John (unaware)]
+page_range: "20-25"
+date_in_story: "1969"
+new_scene: false
+movement: 2
+
+### Beats
+
+#### Beat 1
+
+- beat_id: "ep6_sc55_b01"
+
+```yaml
+title: "Operational Execution"
+episode: 6
+act: 2
+sequence: 8
+scene_number: 55
+beat_index: 1
+
+beat_function: misfire
+beat_function_secondary: [tension, payoff]
+movement_type: escalation
+information_type: none
+scope: primary_plot
+engine: institution
+public_private_axis: collision
+
+primary_character: "Nigel"
+opposition: "the plan (as written)"
+stakes: "John's life. The operation's success. The series' central dramatic question resolved."
+
+structural_role: >
+  The concert. Nigel at the lighting board. The plan: cut the
+  lights at the critical moment. Arthur in position. What
+  happens: Nigel floods all lights. All of them. The hall
+  whited out completely. Arthur — the assigned asset — blinded.
+  The shot fired blind. The bullet hits the 'PEACE' banner,
+  destroying the 'C' and part of the final 'E.' John continues
+  playing, unaware anything happened. The audience applauds
+  what they assume is an artistic choice.
+triggered_by: "Operation Elegy's operational phase / concert date"
+leads_to: "sc55_b02 — the PEA E assessment"
+
+status_quo_before: "Operation Elegy is live. Arthur is positioned. Nigel is at the lighting board. John is on stage."
+shift: >
+  Nigel chooses the wrong direction on the lighting board —
+  or the right direction, depending on how you read it. The
+  assassination attempt fails. John is alive. The banner reads
+  'PEA E.'
+status_quo_after: "John is alive. The operation has failed and succeeded simultaneously. The banner is ruined."
+
+thread_effects:
+  - thread: "nigel_conscience"
+    effect: advances
+    note: >
+      This is the episode's moral center. Nigel floods the lights
+      — too much light, blinding the asset rather than providing
+      cover. Whether deliberate is the question the series leaves
+      open. The beat breakdown reads it as deliberate: the
+      flooding is Nigel's choice, the same choice he references
+      in the notebook crossing-out at the ending.
+  - thread: "operation_elegy"
+    effect: closes
+    note: >
+      The operation has failed in its stated objective (John is
+      alive) and succeeded in its unstated one (the Crown will
+      not be directly implicated in a death it ordered, because
+      the death didn't happen). The institution's failure is also
+      its alibi.
+  - thread: "john_survival"
+    effect: advances
+    note: "For now. The operation failed. The universe will not fail in 1980."
+
+theme: "The institution's incompetence as the accidental mechanism of mercy"
+pressure_level: 10
+irreversibility: public
+
+quality_note: >
+  The flooding of the lights is the series' moral hinge. Don't
+  make Nigel's intention explicit here — leave it readable both
+  ways. The comedy of the PEA E banner is the scene's surface;
+  the moral question is beneath it, and the ending (the notebook)
+  is what retroactively answers it.
+needs_revision: false
+```
+
+#### Beat 2
+
+- beat_id: "ep6_sc55_b02"
+
+```yaml
+title: "PEA E"
+episode: 6
+act: 2
+sequence: 9
+scene_number: 55
+beat_index: 2
+
+beat_function: comedy
+beat_function_secondary: [comedy, irony]
+movement_type: deescalation
+information_type: none
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Clive"
+opposition: "none"
+stakes: "Assessment of what just happened"
+
+structural_role: >
+  Clive looking up at the banner from the wings. 'Is that...?'
+  Nigel: 'PEA E. Yes.' Clive: 'Was that the plan?' Nigel: 'No.'
+  Clive: 'Did it work?' Nigel: 'In the sense that he's still
+  alive, yes.' Clive: 'And the banner?' Nigel: 'The banner will
+  be somebody else's problem.'
+triggered_by: "The bullet hitting the banner / the lights flooding"
+leads_to: "sc56 — the debriefing"
+
+status_quo_before: "The assassination attempt has just failed. John is still playing. The banner reads 'PEA E.'"
+shift: >
+  The two men who know what just happened assess it in the only
+  terms available: institutional outcome. He's alive. The banner
+  is ruined. That's two facts. The second fact is somebody else's
+  problem.
+status_quo_after: "The operation is over. The assessment is complete. The debrief is coming."
+
+thread_effects:
+  - thread: "nigel_clive"
+    effect: advances
+    note: >
+      Their last operational exchange. Clive asks, Nigel answers
+      with qualifications, the qualifications contain the truth,
+      neither of them names the truth.
+
+theme: "The institutional voice as the only available response to a moral act"
+pressure_level: 3
+irreversibility: none
+
+quality_note: >
+  'The banner will be somebody else's problem' is the scene's
+  last line and should be the last line of the scene. Camera on
+  the banner for a beat after the dialogue ends.
+needs_revision: false
+```
+
+## SCENE 56
+
+scene_id: "ep6_sc56"
+scene_title: "Debriefing — The Verdict and the Tomb"
+location: "MI5 HQ"
+characters: [Nigel, Clive, Finchley, Civilian Administrator]
+page_range: "26-28"
+date_in_story: "Late 1969"
+new_scene: false
+movement: 2
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_sc56_b01"
+
+```yaml
+title: "A Bloody Farce"
+episode: 6
+act: 2
+sequence: 10
+scene_number: 56
+beat_index: 1
+
+beat_function: payoff
+beat_function_secondary: [comedy, development]
+movement_type: stasis
+information_type: none
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Finchley"
+opposition: "Nigel / Clive (receiving)"
+stakes: "Philip's formal verdict on the operation's failure."
+
+structural_role: >
+  Philip's rage delivered through Finchley as intermediary,
+  reading from a prepared statement in a voice emptied of all
+  affect. 'His Royal Highness wishes to convey his extreme
+  dissatisfaction with the outcome of Operation Elegy, which
+  he describes as, and I'm quoting directly, "a bloody farce."'
+  Nigel: 'Is that the full quote?' Finchley: 'There is a second
+  sentence.' A beat. 'It contains profanity I am not prepared
+  to read aloud.'
+triggered_by: "Operation Elegy's failure / the PEA E banner"
+leads_to: "sc56_b02 — the Falklands posting"
+
+status_quo_before: "The operation has failed. Philip knows. The institutional response is being formulated."
+shift: >
+  The Crown's verdict delivered as a prepared statement read by
+  an intermediary who cannot bring himself to read the second
+  sentence. The institutional distance between the person who
+  feels the rage and the mechanism that delivers it is the
+  scene's point.
+status_quo_after: "The verdict is delivered. Finchley has performed his function."
+
+thread_effects:
+  - thread: "finchley_characterization"
+    effect: advances
+    note: >
+      Finchley at his most characteristic: he does his job
+      completely, without editorializing, without cruelty. He
+      reads the statement. He declines to read the second
+      sentence. He moves to the next item. He is not Philip's
+      villain. He is Philip's mechanism.
+
+theme: >
+  Institutional rage as administrative procedure — the emotion
+  real, the delivery laundered through protocol.
+pressure_level: 6
+irreversibility: none
+
+quality_note: >
+  Finchley's delivery should be completely flat. The comedy is
+  entirely in the contrast between the content ('a bloody farce')
+  and the affect (zero). He is not embarrassed to be reading this.
+  He is performing a function.
+needs_revision: false
+```
+
+#### Beat 2
+beat_id: "ep6_sc56_b02"
+
+```yaml    
+title: "The Tomb"
+episode: 6
+act: 2
+sequence: 11
+scene_number: 56
+beat_index: 2
+
+beat_function: payoff
+beat_function_secondary: [elegy, irony]
+movement_type: reversal
+information_type: reveal
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Clive"
+opposition: "Finchley"
+stakes: "Nigel and Clive's institutional fate. The operation's human cost."
+
+structural_role: >
+  The Falklands posting. Announced as reassignment, standard
+  form, civilian administrator present for the paperwork. He
+  shows no awareness of who these men are or what they did.
+  Clive: 'The Falklands.' Finchley: 'South Atlantic. Yes.'
+  Clive: 'That's a tomb.' Finchley: 'It's a posting.' Clive:
+  'It's both.' Finchley does not disagree.
+triggered_by: "Philip's verdict / the institution's need to contain the failure"
+leads_to: "sc56p2a — the corridor coda"
+
+status_quo_before: "The verdict has been delivered. The administrative consequence is now being announced."
+shift: >
+  Nigel and Clive are being sent to the Falklands. The civilian
+  administrator presents the form. The form has fields for name,
+  date, assignment location. It does not have a field for what
+  they did or why this is happening. They sign it.
+status_quo_after: "The signing is done. They are going to the Falklands. The clipboard is gone."
+
+thread_effects:
+  - thread: "nigel_clive"
+    effect: advances
+    note: >
+      Their institutional end begins here. Everything from this
+      point — the corridor, the filing room, the arrival, the
+      1980 radio — is the long diminishment.
+  - thread: "operation_elegy"
+    effect: closes
+    note: >
+      The institutional response to the operation's failure is
+      the Falklands. The operation is done. Its consequences are
+      just beginning.
+
+theme: "Institutional punishment as administrative form"
+pressure_level: 8
+irreversibility: historical
+
+quality_note: >
+  Finchley not disagreeing with 'it's both' is the scene's best
+  beat. He knows. He doesn't say he knows. He just doesn't
+  disagree. That's his moral limit — not refusing to do his job,
+  but not actively lying about what it is.
+needs_revision: false
+```
+
+## SCENE 56.2a
+
+scene_id: "ep6_sc56p2a"
+scene_title: "Adjacent Corridor — Processing the Aftermath"
+location: "MI5 HQ corridor"
+characters: [Nigel, Clive]
+page_range: "29-30"
+date_in_story: "Late 1969, immediately after sc56"
+new_scene: true
+movement: 2
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_sc56p2a_b01"
+
+```yaml
+title: "The Form Doesn't Have a Field For It"
+episode: 6
+act: 2
+sequence: 12
+scene_number: 56.2
+beat_index: 1
+
+beat_function: synthesis
+beat_function_secondary: [development, tension]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "Nigel"
+opposition: "Clive"
+stakes: "Whether the institution knows what it just did. Whether that matters."
+
+structural_role: >
+  Nigel and Clive in the corridor after the signing. The
+  clipboard gone. Clive: 'Do you think they know what we
+  actually did?' Nigel: 'The form doesn't have a field for it.'
+  Clive: 'That's not what I asked.' Nigel: 'No.' A beat. 'I
+  don't think they do.'
+triggered_by: "The signing / the civilian administrator taking the clipboard away"
+leads_to: "sc56p2b — Finchley files everything"
+
+status_quo_before: "They have signed the form. They are going to the Falklands."
+shift: >
+  Nigel's answer is the scene's statement: the form doesn't have
+  a field for what they did, which means what they did is not in
+  the record, which means the institution doesn't know. 'I don't
+  think they do' acknowledges that the thing he did at the concert
+  exists only in the notebook, and only he knows it's there.
+status_quo_after: "The silence between them. They walk. The Falklands is coming."
+
+thread_effects:
+  - thread: "institution_records"
+    effect: advances
+    note: >
+      The absence confirmed explicitly. Sets up sc56p2b —
+      Finchley filing everything, the completeness of the archive
+      that is missing the most important thing.
+  - thread: "nigel_clive"
+    effect: advances
+    note: >
+      Their last private moment before the filing and the
+      Falklands. Clive asks the real question. Nigel answers the
+      surface question first, then the real one.
+
+theme: "The institutional record as an account of what didn't happen"
+pressure_level: 5
+irreversibility: none
+
+quality_note: >
+  Short scene. Two exchanges. Don't add to it. The silence after
+  'I don't think they do' is the beat — let it land before
+  they walk.
+needs_revision: false
+```
+
+## SCENE 56.2b
+
+scene_id: "ep6_sc56p2b"
+scene_title: "MI5 Registry — Finchley Files Everything"
+location: "MI5 Registry"
+characters: [Finchley]
+page_range: "31-33"
+date_in_story: "Late 1969"
+new_scene: true
+movement: 2
+
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_sc56p2b_b01"
+
+
+```yaml
+title: "The Seal"
+episode: 6
+act: 2
+sequence: 13
+scene_number: 56.2
+beat_index: 1
+
+beat_function: thesis
+beat_function_secondary: [irony, payoff]
+movement_type: stasis
+information_type: payoff
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Finchley"
+opposition: "none"
+stakes: "The institutional record sealed. Everything that happened contained and classified."
+
+structural_role: >
+  Finchley alone in the Registry. Filing. Each file placed,
+  labeled, sealed. The animation cel report: 'Timeline: 1987.
+  Status: ongoing.' He holds it a moment, then files it. Doesn't
+  open it. Doesn't read it. Files it. Then: the John file. The
+  Paul file. The George file. The Ringo file — three pages — he
+  holds it longer, then files it. Then Nigel's file. He opens it,
+  reads one line, closes it, files it. He does not tell us which
+  line. He turns off the light. He locks the door. He leaves.
+triggered_by: "The conclusion of Operation Elegy / all operational files returned"
+leads_to: "sc57 — Cynthia's flat / Movement 3 begins"
+
+status_quo_before: "The operation is over. The files are on the desk."
+shift: >
+  Everything goes into the files. The animation cel report —
+  1987, ongoing — is filed without being read. Ringo's three
+  pages are held slightly longer than the others. Nigel's file
+  is opened, one line read, closed. The institution's final act
+  is containment. The light goes off. The door locks.
+status_quo_after: >
+  The files are sealed. Whatever is ongoing in 1987 will be
+  ongoing without anyone reading the file. The registry is dark.
+
+thread_effects:
+  - thread: "institution_records"
+    effect: closes
+    note: >
+      The institutional record is now complete and sealed —
+      complete in the sense that every file is present, complete
+      in the sense that the most important event (Nigel's choice
+      at the concert) is in no file. The archive is the monument
+      to what it doesn't contain.
+  - thread: "animation_cel"
+    effect: closes
+    note: >
+      'Timeline: 1987. Status: ongoing.' Filed without being
+      read. Something is still running, will keep running, and
+      the file that would explain it is in a locked room nobody
+      will enter.
+  - thread: "finchley_characterization"
+    effect: closes
+    note: >
+      His final beat. He does his job completely and without
+      comment. He reads one line of Nigel's file and tells us
+      nothing about it. Fully functional, fully present,
+      entirely opaque.
+
+theme: "Containment as the institution's version of resolution"
+pressure_level: 4
+irreversibility: historical
+
+quality_note: >
+  The one line Finchley reads in Nigel's file — we never know
+  which line. Played with complete neutrality: he reads it,
+  closes the file, continues. His face gives nothing. The
+  audience constructs what they need. Don't answer it.
+needs_revision: false
+```
+
+## SCENE 57
+
+- scene_id: "ep6_sc57"
+  scene_title: "Cynthia's Flat — The Letter"
+  location: "Liverpool"
+  characters: [Cynthia Lennon]
+  page_range: "34-37"
+  date_in_story: "Early 1970"
+  new_scene: false
+  movement: 3
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_sc57_b01"
+
+```yaml
+title: "Writing to Julian"
+episode: 6
+act: 3
+sequence: 14
+scene_number: 57
+beat_index: 1
+
+beat_function: development
+beat_function_secondary: [elegy, development]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "Cynthia"
+opposition: "the difficulty of the letter"
+stakes: "How to tell a child something true about a father who was very complicated."
+
+structural_role: >
+  Cynthia at the kitchen table. Not the letter she'll send —
+  the one she's writing first, working out what to say. 'Your
+  father was very complicated. He could be very kind and then
+  not kind at all.' She crosses it out. Starts again. 'Your
+  father made things that will last longer than either of us.
+  That's not nothing.' She looks at that line. She leaves it.
+triggered_by: "The end of everything / Julian needing to understand"
+leads_to: "sc57_b02 — the post box"
+
+status_quo_before: >
+  The Beatles have broken up. John is gone. Cynthia is in
+  Liverpool with a child who will need to be told something
+  about his father.
+shift: >
+  She finds the line. 'That's not nothing.' The smallest,
+  truest thing she can say, and she leaves it in. The scene's
+  emotional content is entirely in what she crosses out and
+  what she keeps.
+status_quo_after: "The letter exists. It has the line in it. She needs to post it."
+
+thread_effects:
+  - thread: "cynthia_thread"
+    effect: advances
+    note: >
+      Her only scene in the finale. Closing the Julian thread
+      that will complete in the notebook at the ending. 'Stories
+      about love' (Episode 2 notebook) / 'things that will last
+      longer than either of us' (this scene) / the crossed-out
+      'yet' (the ending).
+  - thread: "julian_thread"
+    effect: advances
+    note: >
+      The letter is the thread's second beat. Episode 2: Nigel
+      observes John explaining guitar strings to Julian. Here:
+      Cynthia explains John to Julian in writing. The Falklands
+      1980 scene closes it.
+
+theme: >
+  How private people account for public ones to their children —
+  what can be said and what gets crossed out.
+pressure_level: 5
+irreversibility: none
+
+quality_note: >
+  This scene is slightly overlong as written. The camera lingers
+  on Cynthia's inner state a beat past where the post box should
+  end the scene. Get to the post box faster. The two draft lines
+  — the crossed-out one and the kept one — are sufficient.
+  Don't add a third.
+needs_revision: true
+revision_note: >
+  Trim by approximately one-third. Cut from 'She looks at that
+  line' to the post box more directly. The inner state is fully
+  established by the draft lines — the camera doesn't need to
+  dwell on it. Give the audience the post box before they've
+  finished processing the letter and let the image complete
+  the emotional work.
+```
+
+#### Beat 2
+
+beat_id: "ep6_sc57_b02"
+
+```yaml
+title: "The Post Box"
+episode: 6
+act: 3
+sequence: 15
+scene_number: 57
+beat_index: 2
+
+beat_function: payoff
+beat_function_secondary: [elegy, elegy]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "Cynthia"
+opposition: "none"
+stakes: "The image that closes the thread"
+
+structural_role: >
+  She walks to the post box at the end of the street. She posts
+  the letter. She walks back. The camera stays on the post box
+  after she's gone.
+triggered_by: "The letter completed"
+leads_to: "sc57p1 — the Falklands arrival"
+
+status_quo_before: "The letter is written and needs to be sent."
+shift: >
+  She sends it. The camera stays on the post box. The thread is
+  closed on her end. The letter is in the system. Whatever Julian
+  does with it is outside the frame.
+status_quo_after: "The post box holds the letter. Cynthia is gone. The red box in the Liverpool street ends this thread."
+
+thread_effects:
+  - thread: "cynthia_thread"
+    effect: closes
+    note: >
+      Her final image. The post box is the correct one —
+      institutional, impersonal, reliable. The letter will reach
+      Julian. The institution that surveilled his father will
+      carry the letter written about him. That irony doesn't
+      need to be stated.
+
+theme: "The ordinary mechanisms that carry private grief forward"
+pressure_level: 3
+irreversibility: none
+
+quality_note: >
+  Stay on the post box after she's gone. Long enough to register
+  as a held image. Short enough not to sentimentalize. No music
+  cue. No camera movement. Just the box.
+needs_revision: false
+```
+
+## SCENE 57.1 — NEW
+
+scene_id: "ep6_sc57p1"
+scene_title: "Falklands Office — The Masterpiece"
+location: "Falklands Islands, government office"
+characters: [Nigel, Clive, Civilian Administrator]
+page_range: "38-39"
+date_in_story: "May 1970"
+new_scene: true
+movement: 3
+
+### Beats
+
+#### Beat 1
+
+    - beat_id: "ep6_sc57p1_b01"
+```yaml
+title: "The Identical Desks"
+episode: 6
+act: 3
+sequence: 16
+scene_number: 57.1
+beat_index: 1
+
+beat_function: payoff
+beat_function_secondary: [irony, elegy]
+movement_type: stasis
+information_type: none
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "Civilian Administrator"
+opposition: "none"
+stakes: "The physical space where the institutional verdict will be served."
+
+structural_role: >
+  The Falklands office. The civilian administrator showing them
+  around. He shows them where the coffee is kept. He explains
+  the filing system. He tells them the wind is always like that.
+  He leaves. They sit at their identical desks looking at their
+  identical stacks of shipping manifests. The administrator has
+  no idea who they are or what they did. He showed them the coffee.
+triggered_by: "The Falklands posting / their arrival"
+leads_to: "sc57p1_b02 — the radio announcement"
+
+status_quo_before: "They have arrived at the posting Philip described as a tomb."
+shift: >
+  The tomb is administrative. It is identical desks and coffee
+  and a filing system and shipping manifests and a civilian
+  administrator who told them about the wind and left. The
+  punishment for a failed assassination operation is: this.
+status_quo_after: "They are at their desks. The manifests are in front of them. The wind is always like that."
+
+thread_effects:
+  - thread: "nigel_clive"
+    effect: advances
+    note: >
+      Their long exile begins here in the physical space. The
+      identical desks are the visual statement of where they've
+      ended up: identical, indistinct, administrative.
+  - thread: "operation_minuet"
+    effect: advances
+    note: >
+      The operation's objective was to control the narrative
+      around The Beatles. The men who ran the operation are now
+      processing shipping manifests in the Falklands.
+
+theme: "Institutional punishment as bureaucratic equivalence — the tomb is identical to every other desk."
+pressure_level: 4
+irreversibility: historical
+
+quality_note: >
+  The civilian administrator's cheerfulness is essential. He's
+  not being cruel. He's genuinely showing them around and finding
+  it a satisfying orientation. His complete normalcy is the beat.
+  He shows them where the coffee is.
+needs_revision: false
+```
+
+#### Beat 2
+
+beat_id: "ep6_sc57p1_b02"
+
+```yaml
+title: "It Should Have Been a Masterpiece"
+episode: 6
+act: 3
+sequence: 17
+scene_number: 57.1
+beat_index: 2
+
+beat_function: payoff
+beat_function_secondary: [elegy, irony]
+movement_type: stasis
+information_type: payoff
+scope: primary_plot
+engine: character
+public_private_axis: private
+
+primary_character: "Clive"
+opposition: "the radio announcement"
+stakes: >
+  The operation's stated objective confirmed as achieved,
+  delivered by a transistor radio in the worst possible register.
+
+structural_role: >
+  The radio. The Beatles' dissolution announced. Nigel stops
+  writing. Clive stops writing. They listen. The radio voice
+  explains the legal proceedings, the financial disputes, the
+  acrimony. Clive: 'It should have been a masterpiece.' Nigel:
+  'Which part?' Clive: 'All of it. The whole thing. It should
+  have been a masterpiece and instead it's a lawsuit.' Nigel:
+  'We didn't help.' Clive: 'No.' The wind. The shipping manifests.
+triggered_by: "Beatles' dissolution announced on BBC World Service"
+leads_to: "sc58 — the Queen's sitting room"
+
+status_quo_before: >
+  They are at their desks. Operation Minuet's objective was the
+  dissolution of The Beatles. The dissolution is now being announced.
+shift: >
+  The objective is achieved. The radio announces it. The men who
+  (partly, fractionally, bureaucratically) contributed to it are
+  sitting in a wind-blasted office with shipping manifests. Clive's
+  'it should have been a masterpiece' is the only eulogy the
+  operation gets — and it's a eulogy for the thing they helped destroy.
+status_quo_after: "The dissolution is confirmed. They return to the shipping manifests. The wind."
+
+thread_effects:
+  - thread: "operation_minuet"
+    effect: closes
+    note: >
+      'We didn't help' / 'No.' The operation's moral accounting
+      done in two lines. They contributed to the dissolution.
+      They know it. They're in the Falklands. Complete statement.
+  - thread: "beatles_dissolution"
+    effect: closes
+    note: >
+      Received via tinny transistor radio in a wind-blasted
+      office. The cultural event of the era announced to two men
+      who know its secret history, sitting with shipping
+      manifests. The register is exactly correct.
+
+theme: "The institutional verdict received in the place the institution sent you"
+pressure_level: 6
+irreversibility: historical
+
+quality_note: >
+  'Which part?' is the scene's best line — Nigel not performing
+  ignorance but genuinely asking, because everything was supposed
+  to be a masterpiece. The pause before 'All of it' is the beat.
+  Then 'We didn't help' comes quietly. Not as confession — as
+  accounting.
+needs_revision: false
+```
+
+## SCENE 58
+
+scene_id: "ep6_sc58"
+scene_title: "Queen's Sitting Room — All We Had to Do Was Wait"
+location: "Buckingham Palace, sitting room"
+characters: [The Queen, Aide]
+page_range: "40-41"
+date_in_story: "1970"
+new_scene: false
+movement: 3
+
+### Beats
+
+#### Beat 1
+beat_id: "ep6_sc58_b01"
+
+```yaml
+title: "The Crown's Verdict"
+episode: 6
+act: 3
+sequence: 18
+scene_number: 58
+beat_index: 1
+
+beat_function: irony
+beat_function_secondary: [tension, payoff]
+movement_type: stasis
+information_type: payoff
+scope: primary_plot
+engine: institution
+public_private_axis: private
+
+primary_character: "The Queen"
+opposition: "none"
+stakes: "The Crown's final statement on everything that happened."
+
+structural_role: >
+  The Queen, reading. Told of the Beatles' dissolution. She sets
+  down her book. 'They were always going to burn out. All we
+  ever had to do was wait.' She picks up her book. She continues
+  reading.
+triggered_by: "The Beatles' dissolution / the aide's notification"
+leads_to: "sc59p1 — George's garden"
+
+status_quo_before: "The Beatles have dissolved. The Crown has been pursuing this outcome for years."
+shift: >
+  The Queen's verdict: they were always going to burn out. The
+  institution didn't need to do anything. Everything Nigel and
+  Clive did — none of it was necessary. The threat was going to
+  resolve itself.
+status_quo_after: "The Queen is reading again. The dissolution is filed. The book continues."
+
+thread_effects:
+  - thread: "crown_power"
+    effect: closes
+    note: >
+      The Crown's final statement. Not malicious, not triumphant
+      — reading. She files the information and returns to her
+      book. That is the Crown's version of closure.
+  - thread: "operation_minuet"
+    effect: closes
+    note: >
+      Retroactively made redundant. 'All we ever had to do was
+      wait.' The operation's entire premise was incorrect from
+      the start.
+  - thread: "institution_absurdity"
+    effect: closes
+    note: >
+      The apex. The Crown calmly noting that none of it was
+      necessary — the series' central joke stated by the person
+      at the top of the institution, without irony, as simple fact.
+
+theme: >
+  The institution's self-generated necessity — it needed to act
+  because it needed to act; the threat was beside the point.
+pressure_level: 3
+irreversibility: none
+
+quality_note: >
+  She picks her book back up. This is the scene's final beat and
+  it must be honored with stillness. She is not performing
+  indifference — she is genuinely untroubled. The dissolution is
+  a fact. Her book is also a fact. She returns to the book.
+needs_revision: false
+```
+
+## SCENE 59.1
+
+scene_id: "ep6_sc59p1"
+scene_title: "Friar Park — The Garden"
+location: "Friar Park, Henley-on-Thames"
+characters: [George Harrison, Nigel]
+page_range: "42-44"
+date_in_story: "1973"
+new_scene: true
+movement: 3
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_sc59p1_b01"
+
+
+```yaml
+title: "Things That Seem Complicated"
+episode: 6
+act: 3
+sequence: 19
+scene_number: 59.1
+beat_index: 1
+
+beat_function: synthesis
+beat_function_secondary: [elegy, development]
+movement_type: deescalation
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "George"
+opposition: "none"
+stakes: "The answer the institution could never categorize. The only character who found one."
+
+structural_role: >
+  Nigel at the gate. George lets him in, no apparent surprise.
+  They walk in the garden. George doesn't ask why Nigel is there.
+  Nigel doesn't explain. They walk. George: 'You look like a man
+  who's been trying to figure something out for a long time.'
+  Nigel: 'Yes.' George: 'Things that seem complicated are usually
+  just... sitting in the garden.' Nigel looks at him. George
+  looking up at the sun through the leaves. Nigel: 'That's it?
+  That's the answer?' George: 'I didn't say it was an answer.
+  I said it was a thing.'
+triggered_by: "Nigel's Falklands exile / the need to see what became of them"
+leads_to: "sc59p1_b02 — the empty file"
+
+status_quo_before: "Nigel is in his Falklands exile. George is at Friar Park, having done the internal work the institution couldn't follow."
+shift: >
+  Nigel receives something from George that isn't an answer and
+  isn't comfort but is a true thing: sitting in the garden is
+  what George found when he looked, and it doesn't translate,
+  and that's all right.
+status_quo_after: "They are in the garden. George is looking at the sun. Nigel is holding something he doesn't know what it is."
+
+thread_effects:
+  - thread: "george_thread"
+    effect: advances
+    note: >
+      From the briefing-room sitar joke in Episode 1 to this.
+      George's arc is the series' most spiritually complete
+      thread. The institution laughed at the sitar. Here's
+      where the sitar led.
+  - thread: "nigel_conscience"
+    effect: advances
+    note: >
+      A moment of genuine contact outside the institutional frame.
+      Nigel doesn't understand what George is offering. But he's
+      present for it, which is more than the institution managed.
+
+theme: "The answer that isn't legible to the institution — and doesn't need to be."
+pressure_level: 2
+irreversibility: none
+
+quality_note: >
+  'I didn't say it was an answer. I said it was a thing.' is the
+  scene's best line and should be George's last one. He looks up
+  at the sun after it. Don't add to it. The scene's value is its
+  quiet — the institution's noise has been absent here from the
+  first shot.
+needs_revision: false
+```
+
+#### Beat
+
+beat_id: "ep6_sc59p1_b02"
+
+```yaml
+title: "The Empty File"
+episode: 6
+act: 3
+sequence: 20
+scene_number: 59.1
+beat_index: 2
+
+beat_function: irony
+beat_function_secondary: [development, thesis]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: institution
+public_private_axis: private
+
+primary_character: "Nigel"
+opposition: "none"
+stakes: "The institution's final statement on George, delivered in person to George."
+
+structural_role: >
+  Nigel: 'We had a file on you.' George: 'I assumed.' Nigel:
+  'It was almost empty.' George: 'Good.' He picks something from
+  a plant. He hands it to Nigel. Nigel doesn't know what it is.
+  He holds it anyway.
+triggered_by: "The garden conversation / Nigel's need to say something honest"
+leads_to: "sc59p2 — Paul's farm"
+
+status_quo_before: "They are in the garden. Something true needs to be said."
+shift: >
+  Nigel tells George the file was almost empty. George's response
+  — 'Good' — is the series' most satisfied line. Not surprised.
+  Not offended. Glad. The institution's failure to see him was
+  the correct outcome.
+status_quo_after: "Nigel holds something from the garden that he doesn't know what it is. That's where they leave it."
+
+thread_effects:
+  - thread: "george_thread"
+    effect: closes
+    note: >
+      'Good.' His one-word summary of the institution's file on
+      him. The most satisfied character beat in the series.
+  - thread: "institution_surveillance"
+    effect: closes
+    note: >
+      The surveillance program's limit acknowledged in person,
+      to its subject, by its agent. George evaded not by hiding
+      but by becoming something they couldn't see.
+
+theme: "Institutional blindness as the subject's best protection"
+pressure_level: 2
+irreversibility: none
+
+quality_note: >
+  Nigel holding the thing from the garden and not knowing what
+  it is — the scene's closing image. Don't name the thing. Don't
+  have Nigel ask. He holds it. That's sufficient.
+needs_revision: false
+```
+
+## SCENE 59.2
+
+scene_id: "ep6_sc59p2"
+scene_title: "Scotland Farm — The Melody"
+location: "Paul McCartney's farm, Kintyre, Scotland"
+characters: [Paul McCartney, Linda McCartney]
+page_range: "45-46"
+date_in_story: "1971"
+new_scene: true
+movement: 3
+
+### Beats:
+
+#### Beat 1
+
+beat_id: "ep6_sc59p2_b01"
+
+```yaml
+title: "Finding the Melody"
+episode: 6
+act: 3
+sequence: 21
+scene_number: 59.2
+beat_index: 1
+
+beat_function: synthesis
+beat_function_secondary: [elegy, development]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "Paul"
+opposition: "none"
+stakes: "The private continuation after the public end"
+
+structural_role: >
+  Paul alone. He picks up the guitar and finds a melody — not
+  working toward something, just finding it. Linda watching from
+  the doorway. Then stepping back so he can't see her. She
+  photographs the empty path leading to where he's sitting. Not
+  him — the path. The distance between where she's standing and
+  where he is.
+triggered_by: "The dissolution / the private continuation"
+leads_to: "sc59p3 — Ringo's film set"
+
+status_quo_before: "Paul is on his Scottish farm after everything ended. He is alone with a guitar."
+shift: >
+  He finds a melody. No words. Just the melody. Linda photographs
+  the path, not Paul — the space between them that music doesn't
+  fill but contains. The music continues. The collaboration
+  doesn't. Both things can be true at once.
+status_quo_after: "The melody exists. Paul keeps playing."
+
+thread_effects:
+  - thread: "paul_thread"
+    effect: closes
+    note: >
+      Paul's resolution is the only one that's purely musical.
+      He doesn't speak. He plays. The institution's most legible
+      subject, closing on the thing the institution could never
+      fully surveil: what it sounds like when he finds a new
+      melody alone.
+  - thread: "john_paul_dynamic"
+    effect: closes
+    note: >
+      The collaboration is over. Paul is alone with the guitar.
+      Linda photographs the gap. The thread closes on the space
+      that holds both the music and the absence.
+
+theme: >
+  The music continuing after the collaboration ends — and the
+  space that's visible from where other people stand.
+pressure_level: 2
+irreversibility: none
+
+quality_note: >
+  Linda photographing the path, not Paul, is the episode's most
+  delicate image. It must be held long enough to read as
+  intentional. She steps back, raises the camera, photographs
+  the path. The path leads to him but stops at him. Trust it
+  completely.
+needs_revision: false
+```
+
+## SCENE 59.3
+
+scene_id: "ep6_sc59p3"
+scene_title: "Film Set — Ringo's Sandwich"
+location: "Film studio, mid-1970s"
+characters: [Ringo Starr, AD]
+page_range: "47-49"
+date_in_story: "Mid-1970s"
+new_scene: true
+movement: 3
+
+### Beats:
+
+#### Beat 1
+
+beat_id: "ep6_sc59p3_b01"
+
+```yaml
+title: "Dissolution News on Set"
+episode: 6
+act: 3
+sequence: 22
+scene_number: 59.3
+beat_index: 1
+
+beat_function: comedy
+beat_function_secondary: [development, thesis]
+movement_type: stasis
+information_type: payoff
+scope: subplot
+engine: character
+public_private_axis: collision
+
+primary_character: "Ringo"
+opposition: "none"
+stakes: "The moral immune system of the series — what it looks like to be genuinely fine."
+
+structural_role: >
+  Ringo on a film set, in an elaborate costume. Someone hands
+  him the newspaper — the formal legal dissolution, final. He
+  reads it while eating a sandwich. He reads it the way you read
+  something you already knew. He sets the newspaper down. He
+  picks up the sandwich. He takes a bite. An AD approaches:
+  'Mr. Starkey? They're ready for you.' Ringo: 'Right.' He
+  stands, hands someone the newspaper, straightens his costume,
+  goes back to work.
+triggered_by: "The formal legal dissolution / someone handing him the paper"
+leads_to: "sc59p3_b02 — 'This is just... life'"
+
+status_quo_before: "Ringo is on a film set. The dissolution has been formally finalized."
+shift: >
+  He reads it while eating. He already knew. The newspaper
+  confirmed what the reality of the last few years made clear.
+  He sets it down. He goes back to work. His file was three pages.
+  He is fine. The connection between these facts is the scene.
+status_quo_after: "He is walking back toward set. The costume is straightened."
+
+thread_effects:
+  - thread: "ringo_thread"
+    effect: advances
+    note: >
+      His response to the dissolution is exactly his response to
+      everything: present, calibrated, unbothered in the deepest
+      sense. Not because he doesn't feel it but because he
+      processed it as it happened, not in retrospect.
+  - thread: "institution_surveillance"
+    effect: closes
+    note: >
+      The man they barely watched is the most intact. The
+      institution's priorities were backwards from the start.
+      Ringo's three pages and his sandwich are the series' most
+      efficient comment on that inversion.
+
+theme: "The person the institution ignored as the measure of what the institution got wrong."
+pressure_level: 2
+irreversibility: none
+
+quality_note: >
+  The sandwich is essential. He is eating during the reading. The
+  reading does not interrupt the eating. This is the beat. Don't
+  make him perform indifference — he is genuinely, constitutionally
+  himself, and that turns out to be sufficient.
+needs_revision: false
+```
+
+#### Beat 2
+
+beat_id: "ep6_sc59p3_b02"
+
+```yaml
+title: "This Is Just... Life"
+episode: 6
+act: 3
+sequence: 23
+scene_number: 59.3
+beat_index: 2
+
+beat_function: synthesis
+beat_function_secondary: [comedy, elegy]
+movement_type: stasis
+information_type: none
+scope: subplot
+engine: character
+public_private_axis: private
+
+primary_character: "Ringo"
+opposition: "none"
+stakes: "The series' final statement on what survival looks like when it's not dramatic."
+
+structural_role: >
+  One line to the AD as he walks toward set: 'You know what the
+  funny thing is? I'm fine.' AD: 'Sorry?' Ringo: 'The Beatles.
+  I'm fine. It's a bit embarrassing how fine I am.' He's already
+  walking away. 'This is not immunity. This is just... life.'
+triggered_by: "The AD's arrival / Ringo standing and straightening the costume"
+leads_to: "Montage — John at Tittenhurst"
+
+status_quo_before: "Ringo is walking back to set having just read the dissolution notice while eating a sandwich."
+shift: >
+  He names what he is: fine. He names what that is: not immunity,
+  just life. The series' clearest philosophical statement delivered
+  by the character the institution least watched, to an AD who
+  wasn't asking, while walking away from a newspaper he set down
+  to pick up his sandwich.
+status_quo_after: "He's back on set. The AD is behind him. The costume is straightened."
+
+thread_effects:
+  - thread: "ringo_thread"
+    effect: closes
+    note: >
+      Complete and clean. 'Not immunity. Just life.' — the
+      series' most succinct statement of what it means to come
+      through something without being destroyed by it. His file
+      was three pages. His closing line is two sentences. The
+      proportion is exactly right.
+
+theme: "Survival that isn't dramatic — the most honest kind"
+pressure_level: 1
+irreversibility: none
+
+quality_note: >
+  He's already walking away when he says it. The AD doesn't
+  respond. Ringo doesn't look back. The line is not for the AD.
+  It's not for anyone. He's just saying it.
+needs_revision: false
+```
+
+## MONTAGE SCENE
+
+scene_id: "ep6_montage"
+scene_title: "John — Tittenhurst Park (Trimmed)"
+location: "Tittenhurst Park"
+characters: [John Lennon]
+page_range: "50"
+date_in_story: "Early 1970s"
+new_scene: false
+movement: 4
+runtime_note: "~30 seconds. Trimmed to John only."
+
+### Beats:
+
+#### Beat 1
+
+beat_id: "ep6_montage_b01"
+
+```yaml
+title: "The Last Image of John"
+episode: 6
+act: 4
+sequence: 24
+scene_number: 59.9
+beat_index: 1
+
+beat_function: elegy
+beat_function_secondary: [elegy, setup]
+movement_type: stasis
+information_type: none
+scope: primary_plot
+engine: character
+public_private_axis: private
+
+primary_character: "John"
+opposition: "none"
+stakes: "The last image of John before the ending. The series stripping away everything else."
+
+structural_role: >
+  Tittenhurst Park. John in the space he made for himself after
+  everything. No dialogue. No institutional frame. No commentary.
+  Thirty seconds. Then cut to Falklands.
+triggered_by: "Ringo's final line / the shift into the ending register"
+leads_to: "sc_falklands_1980 — the ending"
+
+status_quo_before: >
+  Movement 3's private reckonings are complete. The ending is
+  coming. John has not had his private reckoning scene — his
+  is the ending.
+shift: >
+  The montage is stripped to John only precisely because his
+  private space is not closure, it's context for the loss. The
+  audience needs a last image of John alive and in his own world
+  before the radio.
+status_quo_after: "The image is held. It ends. The Falklands."
+
+thread_effects:
+  - thread: "john_thread"
+    effect: advances
+    note: "His final living image. Not commentary — just presence. The ending does the rest."
+
+theme: "The last image before the ending — earned by restraint"
+pressure_level: 4
+irreversibility: none
+
+quality_note: >
+  30 seconds. No music cue that announces what's coming. If
+  there's music, it should be his — something from Imagine-era,
+  low, not swelling. Then silence as it cuts. The cut to the
+  Falklands should be abrupt. Don't ease into it.
+needs_revision: false
+```
+
+## FALKLANDS 1980 — THE ENDING
+
+scene_id: "ep6_sc_falklands_1980"
+scene_title: "Falklands 1980 — The Notebook"
+location: "Falklands Islands, government office"
+characters: [Nigel, Clive]
+page_range: "51-52"
+date_in_story: "December 1980"
+new_scene: false
+movement: 4
+
+
+### Beats:
+
+#### Beat 1
+- beat_id: "ep6_sc_falklands_1980_b01"
+
+```yaml
+title: "The Radio"
+episode: 6
+act: 4
+sequence: 25
+scene_number: 60
+beat_index: 1
+
+beat_function: irony
+beat_function_secondary: [payoff, elegy]
+movement_type: reversal
+information_type: reveal
+scope: primary_plot
+engine: cultural
+public_private_axis: private
+
+primary_character: "Nigel"
+opposition: "the radio announcement"
+stakes: >
+  John Lennon is dead. The operation failed to kill him. The
+  universe did not fail. There is no institutional cause. There
+  is no institutional remedy.
+
+structural_role: >
+  The radio. The news: John shot outside his apartment building
+  in New York. A deranged fan. Nigel stops writing. Clive stops
+  writing. They look at each other. The wind howls.
+triggered_by: "December 8, 1980 — the news arriving at the Falklands"
+leads_to: "sc_falklands_1980_b02 — the notebook"
+
+status_quo_before: "They have been in the Falklands for ten years. It is December 1980."
+shift: >
+  John is dead. Not by the operation — that failed ten years ago
+  in a concert hall with a broken rifle and too much light. By a
+  stranger with a gun outside his apartment. The institutional
+  machinery that spent years planning and failing to kill him is
+  irrelevant. The universe didn't need it.
+status_quo_after: "The pen is down. They are looking at each other. The wind. The notebook moment is coming."
+
+thread_effects:
+  - thread: "john_survival"
+    effect: closes
+    note: >
+      The operation secured his survival in 1969. The universe
+      didn't consult the operation in 1980. Both things are true.
+      Acting rightly doesn't guarantee outcome. It just means you
+      acted rightly.
+  - thread: "nigel_clive"
+    effect: advances
+    note: >
+      Ten years of silence given weight by the radio. They look
+      at each other. Everything they know is in that look. The
+      thread closes in the next beat.
+
+theme: >
+  The universe delivering what the institution couldn't — through
+  a stranger, with no institutional cause or remedy.
+pressure_level: 10
+irreversibility: historical
+
+quality_note: >
+  The wind howls after they look at each other. It's been
+  background since sc57p1 — the administrator told them it's
+  always like that. Now it's the only sound. Don't add anything
+  between the look and the notebook.
+needs_revision: false
+
+#### Beat 2
+- beat_id: "ep6_sc_falklands_1980_b02"
+
+```yaml
+title: "Crossing Out 'Yet'"
+episode: 6
+act: 4
+sequence: 26
+scene_number: 60
+beat_index: 2
+
+beat_function: synthesis
+beat_function_secondary: [payoff, elegy]
+movement_type: reversal
+information_type: payoff
+scope: global
+engine: character
+public_private_axis: private
+
+primary_character: "Nigel"
+opposition: "the word 'yet'"
+stakes: >
+  Everything. The series' central question: what does it mean
+  to act rightly in a system that doesn't care whether you acted
+  rightly?
+
+structural_role: >
+  Nigel opens his desk drawer. The surveillance notebook — old,
+  soft leather, years of jacket pockets. He opens it. He knows
+  the page. He turns to it.
+
+  CLOSE ON THE PAGE:
+  'Subject observed explaining guitar string composition to young
+  son, Julian. Subject states the instrument is capable of
+  "stories about love." — No action required.'
+
+  Below, in different ink, added later: 'Yet.'
+
+  Nigel looks at the word 'yet.' He looks at it for a long time.
+
+  He takes his pen. He crosses it out. Slowly. Deliberately.
+  One line through it.
+
+  He closes the notebook. He places it back in the drawer.
+  He closes the drawer.
+
+  He looks across at Clive. Clive looks back at him.
+  The wind howls.
+
+  FADE TO BLACK.
+triggered_by: "The radio announcement / John's death / the notebook in the drawer"
+leads_to: "TITLE CARD"
+
+status_quo_before: >
+  John is dead. The operation failed ten years ago. The notebook
+  has been in the drawer since 1965. It has the notation from
+  Episode 2 and a 'yet' added in different ink at some later point.
+shift: >
+  Nigel crosses out 'yet.' The Episode 2 notation — 'no action
+  required' — was the series' moral center. The institutional
+  'yet' was the pressure that accumulated over five episodes.
+  He crosses it out. He restores the original verdict. Not 'no
+  action taken' — required. He crossed out the institutional
+  revision and restored the moral one.
+
+  But John is dead. The restored verdict cannot protect him. The
+  correct choice was made correctly. It changed nothing about how
+  John Lennon died. Both things are permanently true. The series
+  does not let the moral victory be a victory. It just lets it
+  be real.
+status_quo_after: >
+  The notebook is in the drawer. The verdict is restored. John is
+  still dead. Nigel looks at Clive. Clive looks back. The wind.
+  FADE TO BLACK.
+
+thread_effects:
+  - thread: "nigel_conscience"
+    effect: closes
+    note: >
+      Final statement. The conscience was present at the concert
+      (the flooding of the lights), present in the corridor ('the
+      form doesn't have a field for it'), present throughout the
+      exile. Here it takes its last action: crossing out the word
+      that shouldn't have been added. The original verdict
+      restored. The choice confirmed as correct. The outcome
+      unchanged.
+  - thread: "julian_thread"
+    effect: closes
+    note: >
+      The loop from Episode 2 completes. Nigel observed John
+      explaining guitar strings to Julian. He wrote 'no action
+      required.' Someone added 'yet.' He crosses it out. John is
+      dead. Julian is somewhere in the world, having received
+      Cynthia's letter, holding his father's music. The thread
+      closes here on the page that started it.
+  - thread: "nigel_clive"
+    effect: closes
+    note: >
+      They look at each other. Ten years in the Falklands. The
+      operation they ran together. He closes the drawer. They
+      look at each other. That's the end of them.
+  - thread: "john_thread"
+    effect: closes
+    note: >
+      The thread that started in Episode 1 closes here with a
+      crossed-out word in a notebook in the Falklands. The
+      institution that surveilled him for fifteen years is
+      represented by two men who cannot do anything, who once
+      chose correctly and it wasn't enough, and who cross out a
+      word that no one will ever read.
+
+theme: >
+  Acting rightly in an indifferent system — the choice was real,
+  was good, mattered, and changed nothing about how John Lennon
+  died. The series does not resolve this tension. It holds it.
+pressure_level: 10
+irreversibility: historical
+
+quality_note: >
+  The crossing-out should be slow. One deliberate line through
+  the word. Not angry — restoring. The close on the page must be
+  held long enough to read both the original notation and the
+  'yet' before the pen arrives. That sequence is non-negotiable.
+
+  After the drawer closes: Nigel looks at Clive. Clive looks
+  back. No dialogue. The wind. FADE TO BLACK.
+
+  Do not add music here. The wind is the sound.
+needs_revision: false
+```
+
+## TITLE CARD SCENE
+
+scene_id: "ep6_title_card"
+scene_title: "Title Card"
+location: "black"
+characters: []
+page_range: "52"
+new_scene: false
+movement: 4
+
+### Beats
+
+#### Beat 1
+
+beat_id: "ep6_title_card_b01"
+
+```yaml
+title: "There Is No Evidence"
+episode: 6
+act: 4
+sequence: 27
+scene_number: 61
+beat_index: 1
+
+beat_function: payoff
+beat_function_secondary: [irony, comedy]
+movement_type: stasis
+information_type: none
+scope: global
+engine: cultural
+public_private_axis: public
+
+primary_character: "none"
+opposition: "none"
+stakes: "The series' final statement on its own premise"
+
+structural_role: >
+  On black:
+  'There is no evidence that British Intelligence was involved
+  in the lives or deaths of the Beatles. This is probably true.'
+triggered_by: "FADE TO BLACK"
+leads_to: "end"
+
+status_quo_before: "Everything has just happened."
+shift: >
+  The series steps outside itself. 'Probably true' is the final
+  joke — and the final acknowledgment that the comedy and the
+  tragedy were always simultaneous. It doesn't undercut the
+  notebook. It confirms it. Probably nothing happened. The choice
+  Nigel made was real whether it happened or not.
+status_quo_after: "The series is over."
+
+thread_effects:
+  - thread: "institution_absurdity"
+    effect: closes
+    note: >
+      'This is probably true' is the institution's final
+      self-assessment in white text on black. The series began
+      with the institution mobilizing against The Beatles. It
+      ends with 'probably' as the operative word for everything
+      that followed.
+
+theme: "The unreliable narrator as the series' final structural device"
+pressure_level: 1
+irreversibility: none
+
+quality_note: >
+  Hold the title card longer than feels comfortable. The
+  'probably' is the punchline. Give the audience time to
+  land on it.
+needs_revision: false
 ```
 
 ---
 
-## Final Series Grade
+## Aditional Episode 6 Claude Analysis TOC
 
-```yaml
-series_grade: "A-"
-
-grade_note: >
-  With the six expansion scenes implemented, the series
-  achieves its grade cleanly. Without them, it holds at B+.
-  The architecture was always A- material. The gap was
-  structural debt — missed payoffs, abandoned threads,
-  scenes that trusted the setup without collecting it.
-  The expansions don't change what the series is. They
-  complete what it was always trying to be.
-
-  The series' best sentence remains Nigel's: 'The purpose
-  was to control the composition. The purpose was always
-  to control the composition.' Said to himself. In the
-  morning. On the pavement where history was just made.
-  That is the show. Everything else is the context that
-  makes it land.
-```
+[Episode 6 — Beat Summary](./claude-episode-6-beat-summary.md)
+[Episode 6 - Exansion Ideas](./claude-episode-6-expansion-ideas.md)
+[Claude Series Grades](./claude-series-grades.md)

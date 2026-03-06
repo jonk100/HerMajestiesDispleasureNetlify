@@ -15,7 +15,7 @@
     const BOTTOM_MARGIN_PX = 1 * DPI;
     const CONTENT_HEIGHT_PX = PAGE_HEIGHT_PX - TOP_MARGIN_PX - BOTTOM_MARGIN_PX; // 864px usable
     
-    const screenplayPage = document.querySelector('.screenplay-page');
+    const screenplayPage = document.querySelector('.screenplay-page') as HTMLElement | null;
     if (!screenplayPage) return;
     
     // Remove the single screenplay-page wrapper's min-height since we're paginating
@@ -37,21 +37,25 @@
     document.body.appendChild(tempContainer);
     
     // Get all block-level elements (scenes, actions, characters, dialogue, etc.)
-    const elements = Array.from(tempContainer.querySelectorAll('.scene, .action, .character, .parenthetical, .dialogue, .transition, .screenplay'));
+    const elements = Array.from(
+      tempContainer.querySelectorAll(
+        '.scene, .action, .character, .parenthetical, .dialogue, .transition, .screenplay, .episode-break, a[name]'
+      )
+    );
     
     // Track pages and scenes
-    let pages = [];
-    let currentPage = {
+    const pages: any[] = [];
+    let currentPage: any = {
       elements: [],
       height: 0,
       scenes: new Set(),
-      startScene: null
+      startScene: null,
     };
-    let currentSceneNumber = null;
+    let currentSceneNumber: string | null = null;
     let pageNumber = 1;
     
     // Find scene numbers from scene headings or scene-break divs
-    function findSceneInfo(el) {
+    function findSceneInfo(el: Element): string | null {
       // Check if this element is inside a scene-break div
       const sceneBreak = el.closest('.scene-break');
       if (sceneBreak) {
@@ -66,7 +70,7 @@
     // Process elements, grouping character names with their dialogue/parentheticals
     let i = 0;
     while (i < elements.length) {
-      const el = elements[i];
+      const el = elements[i] as HTMLElement;
       
       // Skip the .screenplay wrapper itself, process its children
       if (el.classList.contains('screenplay')) {
@@ -92,7 +96,7 @@
         // Look ahead for parenthetical and/or dialogue that should stay with this character
         let j = i + 1;
         while (j < elements.length) {
-          const nextEl = elements[j];
+          const nextEl = elements[j] as HTMLElement;
           if (nextEl.classList.contains('parenthetical') || nextEl.classList.contains('dialogue')) {
             elementsToAdd.push(nextEl);
             groupHeight += nextEl.offsetHeight;
@@ -117,13 +121,13 @@
           elements: [],
           height: 0,
           scenes: new Set(),
-          startScene: currentSceneNumber
+          startScene: currentSceneNumber,
         };
       }
       
       // Add all elements in the group to current page
-      elementsToAdd.forEach(groupEl => {
-        currentPage.elements.push(groupEl.cloneNode(true));
+      elementsToAdd.forEach((groupEl: HTMLElement) => {
+        currentPage.elements.push(groupEl.cloneNode(true) as HTMLElement);
       });
       currentPage.height += groupHeight;
       
@@ -150,7 +154,7 @@
     const displayedSceneNumbers = new Set();
     
     // Now render the pages
-    pages.forEach((page, index) => {
+    pages.forEach((page: any, index: number) => {
       const pageDiv = document.createElement('div');
       pageDiv.className = 'screenplay-visual-page';
       pageDiv.style.cssText = `
@@ -187,7 +191,7 @@
           font-size: 10pt;
           color: #666;
         `;
-        const sceneNums = Array.from(page.scenes).sort((a, b) => parseFloat(a) - parseFloat(b));
+        const sceneNums = Array.from(page.scenes).sort((a: any, b: any) => parseFloat(a) - parseFloat(b));
         if (sceneNums.length === 1) {
           sceneIndicator.textContent = `Sc. ${sceneNums[0]}`;
         } else {
@@ -203,9 +207,9 @@
         margin-top: 0.5in;
       `;
       
-      page.elements.forEach(el => {
+      page.elements.forEach((el: any) => {
         // Check if this is a scene heading (slugline) and add scene number in margin
-        if (el.classList.contains('scene')) {
+        if (el.classList && el.classList.contains('scene')) {
           const wrapper = document.createElement('div');
           wrapper.style.cssText = `
             position: relative;
@@ -213,14 +217,14 @@
           
           // Get the scene number from the closest scene-break ancestor in original content
           // We stored data on cloned elements, so check for data attribute
-          let sceneNum = el.dataset.sceneNumber;
+          let sceneNum = el.dataset?.sceneNumber;
           
           // If not found via data attribute, try to extract from the scene-break context
           if (!sceneNum) {
             // Look for scene number pattern in the scene text (e.g., starts with number)
             const sceneText = el.textContent || '';
             // Try to find the current scene from our tracking
-            const sceneBreakParent = el.closest('.scene-break');
+            const sceneBreakParent = el.closest ? el.closest('.scene-break') : null;
             if (sceneBreakParent && sceneBreakParent.id) {
               sceneNum = sceneBreakParent.id.replace('scene-', '');
             }

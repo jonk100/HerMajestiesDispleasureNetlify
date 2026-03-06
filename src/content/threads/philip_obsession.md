@@ -9,6 +9,7 @@ status: open
 intended_payoff: ''
 characters:
 - lord-mountbatten
+- prince-phillip
 notes: Triggered by perceived carelessness; escalates through mediated quotes and
   strategic planning.
 created: 2026-02-22

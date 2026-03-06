@@ -1,38 +1,823 @@
 ---
 // src/components/BeatsFilter.astro
 
-import BaseFilter from "./BaseFilter.astro";
-
 /**
- * Beats-specific filter component
- * Filters story beats by movement_type, information_type, and scope fields
+ * Multi-filter component for beats
+ * Uses dropdowns with tag-style selections for better UX
  */
 
-const beatsFilters = {
-  all: 'All Beats',
+// Episode filters
+const episodeFilters = {
+  all: 'All Episodes',
+  episode_1: 'Episode 1',
+  episode_2: 'Episode 2',
+  episode_3: 'Episode 3',
+  episode_4: 'Episode 4',
+  episode_5: 'Episode 5',
+  episode_6: 'Episode 6'
+};
+
+// Movement type filters
+const movementTypeFilters = {
+  all: 'All Movement Types',
   escalation: 'Escalation',
   deescalation: 'Deescalation',
   reversal: 'Reversal',
   turn: 'Turn',
   stasis: 'Stasis',
-  internal_shift: 'Internal Shift',
+  internal_shift: 'Internal Shift'
+};
+
+// Information type filters
+const informationTypeFilters = {
+  all: 'All Information Types',
+  none: 'No Information',
   setup: 'Setup',
   reveal: 'Reveal',
   plant: 'Plant',
   payoff: 'Payoff',
   withholding: 'Withholding',
-  misdirect: 'Misdirect',
-  none: 'No Information',
+  misdirect: 'Misdirect'
+};
+
+// Scope filters
+const scopeFilters = {
+  all: 'All Scopes',
   internal: 'Internal',
   interpersonal: 'Interpersonal',
   subplot: 'Subplot',
   primary_plot: 'Primary Plot',
   global: 'Global'
 };
+
+// Character filters (based on primary_character field)
+const characterFilters = {
+  all: 'All Characters',
+  'john-lennon': 'John Lennon',
+  'paul-mccartney': 'Paul McCartney',
+  'george-harrison': 'George Harrison',
+  'ringo-starr': 'Ringo Starr',
+  'nigel-finch': 'Nigel Finch',
+  'clive-barrow': 'Clive Barrow',
+  'yoko-ono': 'Yoko Ono',
+  'queen-elizabeth': 'Queen Elizabeth',
+  'prince-phillip': 'Prince Philip',
+  'lord-mountbatten': 'Lord Mountbatten',
+  'sir-derek-finchley': 'Sir Derek Finchley',
+  'brian-epstein': 'Brian Epstein',
+  'arthur-jenkins': 'Arthur Jenkins'
+};
+
+// Engine filters
+const engineFilters = {
+  all: 'All Engines',
+  character: 'Character',
+  institution: 'Institution',
+  cultural: 'Cultural'
+};
+
+// Irreversibility filters
+const irreversibilityFilters = {
+  all: 'All Irreversibility',
+  none: 'None',
+  personal: 'Personal',
+  public: 'Public',
+  historical: 'Historical'
+};
 ---
 
-<BaseFilter 
-  title="Filter by Beat Attributes"
-  filters={beatsFilters}
-  resultLabel="beats"
-/>
+<div 
+  class="beats-filters"
+  x-data="{
+    activeFilters: {
+      episode: [],
+      movementType: [],
+      informationType: [],
+      scope: [],
+      character: [],
+      engine: [],
+      irreversibility: []
+    },
+    dropdowns: {
+      episode: false,
+      movementType: false,
+      informationType: false,
+      scope: false,
+      character: false,
+      engine: false,
+      irreversibility: false
+    },
+    
+    toggleDropdown(category) {
+      this.dropdowns[category] = !this.dropdowns[category];
+      // Close other dropdowns
+      Object.keys(this.dropdowns).forEach(key => {
+        if (key !== category) {
+          this.dropdowns[key] = false;
+        }
+      });
+    },
+    
+    closeAllDropdowns() {
+      Object.keys(this.dropdowns).forEach(key => {
+        this.dropdowns[key] = false;
+      });
+    },
+    
+    addFilter(category, key, label) {
+      if (!this.activeFilters[category].find(f => f.key === key)) {
+        this.activeFilters[category].push({ key, label });
+        this.filterItems();
+      }
+      this.dropdowns[category] = false;
+    },
+    
+    removeFilter(category, key) {
+      this.activeFilters[category] = this.activeFilters[category].filter(f => f.key !== key);
+      this.filterItems();
+    },
+    
+    clearAllFilters() {
+      this.activeFilters = {
+        episode: [],
+        movementType: [],
+        informationType: [],
+        scope: [],
+        character: [],
+        engine: [],
+        irreversibility: []
+      };
+      this.filterItems();
+    },
+    
+    filterItems() {
+      // Filter scene blocks
+      const scenes = document.querySelectorAll('.scene-block');
+      let visibleScenes = 0;
+      let totalVisibleBeats = 0;
+      
+      scenes.forEach(scene => {
+        const categories = JSON.parse(scene.getAttribute('data-category') || '[]');
+        
+        let matches = true;
+        
+        // Check each filter category
+        if (this.activeFilters.episode.length > 0) {
+          matches = matches && this.activeFilters.episode.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.movementType.length > 0) {
+          matches = matches && this.activeFilters.movementType.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.informationType.length > 0) {
+          matches = matches && this.activeFilters.informationType.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.scope.length > 0) {
+          matches = matches && this.activeFilters.scope.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.character.length > 0) {
+          matches = matches && this.activeFilters.character.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.engine.length > 0) {
+          matches = matches && this.activeFilters.engine.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.irreversibility.length > 0) {
+          matches = matches && this.activeFilters.irreversibility.some(f => categories.includes(f.key));
+        }
+        
+        if (matches) {
+          scene.style.display = 'block';
+          scene.classList.remove('filter-hidden');
+          visibleScenes++;
+          
+          // Count visible beats in this scene
+          const beatsInScene = scene.querySelectorAll('.beat-card');
+          beatsInScene.forEach(beat => {
+            beat.style.display = 'block';
+            beat.classList.remove('filter-hidden');
+            totalVisibleBeats++;
+          });
+        } else {
+          scene.style.display = 'none';
+          scene.classList.add('filter-hidden');
+          
+          // Hide all beats in this scene
+          const beatsInScene = scene.querySelectorAll('.beat-card');
+          beatsInScene.forEach(beat => {
+            beat.style.display = 'none';
+            beat.classList.add('filter-hidden');
+          });
+        }
+      });
+      
+      // Update result count
+      const countElement = document.querySelector('.results-count');
+      if (countElement) {
+        countElement.textContent = `${totalVisibleBeats} beats in ${visibleScenes} scenes`;
+      }
+    }
+  }"
+  x-init="filterItems()"
+  @click.away="closeAllDropdowns()"
+>
+  <div class="filter-header">
+    <h2 class="filter-title">Filter Beats</h2>
+    <div class="results-count"></div>
+    <button class="clear-all-btn" @click="clearAllFilters()" x-show="Object.values(activeFilters).some(filters => filters.length > 0)">Clear All</button>
+  </div>
+  
+  <div class="filter-sections">
+    <!-- Episode Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('episode')">
+        <span class="filter-label">Episode</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.episode.length === 0">
+            <span class="placeholder">Select episodes...</span>
+          </template>
+          <template x-for="filter in activeFilters.episode" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('episode', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.episode }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.episode" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'all', 'All Episodes')"
+          x-show="!activeFilters.episode.find(f => f.key === 'all')"
+        >
+          <span>All Episodes</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_1', 'Episode 1')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_1')"
+        >
+          <span>Episode 1</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_2', 'Episode 2')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_2')"
+        >
+          <span>Episode 2</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_3', 'Episode 3')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_3')"
+        >
+          <span>Episode 3</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_4', 'Episode 4')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_4')"
+        >
+          <span>Episode 4</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_5', 'Episode 5')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_5')"
+        >
+          <span>Episode 5</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_6', 'Episode 6')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_6')"
+        >
+          <span>Episode 6</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Movement Type Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('movementType')">
+        <span class="filter-label">Movement</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.movementType.length === 0">
+            <span class="placeholder">Select movement types...</span>
+          </template>
+          <template x-for="filter in activeFilters.movementType" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('movementType', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.movementType }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.movementType" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'all', 'All Movement Types')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'all')"
+        >
+          <span>All Movement Types</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'escalation', 'Escalation')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'escalation')"
+        >
+          <span>Escalation</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'deescalation', 'Deescalation')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'deescalation')"
+        >
+          <span>Deescalation</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'reversal', 'Reversal')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'reversal')"
+        >
+          <span>Reversal</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'turn', 'Turn')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'turn')"
+        >
+          <span>Turn</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'stasis', 'Stasis')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'stasis')"
+        >
+          <span>Stasis</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('movementType', 'internal_shift', 'Internal Shift')"
+          x-show="!activeFilters.movementType.find(f => f.key === 'internal_shift')"
+        >
+          <span>Internal Shift</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Information Type Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('informationType')">
+        <span class="filter-label">Information</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.informationType.length === 0">
+            <span class="placeholder">Select information types...</span>
+          </template>
+          <template x-for="filter in activeFilters.informationType" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('informationType', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.informationType }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.informationType" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'all', 'All Information Types')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'all')"
+        >
+          <span>All Information Types</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'none', 'No Information')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'none')"
+        >
+          <span>No Information</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'setup', 'Setup')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'setup')"
+        >
+          <span>Setup</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'reveal', 'Reveal')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'reveal')"
+        >
+          <span>Reveal</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'plant', 'Plant')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'plant')"
+        >
+          <span>Plant</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'payoff', 'Payoff')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'payoff')"
+        >
+          <span>Payoff</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'withholding', 'Withholding')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'withholding')"
+        >
+          <span>Withholding</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('informationType', 'misdirect', 'Misdirect')"
+          x-show="!activeFilters.informationType.find(f => f.key === 'misdirect')"
+        >
+          <span>Misdirect</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scope Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('scope')">
+        <span class="filter-label">Scope</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.scope.length === 0">
+            <span class="placeholder">Select scopes...</span>
+          </template>
+          <template x-for="filter in activeFilters.scope" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('scope', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.scope }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.scope" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'all', 'All Scopes')"
+          x-show="!activeFilters.scope.find(f => f.key === 'all')"
+        >
+          <span>All Scopes</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'internal', 'Internal')"
+          x-show="!activeFilters.scope.find(f => f.key === 'internal')"
+        >
+          <span>Internal</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'interpersonal', 'Interpersonal')"
+          x-show="!activeFilters.scope.find(f => f.key === 'interpersonal')"
+        >
+          <span>Interpersonal</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'subplot', 'Subplot')"
+          x-show="!activeFilters.scope.find(f => f.key === 'subplot')"
+        >
+          <span>Subplot</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'primary_plot', 'Primary Plot')"
+          x-show="!activeFilters.scope.find(f => f.key === 'primary_plot')"
+        >
+          <span>Primary Plot</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('scope', 'global', 'Global')"
+          x-show="!activeFilters.scope.find(f => f.key === 'global')"
+        >
+          <span>Global</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Character Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('character')">
+        <span class="filter-label">Character</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.character.length === 0">
+            <span class="placeholder">Select characters...</span>
+          </template>
+          <template x-for="filter in activeFilters.character" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('character', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.character }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.character" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'all', 'All Characters')"
+          x-show="!activeFilters.character.find(f => f.key === 'all')"
+        >
+          <span>All Characters</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'john-lennon', 'John Lennon')"
+          x-show="!activeFilters.character.find(f => f.key === 'john-lennon')"
+        >
+          <span>John Lennon</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'paul-mccartney', 'Paul McCartney')"
+          x-show="!activeFilters.character.find(f => f.key === 'paul-mccartney')"
+        >
+          <span>Paul McCartney</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'george-harrison', 'George Harrison')"
+          x-show="!activeFilters.character.find(f => f.key === 'george-harrison')"
+        >
+          <span>George Harrison</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'ringo-starr', 'Ringo Starr')"
+          x-show="!activeFilters.character.find(f => f.key === 'ringo-starr')"
+        >
+          <span>Ringo Starr</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'nigel-finch', 'Nigel Finch')"
+          x-show="!activeFilters.character.find(f => f.key === 'nigel-finch')"
+        >
+          <span>Nigel Finch</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'clive-barrow', 'Clive Barrow')"
+          x-show="!activeFilters.character.find(f => f.key === 'clive-barrow')"
+        >
+          <span>Clive Barrow</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'yoko-ono', 'Yoko Ono')"
+          x-show="!activeFilters.character.find(f => f.key === 'yoko-ono')"
+        >
+          <span>Yoko Ono</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'queen-elizabeth', 'Queen Elizabeth')"
+          x-show="!activeFilters.character.find(f => f.key === 'queen-elizabeth')"
+        >
+          <span>Queen Elizabeth</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'prince-phillip', 'Prince Philip')"
+          x-show="!activeFilters.character.find(f => f.key === 'prince-phillip')"
+        >
+          <span>Prince Philip</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'lord-mountbatten', 'Lord Mountbatten')"
+          x-show="!activeFilters.character.find(f => f.key === 'lord-mountbatten')"
+        >
+          <span>Lord Mountbatten</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'sir-derek-finchley', 'Sir Derek Finchley')"
+          x-show="!activeFilters.character.find(f => f.key === 'sir-derek-finchley')"
+        >
+          <span>Sir Derek Finchley</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'brian-epstein', 'Brian Epstein')"
+          x-show="!activeFilters.character.find(f => f.key === 'brian-epstein')"
+        >
+          <span>Brian Epstein</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'arthur-jenkins', 'Arthur Jenkins')"
+          x-show="!activeFilters.character.find(f => f.key === 'arthur-jenkins')"
+        >
+          <span>Arthur Jenkins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.beats-filters {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.results-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.clear-all-btn {
+  padding: 0.5rem 1rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.clear-all-btn:hover {
+  background: #c82333;
+}
+
+.filter-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.filter-section {
+  position: relative;
+}
+
+.filter-dropdown {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #007bff;
+}
+
+.filter-dropdown.active {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-selected {
+  min-height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.filter-tag {
+  background: #007bff;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-tag:hover {
+  background: #0056b3;
+}
+
+.filter-tag .remove {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.dropdown-arrow.open {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+}
+
+.dropdown-item.selected {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+@media (max-width: 768px) {
+  .filter-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-dropdown {
+    padding: 1rem;
+  }
+}
+</style>

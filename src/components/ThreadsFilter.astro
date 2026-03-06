@@ -1,0 +1,670 @@
+---
+// src/components/ThreadsFilter.astro
+
+/**
+ * Multi-filter component for threads
+ * Uses dropdowns with tag-style selections for better UX
+ */
+
+// Episode filters
+const episodeFilters = {
+  all: 'All Episodes',
+  episode_1: 'Episode 1',
+  episode_2: 'Episode 2',
+  episode_3: 'Episode 3',
+  episode_4: 'Episode 4',
+  episode_5: 'Episode 5',
+  episode_6: 'Episode 6'
+};
+
+// Character filters
+const characterFilters = {
+  all: 'All Characters',
+  'john-lennon': 'John Lennon',
+  'paul-mccartney': 'Paul McCartney',
+  'george-harrison': 'George Harrison',
+  'ringo-starr': 'Ringo Starr',
+  'nigel-finch': 'Nigel Finch',
+  'clive-barrow': 'Clive Barrow',
+  'yoko-ono': 'Yoko Ono',
+  'queen-elizabeth': 'Queen Elizabeth',
+  'prince-phillip': 'Prince Philip',
+  'lord-mountbatten': 'Lord Mountbatten',
+  'sir-derek-finchley': 'Sir Derek Finchley',
+  'brian-epstein': 'Brian Epstein',
+  'arthur-jenkins': 'Arthur Jenkins'
+};
+
+// Thread type filters
+const typeFilters = {
+  all: 'All Types',
+  character_arc: 'Character Arc',
+  relationship: 'Relationship',
+  operational: 'Operational',
+  thematic: 'Thematic',
+  motif: 'Motif',
+  plot: 'Plot'
+};
+
+// Status filters
+const statusFilters = {
+  all: 'All Statuses',
+  open: 'Open',
+  closed: 'Closed',
+  dormant: 'Dormant',
+  abandoned: 'Abandoned'
+};
+---
+
+<div 
+  class="threads-filters"
+  x-data="{
+    activeFilters: {
+      episode: [],
+      character: [], 
+      type: [],
+      status: []
+    },
+    dropdowns: {
+      episode: false,
+      character: false,
+      type: false,
+      status: false
+    },
+    
+    toggleDropdown(category) {
+      this.dropdowns[category] = !this.dropdowns[category];
+      // Close other dropdowns
+      Object.keys(this.dropdowns).forEach(key => {
+        if (key !== category) {
+          this.dropdowns[key] = false;
+        }
+      });
+    },
+    
+    closeAllDropdowns() {
+      Object.keys(this.dropdowns).forEach(key => {
+        this.dropdowns[key] = false;
+      });
+    },
+    
+    addFilter(category, key, label) {
+      if (!this.activeFilters[category].find(f => f.key === key)) {
+        this.activeFilters[category].push({ key, label });
+        this.filterItems();
+      }
+      this.dropdowns[category] = false;
+    },
+    
+    removeFilter(category, key) {
+      this.activeFilters[category] = this.activeFilters[category].filter(f => f.key !== key);
+      this.filterItems();
+    },
+    
+    clearAllFilters() {
+      this.activeFilters = {
+        episode: [],
+        character: [], 
+        type: [],
+        status: []
+      };
+      this.filterItems();
+    },
+    
+    filterItems() {
+      const items = document.querySelectorAll('.thread-card');
+      let visibleCount = 0;
+      
+      items.forEach(item => {
+        const categories = JSON.parse(item.getAttribute('data-category') || '[]');
+        
+        let matches = true;
+        
+        // Check each filter category
+        if (this.activeFilters.episode.length > 0) {
+          matches = matches && this.activeFilters.episode.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.character.length > 0) {
+          matches = matches && this.activeFilters.character.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.type.length > 0) {
+          matches = matches && this.activeFilters.type.some(f => categories.includes(f.key));
+        }
+        
+        if (this.activeFilters.status.length > 0) {
+          matches = matches && this.activeFilters.status.some(f => categories.includes(f.key));
+        }
+        
+        if (matches) {
+          item.style.display = 'block';
+          item.classList.remove('filter-hidden');
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.add('filter-hidden');
+        }
+      });
+      
+      // Update result count
+      const countElement = document.querySelector('.results-count');
+      if (countElement) {
+        countElement.textContent = visibleCount + ' threads';
+      }
+    }
+  }"
+  x-init="filterItems()"
+  @click.away="closeAllDropdowns()"
+>
+  <div class="filter-header">
+    <h2 class="filter-title">Filter Threads</h2>
+    <div class="results-count"></div>
+    <button class="clear-all-btn" @click="clearAllFilters()" x-show="activeFilters.episode.length > 0 || activeFilters.character.length > 0 || activeFilters.type.length > 0 || activeFilters.status.length > 0">Clear All</button>
+  </div>
+  
+  <div class="filter-sections">
+    <!-- Episode Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('episode')">
+        <span class="filter-label">Episode</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.episode.length === 0">
+            <span class="placeholder">Select episodes...</span>
+          </template>
+          <template x-for="filter in activeFilters.episode" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('episode', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.episode }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.episode" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'all', 'All Episodes')"
+          x-show="!activeFilters.episode.find(f => f.key === 'all')"
+        >
+          <span>All Episodes</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_1', 'Episode 1')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_1')"
+        >
+          <span>Episode 1</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_2', 'Episode 2')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_2')"
+        >
+          <span>Episode 2</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_3', 'Episode 3')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_3')"
+        >
+          <span>Episode 3</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_4', 'Episode 4')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_4')"
+        >
+          <span>Episode 4</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_5', 'Episode 5')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_5')"
+        >
+          <span>Episode 5</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('episode', 'episode_6', 'Episode 6')"
+          x-show="!activeFilters.episode.find(f => f.key === 'episode_6')"
+        >
+          <span>Episode 6</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Character Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('character')">
+        <span class="filter-label">Character</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.character.length === 0">
+            <span class="placeholder">Select characters...</span>
+          </template>
+          <template x-for="filter in activeFilters.character" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('character', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.character }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.character" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'all', 'All Characters')"
+          x-show="!activeFilters.character.find(f => f.key === 'all')"
+        >
+          <span>All Characters</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'john-lennon', 'John Lennon')"
+          x-show="!activeFilters.character.find(f => f.key === 'john-lennon')"
+        >
+          <span>John Lennon</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'paul-mccartney', 'Paul McCartney')"
+          x-show="!activeFilters.character.find(f => f.key === 'paul-mccartney')"
+        >
+          <span>Paul McCartney</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'george-harrison', 'George Harrison')"
+          x-show="!activeFilters.character.find(f => f.key === 'george-harrison')"
+        >
+          <span>George Harrison</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'ringo-starr', 'Ringo Starr')"
+          x-show="!activeFilters.character.find(f => f.key === 'ringo-starr')"
+        >
+          <span>Ringo Starr</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'nigel-finch', 'Nigel Finch')"
+          x-show="!activeFilters.character.find(f => f.key === 'nigel-finch')"
+        >
+          <span>Nigel Finch</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'clive-barrow', 'Clive Barrow')"
+          x-show="!activeFilters.character.find(f => f.key === 'clive-barrow')"
+        >
+          <span>Clive Barrow</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'yoko-ono', 'Yoko Ono')"
+          x-show="!activeFilters.character.find(f => f.key === 'yoko-ono')"
+        >
+          <span>Yoko Ono</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'queen-elizabeth', 'Queen Elizabeth')"
+          x-show="!activeFilters.character.find(f => f.key === 'queen-elizabeth')"
+        >
+          <span>Queen Elizabeth</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'prince-phillip', 'Prince Philip')"
+          x-show="!activeFilters.character.find(f => f.key === 'prince-phillip')"
+        >
+          <span>Prince Philip</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'lord-mountbatten', 'Lord Mountbatten')"
+          x-show="!activeFilters.character.find(f => f.key === 'lord-mountbatten')"
+        >
+          <span>Lord Mountbatten</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'sir-derek-finchley', 'Sir Derek Finchley')"
+          x-show="!activeFilters.character.find(f => f.key === 'sir-derek-finchley')"
+        >
+          <span>Sir Derek Finchley</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'brian-epstein', 'Brian Epstein')"
+          x-show="!activeFilters.character.find(f => f.key === 'brian-epstein')"
+        >
+          <span>Brian Epstein</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('character', 'arthur-jenkins', 'Arthur Jenkins')"
+          x-show="!activeFilters.character.find(f => f.key === 'arthur-jenkins')"
+        >
+          <span>Arthur Jenkins</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Type Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('type')">
+        <span class="filter-label">Type</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.type.length === 0">
+            <span class="placeholder">Select types...</span>
+          </template>
+          <template x-for="filter in activeFilters.type" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('type', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.type }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.type" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'all', 'All Types')"
+          x-show="!activeFilters.type.find(f => f.key === 'all')"
+        >
+          <span>All Types</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'character_arc', 'Character Arc')"
+          x-show="!activeFilters.type.find(f => f.key === 'character_arc')"
+        >
+          <span>Character Arc</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'relationship', 'Relationship')"
+          x-show="!activeFilters.type.find(f => f.key === 'relationship')"
+        >
+          <span>Relationship</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'operational', 'Operational')"
+          x-show="!activeFilters.type.find(f => f.key === 'operational')"
+        >
+          <span>Operational</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'thematic', 'Thematic')"
+          x-show="!activeFilters.type.find(f => f.key === 'thematic')"
+        >
+          <span>Thematic</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'motif', 'Motif')"
+          x-show="!activeFilters.type.find(f => f.key === 'motif')"
+        >
+          <span>Motif</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('type', 'plot', 'Plot')"
+          x-show="!activeFilters.type.find(f => f.key === 'plot')"
+        >
+          <span>Plot</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Status Filter -->
+    <div class="filter-section">
+      <div class="filter-dropdown" @click="toggleDropdown('status')">
+        <span class="filter-label">Status</span>
+        <div class="filter-selected">
+          <template x-if="activeFilters.status.length === 0">
+            <span class="placeholder">Select status...</span>
+          </template>
+          <template x-for="filter in activeFilters.status" :key="filter.key">
+            <span class="filter-tag" @click.stop="removeFilter('status', filter.key)">
+              <span x-text="filter.label"></span>
+              <span class="remove">×</span>
+            </span>
+          </template>
+        </div>
+        <span class="dropdown-arrow" :class="{ 'open': dropdowns.status }">▼</span>
+      </div>
+      
+      <div class="dropdown-menu" x-show="dropdowns.status" x-transition>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('status', 'all', 'All Statuses')"
+          x-show="!activeFilters.status.find(f => f.key === 'all')"
+        >
+          <span>All Statuses</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('status', 'open', 'Open')"
+          x-show="!activeFilters.status.find(f => f.key === 'open')"
+        >
+          <span>Open</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('status', 'closed', 'Closed')"
+          x-show="!activeFilters.status.find(f => f.key === 'closed')"
+        >
+          <span>Closed</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('status', 'dormant', 'Dormant')"
+          x-show="!activeFilters.status.find(f => f.key === 'dormant')"
+        >
+          <span>Dormant</span>
+        </div>
+        <div 
+          class="dropdown-item"
+          @click.stop="addFilter('status', 'abandoned', 'Abandoned')"
+          x-show="!activeFilters.status.find(f => f.key === 'abandoned')"
+        >
+          <span>Abandoned</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.threads-filters {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.results-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.clear-all-btn {
+  padding: 0.5rem 1rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.clear-all-btn:hover {
+  background: #c82333;
+}
+
+.filter-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.filter-section {
+  position: relative;
+}
+
+.filter-dropdown {
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-dropdown:hover {
+  border-color: #007bff;
+}
+
+.filter-dropdown.active {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-selected {
+  min-height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.filter-tag {
+  background: #007bff;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-tag:hover {
+  background: #0056b3;
+}
+
+.filter-tag .remove {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.dropdown-arrow.open {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+}
+
+.dropdown-item.selected {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+@media (max-width: 768px) {
+  .filter-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-dropdown {
+    padding: 1rem;
+  }
+}
+</style>

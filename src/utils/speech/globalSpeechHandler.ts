@@ -5,17 +5,12 @@
  */
 
 export function initGlobalSpeechHandler() {
-  console.log("Initializing global speech handler...");
-  
   // Find all speak buttons
   const speakButtons = document.querySelectorAll('.speak');
-  console.log(`Found ${speakButtons.length} speak buttons`);
   
   speakButtons.forEach((btn, index) => {
     const parent = btn.closest('.dialogue, .action, .parenthetical');
     const voiceId = (parent as HTMLElement)?.dataset.voice;
-    
-    console.log(`Setting up button ${index}:`, { parent: !!parent, voiceId });
     
     if (parent) {
       let isPlaying = false;
@@ -29,7 +24,6 @@ export function initGlobalSpeechHandler() {
         buttonEl.textContent = playing ? '■' : '▶';
         buttonEl.setAttribute('aria-label', playing ? 'Stop speaking' : 'Play speaking');
         (buttonEl as any).isPlaying = playing;
-        console.log(`Button ${index} updated to:`, playing ? '■' : '▶');
       };
       
       const extractText = () => {
@@ -57,11 +51,9 @@ export function initGlobalSpeechHandler() {
         
         // Get current state from the button
         const currentlyPlaying = (newBtn as any).isPlaying;
-        console.log(`Button ${index} clicked! Current state:`, currentlyPlaying);
         
         if (currentlyPlaying) {
           // Stop speaking
-          console.log("Stopping speech...");
           window.speechSynthesis.cancel();
           (newBtn as any).isPlaying = false;
           updateButton(newBtn, false);
@@ -73,7 +65,6 @@ export function initGlobalSpeechHandler() {
         } else {
           // Start speaking
           const text = extractText();
-          console.log(`Speaking button ${index}:`, { text, parentClass: parent.className });
           
           if ('speechSynthesis' in window && text) {
             // Cancel any existing speech first
@@ -83,18 +74,14 @@ export function initGlobalSpeechHandler() {
             (newBtn as any).currentUtterance = utterance;
             
             // Apply voice configuration (ignore the hardcoded voiceId)
-            console.log("About to apply voice configuration...");
             applyVoiceConfig(utterance, parent);
-            console.log("Voice configuration applied");
             
             utterance.onstart = () => {
-              console.log(`Button ${index} started speaking`);
               (newBtn as any).isPlaying = true;
               updateButton(newBtn, true);
             };
             
             utterance.onend = () => {
-              console.log(`Button ${index} finished speaking`);
               (newBtn as any).isPlaying = false;
               (newBtn as any).currentUtterance = null;
               updateButton(newBtn, false);
@@ -117,9 +104,6 @@ export function initGlobalSpeechHandler() {
       // Add debug functionality
       newBtn.addEventListener("contextmenu", (e) => {
         e.preventDefault();
-        console.log("Available voices:", window.speechSynthesis?.getVoices()?.map(v => v.name));
-        console.log("Current voiceId:", voiceId);
-        console.log("Button state:", { isPlaying: (newBtn as any).isPlaying });
       });
       
       // Initialize button
@@ -133,13 +117,11 @@ function applyVoiceConfig(utterance: SpeechSynthesisUtterance, parent: Element) 
   // Get saved configuration
   const savedConfig = localStorage.getItem('voiceConfig');
   if (!savedConfig) {
-    console.log("No saved voice configuration found");
     return;
   }
   
   try {
     const config = JSON.parse(savedConfig);
-    console.log("Using voice config:", config);
     
     // Determine if this is narrator or character
     const isAction = parent.classList.contains('action');
@@ -154,7 +136,6 @@ function applyVoiceConfig(utterance: SpeechSynthesisUtterance, parent: Element) 
       // Use narrator configuration for action and parenthetical
       voiceConfig = config.narrator;
       voiceSource = `narrator (${isParenthetical ? 'parenthetical' : 'action'})`;
-      console.log(`Using narrator config for ${isParenthetical ? 'parenthetical' : 'action'}`);
     } else if (isDialogue) {
       // For dialogue, find the preceding Character component
       characterName = null;

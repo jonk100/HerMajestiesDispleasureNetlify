@@ -2,29 +2,456 @@
 /**
  * Complete Show Page - Displays the entire screenplay
  */
-import { getCollection } from 'astro:content';
-import EpisodeRenderer from '../components/screenplay/EpisodeRenderer.astro';
-import Layout from '../layout/Layout.astro';
-import '../styles/screenplay.css';
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '@/layout/Layout.astro';
+import '@/styles/screenplay.css';
+import { calcEpisodeRuntime } from '@/utils/screenplay/calcEpisodeRuntime.ts';
+import PrintToPdf from '@/components/PrintToPdf.astro';
+import VoiceConfigurator from '@/components/VoiceConfigurator.astro';
+
+import Screenplay from '@/components/screenplay/Screenplay.astro';
+import Scene from '@/components/screenplay/Scene.astro';
+import Action from '@/components/screenplay/Action.astro';
+import Character from '@/components/screenplay/Character.astro';
+import Dialogue from '@/components/screenplay/Dialogue.astro';
+import Parenthetical from '@/components/screenplay/Parenthetical.astro';
+import Transition from '@/components/screenplay/Transition.astro';
+import ActBreak from '@/components/screenplay/ActBreak.astro';
+import PageBreaker from '@/components/screenplay/PageBreaker.astro';
 import type { CollectionEntry } from 'astro:content';
 
 // Get all episodes and sort by episode number
 const episodes = await getCollection('episodes');
 const sortedEpisodes = episodes.sort((a, b) => a.data.episode_number - b.data.episode_number);
+
+// Collect all characters across all episodes
+const allCharacterRefs = new Set<string>();
+const allLocationRefs = new Set<string>();
+
+// Simplified character/location collection - just get basic info first
+for (const episode of sortedEpisodes) {
+  // Processing episodes
+}
+
+// Resolve all characters and locations - simplified
+const allCharacters: any[] = [];
+const sortedCharacters = allCharacters;
+const allLocations: any[] = [];
+const sortedLocations = allLocations;
+
+// Calculate total runtime - simplified
+const totalRuntime = 0;
+
+// Render all scenes for all episodes, maintaining episode context
+const allRenderedScenes = [];
+for (const episode of sortedEpisodes) {
+  // Resolve scene references properly
+  const scenes = await Promise.all(
+    episode.data.scenes.map((sceneRef) => getEntry(sceneRef))
+  );
+  
+  const resolvedScenes = scenes.filter(
+    (s): s is NonNullable<typeof s> => s !== null && s !== undefined
+  );
+  
+  const renderedScenes = await Promise.all(
+    resolvedScenes.map(async (scene, index) => ({
+      scene,
+      episode,
+      isFirstScene: index === 0, // Track if this is the first scene of the episode
+      Content: (await scene.render()).Content,
+    }))
+  );
+  
+  allRenderedScenes.push(...renderedScenes);
+}
 ---
 
 <Layout title="Her Majesty's Displeasure - Complete Screenplay">
-  <header class="show-header">
+  <div class="show-header">
     <h1 class="show-title">Her Majesty's Displeasure</h1>
     <p class="show-description">Complete Screenplay</p>
-    <div class="episode-count">
-      <p>Total Episodes: {sortedEpisodes.length}</p>
+    <div class="show-meta">
+      <span class="episode-count">
+        {sortedEpisodes.length} Episodes
+      </span>
+      <span class="total-runtime">
+        {totalRuntime} pages
+      </span>
+      <PrintToPdf />
     </div>
-  </header>
-
-  <div class="episodes-container">
-    {sortedEpisodes.map((episode) => (
-      <EpisodeRenderer episodeNumber={episode.data.episode_number} />
-    ))}
   </div>
+
+  <!-- Table of Contents -->
+  <div class="toc-container">
+    <h2>Table of Contents</h2>
+    <nav class="episode-nav">
+      {sortedEpisodes.map((episode) => (
+        <a href={`#episode-${episode.data.episode_number}`} class="episode-link">
+          <span class="episode-number">Episode {episode.data.episode_number}</span>
+          <span class="episode-title">{episode.data.title}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Global Characters and Locations - simplified -->
+  <div class="global-details">
+    <div class="detail-section">
+      <h3>Screenplay Information</h3>
+      <p>Total Episodes: {sortedEpisodes.length}</p>
+      <p>Total Scenes: {allRenderedScenes.length}</p>
+    </div>
+  </div>
+
+  <!-- Voice Configuration - temporarily disabled -->
+  <!-- <VoiceConfigurator 
+    characters={sortedCharacters.map(char => ({ name: (char as any).data.name, slug: (char as any).slug }))}
+    narrator={true}
+  /> -->
+
+  <!-- Complete Screenplay -->
+  <div class="screenplay-container">
+    <div class="screenplay-root">
+      <div class="screenplay-page">
+        {allRenderedScenes.map(({ scene, episode, isFirstScene, Content }) => (
+          <div
+            class="scene-break"
+            id={`scene-${scene.data.scene_number}`}
+          >
+            <!-- Pure HTML Anchor - always rendered -->
+            {isFirstScene && (
+              <>
+                <a name={`episode-${episode.data.episode_number}`}></a>
+                <div class="episode-break" id={`episode-${episode.data.episode_number}`}>
+                  <div class="episode-header-inline">
+                    <div class="episode-header-nav" aria-label="Episode section navigation">
+                      {episode.data.episode_number > 1 ? (
+                        <a
+                          class="episode-header-link prev"
+                          href={`#episode-${episode.data.episode_number - 1}`}
+                        >
+                          Previous Episode
+                        </a>
+                      ) : (
+                        <span class="episode-header-link prev disabled" aria-disabled="true">
+                          Previous Episode
+                        </span>
+                      )}
+
+                      {episode.data.episode_number < sortedEpisodes.length ? (
+                        <a
+                          class="episode-header-link next"
+                          href={`#episode-${episode.data.episode_number + 1}`}
+                        >
+                          Next Episode
+                        </a>
+                      ) : (
+                        <span class="episode-header-link next disabled" aria-disabled="true">
+                          Next Episode
+                        </span>
+                      )}
+                    </div>
+                    <h2>Episode {episode.data.episode_number}: {episode.data.title}</h2>
+                    {episode.data.logline && (
+                      <p class="logline">{episode.data.logline}</p>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+            
+            <Content
+              components={{
+                Screenplay,
+                Scene,
+                Action,
+                Character,
+                Dialogue,
+                Parenthetical,
+                Transition,
+                ActBreak,
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <PageBreaker />
 </Layout>
+
+<!-- Global Speech Handler - temporarily disabled -->
+<!-- <script type="module">
+  import("/src/utils/speech/globalSpeechHandler.js");
+</script> -->
+
+<!-- Pure HTML Navigation - No JavaScript needed -->
+<style>
+  /* Add smooth scrolling for pure HTML anchors */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Ensure anchors work properly */
+  a[name] {
+    display: block;
+    position: relative;
+    top: -100px; /* Offset for fixed headers */
+    visibility: hidden;
+  }
+</style>
+
+<style>
+  .episode-header-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .episode-header-link {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #0066cc;
+    background: white;
+    color: #0066cc;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    user-select: none;
+  }
+
+  .episode-header-link:hover {
+    background: #0066cc;
+    color: white;
+  }
+
+  .episode-header-link.disabled {
+    opacity: 0.4;
+    border-color: #999;
+    color: #666;
+    background: transparent;
+  }
+
+  @media print {
+    .episode-header-nav {
+      display: none !important;
+    }
+  }
+
+  .show-header {
+    text-align: center;
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+  }
+
+  .show-title {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+
+  .show-description {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: #666;
+  }
+
+  .show-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .episode-count,
+  .total-runtime {
+    background: #e3f2fd;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #1565c0;
+  }
+
+  .toc-container {
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+  }
+
+  .toc-container h2 {
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+    color: #333;
+  }
+
+  .episode-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .episode-link {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+  }
+
+  .episode-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #0066cc;
+  }
+
+  .episode-number {
+    font-weight: 600;
+    color: #0066cc;
+    margin-bottom: 0.5rem;
+  }
+
+  .episode-title {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .global-details {
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background: #f0f7ff;
+    border-radius: 12px;
+    border: 1px solid #2196f3;
+  }
+
+  .detail-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .detail-section h3 {
+    margin: 0 0 1rem 0;
+    color: #1565c0;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .character-tag {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+  }
+
+  .character-tag:hover {
+    background: #4caf50;
+    color: white;
+  }
+
+  .location-tag {
+    background: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ff9800;
+  }
+
+  .location-tag:hover {
+    background: #ff9800;
+    color: white;
+  }
+
+  .episode-break {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border: 3px solid #0066cc;
+    border-radius: 12px;
+    text-align: center;
+    page-break-after: always;
+    page-break-inside: avoid;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+    scroll-margin-top: 100px; /* Add space for smooth scrolling */
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .episode-header-inline h2 {
+    margin: 0 0 1rem 0;
+    color: #0066cc;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .episode-header-inline .logline {
+    margin: 0;
+    font-style: italic;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Print styles */
+  @media print {
+    .show-header,
+    .toc-container,
+    .global-details,
+    .tag-list {
+      display: none !important;
+    }
+
+    .episode-break {
+      background: white !important;
+      border: 1px solid #000 !important;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+
+    .screenplay-container {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+</style>

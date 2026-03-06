@@ -49,6 +49,46 @@ const getEpisodeColor = (episode: number) => {
   const colors = ['#e3f2fd', '#f3e5f5', '#e8f5e8', '#fff3e0', '#fce4ec'];
   return colors[episode - 1] || '#f5f5f5';
 };
+
+/**
+ * Generate SVG path for pressure curve
+ */
+const generatePressurePath = (beats: ThreadBeat[]) => {
+  if (beats.length === 0) return '';
+  
+  const points = beats.map((beat, index) => {
+    const x = beats.length > 1 ? (index / (beats.length - 1)) * 100 : 50;
+    const pressure = beat.beat.data.pressure_level || 5;
+    const y = 60 - (pressure * 6); // Scale 1-10 to 54-6 (full height, 1 at bottom, 10 at top)
+    return `${x},${y}`;
+  });
+  
+  // Create smooth curve path
+  if (points.length === 1) {
+    return `M ${points[0]} L ${points[0]}`;
+  }
+  
+  let path = `M ${points[0]}`;
+  
+  for (let i = 1; i < points.length; i++) {
+    const prevPoint = points[i - 1].split(',').map(Number);
+    const currPoint = points[i].split(',').map(Number);
+    
+    // Create smooth curve between points
+    const cpx1 = prevPoint[0] + (currPoint[0] - prevPoint[0]) / 3;
+    const cpy1 = prevPoint[1];
+    const cpx2 = prevPoint[0] + (currPoint[0] - prevPoint[0]) * 2 / 3;
+    const cpy2 = currPoint[1];
+    
+    path += ` C ${cpx1},${cpy1} ${cpx2},${cpy2} ${currPoint[0]},${currPoint[1]}`;
+  }
+  
+  // Close the path to create area fill
+  const lastPoint = points[points.length - 1].split(',').map(Number);
+  path += ` L ${lastPoint[0]},60 L 0,60 Z`;
+  
+  return path;
+};
 ---
 
 <div class="thread-timeline">
@@ -76,6 +116,58 @@ const getEpisodeColor = (episode: number) => {
 
   <div class="timeline-container">
     <div class="timeline-track">
+      <!-- Pressure Curve Background -->
+      <div class="pressure-curve-container">
+        <svg class="pressure-curve" viewBox="0 0 100 60" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="pressureGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#ff9800;stop-opacity:0.05" />
+              <stop offset="50%" style="stop-color:#d32f2f;stop-opacity:0.08" />
+              <stop offset="100%" style="stop-color:#ff9800;stop-opacity:0.05" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Pressure area fill -->
+          <path 
+            d={generatePressurePath(threadBeats)}
+            fill="url(#pressureGradient)"
+            stroke="none"
+          />
+          
+          <!-- Pressure line -->
+          <path 
+            d={generatePressurePath(threadBeats)}
+            fill="none"
+            stroke="#ff9800"
+            stroke-width="2"
+            stroke-opacity="0.15"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+          
+          <!-- Pressure level indicators (subtle grid lines) -->
+          {[2, 5, 8].map(level => (
+            <line
+              x1="0"
+              y1={60 - (level * 6)}
+              x2="100"
+              y2={60 - (level * 6)}
+              stroke="#ddd"
+              stroke-width="0.5"
+              stroke-dasharray="2,2"
+              stroke-opacity="0.5"
+            />
+          ))}
+        </svg>
+        
+        <!-- Pressure scale labels -->
+        <div class="pressure-scale">
+          <span class="scale-label">10</span>
+          <span class="scale-label">5</span>
+          <span class="scale-label">1</span>
+        </div>
+      </div>
+      
       <!-- Episode labels row -->
       <div class="episode-labels-row">
         {Object.entries(beatsByEpisode).map(([episode, beats]) => {
@@ -303,10 +395,49 @@ const getEpisodeColor = (episode: number) => {
   height: 120px;
 }
 
+/* Pressure Curve Styles */
+.pressure-curve-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pressure-curve {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pressure-scale {
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.7rem;
+  color: #999;
+  opacity: 0.7;
+  padding: 6px 0;
+}
+
+.scale-label {
+  line-height: 1;
+}
+
 .episode-labels-row {
   position: relative;
   height: 40px;
   margin-bottom: 1rem;
+  z-index: 2;
 }
 
 .episode-label-top {
@@ -317,12 +448,13 @@ const getEpisodeColor = (episode: number) => {
   font-weight: 600;
   color: #666;
   white-space: nowrap;
-  z-index: 2;
+  z-index: 4;
 }
 
 .timeline-line-row {
   position: relative;
   height: 60px;
+  z-index: 2;
 }
 
 .timeline-line {
@@ -333,7 +465,7 @@ const getEpisodeColor = (episode: number) => {
   height: 3px;
   background: #ddd;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 3;
 }
 
 .beat-node {
@@ -342,7 +474,7 @@ const getEpisodeColor = (episode: number) => {
   transform: translate(-50%, -50%);
   cursor: pointer;
   transition: transform 0.2s ease;
-  z-index: 3;
+  z-index: 5;
 }
 
 .beat-node:hover {

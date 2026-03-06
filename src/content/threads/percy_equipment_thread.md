@@ -1,15 +1,16 @@
 ---
 title: Percy's Equipment Thread
-description: 'The institutional inadequacy made physical: Percy''s Q-Branch as the embodiment of declining state resources, where museum pieces become operational tools and bureaucratic procedure triumphs over function.'
+description: The institutional inadequacy made physical through Percy's Q-Branch.
 thread_type: operational
 opened_in_episode: 2
-status: open
-intended_payoff: 'Episode 6 Nazi hunting rifle payoff - the same speech about retaining screws and stipend threats delivered about assassination equipment.'
+closed_in_episode: 6
+status: closed
+intended_payoff: Episode 6 Nazi hunting rifle payoff with retaining screw lecture.
 characters:
 - percy
 - nigel-finch
 - clive-barrow
-notes: Percy's Q-Branch represents the gap between institutional ambition and material reality. Sets up the Anschütz rifle payoff in Episode 6.
+notes: Percy's Q-Branch represents the gap between institutional ambition and material reality.
 created: 2026-02-27
 ---
 

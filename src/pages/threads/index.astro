@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layout/Layout.astro";
+import ThreadsFilter from "@/components/ThreadsFilter.astro";
 
 /**
  * Fetch and sort threads by episode and status
@@ -33,6 +34,43 @@ const threadsByEpisode = threads.reduce((acc: Record<number, any[]>, thread) => 
   acc[episode].push(thread);
   return acc;
 }, {} as Record<number, any[]>);
+
+/**
+ * Get filter categories for a thread
+ */
+const getFilterCategories = (thread: any) => {
+  const categories = [];
+  
+  // Add episode
+  categories.push(`episode_${thread.data.opened_in_episode}`);
+  
+  // Add thread type
+  categories.push(thread.data.thread_type);
+  
+  // Add status
+  categories.push(thread.data.status);
+  
+  // Add characters - handle reference objects
+  if (thread.data.characters && thread.data.characters.length > 0) {
+    thread.data.characters.forEach((charRef: any) => {
+      // Try different ways to get the character ID
+      let charId = '';
+      if (charRef.slug) {
+        charId = charRef.slug;
+      } else if (charRef.id) {
+        charId = charRef.id;
+      } else if (typeof charRef === 'string') {
+        charId = charRef;
+      } else {
+        charId = String(charRef);
+      }
+      
+      categories.push(charId.toLowerCase().replace(/\s+/g, '_'));
+    });
+  }
+  
+  return categories;
+};
 
 /**
  * Status color mapping
@@ -68,6 +106,9 @@ const getTypeColor = (type: string) => {
     <h1>Narrative Threads</h1>
     <p class="subtitle">Cross-episode connective tissue tracking</p>
 
+    <!-- Filter Component -->
+    <ThreadsFilter />
+
     <div class="threads-wrapper">
       {Object.entries(threadsByEpisode).map(([episode, episodeThreads]) => (
         <div class="episode-section">
@@ -75,7 +116,10 @@ const getTypeColor = (type: string) => {
           
           <div class="threads-grid">
             {episodeThreads.map((thread) => (
-              <div class="thread-card">
+              <div 
+                class="thread-card"
+                data-category={JSON.stringify(getFilterCategories(thread))}
+              >
                 <div class="thread-header">
                   <h3>
                     <a href={`/threads/${thread.slug}`}>
@@ -111,7 +155,17 @@ const getTypeColor = (type: string) => {
                   
                   {thread.data.characters && thread.data.characters.length > 0 && (
                     <div class="characters">
-                      <strong>Characters:</strong> {thread.data.characters.join(', ')}
+                      <strong>Characters:</strong> {thread.data.characters.map((charRef: any) => {
+                        // Handle character reference objects
+                        if (charRef && typeof charRef === 'object') {
+                          // Try to get the slug or id, otherwise convert to string
+                          return charRef.slug || charRef.id || JSON.stringify(charRef);
+                        } else if (typeof charRef === 'string') {
+                          return charRef;
+                        } else {
+                          return String(charRef);
+                        }
+                      }).join(', ')}
                     </div>
                   )}
                 </div>

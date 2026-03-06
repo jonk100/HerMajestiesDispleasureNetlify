@@ -1,7 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import Layout from "@/layout/Layout.astro";
 import ThreadTimeline from "@/components/ThreadTimeline.astro";
+import ThreadNav from "@/components/ThreadNav.astro";
 
 export async function getStaticPaths() {
   const threads = await getCollection("threads");
@@ -13,6 +14,40 @@ export async function getStaticPaths() {
 
 const { thread } = Astro.props;
 const { Content } = await thread.render();
+
+/**
+ * Resolve character references to get display names and slugs
+ */
+const characterData = thread.data.characters && thread.data.characters.length > 0 
+  ? await Promise.all(
+      thread.data.characters.map(async (charRef: any) => {
+        try {
+          // Handle the case where charRef is an object with id and collection
+          const characterId = typeof charRef === 'string' ? charRef : charRef.id;
+          const character = await getEntry(charRef);
+          const name = (character as any)?.data?.name || characterId || String(charRef);
+          const slug = (character as any)?.slug || characterId;
+          
+          // Handle band characters - they're in subdirectories
+          const finalSlug = slug.includes('/') ? slug : `band/${slug}`;
+          
+          return {
+            name,
+            slug: finalSlug
+          };
+        } catch {
+          // Handle the case where charRef is an object with id and collection
+          const characterId = typeof charRef === 'string' ? charRef : charRef.id;
+          const finalSlug = characterId.includes('/') ? characterId : `band/${characterId}`;
+          
+          return {
+            name: characterId || String(charRef),
+            slug: finalSlug
+          };
+        }
+      })
+    )
+  : [];
 
 /**
  * Get all beats that reference this thread
@@ -120,9 +155,14 @@ const getEffectColor = (effect: string) => {
         )}
       </div>
 
-      {thread.data.characters && thread.data.characters.length > 0 && (
+      {characterData && characterData.length > 0 && (
         <div class="characters">
-          <strong>Characters:</strong> {thread.data.characters.join(', ')}
+          <strong>Characters:</strong> {characterData.map((char, index) => (
+            <>
+              <a href={`/characters/${char.slug}`} class="character-link">{char.name}</a>
+              {index < characterData.length - 1 && ', '}
+            </>
+          ))}
         </div>
       )}
     </div>
@@ -130,58 +170,6 @@ const getEffectColor = (effect: string) => {
     <!-- Thread Timeline -->
     <div class="timeline-section">
       <ThreadTimeline threadBeats={timelineBeats} threadTitle={thread.data.title} />
-    </div>
-
-    <!-- Thread Visualization -->
-    <div class="visualization-section">
-      <h2>Thread Journey Map</h2>
-      
-      <div class="thread-timeline">
-        {Object.entries(beatsByEpisode).map(([episode, beats]) => (
-          <div class="episode-block">
-            <h3 class="episode-title">Episode {episode}</h3>
-            
-            <div class="beats-container">
-              {beats.map((beat, index) => {
-                const effect = beat.data.thread_effects.find((e: any) => e.thread === thread.slug);
-                const isLastInEpisode = index === beats.length - 1;
-                
-                return (
-                  <div class="beat-node">
-                    <div class="beat-info">
-                      <div class="beat-title">
-                        <a href={`/beats/${beat.slug}`}>{beat.data.title}</a>
-                      </div>
-                      <div class="beat-location">
-                        Scene {beat.data.scene_number} · Beat {beat.data.beat_index}
-                      </div>
-                      <div 
-                        class="effect-badge"
-                        style={`background-color: ${getEffectColor(effect.effect)}`}
-                      >
-                        {effect.effect}
-                      </div>
-                    </div>
-                    
-                    {effect.note && (
-                      <div class="effect-note">{effect.note}</div>
-                    )}
-                    
-                    {!isLastInEpisode && (
-                      <div class="connection-line"></div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            
-            {/* Episode to Episode connection */}
-            {parseInt(episode) < Math.max(...Object.keys(beatsByEpisode).map(Number)) && (
-              <div class="episode-connection"></div>
-            )}
-          </div>
-        ))}
-      </div>
     </div>
 
     <!-- Statistics -->
@@ -239,6 +227,58 @@ const getEffectColor = (effect: string) => {
       </div>
     </div>
 
+    <!-- Thread Visualization -->
+    <div class="visualization-section">
+      <h2>Thread Journey Map</h2>
+      
+      <div class="thread-timeline">
+        {Object.entries(beatsByEpisode).map(([episode, beats]) => (
+          <div class="episode-block">
+            <h3 class="episode-title">Episode {episode}</h3>
+            
+            <div class="beats-container">
+              {beats.map((beat, index) => {
+                const effect = beat.data.thread_effects.find((e: any) => e.thread === thread.slug);
+                const isLastInEpisode = index === beats.length - 1;
+                
+                return (
+                  <div class="beat-node">
+                    <div class="beat-info">
+                      <div class="beat-title">
+                        <a href={`/beats/${beat.slug}`}>{beat.data.title}</a>
+                      </div>
+                      <div class="beat-location">
+                        Scene {beat.data.scene_number} · Beat {beat.data.beat_index}
+                      </div>
+                      <div 
+                        class="effect-badge"
+                        style={`background-color: ${getEffectColor(effect.effect)}`}
+                      >
+                        {effect.effect}
+                      </div>
+                    </div>
+                    
+                    {effect.note && (
+                      <div class="effect-note">{effect.note}</div>
+                    )}
+                    
+                    {!isLastInEpisode && (
+                      <div class="connection-line"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            
+            {/* Episode to Episode connection */}
+            {parseInt(episode) < Math.max(...Object.keys(beatsByEpisode).map(Number)) && (
+              <div class="episode-connection"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
     <!-- Thread Content -->
     <div class="content-section">
       <h2>Thread Details</h2>
@@ -254,9 +294,8 @@ const getEffectColor = (effect: string) => {
       )}
     </div>
 
-    <div class="back-link">
-      <a href="/threads">← Back to Threads</a>
-    </div>
+    
+    <ThreadNav currentSlug={thread.slug} />
   </div>
 </Layout>
 
@@ -318,6 +357,18 @@ const getEffectColor = (effect: string) => {
 
 .characters {
   color: #666;
+}
+
+.character-link {
+  color: #0066cc;
+  text-decoration: none;
+  border-bottom: 1px dotted #0066cc;
+  transition: all 0.2s ease;
+}
+
+.character-link:hover {
+  color: #004499;
+  border-bottom-style: solid;
 }
 
 .visualization-section {
@@ -550,21 +601,6 @@ const getEffectColor = (effect: string) => {
 .payoff-section h3 {
   margin: 0 0 0.5rem 0;
   color: #1565c0;
-}
-
-.back-link {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #eee;
-}
-
-.back-link a {
-  text-decoration: none;
-  color: #666;
-}
-
-.back-link a:hover {
-  color: #0066cc;
 }
 
 @media (max-width: 768px) {

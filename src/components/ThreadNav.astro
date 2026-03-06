@@ -1,0 +1,128 @@
+---
+// src/components/ThreadNav.astro
+
+import { getCollection } from "astro:content";
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+
+// Get all threads and sort by title (alphabetical)
+const allThreads = await getCollection("threads");
+const sortedThreads = allThreads.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// Find current thread index
+const currentIndex = sortedThreads.findIndex((t) => t.slug === currentSlug);
+
+// Get prev/next threads
+const prevThread = currentIndex > 0 ? sortedThreads[currentIndex - 1] : null;
+const nextThread = currentIndex < sortedThreads.length - 1 ? sortedThreads[currentIndex + 1] : null;
+---
+
+<nav class="thread-nav">
+  {prevThread ? (
+    <a href={`/threads/${prevThread.slug}`} class="nav-link prev" title={`${prevThread.data.title}`}>
+      <span class="arrow">←</span>
+      <span class="label">Previous Thread</span>
+      <span class="thread-info">{prevThread.data.title}</span>
+    </a>
+  ) : (
+    <span class="nav-link prev disabled">
+      <span class="arrow">←</span>
+      <span class="label">Previous Thread</span>
+    </span>
+  )}
+
+  <a href="/threads" class="nav-link center">
+    Back to Threads
+  </a>
+
+  {nextThread ? (
+    <a href={`/threads/${nextThread.slug}`} class="nav-link next" title={`${nextThread.data.title}`}>
+      <span class="label">Next Thread</span>
+      <span class="thread-info">{nextThread.data.title}</span>
+      <span class="arrow">→</span>
+    </a>
+  ) : (
+    <span class="nav-link next disabled">
+      <span class="label">Next Thread</span>
+      <span class="arrow">→</span>
+    </span>
+  )}
+</nav>
+
+<style>
+  .thread-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #666;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link.prev {
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .nav-link.next {
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .nav-link.center {
+    flex-shrink: 0;
+  }
+
+  .nav-link:not(.disabled):hover {
+    background: #f0f8ff;
+    color: #0066cc;
+  }
+
+  .nav-link.disabled {
+    color: #ccc;
+    cursor: default;
+  }
+
+  .arrow {
+    font-size: 1.25rem;
+  }
+
+  .label {  
+    font-size: 0.875rem;
+  }
+
+  .thread-info {
+    display: none;
+    font-size: 0.75rem;
+    color: #999;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-link:not(.disabled):hover .thread-info {
+    display: block;
+  }
+
+  .nav-link:not(.disabled):hover .label {
+    display: none;
+  }
+</style>

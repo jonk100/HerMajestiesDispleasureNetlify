@@ -57,6 +57,7 @@ const threadEffectSchema = z.object({
    * dormant: thread is acknowledged but paused
    */
   effect: z.enum([
+    "setup",
     "opens",
     "advances",
     "closes",

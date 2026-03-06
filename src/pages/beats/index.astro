@@ -12,10 +12,67 @@ const beats = (await getCollection("beats")).sort((a, b) => {
 
   if (A.episode !== B.episode) return A.episode - B.episode;
   if (A.act !== B.act) return A.act - B.act;
-  if (A.sequence !== B.sequence) return A.sequence - B.sequence;
+  if (A.sequence !== B.sequence) return A.sequence - B.scene_number;
   if (A.scene_number !== B.scene_number) return A.scene_number - B.scene_number;
   return A.beat_index - B.beat_index;
 });
+
+/**
+ * Get filter categories for a beat
+ */
+const getFilterCategories = (beat: any) => {
+  const categories = [];
+  
+  // Add episode
+  categories.push(`episode_${beat.data.episode}`);
+  
+  // Add movement type
+  if (beat.data.movement_type) {
+    categories.push(beat.data.movement_type);
+  }
+  
+  // Add information type
+  if (beat.data.information_type) {
+    categories.push(beat.data.information_type);
+  }
+  
+  // Add scope
+  if (beat.data.scope) {
+    categories.push(beat.data.scope);
+  }
+  
+  // Add character (normalize primary_character)
+  if (beat.data.primary_character) {
+    const character = beat.data.primary_character.toLowerCase().replace(/\s+/g, '_');
+    categories.push(character);
+  }
+  
+  // Add engine
+  if (beat.data.engine) {
+    categories.push(beat.data.engine);
+  }
+  
+  // Add irreversibility
+  if (beat.data.irreversibility) {
+    categories.push(beat.data.irreversibility);
+  }
+  
+  return categories;
+};
+
+/**
+ * Get filter categories for a scene (combines all beats in the scene)
+ */
+const getSceneFilterCategories = (scene: any) => {
+  const allCategories = new Set();
+  
+  scene.beats.forEach((beat: any) => {
+    const categories = getFilterCategories(beat);
+    categories.forEach(cat => allCategories.add(cat));
+  });
+  
+  return Array.from(allCategories);
+};
 
 /**
  * Group beats by scene.
@@ -50,7 +107,10 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
     <div class="scenes-wrapper">
 
       {Object.values(scenes).map((scene) => (
-        <details class="scene-block">
+        <details 
+          class="scene-block"
+          data-category={JSON.stringify(getSceneFilterCategories(scene))}
+        >
           <summary class="scene-summary">
 
             <div class="scene-meta">
@@ -70,7 +130,7 @@ const scenes = beats.reduce((acc: Record<string, any>, beat) => {
             {scene.beats.map((beat: any) => (
               <div
                 class="beat-card"
-                data-category={beat.data.movement_type || 'unclassified'}
+                data-category={JSON.stringify(getFilterCategories(beat))}
               >
 
                 <div class="beat-position">
