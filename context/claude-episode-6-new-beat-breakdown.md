@@ -2168,6 +2168,7 @@ quality_note: >
   always like that. Now it's the only sound. Don't add anything
   between the look and the notebook.
 needs_revision: false
+```
 
 #### Beat 2
 - beat_id: "ep6_sc_falklands_1980_b02"

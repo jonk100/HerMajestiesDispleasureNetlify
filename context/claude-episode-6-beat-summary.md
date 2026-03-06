@@ -1,110 +1,78 @@
-# Episode 6 — Beat Summary
+# Episode 6 Beat Summary
 
 ```yaml
 episode: 6
-total_beats: 12
-
+total_beats: 27
 beat_function_counts:
   primary:
-    irony: 4
-    elegy: 3
-    comedy: 2
-    payoff: 1
-    escalation: 1
-    satire: 1
+    payoff: 6
+    irony: 5
+    synthesis: 5
+    comedy: 4
+    escalation: 2
+    thesis: 2
+    misfire: 1
+    development: 1
+    elegy: 1
 
 pressure_curve:
-  - ep6_sc41_b01:   4   # Pedestrian flow patterns
-  - ep6_sc52_b01:   6   # The third act
-  - ep6_sc52_b02:   7   # Cold tea
-  - ep6_sc53_b01:   7   # I like it
-  - ep6_sc54_b01:   4   # Form 18-G
-  - ep6_sc55_b01:   7   # This is for peace
-  - ep6_sc55_b02:   9   # Too much light
-  - ep6_sc55_b03:   7   # PEA E
-  - ep6_sc56_b01:   6   # A tomb
-  - ep6_sc58_b01:   7   # All we ever had to do was wait
-  - ep6_sc59_b01:   5   # Imagine
-  - ep6_sc59_b02:  10   # The cosmic joke
+  - ep6_sc41_b01:          2   # Pedestrian Flow Pattern Documentation
+  - ep6_sc52_b01:          7   # Finchley Presents the Directive
+  - ep6_sc52_b02:          4   # The Pigeon Gambit
+  - ep6_sc53_b01:          8   # Over Mountbatten's Objection
+  - ep6_sc53p1_b01:        6   # Brandy and the Notebook
+  - ep6_sc54_b01:          5   # It Passed Inspection
+  - ep6_sc54p1_b01:        3   # Three Pages
+  - ep6_sc55_b01:         10   # Operational Execution
+  - ep6_sc55_b02:          3   # PEA E
+  - ep6_sc56_b01:          6   # A Bloody Farce
+  - ep6_sc56_b02:          8   # The Tomb
+  - ep6_sc56p2a_b01:       5   # The Form Doesn't Have a Field For It
+  - ep6_sc56p2b_b01:       4   # The Seal
+  - ep6_sc57_b01:          5   # Writing to Julian
+  - ep6_sc57_b02:          3   # The Post Box
+  - ep6_sc57p1_b01:        4   # The Identical Desks
+  - ep6_sc57p1_b02:        6   # It Should Have Been a Masterpiece
+  - ep6_sc58_b01:          3   # The Crown's Verdict
+  - ep6_sc59p1_b01:        2   # Things That Seem Complicated
+  - ep6_sc59p1_b02:        2   # The Empty File
+  - ep6_sc59p2_b01:        2   # Finding the Melody
+  - ep6_sc59p3_b01:        2   # Dissolution News on Set
+  - ep6_sc59p3_b02:        1   # This Is Just... Life
+  - ep6_montage_b01:       4   # The Last Image of John
+  - ep6_sc_falklands_b01: 10   # The Radio
+  - ep6_sc_falklands_b02: 10   # Crossing Out 'Yet'
+  - ep6_title_card_b01:    1   # There Is No Evidence
 
 threads_closed_this_episode:
-  - nigel_conscience        # CLOSES in ep6_sc55_b02 + ep6_sc59_b02
-  - clive_delusion          # CLOSES in ep6_sc55_b03 + ep6_sc59_b02
-  - john_yoko               # CLOSES in ep6_sc55_b03
-  - operation_elegy         # CLOSES in ep6_sc56_b01
-  - photo_motif             # CLOSES in ep6_sc58_b01
-  - queens_wisdom           # CLOSES in ep6_sc58_b01
-  - mountbatten_strategy    # CLOSES in ep6_sc53_b01
-  - percy_equipment_thread  # CLOSES in ep6_sc54_b01
-  - george_sitar            # CLOSES in ep6_sc59_b01
-  - ringo_immunity          # CLOSES in ep6_sc59_b01
+  - series_metaphor           # CLOSES in ep6_sc41_b01
+  - mountbatten_thread        # CLOSES in ep6_sc53p1_b01
+  - operation_elegy           # CLOSES in ep6_sc56_b02
+  - institution_records       # CLOSES in ep6_sc56p2b_b01
+  - animation_cel             # CLOSES in ep6_sc56p2b_b01
+  - finchley_characterization # CLOSES in ep6_sc56p2b_b01
+  - cynthia_thread            # CLOSES in ep6_sc57_b02
+  - beatles_dissolution       # CLOSES in ep6_sc57p1_b02
+  - operation_minuet          # CLOSES in ep6_sc58_b01
+  - crown_power               # CLOSES in ep6_sc58_b01
+  - george_thread             # CLOSES in ep6_sc59p1_b02
+  - paul_thread               # CLOSES in ep6_sc59p2_b01
+  - john_paul_dynamic         # CLOSES in ep6_sc59p2_b01
+  - institution_surveillance  # CLOSES in ep6_sc59p3_b01
+  - ringo_thread              # CLOSES in ep6_sc59p3_b02
+  - john_survival             # CLOSES in ep6_sc_falklands_b01
+  - nigel_conscience          # CLOSES in ep6_sc_falklands_b02
+  - julian_thread             # CLOSES in ep6_sc_falklands_b02
+  - nigel_clive               # CLOSES in ep6_sc_falklands_b02
+  - john_thread               # CLOSES in ep6_sc_falklands_b02
+  - institution_absurdity     # CLOSES in ep6_title_card_b01
 
-threads_unresolved:
-  - cynthia_arc
-    status: UNRESOLVED — SERIES' MOST SIGNIFICANT OMISSION
-    note: >
-      Cynthia does not appear in Episode 6. The wardrobe
-      scene from Episode 3 is the series' most disciplined
-      sequence and it has received no payoff across three
-      episodes. The structural debt is unrecoverable
-      without a new scene. See Expansion Recommendations,
-      Section 1.
-  - julian_notebook
-    status: UNRESOLVED — MISSED OPPORTUNITY
-    note: >
-      Nigel's 'stories about love / no action required'
-      notebook entry from Episode 2 is the series' moral
-      center and was identified in the prior analysis as
-      the Falklands scene's missing callback. Without it,
-      the Falklands ending is good. With it, it's devastating.
-      See Expansion Recommendations, Section 3.
+threads_unresolved: []
 
-episode_grade: "B+"
+episode_grade: "A"
 grade_note: >
-  Episode 6 as written is the right ending for the wrong
-  length. Every scene is doing its job. The Abbey Road
-  opener is the series' best cold open. Percy is the
-  series' most reliable payoff. PEA E is the series'
-  best visual gag. 'All we ever had to do was wait' is
-  the series' finest line. The Falklands ending with
-  the title card is correct.
-
-  What prevents A: the episode is approximately half
-  the length it should be. The missing ~25 pages leave
-  five significant structural gaps — the Cynthia payoff,
-  the Julian notebook callback, individual Beatle scenes
-  that give each thread a proper close, a Ringo immunity
-  payoff scene, and a scene giving the Crown's institutional
-  machinery a final beat separate from Philip. Each of
-  these is addressable. See Expansion Recommendations.
-```
-
----
-
-## Thread Closure Audit — Full Series
-
-```yaml
-threads_closed_cleanly:
-  - ringo_immunity       # Good
-  - photo_motif          # Excellent
-  - percy_equipment      # Excellent
-  - george_sitar         # Good
-  - queens_wisdom        # Excellent
-  - nigel_conscience     # Excellent
-  - clive_delusion       # Excellent
-  - john_yoko            # Good
-  - operation_minuet     # Excellent
-  - philip_obsession     # Good
-  - john_paul_dynamic    # Good
-  - operation_elegy      # Good
-
-threads_closed_with_weakness:
-  - business_card        # Plant was underplayed in Ep3
-  - brian_obsolescence   # Second closure in Ep4 correct but pill callback missed
-  - mountbatten_strategy # Quiet close in sc53, could be sharper
-
-threads_never_closed:
-  - cynthia_arc          # CRITICAL — needs new scene
-  - julian_notebook      # Important — needs Falklands callback
-  - animation_cel        # Minor — needs Ep3 plant + Ep6 image
-```
+  Contingent on Julian notebook callback in Falklands 1980 scene.
+  Without it: A-. With it: A. The notebook closes the Episode 2 loop
+  at the exact moment irreversibility becomes total — the series'
+  correct philosophical statement. One caveat: sc57 (Cynthia's flat)
+  is slightly overlong; tighten by one-third and the grade is clean.

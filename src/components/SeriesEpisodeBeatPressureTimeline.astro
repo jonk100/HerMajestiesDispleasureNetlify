@@ -1,0 +1,1008 @@
+---
+// src/components/SeriesEpisodeBeatPressureTimeline.astro
+
+import { getCollection } from "astro:content";
+import TimelineFilter from "./TimelineFilter.astro";
+import { 
+  processSeriesPressureData, 
+  type SeriesPressureData,
+  type BeatPressureData,
+  getPressureColor,
+  getEpisodeColor
+} from "@/utils/episodeBeatPressure.ts";
+
+// Get all data
+const allBeats = await getCollection("beats");
+const allEpisodes = await getCollection("episodes");
+const allThreads = await getCollection("threads");
+
+// Process series pressure data
+const seriesData: SeriesPressureData = await processSeriesPressureData(allBeats, allEpisodes, allThreads);
+
+// Helper function to generate open line path for pressure curve (for stroke only)
+const generateLinePath = (beats: BeatPressureData[]) => {
+  if (beats.length === 0) return '';
+  const points = beats.map((beat, index) => {
+    const x = beats.length > 1 ? (index / (beats.length - 1)) * 100 : 50;
+    const y = 60 - (beat.pressure_level * 6);
+    return `${x},${y}`;
+  });
+  if (points.length === 1) return `M ${points[0]} L ${points[0]}`;
+  let path = `M ${points[0]}`;
+  for (let i = 1; i < points.length; i++) {
+    const prev = points[i - 1].split(',').map(Number);
+    const curr = points[i].split(',').map(Number);
+    const cpx1 = prev[0] + (curr[0] - prev[0]) / 3;
+    const cpx2 = prev[0] + (curr[0] - prev[0]) * 2 / 3;
+    path += ` C ${cpx1},${prev[1]} ${cpx2},${curr[1]} ${curr[0]},${curr[1]}`;
+  }
+  return path;
+};
+
+// Helper function to generate closed area path for pressure curve (for fill only)
+const generateAreaPath = (beats: BeatPressureData[]) => {
+  const line = generateLinePath(beats);
+  if (!line) return '';
+  const lastPoint = beats[beats.length - 1];
+  const lastX = beats.length > 1 ? 100 : 50;
+  return `${line} L ${lastX},60 L 0,60 Z`;
+};
+
+// Group beats by episode for episode markers
+const beatsByEpisode = seriesData.allBeats.reduce((acc: Record<number, BeatPressureData[]>, beat) => {
+  const episode = beat.episode;
+  if (!acc[episode]) {
+    acc[episode] = [];
+  }
+  acc[episode].push(beat);
+  return acc;
+}, {} as Record<number, BeatPressureData[]>);
+---
+
+<details class="pressure-timeline-details" open>
+  <summary class="timeline-summary">
+    <div class="summary-content">
+      <h3>Series Pressure Timeline</h3>
+      <div class="summary-stats">
+        <span class="stat-badge">{seriesData.episodes.length} Episodes</span>
+        <span class="stat-badge">{seriesData.allBeats.length} Beats</span>
+      </div>
+    </div>
+    <span class="toggle-indicator">▼</span>
+  </summary>
+
+  <div class="timeline-content">
+    <!-- Filter Component -->
+    <TimelineFilter />
+
+    <!-- Main Timeline Visualization -->
+    <div class="pressure-timeline-container">
+      <div class="timeline-track">
+        <!-- Pressure Curve Background (matching ThreadTimeline style) -->
+        <div class="pressure-curve-container">
+          <svg class="pressure-curve" viewBox="0 0 100 60" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="pressureGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff9800;stop-opacity:0.05" />
+                <stop offset="50%" style="stop-color:#d32f2f;stop-opacity:0.08" />
+                <stop offset="100%" style="stop-color:#ff9800;stop-opacity:0.05" />
+              </linearGradient>
+            </defs>
+            
+            <!-- Pressure area fill -->
+            <path 
+              d={generateAreaPath(seriesData.allBeats)}
+              fill="url(#pressureGradient)"
+              stroke="none"
+            />
+            
+            <!-- Pressure line -->
+            <path 
+              d={generateLinePath(seriesData.allBeats)}
+              fill="none"
+              stroke="red"
+              stroke-width="0.5"
+              stroke-opacity="0.2"
+              stroke-linejoin="miter"
+              stroke-linecap="butt"
+            />
+            
+            <!-- Pressure level indicators (subtle grid lines) -->
+            {[0.1, 5, 9.9].map(level => (
+              <line
+                x1="0"
+                y1={60 - (level * 6)}
+                x2="100"
+                y2={60 - (level * 6)}
+                stroke="#555"
+                stroke-width="0.5"
+                stroke-dasharray=".2,.2"
+                stroke-opacity="0.75"
+              />
+            ))}
+          </svg>
+          
+          <!-- Pressure scale labels -->
+          <div class="pressure-scale">
+            <span class="scale-label">10</span>
+            <span class="scale-label">5</span>
+            <span class="scale-label">1</span>
+          </div>
+        </div>
+        
+        <!-- Episode labels row -->
+        <div class="episode-labels-row">
+          {Object.entries(beatsByEpisode).map(([episode, beats]) => {
+            // Calculate the position of the first beat in this episode
+            const firstBeatIndex = seriesData.allBeats.findIndex(b => b.episode === parseInt(episode));
+            const totalBeats = seriesData.allBeats.length;
+            const position = totalBeats > 1 ? (firstBeatIndex / (totalBeats - 1)) * 100 : 50;
+            
+            return (
+              <div 
+                class="episode-label-top"
+                style={`left: ${position}%`}
+              >
+                Ep {episode}
+              </div>
+            );
+          })}
+        </div>
+        
+        <!-- Main timeline line with beats -->
+        <div class="timeline-line-row">
+          <div class="timeline-line"></div>
+          
+          <!-- Episode markers with hover functionality -->
+          {seriesData.episodes.map((episode) => {
+            if (episode.beats.length === 0) return null;
+            
+            const firstBeat = episode.beats[0];
+            const totalBeats = seriesData.allBeats.length;
+            const position = totalBeats > 1 ? (firstBeat.position / (totalBeats - 1)) * 100 : 50;
+            
+            return (
+              <div 
+                class="episode-marker"
+                style={`left: ${position}%`}
+                data-episode={episode.episodeNumber}
+              >
+                <div 
+                  class="episode-dot"
+                  style={`background-color: ${getEpisodeColor(episode.episodeNumber)}`}
+                ></div>
+                
+                <!-- Hover tooltip with episode details -->
+                <div class="episode-tooltip">
+                  <div class="tooltip-header">
+                    <strong>Episode {episode.episodeNumber}</strong>
+                    <span class="tooltip-pressure" style={`color: ${getPressureColor(episode.averagePressure)}`}>
+                      Avg Pressure: {episode.averagePressure.toFixed(1)}
+                    </span>
+                  </div>
+                  
+                  <div class="tooltip-details">
+                    <div class="tooltip-title">
+                      {episode.episode.data.title}
+                    </div>
+                    
+                    <div class="tooltip-stats">
+                      <div class="tooltip-stat">
+                        <strong>Beats:</strong> {episode.beats.length}
+                      </div>
+                      <div class="tooltip-stat">
+                        <strong>Pressure Range:</strong> {episode.minPressure}-{episode.maxPressure}
+                      </div>
+                      <div class="tooltip-stat">
+                        <strong>Trend:</strong> 
+                        <span class={`trend-${episode.pressureTrend}`}>
+                          {episode.pressureTrend}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div class="tooltip-threads">
+                      <strong>Active Threads:</strong>
+                      <div class="thread-list">
+                        {Object.entries(episode.threadActivity).map(([thread, count]) => (
+                          <div class="thread-item">
+                            <span class="thread-name">{thread}</span>
+                            <span class="thread-count">({count})</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          
+          <!-- Individual beat points (simplified for performance) -->
+          {seriesData.allBeats.map((beat, index) => {
+            const totalBeats = seriesData.allBeats.length;
+            const position = totalBeats > 1 ? (index / (totalBeats - 1)) * 100 : 50;
+            
+            return (
+              <div 
+                class="beat-node"
+                style={`left: ${position}%`}
+                data-position={beat.position}
+                data-pressure={beat.pressure_level}
+                data-episode={beat.episode}
+                data-character={beat.primary_character}
+                data-threads={beat.threads.join(',')}
+                data-scene={beat.scene_number}
+                data-beat={beat.beat_index}
+              >
+                <div 
+                  class="beat-dot"
+                  style={`background-color: ${getPressureColor(beat.pressure_level)}`}
+                ></div>
+                
+                <!-- Simplified tooltip -->
+                <div class="beat-tooltip">
+                  <div class="tooltip-header">
+                    <strong>{beat.beat.data.title}</strong>
+                    <span class="tooltip-pressure" style={`color: ${getPressureColor(beat.pressure_level)}`}>
+                      {beat.pressure_level}/10
+                    </span>
+                  </div>
+                  
+                  <div class="tooltip-details">
+                    <div class="tooltip-location">
+                      Scene {beat.scene_number} · Beat {beat.beat_index}
+                    </div>
+                    
+                    <div class="tooltip-character">
+                      <strong>Primary:</strong> {beat.primary_character}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+
+    <!-- Series Statistics -->
+    <div class="series-stats">
+      <h4>Series Overview</h4>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{seriesData.overallAveragePressure.toFixed(1)}</div>
+          <div class="stat-label">Average Pressure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{Math.max(...seriesData.allBeats.map(b => b.pressure_level))}</div>
+          <div class="stat-label">Peak Pressure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{Math.min(...seriesData.allBeats.map(b => b.pressure_level))}</div>
+          <div class="stat-label">Lowest Pressure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{seriesData.episodes.length}</div>
+          <div class="stat-label">Total Episodes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<script>
+  // Filter functionality for TimelineFilter
+  console.log('Timeline script loading...');
+  
+  let controller: AbortController | null = null;
+  
+  // Try multiple ways to ensure the script runs
+  const initFilters = () => {
+    console.log('Initializing timeline filters...');
+    
+    // Clean up previous controller if exists
+    if (controller) controller.abort();
+    controller = new AbortController();
+    
+    // Store original data for filtering
+    const originalBeats = Array.from(document.querySelectorAll('.beat-node'));
+    const originalEpisodeMarkers = Array.from(document.querySelectorAll('.episode-marker'));
+    const originalPressurePath = document.querySelector('.pressure-curve path[fill="none"]')?.getAttribute('d');
+    const originalAreaPath = document.querySelector('.pressure-curve path[fill="url(#pressureGradient)"]')?.getAttribute('d');
+    
+    console.log('Found beats:', originalBeats.length);
+    console.log('Found markers:', originalEpisodeMarkers.length);
+    
+    // Debug: Check what threads are actually in the beats
+    const allThreads = new Set();
+    originalBeats.forEach(beat => {
+      const beatThreads = beat.getAttribute('data-threads')?.split(',') || [];
+      beatThreads.forEach(thread => allThreads.add(thread));
+    });
+    console.log('All threads found in beats:', Array.from(allThreads));
+    
+    // Store original left positions for reset
+    const originalBeatPositions = new Map<Element, string>();
+    originalBeats.forEach(beat => {
+      originalBeatPositions.set(beat, (beat as HTMLElement).style.left);
+    });
+    const originalMarkerPositions = new Map<Element, string>();
+    originalEpisodeMarkers.forEach(marker => {
+      originalMarkerPositions.set(marker, (marker as HTMLElement).style.left);
+    });
+    
+    // Listen for filter changes from TimelineFilter
+    console.log('Setting up timeline filter event listener...');
+    window.addEventListener('timelineFilterChange', (event: Event) => {
+      const customEvent = event as CustomEvent;
+      applyFilters(customEvent.detail);
+    }, { signal: controller.signal });
+    
+    // Also listen for any other possible event names
+    window.addEventListener('TimelineFilterChange', (event: Event) => {
+      const customEvent = event as CustomEvent;
+      console.log('Alternative timeline filter event received:', customEvent.detail);
+      applyFilters(customEvent.detail);
+    }, { signal: controller.signal });
+    
+    function applyFilters(filters: any) {
+      console.log('Applying filters:', filters);
+      let visibleBeats = [...originalBeats];
+      let visibleMarkers = [...originalEpisodeMarkers];
+      
+      // Filter by episodes
+      if (filters.episodes && filters.episodes.length > 0) {
+        visibleBeats = visibleBeats.filter(beat => {
+          const beatEpisode = parseInt(beat.getAttribute('data-episode') || '0');
+          return filters.episodes.includes(beatEpisode);
+        });
+        
+        visibleMarkers = visibleMarkers.filter(marker => {
+          const markerEpisode = parseInt(marker.getAttribute('data-episode') || '0');
+          return filters.episodes.includes(markerEpisode);
+        });
+      }
+      
+      // Filter by characters
+      if (filters.characters && filters.characters.length > 0) {
+        visibleBeats = visibleBeats.filter(beat => {
+          return filters.characters.some((char: string) => {
+            const beatCharacter = beat.getAttribute('data-character');
+            return beatCharacter && beatCharacter.includes(char);
+          });
+        });
+      }
+      
+      // Filter by threads
+      if (filters.threads && filters.threads.length > 0) {
+        console.log('Filtering by threads:', filters.threads);
+        visibleBeats = visibleBeats.filter(beat => {
+          const beatThreads = beat.getAttribute('data-threads')?.split(',') || [];
+          const matches = filters.threads.some((filterThread: string) => {
+            return beatThreads.some(beatThread => beatThread === filterThread);
+          });
+          if (matches) {
+            console.log('Beat matches thread:', beat.getAttribute('data-threads'), 'vs', filters.threads);
+          }
+          return matches;
+        });
+        console.log('Visible beats after thread filtering:', visibleBeats.length, visibleBeats.slice(0, 3));
+      }
+      
+      // Filter by pressure range
+      if (filters.pressureRange) {
+        const [min, max] = filters.pressureRange;
+        visibleBeats = visibleBeats.filter(beat => {
+          const pressure = parseInt(beat.getAttribute('data-pressure') || '0');
+          return pressure >= min && pressure <= max;
+        });
+      }
+      
+      // Apply visibility changes
+      originalBeats.forEach(beat => {
+        if (visibleBeats.includes(beat)) {
+          (beat as HTMLElement).style.display = 'block';
+          (beat as HTMLElement).style.visibility = 'visible';
+        } else {
+          (beat as HTMLElement).style.display = 'none';
+          (beat as HTMLElement).style.visibility = 'hidden';
+        }
+      });
+      
+      originalEpisodeMarkers.forEach(marker => {
+        if (visibleMarkers.includes(marker)) {
+          (marker as HTMLElement).style.display = 'block';
+          (marker as HTMLElement).style.visibility = 'visible';
+        } else {
+          (marker as HTMLElement).style.display = 'none';
+          (marker as HTMLElement).style.visibility = 'hidden';
+        }
+      });
+      
+      // Update pressure curve if we have filtered beats
+      if (visibleBeats.length > 0 && (filters.episodes?.length > 0 || filters.characters?.length > 0 || filters.threads?.length > 0)) {
+        updatePressureCurve(visibleBeats);
+        
+        // Hide/show episode labels based on filtered episodes
+        const allEpisodeLabels = document.querySelectorAll('.episode-label-top');
+        allEpisodeLabels.forEach(label => {
+          // Label text is "Ep N" — extract the number
+          const text = label.textContent?.trim() ?? '';
+          const match = text.match(/^Ep (\d+)$/);
+          if (!match) return;
+          const labelEpisode = parseInt(match[1]);
+
+          const isFiltered = filters.episodes && filters.episodes.length > 0;
+          if (!isFiltered || filters.episodes.includes(labelEpisode)) {
+            (label as HTMLElement).style.visibility = 'visible';
+            
+            // If viewing a single episode, move the label to top left
+            if (isFiltered && filters.episodes.length === 1 && filters.episodes[0] === labelEpisode) {
+              (label as HTMLElement).style.left = '0%';
+              (label as HTMLElement).style.transform = 'translateX(0)';
+            } else {
+              // Reset to original position (will be restored by restoreOriginalCurve)
+              (label as HTMLElement).style.transform = '';
+            }
+          } else {
+            (label as HTMLElement).style.visibility = 'hidden';
+          }
+        });
+
+        // Reposition visible beat dots to fill the full timeline width
+        const sortedVisible = [...visibleBeats].sort((a, b) =>
+          parseInt(a.getAttribute('data-position') || '0') - parseInt(b.getAttribute('data-position') || '0')
+        );
+        sortedVisible.forEach((beat, index) => {
+          const newX = sortedVisible.length > 1 ? (index / (sortedVisible.length - 1)) * 100 : 50;
+          (beat as HTMLElement).style.left = `${newX}%`;
+        });
+
+        // Also reposition the single episode marker dot
+        const visibleMarkersSorted = [...visibleMarkers].sort((a, b) =>
+          parseInt(a.getAttribute('data-episode') || '0') - parseInt(b.getAttribute('data-episode') || '0')
+        );
+        visibleMarkersSorted.forEach((marker, index) => {
+          const newX = visibleMarkersSorted.length > 1 ? (index / (visibleMarkersSorted.length - 1)) * 100 : 50;
+          (marker as HTMLElement).style.left = `${newX}%`;
+        });
+      } else {
+        // Restore original curve
+        restoreOriginalCurve();
+      }
+    }
+    
+    function updatePressureCurve(visibleBeats: any[]) {
+      if (visibleBeats.length === 0) return;
+
+      // Sort visible beats by their original position in the series
+      const sorted = [...visibleBeats].sort((a, b) => {
+        return parseInt(a.getAttribute('data-position') || '0') - parseInt(b.getAttribute('data-position') || '0');
+      });
+
+      // Build coordinate points, re-mapping positions to fill 0–100% width
+      const points = sorted.map((beat, index) => {
+        const x = sorted.length > 1 ? (index / (sorted.length - 1)) * 100 : 50;
+        const pressure = parseInt(beat.getAttribute('data-pressure') || '5');
+        const y = 60 - (pressure * 6);
+        return [x, y];
+      });
+
+      // Generate smooth cubic bezier path (open line, for stroke)
+      let linePath = `M ${points[0][0]},${points[0][1]}`;
+      for (let i = 1; i < points.length; i++) {
+        const prev = points[i - 1];
+        const curr = points[i];
+        const cpx1 = prev[0] + (curr[0] - prev[0]) / 3;
+        const cpx2 = prev[0] + (curr[0] - prev[0]) * 2 / 3;
+        linePath += ` C ${cpx1},${prev[1]} ${cpx2},${curr[1]} ${curr[0]},${curr[1]}`;
+      }
+
+      // Closed area path (for fill)
+      const lastX = points[points.length - 1][0];
+      const areaPath = `${linePath} L ${lastX},60 L 0,60 Z`;
+
+      // Apply to SVG paths
+      const strokePath = document.querySelector('.pressure-curve path[fill="none"]');
+      const fillPath = document.querySelector('.pressure-curve path[fill="url(#pressureGradient)"]');
+
+      if (strokePath) strokePath.setAttribute('d', linePath);
+      if (fillPath) fillPath.setAttribute('d', areaPath);
+
+      // Remove any leftover clip-path from old approach
+      strokePath?.removeAttribute('clip-path');
+      fillPath?.removeAttribute('clip-path');
+      document.querySelector('#episodeClip')?.remove();
+    }
+    
+    function restoreOriginalCurve() {
+      const linePath = document.querySelector('.pressure-curve path[fill="none"]');
+      const areaPath = document.querySelector('.pressure-curve path[fill="url(#pressureGradient)"]');
+
+      if (linePath && originalPressurePath) linePath.setAttribute('d', originalPressurePath);
+      if (areaPath && originalAreaPath) areaPath.setAttribute('d', originalAreaPath);
+
+      linePath?.removeAttribute('clip-path');
+      areaPath?.removeAttribute('clip-path');
+
+      document.querySelector('#episodeClip')?.remove();
+      
+      // Restore original positions
+      originalBeatPositions.forEach((left, beat) => {
+        (beat as HTMLElement).style.left = left;
+      });
+      originalMarkerPositions.forEach((left, marker) => {
+        (marker as HTMLElement).style.left = left;
+      });
+      
+      // Restore all episode labels
+      document.querySelectorAll('.episode-label-top').forEach(label => {
+        (label as HTMLElement).style.visibility = 'visible';
+        (label as HTMLElement).style.transform = '';
+      });
+    }
+  };
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initFilters();
+    });
+  } else {
+    initFilters();
+  }
+  
+  document.addEventListener('astro:before-swap', () => {
+    if (controller) controller.abort();
+  });
+  document.addEventListener('astro:page-load', initFilters);
+</script>
+
+<style>
+  /* Timeline Details */
+  .pressure-timeline-details {
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    margin: 0 auto 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .pressure-timeline-details[open] .toggle-indicator {
+    transform: rotate(180deg);
+  }
+
+  .timeline-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    min-height: 60px;
+  }
+
+  .timeline-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .summary-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .summary-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .summary-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+  }
+
+  .toggle-indicator {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+  }
+
+  .timeline-content {
+    padding: 0;
+  }
+
+  .pressure-timeline-container {
+    position: relative;
+    min-height: 150px;
+    padding: 1.5rem 1.5rem;
+    background-color: #7aa3c965;
+  }
+
+  .timeline-track {
+    position: relative;
+    height: 120px;
+  }
+
+  /* Pressure Curve Styles (matching ThreadTimeline) */
+  .pressure-curve-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pressure-curve {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    left: 0;
+  }
+
+  .pressure-scale {
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.7rem;
+    color: #999;
+    opacity: 0.7;
+    padding: 0;
+  }
+
+  .scale-label {
+    line-height: 1;
+  }
+
+  .episode-labels-row {
+    position: relative;
+    height: 40px;
+    margin-bottom: 1rem;
+    z-index: 2;
+  }
+
+  .episode-label-top {
+    position: absolute;
+    top: -1rem;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    white-space: nowrap;
+    z-index: 4;
+  }
+
+  .timeline-line-row {
+    position: relative;
+    height: 60px;
+    z-index: 2;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ddd;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+
+  .episode-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 5;
+  }
+
+  .episode-marker:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    z-index: 10;
+  }
+
+  .episode-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+  }
+
+  .episode-marker:hover .episode-dot {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  }
+
+  .beat-node {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 5;
+  }
+
+  .beat-node:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    z-index: 10;
+  }
+
+  .beat-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+
+  .beat-node:hover .beat-dot {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Tooltip styles */
+  .episode-tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    bottom: 100%;
+    margin-bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .episode-marker:hover .episode-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .beat-tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    bottom: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .beat-node:hover .beat-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .tooltip-header strong {
+    flex: 1;
+    line-height: 1.3;
+    color: #333;
+  }
+
+  .tooltip-pressure {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .tooltip-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  .tooltip-location {
+    color: #666;
+    font-style: italic;
+  }
+
+  .tooltip-character {
+    line-height: 1.4;
+  }
+
+  .tooltip-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .tooltip-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tooltip-stat {
+    font-size: 0.8rem;
+  }
+
+  .trend-rising { color: #10b981; }
+  .trend-falling { color: #ef4444; }
+  .trend-stable { color: #6b7280; }
+
+  .tooltip-threads {
+    margin-top: 0.5rem;
+  }
+
+  .thread-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .thread-item {
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+
+  .thread-name {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .thread-count {
+    color: #666;
+    margin-left: 0.25rem;
+  }
+
+  /* Series Statistics */
+  .series-stats {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+  }
+
+  .series-stats h4 {
+    margin: 0 0 1rem 0;
+    color: #1f2937;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .pressure-timeline-details {
+      margin: 1rem 0;
+    }
+
+    .timeline-summary {
+      padding: 0.75rem 1rem;
+      min-height: 50px;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .summary-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .summary-stats {
+      justify-content: center;
+    }
+
+    .timeline-content {
+      padding: 1rem;
+    }
+
+    .pressure-timeline-container {
+      padding: 2rem 1rem;
+    }
+
+    .timeline-track {
+      height: 100px;
+    }
+
+    .episode-tooltip {
+      width: 280px;
+    }
+
+    .beat-tooltip {
+      width: 240px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Animation for timeline appearance */
+  .pressure-timeline-details {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

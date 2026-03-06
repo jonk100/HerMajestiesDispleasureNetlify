@@ -1,5 +1,8 @@
 # Episode 4 — Beat Summary
 
+[Series Grades](./claude-series-grades.md)
+[Episode 4 Breakdown](./claude-episode-4-new-beat-breakdown.md)
+
 ```yaml
 episode: 4
 total_beats: 19

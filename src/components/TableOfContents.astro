@@ -1,0 +1,349 @@
+---
+/**
+ * Table of Contents Component
+ * Collapsible episode navigation with episode details
+ */
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  episodes: CollectionEntry<'episodes'>[];
+  showEpisodeCount?: boolean;
+  showRuntime?: boolean;
+}
+
+const { episodes, showEpisodeCount = true, showRuntime = true } = Astro.props;
+
+// Calculate total runtime if requested
+const totalRuntime = showRuntime 
+  ? episodes.reduce((sum, ep) => sum + (ep.data.estimated_runtime as number || 0), 0)
+  : 0;
+---
+
+<details class="toc-details">
+  <summary class="toc-summary">
+    <div class="summary-content">
+      <h3>Table of Contents</h3>
+      {showEpisodeCount && (
+        <div class="summary-stats">
+          <span class="stat-badge">{episodes.length} Episodes</span>
+          {showRuntime && (
+            <span class="stat-badge">{totalRuntime} min</span>
+          )}
+        </div>
+      )}
+    </div>
+    <span class="toggle-indicator">▼</span>
+  </summary>
+
+  <div class="toc-content">
+    <nav class="episode-nav">
+      {episodes.map((episode, index) => (
+        <a href={`#episode-${episode.data.episode_number}`} class="episode-link">
+          <div class="episode-header">
+            <span class="episode-number">Episode {episode.data.episode_number}</span>
+            {episode.data.estimated_runtime && (
+              <span class="episode-runtime">{episode.data.estimated_runtime} min</span>
+            )}
+          </div>
+          <div class="episode-title">{episode.data.title}</div>
+          {episode.data.logline && (
+            <div class="episode-logline">{episode.data.logline}</div>
+          )}
+          {episode.data.timeframe && (
+            <div class="episode-timeframe">{episode.data.timeframe}</div>
+          )}
+        </a>
+      ))}
+    </nav>
+    
+    {episodes.length > 0 && (
+      <div class="toc-footer">
+        <div class="toc-stats">
+          <div class="stat-item">
+            <span class="stat-label">Total Episodes:</span>
+            <span class="stat-value">{episodes.length}</span>
+          </div>
+          {showRuntime && (
+            <div class="stat-item">
+              <span class="stat-label">Total Runtime:</span>
+              <span class="stat-value">{totalRuntime} minutes</span>
+            </div>
+          )}
+          <div class="stat-item">
+            <span class="stat-label">Average Runtime:</span>
+            <span class="stat-value">
+              {showRuntime ? Math.round(totalRuntime / episodes.length) : 'N/A'} minutes
+            </span>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</details>
+
+<style>
+  .toc-details {
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    margin: 0 auto 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .toc-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    min-height: 60px;
+  }
+
+  .toc-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .summary-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .summary-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .summary-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+  }
+
+  .toggle-indicator {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+  }
+
+  .toc-details[open] .toggle-indicator {
+    transform: rotate(180deg);
+  }
+
+  .toc-content {
+    padding: 2rem;
+    background: #fafbfc;
+  }
+
+  .episode-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .episode-link {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .episode-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #059669);
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .episode-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #10b981;
+  }
+
+  .episode-link:hover::before {
+    transform: translateY(0);
+  }
+
+  .episode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .episode-number {
+    font-weight: 600;
+    color: #10b981;
+    font-size: 0.9rem;
+  }
+
+  .episode-runtime {
+    background: #f0fdf4;
+    color: #166534;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .episode-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .episode-logline {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .episode-timeframe {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
+  .toc-footer {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .toc-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+  }
+
+  .stat-label {
+    font-weight: 500;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .stat-value {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.875rem;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .toc-summary {
+      padding: 0.75rem 1rem;
+      min-height: 50px;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .summary-content {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .summary-stats {
+      justify-content: center;
+    }
+
+    .toc-content {
+      padding: 1rem;
+    }
+
+    .episode-nav {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .episode-link {
+      padding: 1rem;
+    }
+
+    .episode-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .toc-stats {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .stat-item {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .toc-details {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .toc-summary {
+      background: white !important;
+      color: black !important;
+      border-bottom: 2px solid black;
+    }
+
+    .episode-link {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #ccc !important;
+    }
+
+    .toc-footer {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+</style>

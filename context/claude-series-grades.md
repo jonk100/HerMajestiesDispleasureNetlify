@@ -2,7 +2,24 @@
 
 ## Episode 1 Grade
 
+[Episode 1 Breakdown](./claude-episode-1-new-beat-breakdown.md)
+[Episode 1 Summary](./claude-episode-1-beat-summary.md)
+[Episdoe 1](../src/pages/episodes/episode-1)
 
+```yaml
+episode_grade: "A"
+grade_note: >
+  Episode 1 is an exceptional pilot that establishes the series'
+  entire framework with structural precision. High establishment
+  count (16) is correct for a pilot, with most beats doing
+  double duty as establishment + setup. The Jesus remark provides
+  the perfect climax (beat 12), immediately reopening as backlash
+  to create the fuse for Episode 2. Ringo's immunity thread is
+  perfectly established through his genuine warmth. The Alice in
+  Wonderland closing image captures the series' theme perfectly.
+  47 beats across 16 scenes demonstrates ambitious but controlled
+  storytelling.
+```
 
 ## Episode 2 Grade
 
@@ -46,6 +63,8 @@ grade_note: >
 ## Episode 4 Grade
 
 [Episode 4 Breakdown](./claude-episode-4-new-beat-breakdown.md)
+[Episode 4 Summary](./claude-episode-4-beat-summary.md)
+[Episdoe 4](../src/pages/episodes/episode-4)
 
 ```yaml
 episode_grade: "A"
@@ -60,6 +79,8 @@ grade_note: >
 ## Episode 5 Grade
 
 [Episode 5 Breakdown](./claude-episode-5-new-beat-breakdown.md)
+[Episode 5 Summary](./claude-episode-5-beat-summary.md)
+[Episdoe 5](../src/pages/episodes/episode-5)
 
 ```yaml
 episode_grade: "A-"
@@ -78,6 +99,8 @@ grade_note: >
 ## Episode 6 Grade
 
 [Episode 6 Breakdown](./claude-episode-6-new-beat-breakdown.md)
+[Episode 6 Summary](./claude-episode-6-beat-summary.md)
+[Episdoe 6](../src/pages/episodes/episode-6)
 
 ```yaml
 episode_grade: "A"

@@ -8,6 +8,9 @@ import '@/styles/screenplay.css';
 import { calcEpisodeRuntime } from '@/utils/screenplay/calcEpisodeRuntime.ts';
 import PrintToPdf from '@/components/PrintToPdf.astro';
 import VoiceConfigurator from '@/components/VoiceConfigurator.astro';
+import SeriesEpisodeBeatPressureTimeline from '@/components/SeriesEpisodeBeatPressureTimeline.astro';
+import ScreenplayInformation from '@/components/ScreenplayInformation.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
 
 import Screenplay from '@/components/screenplay/Screenplay.astro';
 import Scene from '@/components/screenplay/Scene.astro';
@@ -34,13 +37,19 @@ for (const episode of sortedEpisodes) {
 }
 
 // Resolve all characters and locations - simplified
-const allCharacters: any[] = [];
-const sortedCharacters = allCharacters;
+const allCharactersLegacy: any[] = [];
+const sortedCharacters = allCharactersLegacy;
 const allLocations: any[] = [];
 const sortedLocations = allLocations;
 
 // Calculate total runtime - simplified
 const totalRuntime = 0;
+
+// Get all data for the screenplay information component
+const allScenes = await getCollection('scenes');
+const allCharacters = await getCollection('characters');
+const allThreads = await getCollection('threads');
+const allBeats = await getCollection('beats');
 
 // Render all scenes for all episodes, maintaining episode context
 const allRenderedScenes = [];
@@ -83,26 +92,21 @@ for (const episode of sortedEpisodes) {
   </div>
 
   <!-- Table of Contents -->
-  <div class="toc-container">
-    <h2>Table of Contents</h2>
-    <nav class="episode-nav">
-      {sortedEpisodes.map((episode) => (
-        <a href={`#episode-${episode.data.episode_number}`} class="episode-link">
-          <span class="episode-number">Episode {episode.data.episode_number}</span>
-          <span class="episode-title">{episode.data.title}</span>
-        </a>
-      ))}
-    </nav>
+  <TableOfContents episodes={sortedEpisodes} />
+
+  <!-- Series Pressure Timeline -->
+  <div class="screenplay-container">
+    <SeriesEpisodeBeatPressureTimeline />
   </div>
 
-  <!-- Global Characters and Locations - simplified -->
-  <div class="global-details">
-    <div class="detail-section">
-      <h3>Screenplay Information</h3>
-      <p>Total Episodes: {sortedEpisodes.length}</p>
-      <p>Total Scenes: {allRenderedScenes.length}</p>
-    </div>
-  </div>
+  <!-- Screenplay Information -->
+  <ScreenplayInformation 
+    episodes={sortedEpisodes}
+    scenes={allScenes}
+    characters={allCharacters}
+    threads={allThreads}
+    beats={allBeats}
+  />
 
   <!-- Voice Configuration - temporarily disabled -->
   <!-- <VoiceConfigurator 
@@ -281,116 +285,9 @@ for (const episode of sortedEpisodes) {
     color: #1565c0;
   }
 
-  .toc-container {
-    width: calc(100% - 2rem);
-    max-width: 1100px;
-    margin: 0 auto 3rem;
-    padding: 2rem;
-    background: #f9f9f9;
-    border-radius: 12px;
-    border: 1px solid #e5e5e5;
-  }
-
-  .toc-container h2 {
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-    color: #333;
-  }
-
-  .episode-nav {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-
-  .episode-link {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #333;
-    transition: all 0.2s ease;
-  }
-
-  .episode-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    color: #0066cc;
-  }
-
-  .episode-number {
-    font-weight: 600;
-    color: #0066cc;
-    margin-bottom: 0.5rem;
-  }
-
   .episode-title {
     font-size: 0.9rem;
     line-height: 1.4;
-  }
-
-  .global-details {
-    width: calc(100% - 2rem);
-    max-width: 1100px;
-    margin: 0 auto 3rem;
-    padding: 2rem;
-    background: #f0f7ff;
-    border-radius: 12px;
-    border: 1px solid #2196f3;
-  }
-
-  .detail-section {
-    margin-bottom: 1.5rem;
-  }
-
-  .detail-section:last-child {
-    margin-bottom: 0;
-  }
-
-  .detail-section h3 {
-    margin: 0 0 1rem 0;
-    color: #1565c0;
-  }
-
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .character-tag {
-    background: #e8f5e8;
-    color: #2e7d32;
-    border: 1px solid #4caf50;
-  }
-
-  .character-tag:hover {
-    background: #4caf50;
-    color: white;
-  }
-
-  .location-tag {
-    background: #fff3e0;
-    color: #ef6c00;
-    border: 1px solid #ff9800;
-  }
-
-  .location-tag:hover {
-    background: #ff9800;
-    color: white;
   }
 
   .episode-break {
@@ -435,10 +332,7 @@ for (const episode of sortedEpisodes) {
 
   /* Print styles */
   @media print {
-    .show-header,
-    .toc-container,
-    .global-details,
-    .tag-list {
+    .show-header {
       display: none !important;
     }
 
