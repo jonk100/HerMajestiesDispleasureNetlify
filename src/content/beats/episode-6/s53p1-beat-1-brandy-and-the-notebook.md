@@ -43,7 +43,7 @@ status_quo_after: >
   system he served faithfully.
 
 thread_effects:
-  - thread: "mountbatten_thread"
+  - thread: "mountbatten_strategy"
     effect: closes
     note: >
       His final beat. The notebook rhymes with Nigel's —
@@ -51,7 +51,7 @@ thread_effects:
       on public indifference. Both men write things down that
       no one will read. One crosses a word out ten years later.
       One is gone by then.
-  - thread: "nigel_notebook"
+  - thread: "nigel_conscience"
     effect: advances
     note: >
       The thematic rhyme is structural: Mountbatten's 'God help

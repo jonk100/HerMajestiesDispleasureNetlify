@@ -33,7 +33,7 @@ shift: >
 status_quo_after: "The post box holds the letter. Cynthia is gone. The red box in the Liverpool street ends this thread."
 
 thread_effects:
-  - thread: "cynthia_thread"
+  - thread: "cynthia_arc"
     effect: closes
     note: >
       Her final image. The post box is the correct one —

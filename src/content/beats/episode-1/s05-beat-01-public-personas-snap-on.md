@@ -27,7 +27,10 @@ stakes: "Public perception—how the band will be recorded, framed, and remember
 theme: "Performance as survival; identity split between private intent and public image."
 power_shift: "Power shifts from the band to the press apparatus that controls what gets heard and how."
 
-thread_effects: []
+thread_effects:
+    - thread: "john_paul_dynamic"
+      effect: "advances"
+      note: "The public personas of John and Paul are established under pressure, showing their different approaches to public scrutiny"
 
 public_private_axis: "collision"
 

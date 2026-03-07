@@ -37,7 +37,7 @@ shift: >
 status_quo_after: "The silence between them. They walk. The Falklands is coming."
 
 thread_effects:
-  - thread: "institution_records"
+  - thread: "operation_elegy"
     effect: advances
     note: >
       The absence confirmed explicitly. Sets up sc56p2b —

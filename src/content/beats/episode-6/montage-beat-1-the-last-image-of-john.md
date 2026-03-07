@@ -37,7 +37,7 @@ shift: >
 status_quo_after: "The image is held. It ends. The Falklands."
 
 thread_effects:
-  - thread: "john_thread"
+  - thread: "john_irreverence"
     effect: advances
     note: "His final living image. Not commentary — just presence. The ending does the rest."
 

@@ -40,7 +40,7 @@ shift: >
 status_quo_after: "They are in the garden. George is looking at the sun. Nigel is holding something he doesn't know what it is."
 
 thread_effects:
-  - thread: "george_thread"
+  - thread: "george_sitar"
     effect: advances
     note: >
       From the briefing-room sitar joke in Episode 1 to this.

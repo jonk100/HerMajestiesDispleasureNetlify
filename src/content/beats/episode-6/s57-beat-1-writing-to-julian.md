@@ -40,7 +40,7 @@ shift: >
 status_quo_after: "The letter exists. It has the line in it. She needs to post it."
 
 thread_effects:
-  - thread: "cynthia_thread"
+  - thread: "cynthia_arc"
     effect: advances
     note: >
       Her only scene in the finale. Closing the Julian thread

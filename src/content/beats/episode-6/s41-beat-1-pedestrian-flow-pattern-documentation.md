@@ -61,20 +61,13 @@ status_quo_after: >
   The metaphor is complete.
 
 thread_effects:
-  - thread: "series_metaphor"
-    effect: closes
-    note: >
-      'The purpose was to control the composition' is the
-      series' governing irony stated explicitly — and the last
-      time it will be stated. Correct place: the opener, before
-      the institution's final operation.
   - thread: "nigel_conscience"
     effect: advances
     note: >
       Still performing the function. The conscience hasn't
       surfaced yet — that's the ending. Here Nigel is competent,
       deadpan, and fully institutional.
-  - thread: "institution_absurdity"
+  - thread: "animation_cel_closure"
     effect: advances
     note: >
       Peak expression of the operational mode: filing a cigarette

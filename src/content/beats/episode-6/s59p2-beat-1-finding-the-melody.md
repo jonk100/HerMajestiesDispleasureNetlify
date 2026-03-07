@@ -37,7 +37,7 @@ shift: >
 status_quo_after: "The melody exists. Paul keeps playing."
 
 thread_effects:
-  - thread: "paul_thread"
+  - thread: "paul_musical_return"
     effect: closes
     note: >
       Paul's resolution is the only one that's purely musical.

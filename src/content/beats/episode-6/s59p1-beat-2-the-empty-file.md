@@ -35,7 +35,7 @@ shift: >
 status_quo_after: "Nigel holds something from the garden that he doesn't know what it is. That's where they leave it."
 
 thread_effects:
-  - thread: "george_thread"
+  - thread: "george_sitar"
     effect: closes
     note: >
       'Good.' His one-word summary of the institution's file on

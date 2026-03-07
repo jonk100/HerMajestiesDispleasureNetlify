@@ -49,13 +49,6 @@ thread_effects:
       Procedurally cursed from issuance. The operation cannot
       succeed with this rifle. Percy knows this. Nigel knows
       this. The paperwork says otherwise.
-  - thread: "institution_absurdity"
-    effect: advances
-    note: >
-      The murder operation equipped with a broken rifle because
-      the certifier cannot admit the rifle is broken. The
-      institution's self-protective logic operating precisely as
-      designed — to protect itself, not its objectives.
   - thread: "nigel_conscience"
     effect: advances
     note: >

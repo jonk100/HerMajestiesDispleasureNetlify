@@ -35,7 +35,7 @@ shift: >
 status_quo_after: "The Queen is reading again. The dissolution is filed. The book continues."
 
 thread_effects:
-  - thread: "crown_power"
+  - thread: "queens_wisdom"
     effect: closes
     note: >
       The Crown's final statement. Not malicious, not triumphant
@@ -47,12 +47,6 @@ thread_effects:
       Retroactively made redundant. 'All we ever had to do was
       wait.' The operation's entire premise was incorrect from
       the start.
-  - thread: "institution_absurdity"
-    effect: closes
-    note: >
-      The apex. The Crown calmly noting that none of it was
-      necessary — the series' central joke stated by the person
-      at the top of the institution, without irony, as simple fact.
 
 theme: >
   The institution's self-generated necessity — it needed to act

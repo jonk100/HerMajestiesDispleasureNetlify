@@ -31,6 +31,9 @@ thread_effects:
   - thread: "philip_obsession"
     effect: "advances"
     note: "Philip's resentment crystallizes around his own service ribbons as he watches John receive the medal."
+  - thread: "john_irreverence"
+    effect: "advances"
+    note: "John is just being himself, but in a place he's supposed to act with a bit more respect"
 
 public_private_axis: "public"
 

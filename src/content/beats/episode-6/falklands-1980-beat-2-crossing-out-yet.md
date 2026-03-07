@@ -96,7 +96,7 @@ thread_effects:
       They look at each other. Ten years in the Falklands. The
       operation they ran together. He closes the drawer. They
       look at each other. That's the end of them.
-  - thread: "john_thread"
+  - thread: "john_irreverence"
     effect: closes
     note: >
       The thread that started in Episode 1 closes here with a

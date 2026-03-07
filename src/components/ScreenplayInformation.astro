@@ -32,14 +32,14 @@ const totalBeats = allBeats.length;
 const totalRuntime = allEpisodes.reduce((sum, ep) => sum + (ep.data.estimated_runtime as number || 0), 0);
 const avgRuntime = totalEpisodes > 0 ? Math.round(totalRuntime / totalEpisodes) : 0;
 
-// Character statistics
-const mainCharacters = allCharacters.filter(char => char.data.type === 'main').length;
-const supportingCharacters = allCharacters.filter(char => char.data.type === 'supporting').length;
-const bandCharacters = allCharacters.filter(char => char.data.category === 'band').length;
-const royaltyCharacters = allCharacters.filter(char => char.data.category === 'royalty').length;
+// Character statistics using role field and directory structure
+const mainCharacters = allCharacters.filter(char => char.data.role === 'protagonist').length;
+const supportingCharacters = allCharacters.filter(char => char.data.role === 'supporting').length;
+const bandCharacters = allCharacters.filter(char => char.id.startsWith('band/')).length;
+const royaltyCharacters = allCharacters.filter(char => char.id.startsWith('royalty/')).length;
 
 // Thread statistics
-const activeThreads = allThreads.filter(thread => thread.data.status === 'active').length;
+const openThreads = allThreads.filter(thread => thread.data.status === 'open').length;
 const closedThreads = allThreads.filter(thread => thread.data.status === 'closed').length;
 const dormantThreads = allThreads.filter(thread => thread.data.status === 'dormant').length;
 
@@ -68,10 +68,53 @@ const episodesByAct = allEpisodes.reduce((acc, ep) => {
 }, {} as Record<number, number>);
 
 // Most active characters (appearing in most beats)
+// Create a mapping of common name variations to character IDs
+const nameVariations: Record<string, string> = {
+  // First names
+  'john': 'john-lennon',
+  'paul': 'paul-mccartney', 
+  'george': 'george-harrison',
+  'ringo': 'ringo-starr',
+  'clive': 'clive-barrow',
+  'nigel': 'nigel-finch',
+  'philip': 'prince-philip',
+  'cynthia': 'cynthia-lennon',
+  'percy': 'percy-dalton',
+  'brenda': 'brenda-postal-worker',
+  
+  // Title variations
+  'queen elizabeth': 'queen-elizabeth',
+  'the queen': 'queen-elizabeth',
+  'sir derek': 'sir-derrick-finchley',
+  'mountbatten': 'lord-mountbatten',
+  'michael lindsay-hogg': 'michael-lindsay-hogg',
+  
+  // Maiden names
+  'cynthia-powell': 'cynthia-lennon'
+};
+
 const characterActivity = allBeats.reduce((acc, beat) => {
-  const character = beat.data.primary_character;
-  if (character) {
-    acc[character] = (acc[character] || 0) + 1;
+  const characterSlug = beat.data.primary_character;
+  if (characterSlug) {
+    // Try direct match first
+    let character = allCharacters.find(char => char.id === characterSlug);
+    
+    // If not found, try name variations mapping
+    if (!character && nameVariations[characterSlug]) {
+      character = allCharacters.find(char => char.id === nameVariations[characterSlug]);
+    }
+    
+    // If still not found, try fuzzy matching
+    if (!character) {
+      character = allCharacters.find(char => 
+        char.id.includes(characterSlug) || 
+        char.id.endsWith('/' + characterSlug) ||
+        char.data.name?.toLowerCase().replace(/\s+/g, '-').includes(characterSlug)
+      );
+    }
+    
+    const characterName = character?.data.name || characterSlug;
+    acc[characterName] = (acc[characterName] || 0) + 1;
   }
   return acc;
 }, {} as Record<string, number>);
@@ -186,8 +229,8 @@ const topThreads = Object.entries(threadActivity)
       <h4>Thread Analysis</h4>
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number">{activeThreads}</div>
-          <div class="stat-label">Active Threads</div>
+          <div class="stat-number">{openThreads}</div>
+          <div class="stat-label">Open Threads</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">{closedThreads}</div>

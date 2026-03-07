@@ -27,7 +27,19 @@ stakes: "A single offhand line can escape into public record and become ammuniti
 theme: "Performance under scrutiny; the thin membrane between private intent and public consequence."
 power_shift: "Paul attempts to exert control through caution; John retains control through personality and inevitability."
 
-thread_effects: []
+thread_effects: 
+    - thread: "john_paul_dynamic"
+      effect: "opens"
+      note: "We see a bit of Paul and John's dynamic for the first time - mostly playful, but planting some of the first seeds we see that will turn into frustration and resentment"
+    - thread: "paul_diplomatic_anxiety"
+      effect: "advances"
+      note: "Paul's attempt to pre-empt the remark by warning John not to be clever shows his anxiety about public perception and anticipation of institutional retaliation"
+    - thread: "john_irreverence"
+      effect: "advances"
+      note: "John's wink and response establish his irreverent nature and his tendency to act on instinct rather than caution"
+    - thread: "beatles_dissolution"
+      effect: "setup"
+      note: "This is one of our first signs of the tension that will contribute to the Beatles' eventual dissolution, as John's irreverence and Paul's caution create a tension that will grow over time"
 
 public_private_axis: "private_with_public_threat"
 

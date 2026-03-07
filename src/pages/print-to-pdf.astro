@@ -1,0 +1,829 @@
+---
+/**
+ * /src/pages/print-screenplay.astro
+ *
+ * Renders the entire screenplay in WGA-standard format for printing to PDF.
+ *
+ * - Collects all scenes from the `scenes` content collection
+ * - Sorts them by `sequence` (ascending), then `scene_number` as tiebreaker
+ * - Parses each scene's raw MDX body using the remark-screenplay prefixes
+ *   (s-, a-, c-, d-, p-, t-, ab-) and renders inline, no MDX component pipeline
+ * - Uses @media print CSS to produce industry-standard formatting:
+ *     • Courier 12pt
+ *     • 1.5" left margin (for binding), 1" top/right/bottom
+ *     • Scene numbers in both margins
+ *     • Page numbers top-right
+ *     • Character/dialogue column widths per WGA spec
+ *     • "CONTINUED" slugs at page breaks (via CSS)
+ *
+ * To use: navigate to /print-screenplay, then Cmd/Ctrl+P → Save as PDF.
+ * Set paper size to US Letter, margins to "None" (the CSS controls margins).
+ */
+
+import { getCollection } from "astro:content";
+
+/* ------------------------------------------------------------------ */
+/* 1. Fetch & sort all scenes                                           */
+/* ------------------------------------------------------------------ */
+
+const allScenes = await getCollection("scenes");
+
+/**
+ * Sort scenes by `scene_number` only.
+ * The `sequence` field has unreliable metadata so we ignore it entirely.
+ */
+const sortedScenes = allScenes.sort((a, b) => {
+  return a.data.scene_number - b.data.scene_number;
+});
+
+/* ------------------------------------------------------------------ */
+/* 2. Types                                                             */
+/* ------------------------------------------------------------------ */
+
+/** A parsed screenplay block ready for rendering. */
+interface ScreenplayBlock {
+  type:
+    | "scene"
+    | "action"
+    | "character"
+    | "dialogue"
+    | "parenthetical"
+    | "transition"
+    | "act-break"
+    | "blank";
+  text: string;
+  /** For dialogue / parenthetical — the current speaker at that point. */
+  speaker?: string | null;
+  /** Scene number from frontmatter — only set on `scene` type blocks. */
+  sceneNumber?: number;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Raw-body parser (mirrors remark-screenplay logic)                 */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Maps known shorthand prefixes to their block type.
+ * Longer prefixes must come first so they match before their
+ * shorter siblings (e.g. "scene-" before "s-").
+ */
+const PREFIX_MAP: Record<string, ScreenplayBlock["type"]> = {
+  "scene-":         "scene",
+  "s-":             "scene",
+  "action-":        "action",
+  "a-":             "action",
+  "character-":     "character",
+  "c-":             "character",
+  "dialogue-":      "dialogue",
+  "d-":             "dialogue",
+  "parenthetical-": "parenthetical",
+  "p-":             "parenthetical",
+  "transition-":    "transition",
+  "t-":             "transition",
+  "act-break-":     "act-break",
+  "ab-":            "act-break",
+};
+
+/** Regex that matches any known prefix at the start of a line. */
+const BLOCK_RE =
+  /^(s-|scene-|a-|action-|c-|character-|d-|dialogue-|p-|parenthetical-|t-|transition-|ab-|act-break-)\s*(.+)$/i;
+
+/**
+ * Normalises a scene heading so it always starts with INT. / EXT. etc.
+ * @param {string} input - Raw scene heading text after the prefix.
+ * @returns {string} Normalised heading.
+ */
+/**
+ * Normalises a scene heading so INT/EXT always have a trailing period.
+ * Each pattern consumes an optional existing period (`\.?`) so that
+ * source text already written as "INT." doesn't become "INT..".
+ * @param {string} input - Raw heading text after the prefix is stripped.
+ * @returns {string} Normalised heading.
+ */
+function normalizeSceneHeading(input: string): string {
+  return input
+    .trim()
+    .replace(/^int\.?\/ext\.?/i, "INT./EXT.")
+    .replace(/^int\/ext/i,         "INT./EXT.")
+    .replace(/^int\.?/i,           "INT.")
+    .replace(/^ext\.?/i,           "EXT.");
+}
+
+/**
+ * Strips outer parentheses from a parenthetical string.
+ * e.g. "(quietly)" → "quietly"
+ * @param {string} input - Raw parenthetical text.
+ * @returns {string} Stripped text.
+ */
+function stripOuterParens(input: string): string {
+  const raw = input.trim();
+  if (raw.startsWith("(") && raw.endsWith(")") && raw.length >= 2) {
+    return raw.slice(1, -1).trim();
+  }
+  return raw;
+}
+
+/**
+ * Applies the `//Name` inline-caps marker convention:
+ * `//John` → `JOHN`, `//Paul McCartney` → `PAUL MCCARTNEY`
+ * Only matches `//` at the start of a token (not inside URLs).
+ * @param {string} input - Raw text.
+ * @returns {string} Text with inline-caps markers resolved.
+ */
+function applyInlineCaps(input: string): string {
+  return input.replace(
+    /(^|\s)\/\/([A-Za-z0-9][A-Za-z0-9 .,'()\-\/&]*)/g,
+    (_m, lead, name) => `${lead}${String(name).toUpperCase()}`
+  );
+}
+
+/**
+ * Parses the raw MDX body of a scene file into an ordered list of
+ * ScreenplayBlock objects, using the same prefix conventions as
+ * remark-screenplay.ts. Handles implicit scene headings (INT./EXT.),
+ * character-name blocks (ALL CAPS), and parentheticals (wrapped in parens).
+ *
+ * @param {string} rawBody - The raw string content after the frontmatter.
+ * @param {number} sceneNumber - The scene_number from frontmatter.
+ * @returns {ScreenplayBlock[]} Ordered list of parsed blocks.
+ */
+function parseSceneBody(rawBody: string, sceneNumber: number): ScreenplayBlock[] {
+  const blocks: ScreenplayBlock[] = [];
+  const lines = rawBody.split(/\r?\n/);
+
+  let currentSpeaker: string | null = null;
+  let inDialogue = false;
+  let firstSceneBlock = true;
+
+  for (const line of lines) {
+    const raw = line.trim();
+
+    // Skip empty lines — we control spacing via CSS.
+    if (!raw) continue;
+
+    // Skip YAML frontmatter delimiters that might appear if the
+    // content slice still contains them (safety guard).
+    if (raw === "---") continue;
+
+    const match = raw.match(BLOCK_RE);
+
+    if (match) {
+      const prefix = match[1].toLowerCase() as keyof typeof PREFIX_MAP;
+      const type: ScreenplayBlock["type"] = PREFIX_MAP[prefix] ?? "action";
+      let value = match[2].trim();
+
+      if (type === "scene") {
+        value = normalizeSceneHeading(value);
+        inDialogue = false;
+        currentSpeaker = null;
+        blocks.push({
+          type: "scene",
+          text: value,
+          // Only the first scene block in this file carries the scene number.
+          sceneNumber: firstSceneBlock ? sceneNumber : undefined,
+        });
+        firstSceneBlock = false;
+        continue;
+      }
+
+      if (type === "character") {
+        inDialogue = true;
+        currentSpeaker = value.toUpperCase();
+        blocks.push({ type: "character", text: currentSpeaker });
+        continue;
+      }
+
+      if (type === "parenthetical") {
+        blocks.push({
+          type: "parenthetical",
+          text: stripOuterParens(applyInlineCaps(value)),
+          speaker: currentSpeaker,
+        });
+        continue;
+      }
+
+      if (type === "dialogue") {
+        blocks.push({
+          type: "dialogue",
+          text: applyInlineCaps(value),
+          speaker: currentSpeaker,
+        });
+        continue;
+      }
+
+      if (type === "transition") {
+        inDialogue = false;
+        currentSpeaker = null;
+        blocks.push({ type: "transition", text: value.toUpperCase() });
+        continue;
+      }
+
+      if (type === "act-break") {
+        inDialogue = false;
+        currentSpeaker = null;
+        blocks.push({ type: "act-break", text: value.toUpperCase() });
+        continue;
+      }
+
+      // Fallthrough: action
+      inDialogue = false;
+      blocks.push({ type: "action", text: applyInlineCaps(value) });
+      continue;
+    }
+
+    // --- No explicit prefix — check implicit conventions ---
+
+    // Implicit scene heading: starts with INT. / EXT. / INT./EXT.
+    if (/^(int\.?\/ext\.?|int\/ext|int\.|int|ext\.|ext)\b/i.test(raw)) {
+      inDialogue = false;
+      currentSpeaker = null;
+      blocks.push({
+        type: "scene",
+        text: normalizeSceneHeading(raw),
+        sceneNumber: firstSceneBlock ? sceneNumber : undefined,
+      });
+      firstSceneBlock = false;
+      continue;
+    }
+
+    // Implicit character: ALL CAPS, no lowercase, reasonable char set
+    if (
+      !inDialogue &&
+      /[A-Z]/.test(raw) &&
+      !/[a-z]/.test(raw) &&
+      /^[A-Z0-9 .,'()\-\/&]+$/.test(raw)
+    ) {
+      inDialogue = true;
+      currentSpeaker = raw;
+      blocks.push({ type: "character", text: currentSpeaker });
+      continue;
+    }
+
+    // Implicit parenthetical when inside a dialogue block
+    if (inDialogue && /^\(.*\)$/.test(raw)) {
+      blocks.push({
+        type: "parenthetical",
+        text: stripOuterParens(applyInlineCaps(raw)),
+        speaker: currentSpeaker,
+      });
+      continue;
+    }
+
+    // Inside a dialogue block — treat as dialogue
+    if (inDialogue) {
+      blocks.push({
+        type: "dialogue",
+        text: applyInlineCaps(raw),
+        speaker: currentSpeaker,
+      });
+      continue;
+    }
+
+    // Default: action line
+    blocks.push({ type: "action", text: applyInlineCaps(raw) });
+  }
+
+  return blocks;
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Build the full list of blocks across all scenes                   */
+/* ------------------------------------------------------------------ */
+
+interface SceneParsed {
+  id: string;
+  sceneNumber: number;
+  sequence: number;
+  blocks: ScreenplayBlock[];
+}
+
+/**
+ * A render node is one of three shapes:
+ *
+ * - "block"          — a single standalone block (transition, act-break, etc.)
+ * - "scene-anchor"   — a scene heading + the immediately following action line,
+ *                      wrapped together so the heading can never end a page.
+ * - "dialogue-group" — a character cue + all following parentheticals/dialogue,
+ *                      wrapped so the whole exchange stays on one page.
+ */
+type RenderNode =
+  | { kind: "block";          block: ScreenplayBlock }
+  | { kind: "scene-anchor";   blocks: ScreenplayBlock[] }
+  | { kind: "dialogue-group"; blocks: ScreenplayBlock[] };
+
+/**
+ * Collapses a flat list of ScreenplayBlocks into RenderNodes.
+ *
+ * Scene headings are bundled with the next action block into a
+ * "scene-anchor" group so `break-inside: avoid` on the wrapper
+ * prevents the heading from being the last line on a page —
+ * which is more reliable than `break-after: avoid` alone in
+ * Chromium-based print engines.
+ *
+ * Character cues plus all following dialogue/parenthetical lines
+ * are bundled into "dialogue-group" nodes for the same reason.
+ *
+ * @param {ScreenplayBlock[]} blocks - Flat list from parseSceneBody.
+ * @returns {RenderNode[]} List of render nodes ready for templating.
+ */
+function groupBlocks(blocks: ScreenplayBlock[]): RenderNode[] {
+  const nodes: RenderNode[] = [];
+  let i = 0;
+
+  while (i < blocks.length) {
+    const block = blocks[i];
+
+    // ── Scene heading: bundle with the next action block ──────────
+    if (block.type === "scene") {
+      const group: ScreenplayBlock[] = [block];
+      i++;
+      // Grab one following action line (skip blanks).
+      if (i < blocks.length && blocks[i].type === "action") {
+        group.push(blocks[i]);
+        i++;
+      }
+      nodes.push({ kind: "scene-anchor", blocks: group });
+      continue;
+    }
+
+    // ── Character cue: bundle with all following dialogue/parens ──
+    if (block.type === "character") {
+      const group: ScreenplayBlock[] = [block];
+      i++;
+      while (
+        i < blocks.length &&
+        (blocks[i].type === "dialogue" || blocks[i].type === "parenthetical")
+      ) {
+        group.push(blocks[i]);
+        i++;
+      }
+      nodes.push({ kind: "dialogue-group", blocks: group });
+      continue;
+    }
+
+    // ── Everything else: emit as a standalone block ────────────────
+    nodes.push({ kind: "block", block });
+    i++;
+  }
+
+  return nodes;
+}
+
+/**
+ * For each sorted scene, read the raw file body (everything after the
+ * frontmatter) and parse it into blocks, then group dialogue together.
+ */
+const parsedScenes: SceneParsed[] = await Promise.all(
+  sortedScenes.map(async (scene) => {
+    const rawBody = scene.body ?? "";
+    const blocks = parseSceneBody(rawBody, scene.data.scene_number);
+    return {
+      id: scene.id,
+      sceneNumber: scene.data.scene_number,
+      sequence: scene.data.sequence,
+      blocks,
+    };
+  })
+);
+
+/* ------------------------------------------------------------------ */
+/* 5. Helpers for rendering                                             */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Returns the CSS class name for a given block type.
+ * @param {ScreenplayBlock["type"]} type - The block type.
+ * @returns {string} CSS class name.
+ */
+function blockClass(type: ScreenplayBlock["type"]): string {
+  const map: Record<ScreenplayBlock["type"], string> = {
+    scene:         "sp-scene",
+    action:        "sp-action",
+    character:     "sp-character",
+    dialogue:      "sp-dialogue",
+    parenthetical: "sp-parenthetical",
+    transition:    "sp-transition",
+    "act-break":   "sp-act-break",
+    blank:         "sp-blank",
+  };
+  return map[type] ?? "sp-action";
+}
+
+/** Total scene count for the "X of Y" margin label. */
+const totalScenes = parsedScenes.length;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Screenplay — Print</title>
+
+  <style>
+    /* ============================================================
+       SCREEN STYLES — visible when browsing, hidden at print
+       ============================================================ */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --page-width: 8.5in;
+      --page-height: 11in;
+
+      /* WGA spec margins (as CSS for screen preview) */
+      --margin-top:    1in;
+      --margin-right:  1in;
+      --margin-bottom: 1in;
+      --margin-left:   1.5in;   /* extra for binding */
+
+      /* ── WGA / industry-standard column positions ──────────────────
+         All measurements are from the LEFT EDGE OF THE PAPER.
+         The 1.5in left margin is already applied as page padding,
+         so offsets below are expressed as distances from the
+         content-area left edge (i.e. subtract 1.5in for CSS margin-left).
+
+         Source: NFI, Scribophile, StudioBinder, Celtx — consensus:
+           Character cue:  3.7in from paper  → 2.2in from content edge
+           Dialogue:       2.5in from paper  → 1.0in from content edge
+                           right edge ~6.0in → max-width ~3.5in
+           Parenthetical:  3.1in from paper  → 1.6in from content edge
+                           right edge same as dialogue → max-width ~2.9in
+           Transition:     flush right (right-aligned within content area)
+           Scene numbers:  left  0.75in from paper edge
+                           right ~7.5in from paper edge (1in from right)       */
+      --char-left:     2.2in;
+      --char-width:    3.0in;
+      --dial-left:     1.0in;
+      --dial-width:    3.5in;
+      --paren-left:    1.6in;
+      --paren-width:   2.9in;
+
+      /* Scene number gutter — spec: left num at 0.75in from paper.
+         Our content area starts at 1.5in, so the number sits
+         1.5 - 0.75 = 0.75in into the left margin.                     */
+      --scene-num-gutter: 0.75in;
+
+      font-family: "Courier Prime", "Courier New", Courier, monospace;
+      font-size:   12pt;
+      line-height: 1;           /* exactly 1 line = 1/6 inch in print */
+      color:       #000;
+      background:  #e8e8e8;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #e8e8e8;
+    }
+
+    /* ── Screen-only toolbar ── */
+    .print-toolbar {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.75rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .print-toolbar button {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      border: 1px solid #999;
+      cursor: pointer;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .print-toolbar button:hover {
+      background: #333;
+    }
+
+    .print-toolbar .scene-count {
+      font-size: 12px;
+      color: #555;
+      align-self: center;
+    }
+
+    /* ── Page simulation on screen ── */
+    .screenplay-page {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: #fff;
+      margin: 0 auto 2rem;
+      padding: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
+      position: relative;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      /* Allow absolutely-positioned scene numbers to visually escape
+         into the left/right margin gutters without being clipped. */
+      overflow: visible;
+    }
+
+    /* ============================================================
+       SCREENPLAY ELEMENT STYLES (screen + print)
+       ============================================================ */
+
+    /* Scene-anchor wrapper — bundles the slugline with the first action
+       line so the heading can never be stranded at the bottom of a page.
+       break-inside: avoid on the wrapper is more reliable than
+       break-after: avoid on the heading alone in Chromium print engines.
+
+       Two blank lines above the slugline (2em) matches professional
+       produced scripts (The Bear, Succession, etc.) which consistently
+       use more vertical breathing room above scene headings than the
+       WGA minimum of one line.                                          */
+    .sp-scene-anchor {
+      break-inside:      avoid;
+      page-break-inside: avoid;
+      margin-top:        2em;
+    }
+
+    /* Scene heading (slugline) — no top margin here, the anchor wrapper
+       owns the space above. Half-line below before first action line.   */
+    .sp-scene {
+      text-transform: uppercase;
+      font-weight:    bold;
+      margin:         0 0 1em 0;
+      position:       relative;
+    }
+
+    /* Scene number — left margin.
+       Spec: 0.75in from paper left edge.
+       Our content area starts at 1.5in (the page left-padding), so
+       the number must sit 0.75in to the LEFT of the content edge,
+       which is -0.75in in absolute positioning terms.
+       We right-align the text so the number butts up against the
+       content column cleanly rather than floating in open space.     */
+    .sp-scene-num {
+      position:    absolute;
+      left:        calc(-1 * var(--scene-num-gutter));
+      top:         0;
+      width:       calc(var(--scene-num-gutter) - 0.05in);
+      text-align:  right;
+      font-weight: normal;
+      font-size:   10pt;
+      color:       #555;
+      white-space: nowrap;
+    }
+
+    /* Scene number — right margin.
+       Spec: ~1in from paper right edge (7.5in from left on 8.5in paper).
+       Content area right edge is at 8.5 - 1in = 7.5in from paper left,
+       so the number starts just past the content edge.               */
+    .sp-scene-num-right {
+      position:    absolute;
+      right:       calc(-1 * var(--scene-num-gutter));
+      top:         0;
+      width:       calc(var(--scene-num-gutter) - 0.05in);
+      text-align:  left;
+      font-weight: normal;
+      font-size:   10pt;
+      color:       #555;
+      white-space: nowrap;
+    }
+
+    /* Action / description — no leading space, blank line only after */
+    .sp-action {
+      margin: 0 0 1em 0;
+      white-space: pre-wrap;
+    }
+
+    /* Dialogue group wrapper — keeps character + parentheticals +
+       dialogue lines together on one page. The 1em bottom margin
+       provides the blank line between the group and the next action. */
+    .sp-dialogue-group {
+      break-inside:        avoid;
+      page-break-inside:   avoid;  /* legacy alias */
+      margin-bottom:       1em;
+    }
+
+    /* Character name — no top margin here; the group wrapper provides
+       the separation from whatever came before via the previous
+       group's bottom margin or the action's own bottom margin. */
+    .sp-character {
+      margin-left:  var(--char-left);
+      width:        var(--char-width);
+      text-transform: uppercase;
+      margin-top:   1em;
+      margin-bottom: 0;
+    }
+
+    /* Dialogue — flush against what came above it, no margins */
+    .sp-dialogue {
+      margin-left:  var(--dial-left);
+      width:        var(--dial-width);
+      margin-top:   0;
+      margin-bottom: 0;
+      white-space: pre-wrap;
+    }
+
+    /* Parenthetical — rendered as a block-level line but with inline
+       paren characters so there's no gap between "(" and the text. */
+    .sp-parenthetical {
+      margin-left:  var(--paren-left);
+      width:        var(--paren-width);
+      margin-top:   0;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    /* Transition */
+    .sp-transition {
+      text-align: right;
+      text-transform: uppercase;
+      margin: 1em 0;
+    }
+
+    /* Act break */
+    .sp-act-break {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 2em auto;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 0.25em 0;
+    }
+
+    /* ============================================================
+       PRINT STYLES
+       ============================================================ */
+
+    @media print {
+
+      /* Tell the browser exactly how to set up each page */
+      @page {
+        size: letter portrait;          /* 8.5 × 11 in */
+        margin: 1in 1in 1in 1.5in;     /* top right bottom left */
+      }
+
+      @page :right {
+        /* Page numbers top-right on odd (right-hand) pages */
+        @top-right {
+          content: counter(page) ".";
+          font-family: "Courier New", Courier, monospace;
+          font-size: 12pt;
+        }
+      }
+
+      /* Reset screen chrome */
+      body {
+        margin:  0;
+        padding: 0;
+        background: #fff;
+        font-size: 12pt;
+        line-height: 1;
+      }
+
+      .print-toolbar {
+        display: none !important;
+      }
+
+      /* On print the browser already handles page breaks;
+         we don't need the simulated page wrapper. */
+      .screenplay-page {
+        width:   auto;
+        min-height: auto;
+        padding: 0;
+        margin:  0;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      /* Scene anchors (slugline + first action line bundled together)
+         must never split across a page break.                        */
+      .sp-scene-anchor {
+        break-inside:      avoid;
+        page-break-inside: avoid;
+      }
+
+      /* Dialogue groups must never split across pages */
+      .sp-dialogue-group {
+        break-inside:       avoid;
+        page-break-inside:  avoid;
+      }
+
+      /* Act breaks on their own page */
+      .sp-act-break {
+        page-break-before: always;
+        page-break-after:  always;
+        break-before:      page;
+        break-after:       page;
+      }
+
+      /* Scene numbers in margins */
+      .sp-scene-num,
+      .sp-scene-num-right {
+        color: #000;
+      }
+
+      /* CONTINUED at column bottom / top — pure CSS approach */
+      .screenplay-page {
+        counter-reset: sp-page;
+      }
+
+      /* Uncomment if your browser supports @page content properly:
+      @page :left  { @bottom-left  { content: "(CONTINUED)"; font-size:12pt; font-family: 'Courier New', monospace; } }
+      @page :right { @bottom-right { content: "(CONTINUED)"; font-size:12pt; font-family: 'Courier New', monospace; } }
+      */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Screen-only print toolbar ── -->
+  <div class="print-toolbar" aria-hidden="true">
+    <button onclick="window.print()">🖨 Print / Save PDF</button>
+    <span class="scene-count">{totalScenes} scene{totalScenes !== 1 ? "s" : ""}</span>
+  </div>
+
+  <!-- ── Single page wrapper (screen preview / print target) ── -->
+  <main class="screenplay-page" role="main" aria-label="Complete screenplay">
+
+    {parsedScenes.map((scene) =>
+      groupBlocks(scene.blocks).map((node) => {
+
+        /* ── Scene anchor: slugline + first action line bundled together
+              so the heading can never be the last line on a page.      ── */
+        if (node.kind === "scene-anchor") {
+          return (
+            <div class="sp-scene-anchor">
+              {node.blocks.map((block) => {
+                if (block.type === "scene") {
+                  const hasNum = block.sceneNumber !== undefined;
+                  const numStr = hasNum ? String(block.sceneNumber) : "";
+                  return (
+                    <div class="sp-scene" data-scene-id={scene.id} data-scene-number={block.sceneNumber}>
+                      {hasNum && <span class="sp-scene-num" aria-hidden="true">{numStr}</span>}{block.text}{hasNum && <span class="sp-scene-num-right" aria-hidden="true">{numStr}</span>}
+                    </div>
+                  );
+                }
+                // The bundled first action line
+                return <div class="sp-action">{block.text}</div>;
+              })}
+            </div>
+          );
+        }
+
+        /* ── Dialogue group: character + parentheticals + dialogue lines,
+              all wrapped in a single div so break-inside: avoid keeps
+              the whole block on one page.                               ── */
+        if (node.kind === "dialogue-group") {
+          return (
+            <div class="sp-dialogue-group">
+              {node.blocks.map((block) => {
+                if (block.type === "character") {
+                  return <div class="sp-character">{block.text}</div>;
+                }
+                if (block.type === "parenthetical") {
+                  return <div class="sp-parenthetical" data-speaker={block.speaker ?? undefined}>({block.text})</div>;
+                }
+                // dialogue
+                return <div class="sp-dialogue" data-speaker={block.speaker ?? undefined}>{block.text}</div>;
+              })}
+            </div>
+          );
+        }
+
+        /* ── Single standalone block ── */
+        const block = node.block;
+
+        if (block.type === "parenthetical") {
+          return <div class="sp-parenthetical" data-speaker={block.speaker ?? undefined}>({block.text})</div>;
+        }
+
+        return (
+          <div class={blockClass(block.type)} data-speaker={block.speaker ?? undefined}>{block.text}</div>
+        );
+      })
+    )}
+
+  </main>
+
+  <script>
+    /**
+     * Keyboard shortcut: Cmd/Ctrl + P already triggers the browser print
+     * dialog natively, so no additional JS is needed.
+     *
+     * This script simply focuses the main content area on load so
+     * keyboard navigation starts from the top of the script.
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      const main = document.querySelector("main");
+      if (main instanceof HTMLElement) main.focus();
+    });
+  </script>
+
+</body>
+</html>

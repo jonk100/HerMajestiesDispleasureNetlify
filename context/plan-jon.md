@@ -1,5 +1,9 @@
 # Notes based on other peoples' notes and a plan
 
+## Simple Changes
+
+- normalize names used in dialogue, especially mispellings like "MARGARETTE" -> "MARGARET" and "PHILLIP" -> "PHILIP"
+
 ## Plot Changes
 
 Clive will mistinterpret an order and become the only person who thinks this becomes an assassination plot. Nigel realizes this slowly.

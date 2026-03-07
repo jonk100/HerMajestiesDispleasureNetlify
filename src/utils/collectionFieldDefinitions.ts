@@ -313,7 +313,12 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       },
       thread_effects: {
         description: "Named narrative threads this beat affects.",
-        intent: "Queryable cross-episode tracking.",
+        intent: "Queryable cross-episode tracking. Replaces freetext plant/payoff with structured data.",
+        usage: "Each effect specifies a thread and what this beat does to it (setup, opens, advances, closes, reopens, dormant).",
+        examples: [
+          "{ thread: 'beatles_dissolution', effect: 'advances', note: 'Paul receives formal offer' }",
+          "{ thread: 'royal_authority', effect: 'setup', note: 'Establishes tension between public and private roles' }"
+        ],
       },
       public_private_axis: {
         description: "Scope of consequence.",
@@ -444,10 +449,6 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
     description:
       "Cross-episode connective tissue. Named narrative threads that span multiple beats and episodes.",
     fields: {
-      slug: {
-        description: "Unique identifier auto-defined by filename",
-        intent: "Must match thread IDs used in beat thread_effects.",
-      },
       title: { description: "Thread display name." },
       description: {
         description: "What this thread is about.",
@@ -565,6 +566,19 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       title: { description: "Research topic." },
       category: {
         description: "Research classification.",
+        enumValues: {
+          historical_events: "Documented historical occurrences.",
+          character_research: "Background on real or fictional characters.",
+          location_research: "Details about physical settings.",
+          period_details: "Cultural and temporal context.",
+          music_industry_1960s: "Specific to 1960s music business.",
+          royal_family_protocols: "Royal procedure and tradition.",
+          political_context: "Government and political landscape.",
+          technical_details: "Operational or procedural information.",
+          inspiration: "Creative source material.",
+          reference_material: "General reference sources.",
+          discography_and_lyrics: "Music recordings and lyrics.",
+        },
       },
       date_range: {
         description: "Historical span.",

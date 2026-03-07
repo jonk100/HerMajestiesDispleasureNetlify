@@ -7,38 +7,38 @@ import { defineCollection, z, reference } from "astro:content";
  */
 const beatFunctionSchema = z.enum([
   // Structural
-  "setup",
-  "payoff",
+  "setup",           // sets up the scene or situation
+  "payoff",          // resolves or delivers on setup
   "setup_payoff",    // does both simultaneously
-  "reversal",
+  "reversal",        // changes direction or meaning
   "mirror",          // echoes earlier beat with changed meaning
 
   // Character
-  "establishment",
-  "development",
-  "revelation",
-  "departure",
-  "decision",
+  "establishment",   // introduces or establishes a character
+  "development",     // develops a character
+  "revelation",      // reveals something about a character
+  "departure",       // a character leaves or is removed
+  "decision",        // a character makes a decision
 
   // Operational (series-specific)
-  "conception",
-  "deployment",
-  "misfire",
-  "escalation",
-  "collapse",
-  "burial",
+  "conception",      // idea or plan is formed
+  "deployment",      // plan is put into motion
+  "misfire",         // plan fails or goes wrong
+  "escalation",      // situation gets worse or more intense
+  "collapse",        // plan fails or situation collapses
+  "burial",          // something is buried or hidden
 
   // Tonal
-  "comedy",
-  "elegy",
-  "irony",
-  "satire",
-  "tension",
+  "comedy",          // comedic moment
+  "elegy",           // mournful or reflective moment
+  "irony",           // ironic or sarcastic moment
+  "satire",          // satirical moment
+  "tension",         // builds tension
 
   // Thematic
-  "thesis",
-  "counter",
-  "synthesis",
+  "thesis",          // establishes a theme
+  "counter",         // contradicts or challenges a theme
+  "synthesis",       // resolves or combines themes
 ]);
 
 /**
@@ -46,23 +46,20 @@ const beatFunctionSchema = z.enum([
  * Threads are the cross-episode connective tissue.
  */
 const threadEffectSchema = z.object({
-  /** The thread identifier — must match a thread slug */
+  /** 
+   * The thread identifier — must match a thread slug 
+   */
   thread: z.string(),
   /**
    * What this beat does to the thread.
-   * opens: first appearance of this thread
-   * advances: thread is active and moves forward
-   * closes: thread is resolved
-   * reopens: thread was closed and returns
-   * dormant: thread is acknowledged but paused
    */
   effect: z.enum([
-    "setup",
-    "opens",
-    "advances",
-    "closes",
-    "reopens",
-    "dormant",
+    "setup",         // sets up the thread before it opens
+    "opens",         // thread is first introduced
+    "advances",      // thread is active and moves forward
+    "closes",        // thread is resolved
+    "reopens",       // thread was closed and returns
+    "dormant",       // thread is acknowledged but paused
   ]),
   note: z.string().optional(),
 });

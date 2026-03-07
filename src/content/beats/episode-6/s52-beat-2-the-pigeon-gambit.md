@@ -42,14 +42,14 @@ status_quo_after: >
   logic.
 
 thread_effects:
-  - thread: "clive_loyalty"
+  - thread: "clive_delusion"
     effect: advances
     note: >
       Clive follows. He proposes alternatives — absurd ones —
       but doesn't refuse. His loyalty to the institution is
       established here as the thing that will define his
       Falklands arrival.
-  - thread: "institution_absurdity"
+  - thread: "mountbatten_strategy"
     effect: advances
     note: >
       The murder directive proceeds; the filing error with

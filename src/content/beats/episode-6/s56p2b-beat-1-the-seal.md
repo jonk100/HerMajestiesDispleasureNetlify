@@ -42,7 +42,7 @@ status_quo_after: >
   ongoing without anyone reading the file. The registry is dark.
 
 thread_effects:
-  - thread: "institution_records"
+  - thread: "operation_minuet"
     effect: closes
     note: >
       The institutional record is now complete and sealed —
@@ -50,20 +50,19 @@ thread_effects:
       in the sense that the most important event (Nigel's choice
       at the concert) is in no file. The archive is the monument
       to what it doesn't contain.
-  - thread: "animation_cel"
+  - thread: "animation_cel_closure"
     effect: closes
     note: >
       'Timeline: 1987. Status: ongoing.' Filed without being
       read. Something is still running, will keep running, and
       the file that would explain it is in a locked room nobody
       will enter.
-  - thread: "finchley_characterization"
+  - thread: "operation_elegy"
     effect: closes
     note: >
-      His final beat. He does his job completely and without
-      comment. He reads one line of Nigel's file and tells us
-      nothing about it. Fully functional, fully present,
-      entirely opaque.
+      The operation's final act. Everything filed, everything
+      sealed, everything contained. The institution's version of
+      resolution.
 
 theme: "Containment as the institution's version of resolution"
 pressure_level: 4

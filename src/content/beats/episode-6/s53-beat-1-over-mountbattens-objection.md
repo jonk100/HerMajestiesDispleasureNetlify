@@ -43,13 +43,13 @@ status_quo_after: >
   no record anywhere. Philip is already reading something else.
 
 thread_effects:
-  - thread: "crown_power"
+  - thread: "philip_obsession"
     effect: advances
     note: >
       Philip's 'manage the timing' is the Crown's coldest line.
       Not malicious — actuarial. The institution's hubris is that
       it believes it controls the variable. It doesn't.
-  - thread: "mountbatten_thread"
+  - thread: "mountbatten_strategy"
     effect: advances
     note: >
       The objection that isn't heard. Setup for sc53p1 — the
