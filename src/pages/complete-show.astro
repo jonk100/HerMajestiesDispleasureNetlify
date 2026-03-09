@@ -52,7 +52,12 @@ const allThreads = await getCollection('threads');
 const allBeats = await getCollection('beats');
 
 // Render all scenes for all episodes, maintaining episode context
-const allRenderedScenes = [];
+const allRenderedScenes: Array<{
+  scene: CollectionEntry<'scenes'>;
+  episode: CollectionEntry<'episodes'>;
+  isFirstScene: boolean;
+  Content: any;
+}> = [];
 for (const episode of sortedEpisodes) {
   // Resolve scene references properly
   const scenes = await Promise.all(
@@ -116,71 +121,81 @@ for (const episode of sortedEpisodes) {
 
   <!-- Complete Screenplay -->
   <div class="screenplay-container">
-    <div class="screenplay-root">
-      <div class="screenplay-page">
-        {allRenderedScenes.map(({ scene, episode, isFirstScene, Content }) => (
-          <div
-            class="scene-break"
-            id={`scene-${scene.data.scene_number}`}
-          >
-            <!-- Pure HTML Anchor - always rendered -->
-            {isFirstScene && (
-              <>
-                <a name={`episode-${episode.data.episode_number}`}></a>
-                <div class="episode-break" id={`episode-${episode.data.episode_number}`}>
-                  <div class="episode-header-inline">
-                    <div class="episode-header-nav" aria-label="Episode section navigation">
-                      {episode.data.episode_number > 1 ? (
-                        <a
-                          class="episode-header-link prev"
-                          href={`#episode-${episode.data.episode_number - 1}`}
-                        >
-                          Previous Episode
-                        </a>
-                      ) : (
-                        <span class="episode-header-link prev disabled" aria-disabled="true">
-                          Previous Episode
-                        </span>
-                      )}
+    {sortedEpisodes.map((episode) => {
+      const episodeScenes = allRenderedScenes.filter(s => s.episode === episode);
+      
+      return (
+        <>
+          <a name={`episode-${episode.data.episode_number}`}></a>
+          <div class="episode-break" id={`episode-${episode.data.episode_number}`}>
+            <div class="episode-header-inline">
+              <div class="episode-header-nav" aria-label="Episode section navigation">
+                {episode.data.episode_number > 1 ? (
+                  <a
+                    class="episode-header-link prev"
+                    href={`#episode-${episode.data.episode_number - 1}`}
+                  >
+                    Previous Episode
+                  </a>
+                ) : (
+                  <span class="episode-header-link prev disabled" aria-disabled="true">
+                    Previous Episode
+                  </span>
+                )}
+                
+                <a
+                  class="episode-header-link back-to-top"
+                  href="#"
+                  onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+                >
+                  Back to Top
+                </a>
 
-                      {episode.data.episode_number < sortedEpisodes.length ? (
-                        <a
-                          class="episode-header-link next"
-                          href={`#episode-${episode.data.episode_number + 1}`}
-                        >
-                          Next Episode
-                        </a>
-                      ) : (
-                        <span class="episode-header-link next disabled" aria-disabled="true">
-                          Next Episode
-                        </span>
-                      )}
-                    </div>
-                    <h2>Episode {episode.data.episode_number}: {episode.data.title}</h2>
-                    {episode.data.logline && (
-                      <p class="logline">{episode.data.logline}</p>
-                    )}
-                  </div>
-                </div>
-              </>
-            )}
-            
-            <Content
-              components={{
-                Screenplay,
-                Scene,
-                Action,
-                Character,
-                Dialogue,
-                Parenthetical,
-                Transition,
-                ActBreak,
-              }}
-            />
+                {episode.data.episode_number < sortedEpisodes.length ? (
+                  <a
+                    class="episode-header-link next"
+                    href={`#episode-${episode.data.episode_number + 1}`}
+                  >
+                    Next Episode
+                  </a>
+                ) : (
+                  <span class="episode-header-link next disabled" aria-disabled="true">
+                    Next Episode
+                  </span>
+                )}
+              </div>
+              <h2>Episode {episode.data.episode_number}: {episode.data.title}</h2>
+              {episode.data.logline && (
+                <p class="logline">{episode.data.logline}</p>
+              )}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
+          <div class="screenplay-root">
+            <div class="screenplay-page">
+              {episodeScenes.map(({ scene, Content }) => (
+                <div
+                  class="scene-break"
+                  id={`scene-${scene.data.scene_number}`}
+                >
+                  <Content
+                    components={{
+                      Screenplay,
+                      Scene,
+                      Action,
+                      Character,
+                      Dialogue,
+                      Parenthetical,
+                      Transition,
+                      ActBreak,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    })}
   </div>
 
   <PageBreaker />
@@ -291,7 +306,7 @@ for (const episode of sortedEpisodes) {
   }
 
   .episode-break {
-    margin: 4rem 0;
+    margin: 4rem auto;
     padding: 2rem;
     background: #f8f9fa;
     border: 3px solid #0066cc;
@@ -305,6 +320,8 @@ for (const episode of sortedEpisodes) {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    width: 8.5in;
+    max-width: 100%;
   }
 
   .episode-header-inline h2 {
