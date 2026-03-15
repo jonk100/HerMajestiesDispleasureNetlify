@@ -42,13 +42,16 @@ A comprehensive analytics dashboard for screenplay data, built with Astro, TypeS
 │   │   ├── locations/[slug].astro   # Location detail pages
 │   │   ├── beats/[slug].astro       # Beat detail pages
 │   │   ├── scenes/[...slug].astro   # Scene detail pages
-│   │   └── episodes/[slug].astro    # Episode detail pages with beat timelines
+│   │   ├── episodes/[slug].astro    # Episode detail pages with beat timelines
+│   │   └── threads/                 # Thread tracking pages
 │   └── utils/
 │       ├── characterStats.ts          # Character statistics calculations
 │       ├── locationStats.ts           # Location statistics calculations
 │       ├── episodeMapping.ts          # Shared episode-to-scene mapping
 │       ├── collectionFieldDefinitions.ts # Field definitions and documentation
-│       └── statsInterfaces.ts        # TypeScript interfaces for stats
+│       ├── statsInterfaces.ts        # TypeScript interfaces for stats
+│       ├── episodeBeatPressure.ts     # Episode pressure calculations
+│       └── threadMap.ts              # Thread mapping utilities
 ├── astro.config.mjs
 ├── package.json
 └── tsconfig.json
@@ -174,19 +177,6 @@ Cross-episode narrative threads that connect beats across the series:
 - Progressive disclosure UX patterns
 
 ## 🚀 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
 
 This project demonstrates advanced Astro patterns including:
 - Content collections with type safety
