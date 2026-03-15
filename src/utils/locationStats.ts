@@ -33,7 +33,7 @@ export async function calculateAllLocationStats() {
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneSlug = sceneId;
 
     if (!scene.data.location) continue;
 
@@ -107,7 +107,7 @@ export async function calculateAllLocationStatsByEpisode(): Promise<Record<strin
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneSlug = sceneId;
     const episodeNumber = sceneToEpisodeMap.get(sceneSlug);
 
     if (!scene.data.location) continue;

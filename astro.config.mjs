@@ -2,9 +2,13 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import alpinejs from "@astrojs/alpinejs";
 import mdx from "@astrojs/mdx";
+import node from "@astrojs/node";
 import { remarkScreenplay } from "./src/plugins/remark-screenplay.ts";
 
 export default defineConfig({
+  adapter: node({
+    mode: "standalone",
+  }),
   vite: {
     plugins: [tailwindcss()],
   },

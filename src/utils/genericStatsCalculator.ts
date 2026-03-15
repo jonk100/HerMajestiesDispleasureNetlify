@@ -70,14 +70,14 @@ export async function calculateEntityStats<T extends BaseEntityStats>(
    * Initialize all entities
    */
   for (const entity of entities) {
-    stats[entity.slug] = config.createStatsObject(entity);
+    stats[entity.id] = config.createStatsObject(entity);
   }
 
   /**
    * Pre-calculate character lines for efficiency (only for characters)
    */
   const characterLinesMap = config.entityType === 'character' 
-    ? new Map(scenes.map(scene => [scene.slug, extractCharacterLines(scene.body)]))
+    ? new Map(scenes.map(scene => [scene.id, extractCharacterLines(scene.body || '')]))
     : null;
 
   /**
@@ -85,7 +85,7 @@ export async function calculateEntityStats<T extends BaseEntityStats>(
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneId = scene.id;
     const sceneTitle = scene.data.title;
     const sceneNumber = scene.data.scene_number;
 
@@ -101,14 +101,14 @@ export async function calculateEntityStats<T extends BaseEntityStats>(
 
       // Create scene appearance record
       const appearance: any = {
-        slug: sceneSlug,
+        slug: sceneId,
         title: sceneTitle,
         act,
         sceneNumber,
       };
       
       if (config.entityType === 'character' && characterLinesMap) {
-        appearance.lines = characterLinesMap.get(sceneSlug)?.get(entitySlug) ?? 0;
+        appearance.lines = characterLinesMap.get(sceneId)?.get(entitySlug) ?? 0;
       }
 
       stat.sceneAppearances.push(appearance);
@@ -153,7 +153,7 @@ export async function calculateEntityStatsByEpisode<T extends BaseEntityStats>(
    * Pre-calculate character lines for efficiency (only for characters)
    */
   const characterLinesMap = config.entityType === 'character' 
-    ? new Map(scenes.map(scene => [scene.slug, extractCharacterLines(scene.body)]))
+    ? new Map(scenes.map(scene => [scene.id, extractCharacterLines(scene.body || '')]))
     : null;
 
   /**
@@ -161,10 +161,10 @@ export async function calculateEntityStatsByEpisode<T extends BaseEntityStats>(
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneId = scene.id;
     const sceneTitle = scene.data.title;
     const sceneNumber = scene.data.scene_number;
-    const episodeNumber = sceneToEpisodeMap.get(sceneSlug);
+    const episodeNumber = sceneToEpisodeMap.get(sceneId);
 
     // Extract entities present in this scene
     const entitiesInScene = config.extractEntities(scene);
@@ -178,14 +178,14 @@ export async function calculateEntityStatsByEpisode<T extends BaseEntityStats>(
 
       // Create scene appearance record
       const appearance: any = {
-        slug: sceneSlug,
+        slug: sceneId,
         title: sceneTitle,
         act,
         sceneNumber,
       };
       
       if (config.entityType === 'character' && characterLinesMap) {
-        appearance.lines = characterLinesMap.get(sceneSlug)?.get(entitySlug) ?? 0;
+        appearance.lines = characterLinesMap.get(sceneId)?.get(entitySlug) ?? 0;
       }
       
       if (episodeNumber !== undefined) {
@@ -205,7 +205,7 @@ export async function calculateEntityStatsByEpisode<T extends BaseEntityStats>(
         stat.scenesByEpisode.set(episodeNumber, (stat.scenesByEpisode.get(episodeNumber) ?? 0) + 1);
         
         if (config.entityType === 'character' && stat.linesByEpisode) {
-          const lines = characterLinesMap?.get(sceneSlug)?.get(entitySlug) ?? 0;
+          const lines = characterLinesMap?.get(sceneId)?.get(entitySlug) ?? 0;
           stat.linesByEpisode.set(episodeNumber, (stat.linesByEpisode.get(episodeNumber) ?? 0) + lines);
         }
       }
@@ -222,7 +222,7 @@ export const characterConfig: EntityConfig<any> = {
   entityType: 'character',
   collectionName: 'characters',
   extractEntities: (scene) => {
-    const characterLines = extractCharacterLines(scene.body);
+    const characterLines = extractCharacterLines(scene.body || '');
     return Array.from(characterLines.keys());
   },
   createStatsObject: (character) => ({
@@ -244,7 +244,7 @@ export const characterConfig: EntityConfig<any> = {
     stats.scenesByAct.set(act, (stats.scenesByAct.get(act) ?? 0) + 1);
     
     // Update line counts
-    const characterLines = extractCharacterLines(scene.body);
+    const characterLines = extractCharacterLines(scene.body || '');
     const lines = characterLines.get(characterSlug) ?? 0;
     stats.totalLines += lines;
     stats.linesByAct.set(act, (stats.linesByAct.get(act) ?? 0) + lines);

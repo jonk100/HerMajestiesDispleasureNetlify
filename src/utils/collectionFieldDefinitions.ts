@@ -103,15 +103,14 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       },
       scene_number: {
         description: "Production-style scene number.",
-        examples: ["12", "12.5"],
       },
       scene_type: {
         description: "Formal construction of scene.",
         enumValues: {
-          standard: "Single continuous location and time.",
-          montage: "Compressed passage of time.",
-          intercut: "Alternating between simultaneous actions.",
-          composite: "Multiple micro-scenes grouped.",
+          standard: "standard",
+          montage: "montage",
+          intercut: "intercut",
+          composite: "composite",
         },
       },
       chronology_index: {
@@ -122,13 +121,13 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
         description: "Primary or composite setting.",
       },
       time_of_day: {
-        description: "Temporal context.",
+        description: "Time period when scene occurs.",
         enumValues: {
-          morning: "Early daylight.",
-          day: "Midday hours.",
-          evening: "Late daylight.",
-          night: "After dark.",
-          continuous: "Directly follows previous scene.",
+          morning: "morning",
+          day: "day",
+          evening: "evening",
+          night: "night",
+          continuous: "continuous",
         },
       },
       characters: {
@@ -157,10 +156,10 @@ export const FIELD_DEFINITIONS: CollectionFieldDefinitions = {
       status: {
         description: "Development stage.",
         enumValues: {
-          outline: "Conceptual stage.",
-          draft: "Written but unstable.",
-          revision: "Under refinement.",
-          final: "Locked structurally.",
+          outline: "outline",
+          draft: "draft",
+          revision: "revision",
+          final: "final",
         },
       },
       notes: { description: "Development notes." },

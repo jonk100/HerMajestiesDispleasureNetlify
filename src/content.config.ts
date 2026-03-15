@@ -1,5 +1,6 @@
 // src/content.config.ts
 import { defineCollection, z, reference } from "astro:content";
+import { glob } from "astro/loaders";
 
 /**
  * Beat function taxonomy — what the beat is doing
@@ -70,7 +71,7 @@ const threadEffectSchema = z.object({
  * beat function taxonomy and thread tracking.
  */
 const beats = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/beats" }),
   schema: z.object({
 
     // ─── Identity ────────────────────────────────────────────
@@ -243,7 +244,7 @@ const beats = defineCollection({
  * thread in the series.
  */
 const threads = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/threads" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -301,7 +302,7 @@ const threads = defineCollection({
  * Character collection schema — unchanged from your version
  */
 const characters = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/characters" }),
   schema: z.object({
     name: z.string(),
     dialogue_name: z.union([z.string(), z.array(z.string())]).optional(),
@@ -325,7 +326,7 @@ const characters = defineCollection({
  * Scenes collection schema — unchanged from your version
  */
 const scenes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/scenes" }),
   schema: z.object({
     title: z.string(),
     act: z.number().min(1).max(5).optional(),
@@ -362,7 +363,7 @@ const scenes = defineCollection({
  * Episodes collection schema — unchanged from your version
  */
 const episodes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/episodes" }),
   schema: z.object({
     episode_number: z.number().min(1),
     title: z.string(),
@@ -394,7 +395,7 @@ const episodes = defineCollection({
  * Locations collection schema — unchanged from your version
  */
 const locations = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/locations" }),
   schema: z.object({
     name: z.string(),
     type: z.enum(["interior", "exterior", "misc"]),
@@ -412,7 +413,7 @@ const locations = defineCollection({
  * Dialogue collection schema — unchanged from your version
  */
 const dialogue = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/dialogue" }),
   schema: z.object({
     title: z.string(),
     characters: z.array(reference("characters")),
@@ -429,7 +430,7 @@ const dialogue = defineCollection({
  * Research collection schema — unchanged from your version
  */
 const research = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/research" }),
   schema: z.object({
     title: z.string(),
     category: z.union([
@@ -480,7 +481,7 @@ const research = defineCollection({
  * Themes collection schema — unchanged from your version
  */
 const themes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/themes" }),
   schema: z.object({
     name: z.string(),
     description: z.string(),
@@ -496,7 +497,7 @@ const themes = defineCollection({
  * Historical timeline collection schema — unchanged from your version
  */
 const timeline = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/timeline" }),
   schema: z.object({
     title: z.string(),
     date: z.date(),

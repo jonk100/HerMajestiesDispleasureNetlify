@@ -1,0 +1,735 @@
+---
+interface Props {
+  collection: string;
+  fields: Record<string, any>;
+  data: Record<string, any>;
+  referenceCollections: Record<string, any[]>;
+}
+
+const { collection, fields, data, referenceCollections } = Astro.props;
+
+// Helper function to format field names for display
+function formatFieldName(fieldName: string): string {
+  return fieldName
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Helper function to get field input type
+function getFieldInputType(fieldName: string, fieldDef: any): string {
+  if (fieldDef.enumValues) return 'select';
+  if (fieldName.includes('date') || fieldName.includes('created') || fieldName.includes('updated')) return 'date';
+  if (fieldName.includes('number') || ['act', 'sequence', 'scene_number', 'episode_number', 'beat_index', 'page_count', 'pressure_level', 'estimated_runtime'].includes(fieldName)) return 'number';
+  if (fieldName.includes('email')) return 'email';
+  if (fieldName.includes('url')) return 'url';
+  if (fieldName === 'needs_revision') return 'checkbox';
+  return 'text';
+}
+
+// Helper function to check if field is a reference
+function isReferenceField(fieldName: string, collection: string): boolean {
+  const referenceMap: Record<string, string[]> = {
+    scenes: ['location', 'characters'],
+    episodes: ['scenes'],
+    characters: ['first_appearance', 'last_appearance'],
+    dialogue: ['characters', 'scene_reference'],
+    beats: ['primary_character', 'opposition'],
+    threads: ['characters'],
+    timeline: ['characters_involved', 'scene_reference'],
+    themes: ['character_connections', 'scene_references']
+  };
+  
+  return referenceMap[collection]?.includes(fieldName) || false;
+}
+
+// Helper function to get reference collection name
+function getReferenceCollection(fieldName: string, collection: string): string {
+  const referenceMap: Record<string, Record<string, string>> = {
+    scenes: {
+      location: 'locations',
+      characters: 'characters'
+    },
+    episodes: {
+      scenes: 'scenes'
+    },
+    characters: {
+      first_appearance: 'scenes',
+      last_appearance: 'scenes'
+    },
+    dialogue: {
+      characters: 'characters',
+      scene_reference: 'scenes'
+    },
+    beats: {
+      primary_character: 'characters',
+      opposition: 'characters'
+    },
+    threads: {
+      characters: 'characters'
+    },
+    timeline: {
+      characters_involved: 'characters',
+      scene_reference: 'scenes'
+    },
+    themes: {
+      character_connections: 'characters',
+      scene_references: 'scenes'
+    }
+  };
+  
+  return referenceMap[collection]?.[fieldName] || '';
+}
+
+// Helper function to format reference option label
+function formatReferenceLabel(entry: any, collection: string): string {
+  switch (collection) {
+    case 'characters':
+      return entry.data.name || entry.id;
+    case 'locations':
+      return entry.data.name || entry.id;
+    case 'scenes':
+      return `${entry.data.title} (Act ${entry.data.act}, Scene ${entry.data.scene_number})`;
+    case 'episodes':
+      return `${entry.data.title} (Episode ${entry.data.episode_number})`;
+    default:
+      return entry.data.title || entry.id;
+  }
+}
+
+// Helper function to check if field should be hidden (auto-managed)
+function shouldHideField(fieldName: string): boolean {
+  const autoManagedFields = ['created', 'updated'];
+  return autoManagedFields.includes(fieldName);
+}
+---
+
+<div class="frontmatter-editor">
+  {(() => {
+    /**
+     * For the scenes collection we render a fixed row layout.
+     * Every other collection falls through to the flat loop below.
+     *
+     * Row spec (scenes):
+     *   1  title                          page_count          (2 col)
+     *   2  scene_number  sequence  act    chronology_index    (4 col)
+     *   3  status  scene_type  time_of_day                    (3 col)
+     *   4  location                                           (full)
+     *   5  characters                                         (full)
+     *   6  purpose                                            (full)
+     *   7  conflict                                           (full)
+     *   8  emotional_beat                                     (full)
+     *   9  notes                                              (full)
+     *  10  anything else not in the above list               (full, one each)
+     */
+    if (collection === 'scenes') {
+      const SCENE_ROWS = [
+        { cols: ['title'],                                            grid: '1fr' },
+        { cols: ['scene_number', 'sequence', 'act', 'chronology_index'], grid: 'repeat(4, 1fr)' },
+        { cols: ['status', 'scene_type', 'time_of_day', 'page_count'], grid: 'repeat(4, 1fr)' },
+        { cols: ['location'],                                      grid: '1fr' },
+        { cols: ['characters'],                                    grid: '1fr' },
+        { cols: ['purpose'],                                       grid: '1fr' },
+        { cols: ['conflict'],                                      grid: '1fr' },
+        { cols: ['emotional_beat'],                                grid: '1fr' },
+        { cols: ['notes'],                                         grid: '1fr' },
+      ];
+
+      // Collect any fields not explicitly placed so nothing gets dropped
+      const placed = new Set(SCENE_ROWS.flatMap(r => r.cols));
+      const extras = Object.keys(fields).filter(
+        f => !placed.has(f) && !shouldHideField(f)
+      );
+
+      const rows = [
+        ...SCENE_ROWS,
+        ...extras.map(f => ({ cols: [f], grid: '1fr' })),
+      ];
+
+      return rows.map(({ cols, grid }) => (
+        <div class="field-row" style={`grid-template-columns: ${grid};`}>
+          {cols.map(fieldName => {
+            const fieldDef = fields[fieldName];
+            if (!fieldDef || shouldHideField(fieldName)) return null;
+
+            const inputType    = getFieldInputType(fieldName, fieldDef);
+            const isReference  = isReferenceField(fieldName, collection);
+            const refColl      = isReference ? getReferenceCollection(fieldName, collection) : '';
+            const isRequired   = !['notes','description','purpose','conflict',
+                                   'emotional_beat','subtext','context'].includes(fieldName);
+
+            return (
+              <div class={`field-group field-type-${inputType}`} data-field={fieldName}>
+                <label for={fieldName} class="field-label">
+                  {formatFieldName(fieldName)}
+                  {isRequired && <span class="required">*</span>}
+                </label>
+
+                {inputType === 'select' && (
+                  <select id={fieldName} name={fieldName} class="field-input" required={isRequired}>
+                    <option value="">Select {formatFieldName(fieldName)}</option>
+                    {Object.entries(fieldDef.enumValues || {}).map(([value, label]) => {
+                      const current = data[fieldName];
+                      const isSelected = Array.isArray(current)
+                        ? current.includes(value)
+                        : current === value;
+                      return <option value={value} selected={isSelected}>{label}</option>;
+                    })}
+                  </select>
+                )}
+
+                {inputType === 'checkbox' && (
+                  <div class="checkbox-wrapper">
+                    <input type="checkbox" id={fieldName} name={fieldName}
+                           checked={data[fieldName] || false} class="field-input" />
+                    <label for={fieldName} class="checkbox-label">Enabled</label>
+                  </div>
+                )}
+
+                {isReference && refColl && referenceCollections[refColl] && (
+                  <div
+                    class="reference-field"
+                    x-data={`refPicker(${JSON.stringify(fieldName)}, ${JSON.stringify(
+                      Array.isArray(data[fieldName])
+                        ? data[fieldName].map((v: any) => typeof v === 'string' ? v : v?.id ?? v)
+                        : data[fieldName]
+                          ? [typeof data[fieldName] === 'string' ? data[fieldName] : (data[fieldName]?.id ?? data[fieldName])]
+                          : []
+                    )}, ${JSON.stringify(
+                      referenceCollections[refColl].map((e: any) => ({
+                        id: e.id,
+                        label: formatReferenceLabel(e, refColl)
+                      }))
+                    )})`}
+                  >
+                    <div class="tag-container">
+                      <template x-if="selected.length === 0">
+                        <span class="tag-empty">None selected</span>
+                      </template>
+                      <template x-for="item in selected" x-key="item.id">
+                        <span class="ref-tag">
+                          <span class="ref-tag-text" x-text="item.label"></span>
+                          <button type="button" class="ref-tag-remove"
+                                  @click="remove(item.id)" title="Remove">×</button>
+                        </span>
+                      </template>
+                    </div>
+                    <div class="ref-search-wrap">
+                      <input type="text" class="ref-search-input"
+                             placeholder={`Add ${formatFieldName(fieldName).toLowerCase()}…`}
+                             x-model="query" @input="filter()" @focus="filter()"
+                             @keydown.escape="query = ''; options = []" autocomplete="off" />
+                      <div class="ref-dropdown" x-show="options.length > 0">
+                        <template x-for="opt in options" x-key="opt.id">
+                          <div class="ref-option" @click="add(opt)" x-text="opt.label"></div>
+                        </template>
+                      </div>
+                    </div>
+                    <template x-for="item in selected" x-key="item.id">
+                      <input type="hidden" :name="fieldName" :value="item.id" />
+                    </template>
+                  </div>
+                )}
+
+                {!isReference && inputType !== 'select' && inputType !== 'checkbox' && (
+                  <input type={inputType as any} id={fieldName} name={fieldName}
+                         value={data[fieldName] || ''}
+                         placeholder={`Enter ${formatFieldName(fieldName).toLowerCase()}`}
+                         class="field-input" required={isRequired}
+                         min={inputType === 'number' ? '0' : undefined}
+                         max={fieldName === 'pressure_level' ? '10' : undefined} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ));
+    }
+
+    // ── All other collections: flat loop, one field per row ──────────────
+    return Object.entries(fields).map(([fieldName, fieldDef]) => {
+      if (shouldHideField(fieldName)) return null;
+
+      const inputType   = getFieldInputType(fieldName, fieldDef);
+      const isReference = isReferenceField(fieldName, collection);
+      const refColl     = isReference ? getReferenceCollection(fieldName, collection) : '';
+      const isRequired  = !['notes','description','purpose','conflict',
+                            'emotional_beat','subtext','context'].includes(fieldName);
+
+      return (
+        <div class={`field-group field-type-${inputType}`} data-field={fieldName}>
+        <label for={fieldName} class="field-label">
+          {formatFieldName(fieldName)}
+          {isRequired && <span class="required">*</span>}
+        </label>
+        
+        {fieldDef.description && (
+          <div class="field-description">{fieldDef.description}</div>
+        )}
+        
+        {inputType === 'select' && (
+          <select
+            id={fieldName}
+            name={fieldName}
+            class="field-input"
+            required={isRequired}
+          >
+            <option value="">Select {formatFieldName(fieldName)}</option>
+            {Object.entries(fieldDef.enumValues || {}).map(([value, label]) => {
+              const current = data[fieldName];
+              const isSelected = Array.isArray(current)
+                ? current.includes(value)
+                : current === value;
+              return (
+                <option value={value} selected={isSelected}>{label}</option>
+              );
+            })}
+          </select>
+        )}
+        
+        {inputType === 'checkbox' && (
+          <div class="checkbox-wrapper">
+            <input 
+              type="checkbox" 
+              id={fieldName} 
+              name={fieldName}
+              checked={data[fieldName] || false}
+              class="field-input"
+            />
+            <label for={fieldName} class="checkbox-label">Enabled</label>
+          </div>
+        )}
+        
+        {isReference && refColl && referenceCollections[refColl] && (
+          <div
+            class="reference-field"
+            x-data={`refPicker(${JSON.stringify(fieldName)}, ${JSON.stringify(
+              Array.isArray(data[fieldName])
+                ? data[fieldName].map((v: any) => typeof v === 'string' ? v : v?.id ?? v)
+                : data[fieldName]
+                  ? [typeof data[fieldName] === 'string' ? data[fieldName] : (data[fieldName]?.id ?? data[fieldName])]
+                  : []
+            )}, ${JSON.stringify(
+              referenceCollections[refColl].map((e: any) => ({
+                id: e.id,
+                label: formatReferenceLabel(e, refColl)
+              }))
+            )})`}
+          >
+            <div class="tag-container">
+              <template x-if="selected.length === 0">
+                <span class="tag-empty">None selected</span>
+              </template>
+              <template x-for="item in selected" x-key="item.id">
+                <span class="ref-tag">
+                  <span class="ref-tag-text" x-text="item.label"></span>
+                  <button type="button" class="ref-tag-remove"
+                          @click="remove(item.id)" title="Remove">×</button>
+                </span>
+              </template>
+            </div>
+            <div class="ref-search-wrap">
+              <input type="text" class="ref-search-input"
+                     placeholder={`Add ${formatFieldName(fieldName).toLowerCase()}…`}
+                     x-model="query" @input="filter()" @focus="filter()"
+                     @keydown.escape="query = ''; options = []" autocomplete="off" />
+              <div class="ref-dropdown" x-show="options.length > 0">
+                <template x-for="opt in options" x-key="opt.id">
+                  <div class="ref-option" @click="add(opt)" x-text="opt.label"></div>
+                </template>
+              </div>
+            </div>
+            <template x-for="item in selected" x-key="item.id">
+              <input type="hidden" :name="fieldName" :value="item.id" />
+            </template>
+          </div>
+        )}
+
+        {!isReference && inputType !== 'select' && inputType !== 'checkbox' && (
+                  <input 
+                    type={inputType as any} 
+                    id={fieldName} 
+                    name={fieldName}
+                    value={data[fieldName] || ''}
+                    placeholder={`Enter ${formatFieldName(fieldName).toLowerCase()}`}
+                    class="field-input"
+                    required={isRequired}
+                    min={inputType === 'number' ? '0' : undefined}
+                    max={fieldName === 'pressure_level' ? '10' : undefined}
+                  />
+                )}
+        
+        {fieldDef.intent && (
+          <div class="field-intent"><strong>Intent:</strong> {fieldDef.intent}</div>
+        )}
+        {fieldDef.usage && (
+          <div class="field-usage"><strong>Usage:</strong> {fieldDef.usage}</div>
+        )}
+        {fieldDef.examples && fieldDef.examples.length > 0 && (
+          <div class="field-examples">
+            <strong>Examples:</strong>
+            <ul>
+              {fieldDef.examples.map((example: string) => (
+                <li><code>{example}</code></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      );
+    });
+  })()}
+</div>
+
+<style>
+  /* ── Layout ───────────────────────────────────────────────────────────── */
+
+  .frontmatter-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  /**
+   * Each row uses an inline grid-template-columns value set by the
+   * SCENE_ROWS config above (e.g. "repeat(4, 1fr)" or "1fr auto").
+   */
+  .field-row {
+    display: grid;
+    gap: 0.75rem;
+    align-items: start;
+  }
+
+  /* ── Field groups ─────────────────────────────────────────────────────── */
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .field-label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .required { color: #dc3545; font-weight: 700; }
+
+  .field-description {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.3;
+  }
+
+  .field-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    color: #111827;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  .field-type-number .field-input,
+  .field-type-date .field-input {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .checkbox-wrapper { display: flex; align-items: center; gap: 0.5rem; }
+  .checkbox-label { font-size: 0.875rem; font-weight: normal; }
+
+  .field-intent,
+  .field-usage {
+    font-size: 0.8rem;
+    color: #374151;
+    background: #f0f4ff;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    border-left: 3px solid #3b82f6;
+    line-height: 1.4;
+  }
+
+  .field-examples { font-size: 0.8rem; color: #374151; }
+  .field-examples ul { margin: 0.25rem 0 0 0; padding-left: 1.25rem; }
+  .field-examples li { margin-bottom: 0.2rem; }
+  .field-examples code {
+    background: #e5e7eb;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  /* ── Reference tag picker ─────────────────────────────────────────────── */
+
+  .reference-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0.375rem 0.5rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+  }
+
+  .tag-empty {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-style: italic;
+  }
+
+  .ref-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #fff;
+    color: #1e3a5f;
+    padding: 0.2rem 0.375rem 0.2rem 0.625rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1.5px solid #bfdbfe;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    white-space: nowrap;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .ref-tag:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 1px 5px rgba(96,165,250,0.35);
+  }
+
+  .ref-tag-text {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ref-tag-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    background: #e5e7eb;
+    border: none;
+    border-radius: 50%;
+    color: #6b7280;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .ref-tag-remove:hover { background: #ef4444; color: #fff; }
+
+  .ref-search-wrap { position: relative; }
+
+  .ref-search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .ref-search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.18);
+  }
+
+  .ref-dropdown {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 200;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  }
+
+  .ref-option {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+    color: #111827;
+    transition: background 0.12s;
+  }
+
+  .ref-option:last-child { border-bottom: none; }
+  .ref-option:hover { background: #eff6ff; color: #1d4ed8; }
+
+  /* ── Responsive ───────────────────────────────────────────────────────── */
+
+  @media (max-width: 768px) {
+    .field-row { grid-template-columns: 1fr 1fr !important; }
+    .ref-tag-text { max-width: 140px; }
+  }
+
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+
+<script>
+  // Extend Window to acknowledge Alpine.js and avoid TS2339 errors.
+  declare global {
+    interface Window {
+      Alpine: {
+        data: (name: string, fn: (...args: any[]) => object) => void;
+      };
+    }
+  }
+
+  interface RefOption {
+    id: string;
+    label: string;
+  }
+
+  /**
+   * refPicker — Alpine.js component for reference tag selection.
+   *
+   * Renders currently selected items as removable pill tags,
+   * and provides a search input to add new ones.
+   *
+   * @param fieldName  - The form field name (used for hidden inputs).
+   * @param initial    - Array of already-selected entry IDs.
+   * @param allOptions - Full list of available entries.
+   */
+  function refPicker(
+    fieldName: string,
+    initial: string[],
+    allOptions: RefOption[]
+  ) {
+    return {
+      fieldName,
+      allOptions,
+      query: '',
+      options: [] as RefOption[],
+
+      /** Currently selected items as {id, label} objects. */
+      selected: (initial || []).map(function(id: string): RefOption {
+        const match = allOptions.find(function(o: RefOption) { return o.id === id; });
+        return match || { id, label: id };
+      }),
+
+      /** Filter allOptions by query, excluding already-selected ids. */
+      filter(): void {
+        const q = this.query.toLowerCase().trim();
+        if (!q) { this.options = []; return; }
+        const selectedIds = this.selected.map(function(s: RefOption) { return s.id; });
+        this.options = this.allOptions.filter(function(o: RefOption) {
+          return o.label.toLowerCase().includes(q) && !selectedIds.includes(o.id);
+        });
+      },
+
+      /**
+       * Add an option to the selected list and clear the search.
+       * @param opt - The option to add.
+       */
+      add(opt: RefOption): void {
+        if (!this.selected.find(function(s: RefOption) { return s.id === opt.id; })) {
+          this.selected.push(opt);
+        }
+        this.query = '';
+        this.options = [];
+      },
+
+      /**
+       * Remove a selected item by id.
+       * @param id - The id to remove.
+       */
+      remove(id: string): void {
+        this.selected = this.selected.filter(function(s: RefOption) { return s.id !== id; });
+      },
+    };
+  }
+
+  // Register with Alpine whether it's already loaded or not.
+  if (typeof window.Alpine !== 'undefined') {
+    window.Alpine.data('refPicker', refPicker);
+  } else {
+    document.addEventListener('alpine:init', function() {
+      window.Alpine.data('refPicker', refPicker);
+    });
+  }
+
+  // Close dropdowns when clicking outside any ref search.
+  document.addEventListener('click', function(e: MouseEvent) {
+    const target = e.target as HTMLElement | null;
+    if (!target?.closest('.ref-search-wrap')) {
+      document.querySelectorAll<HTMLElement>('.ref-dropdown').forEach(function(el) {
+        el.style.display = 'none';
+      });
+    }
+  });
+
+  // Auto-populate scene fields based on URL slug
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.includes('/editor/scenes/')) {
+      const pathParts = window.location.pathname.split('/');
+      const sceneId = pathParts[pathParts.length - 1];
+      
+      // Auto-populate scene type
+      const sceneTypeField = document.querySelector('select[name="scene_type"]') as HTMLSelectElement;
+      if (sceneTypeField && !sceneTypeField.value) {
+        if (sceneId.includes('bathroom')) sceneTypeField.value = 'private';
+        else if (sceneId.includes('ceremony')) sceneTypeField.value = 'standard';
+        else if (sceneId.includes('corridor')) sceneTypeField.value = 'transition';
+        else if (sceneId.includes('studio')) sceneTypeField.value = 'performance';
+      }
+      
+      // Auto-populate time of day
+      const timeOfDayField = document.querySelector('select[name="time_of_day"]') as HTMLSelectElement;
+      if (timeOfDayField && !timeOfDayField.value) {
+        if (sceneId.includes('bathroom')) timeOfDayField.value = 'morning';
+        else if (sceneId.includes('ceremony')) timeOfDayField.value = 'day';
+        else if (sceneId.includes('corridor')) timeOfDayField.value = 'day';
+        else if (sceneId.includes('studio')) timeOfDayField.value = 'afternoon';
+      }
+      
+      // Auto-populate status
+      const statusField = document.querySelector('select[name="status"]') as HTMLSelectElement;
+      if (statusField && !statusField.value) {
+        statusField.value = 'draft';
+      }
+    }
+  });
+</script>

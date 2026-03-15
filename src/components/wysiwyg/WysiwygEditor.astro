@@ -1,0 +1,510 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { FIELD_DEFINITIONS } from "@/utils/collectionFieldDefinitions.ts";
+import FrontmatterEditor from "./FrontmatterEditor.astro";
+import ScreenplayEditorFormatted from "./ScreenplayEditorFormatted.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  collection: string;
+  entryId?: string;
+  isOpen: boolean;
+}
+
+const { collection, entryId, isOpen } = Astro.props;
+
+// Get collection configuration
+const collectionConfig = FIELD_DEFINITIONS[collection as keyof typeof FIELD_DEFINITIONS];
+if (!collectionConfig) {
+  throw new Error(`Collection ${collection} not found in field definitions`);
+}
+
+// Get existing entry data if editing
+let entryData: CollectionEntry<any> | null = null;
+let frontmatterData: any = {};
+let bodyContent: string = "";
+
+if (entryId) {
+  try {
+    entryData = await getEntry(collection as any, entryId);
+    frontmatterData = (entryData as any)?.data || {};
+    bodyContent = (entryData as any)?.body || "";
+  } catch (error) {
+    console.error(`Failed to load entry ${entryId} from ${collection}:`, error);
+  }
+}
+
+// Get reference collections for dropdowns
+const referenceCollections: Record<string, any[]> = {};
+const collectionsWithReferences = ['characters', 'locations', 'scenes', 'episodes', 'threads'];
+
+for (const refCollection of collectionsWithReferences) {
+  try {
+    referenceCollections[refCollection] = await getCollection(refCollection as any);
+  } catch (error) {
+    console.warn(`Failed to load reference collection ${refCollection}:`, error);
+    referenceCollections[refCollection] = [];
+  }
+}
+
+// Determine body editor type based on collection
+const getBodyEditorType = (collectionName: string) => {
+  switch (collectionName) {
+    case 'scenes':
+    case 'dialogue':
+      return 'screenplay';
+    default:
+      return 'markdown';
+  }
+};
+
+const bodyEditorType = getBodyEditorType(collection);
+---
+
+{isOpen && (
+  <div class="wysiwyg-editor-overlay" id={`editor-${collection}-${entryId || 'new'}`}>
+    <div class="wysiwyg-editor-modal">
+      <div class="editor-header">
+        <h2>
+          {entryId ? `Edit ${collectionConfig.fields.title?.description || 'Entry'}` : `New ${collectionConfig.description}`}
+        </h2>
+        <button class="close-btn" onclick="closeEditor()">×</button>
+      </div>
+      
+      <div class="editor-content">
+        <div class="editor-tabs">
+          <button 
+            class="tab-btn active" 
+            data-tab="frontmatter"
+            onclick="switchTab('frontmatter')"
+          >
+            Frontmatter
+          </button>
+          {bodyEditorType === 'screenplay' && (
+            <button 
+              class="tab-btn" 
+              data-tab="screenplay"
+              onclick="switchTab('screenplay')"
+            >
+              Screenplay
+            </button>
+          )}
+          {bodyEditorType === 'markdown' && (
+            <button 
+              class="tab-btn" 
+              data-tab="content"
+              onclick="switchTab('content')"
+            >
+              Content
+            </button>
+          )}
+        </div>
+
+        <form id="editor-form" class="editor-form">
+          <div class="tab-content active" id="frontmatter-tab">
+          <FrontmatterEditor 
+            collection={collection}
+            fields={collectionConfig.fields}
+            data={frontmatterData}
+            referenceCollections={referenceCollections}
+          />
+          </div>
+
+          {bodyEditorType === 'screenplay' && (
+            <div class="tab-content" id="screenplay-tab">
+              <ScreenplayEditorFormatted 
+                content={bodyContent}
+                referenceCollections={referenceCollections}
+              />
+            </div>
+          )}
+
+          {bodyEditorType === 'markdown' && (
+            <div class="tab-content" id="content-tab">
+              <textarea 
+                name="body" 
+                class="markdown-editor"
+                placeholder="Enter markdown content..."
+              >{bodyContent}</textarea>
+            </div>
+          )}
+        </form>
+      </div>
+
+      <div class="editor-footer">
+        <div class="editor-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeEditor()">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" onclick="saveEntry()">
+            {entryId ? 'Save Changes' : 'Create Entry'}
+          </button>
+        </div>
+        <div class="editor-status" id="editor-status"></div>
+      </div>
+    </div>
+  </div>
+)}
+
+<script define:vars={{ _collection: collection, _entryId: entryId ?? "", _originalCreated: frontmatterData.created ?? "" }}>
+  /**
+   * _collection and _entryId are injected by Astro's define:vars as baked-in
+   * string literals. saveEntry() closes over them directly — no window lookup,
+   * no possible undefined.
+   */
+
+  // Store original created field for preservation
+  if (_originalCreated) {
+    window.originalCreated = _originalCreated;
+  }
+
+  // ── Tab switching ──────────────────────────────────────────────────────
+
+  /**
+   * Activate a named tab panel and update the corresponding tab button state.
+   *
+   * @param {string} tabName - e.g. "frontmatter", "screenplay", "content"
+   */
+  function switchTab(tabName) {
+    document.querySelectorAll(".tab-btn").forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+    var activeBtn = document.querySelector('[data-tab="' + tabName + '"]');
+    if (activeBtn) activeBtn.classList.add("active");
+
+    document.querySelectorAll(".tab-content").forEach(function(panel) {
+      panel.classList.remove("active");
+    });
+    var activePanel = document.getElementById(tabName + "-tab");
+    if (activePanel) activePanel.classList.add("active");
+  }
+
+  // ── Navigation ─────────────────────────────────────────────────────────
+
+  /** Close the editor and return to the referring page. */
+  function closeEditor() {
+    window.location.href = document.referrer || "/scenes";
+  }
+
+  // ── Form data helpers ──────────────────────────────────────────────────
+
+  var NUMERIC_FIELDS = [
+    "act", "sequence", "scene_number", "episode_number", "beat_index",
+    "page_count", "pressure_level", "estimated_runtime",
+    "episode", "opened_in_episode", "closed_in_episode",
+  ];
+
+  var BOOLEAN_FIELDS = ["needs_revision"];
+
+  /**
+   * Coerce raw FormData values (all strings) into the types expected by
+   * the Astro content schemas.
+   *
+   * @param {Record<string, unknown>} data
+   * @returns {Record<string, unknown>}
+   */
+  function coerceFormData(data) {
+    var out = {};
+    for (var key in data) {
+      if (!Object.prototype.hasOwnProperty.call(data, key)) continue;
+      var value = data[key];
+      if (value === "" || value === null || value === undefined) continue;
+
+      if (NUMERIC_FIELDS.indexOf(key) !== -1) {
+        var n = Number(value);
+        if (!isNaN(n)) out[key] = n;
+        continue;
+      }
+      if (BOOLEAN_FIELDS.indexOf(key) !== -1) {
+        out[key] = (value === true || value === "true");
+        continue;
+      }
+      out[key] = value;
+    }
+    return out;
+  }
+
+  // ── Save ───────────────────────────────────────────────────────────────
+
+  /**
+   * Read the editor form, coerce its values, and POST to /api/save-entry.
+   * _collection and _entryId are closed over from define:vars.
+   */
+  async function saveEntry() {
+    var statusEl = document.getElementById("editor-status");
+    if (!statusEl) return;
+
+    statusEl.textContent = "Saving…";
+    statusEl.className = "editor-status saving";
+
+    try {
+      var form = document.getElementById("editor-form");
+      if (!form) throw new Error("Editor form element (#editor-form) not found.");
+
+      var formData = new FormData(form);
+      var raw = {};
+
+      formData.forEach(function(value, key) {
+        if (key in raw) {
+          var existing = raw[key];
+          raw[key] = Array.isArray(existing) ? existing.concat([value]) : [existing, value];
+        } else {
+          raw[key] = value;
+        }
+      });
+
+      var processedData = coerceFormData(raw);
+
+      // Preserve original created field when editing existing entry
+      if (_entryId && typeof window.originalCreated === 'string') {
+        processedData.created = window.originalCreated;
+      }
+
+      var payload = {
+        collection: _collection,
+        entryId: _entryId || null,
+        data: processedData,
+      };
+
+      var bodyString = JSON.stringify(payload);
+      if (typeof bodyString !== "string") {
+        throw new Error("Failed to serialise payload — check form data for non-serialisable values.");
+      }
+
+      console.log("[saveEntry] posting:", bodyString);
+
+      var response = await fetch("/api/save-entry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: bodyString,
+      });
+
+      if (!response.ok) {
+        var serverMsg = "Save failed";
+        try {
+          var json = await response.json();
+          if (json && json.message) serverMsg = json.message;
+        } catch (_e) {}
+        throw new Error(serverMsg);
+      }
+
+      var result = await response.json();
+      console.log("[saveEntry] response:", result);
+
+      statusEl.textContent = "Saved successfully!";
+      statusEl.className = "editor-status success";
+      // Note: Removed automatic reload to show updated content immediately
+
+    } catch (error) {
+      console.error("[saveEntry] error:", error);
+      statusEl.textContent = (error instanceof Error) ? error.message : "Error saving. Please try again.";
+      statusEl.className = "editor-status error";
+    }
+  }
+
+  // ── Keyboard shortcuts ─────────────────────────────────────────────────
+
+  document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey || e.metaKey) {
+      if (e.key === "s") { e.preventDefault(); saveEntry(); }
+      if (e.key === "Escape") { e.preventDefault(); closeEditor(); }
+    }
+  });
+
+  // ── Expose to inline onclick handlers ─────────────────────────────────
+
+  window.switchTab = switchTab;
+  window.closeEditor = closeEditor;
+  window.saveEntry = saveEntry;
+</script>
+
+<style>
+  .wysiwyg-editor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+  }
+
+  .wysiwyg-editor-modal {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .editor-header h2 {
+    margin: 0;
+    color: #333;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .close-btn:hover {
+    background: #f5f5f5;
+    color: #333;
+  }
+
+  .editor-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-tabs {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f8f9fa;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    color: #666;
+  }
+
+  .tab-btn:hover {
+    background: #e9ecef;
+  }
+
+  .tab-btn.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+    background: white;
+  }
+
+  .tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    max-height: calc(90vh - 200px);
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .editor-form {
+    flex: 1;
+  }
+
+  .markdown-editor {
+    width: 100%;
+    min-height: 400px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .editor-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+  }
+
+  .editor-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+
+  .btn-primary {
+    background: #007bff;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+
+  .btn-secondary {
+    background: #6c757d;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: #545b62;
+  }
+
+  .editor-status {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .editor-status.saving {
+    color: #007bff;
+  }
+
+  .editor-status.success {
+    color: #28a745;
+  }
+
+  .editor-status.error {
+    color: #dc3545;
+  }
+
+  @media (max-width: 768px) {
+    .wysiwyg-editor-overlay {
+      padding: 1rem;
+    }
+
+    .editor-header,
+    .tab-content,
+    .editor-footer {
+      padding: 1rem;
+    }
+
+    .tab-btn {
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

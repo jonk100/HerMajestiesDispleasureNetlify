@@ -8,7 +8,9 @@ const scenes = await getCollection("scenes");
 
 // Sort scenes by act, sequence, and scene_number for proper display
 const sortedScenes = scenes.sort((a, b) => {
-  if (a.data.act !== b.data.act) return a.data.act - b.data.act;
+  const aAct = a.data.act || 0;
+  const bAct = b.data.act || 0;
+  if (aAct !== bAct) return aAct - bAct;
   if (a.data.sequence !== b.data.sequence)
     return a.data.sequence - b.data.sequence;
   return a.data.scene_number - b.data.scene_number;
@@ -145,9 +147,19 @@ function getFilterAttributes(scene: any) {
       {
         sortedScenes.map((scene) => (
           <div class="item-card scene-item" {...getFilterAttributes(scene)}>
-            <h3>
-              <a href={`/scenes/${scene.slug}`}>{scene.data.title}</a>
-            </h3>
+            <div class="card-header">
+              <h3>
+                <a href={`/scenes/${scene.id}`}>{scene.data.title}</a>
+              </h3>
+              <button 
+                class="edit-btn" 
+                onclick={`openEditor('scenes', '${scene.id}')`}
+                title="Edit scene"
+                data-scene-id={scene.id}
+              >
+                ✏️
+              </button>
+            </div>
             <div class="meta">
               <span class="act">Act {scene.data.act}</span>
               <span class="sequence">Seq {scene.data.sequence}</span>
@@ -187,6 +199,22 @@ function getFilterAttributes(scene: any) {
       <a href="/">← Back to Collections</a>
     </div>
   </div>
+
+  <!-- WYSIWYG Editor Modal -->
+  <div id="editor-container"></div>
+
+  <script>
+    let currentEditor = null;
+
+    function openEditor(collection: string, entryId: string) {
+      console.log('openEditor called with:', { collection, entryId });
+      // Navigate to the editor page
+      window.location.href = `/editor/${collection}/${entryId}`;
+    }
+
+    // Make function globally available
+    window.openEditor = openEditor;
+  </script>
 </Layout>
 
 <style>
@@ -201,6 +229,34 @@ function getFilterAttributes(scene: any) {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header h3 {
+    margin: 0;
+    flex: 1;
+  }
+
+  .edit-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    opacity: 0.7;
+  }
+
+  .edit-btn:hover {
+    background: #f0f0f0;
+    opacity: 1;
   }
 
   .item-card {

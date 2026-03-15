@@ -1,0 +1,751 @@
+---
+interface Props {
+  content: string;
+  referenceCollections: Record<string, any[]>;
+}
+
+const { content, referenceCollections } = Astro.props;
+
+// Parse content into structured format
+function parseScreenplayContent(content: string) {
+  const lines = content.split('\n');
+  const parsedLines = lines.map(line => {
+    const trimmed = line.trim();
+    
+    // Handle empty lines - keep them as empty
+    if (!trimmed) {
+      return { type: 'empty', content: '', original: line };
+    }
+    
+    // Check for prefixes
+    const sceneMatch = trimmed.match(/^(s-|scene-)\s*(.+)/i);
+    const actionMatch = trimmed.match(/^(a-|action-)\s*(.+)/i);
+    const characterMatch = trimmed.match(/^(c-|character-)\s*(.+)/i);
+    const dialogueMatch = trimmed.match(/^(d-|dialogue-)\s*(.+)/i);
+    const parentheticalMatch = trimmed.match(/^(p-|parenthetical-)\s*(.+)/i);
+    const transitionMatch = trimmed.match(/^(t-|transition-)\s*(.+)/i);
+    const actBreakMatch = trimmed.match(/^(ab-|act-break-)\s*(.+)/i);
+    
+    if (sceneMatch) {
+      return { type: 'scene', content: sceneMatch[2], original: line };
+    } else if (actionMatch) {
+      return { type: 'action', content: actionMatch[2], original: line };
+    } else if (characterMatch) {
+      return { type: 'character', content: characterMatch[2], original: line };
+    } else if (dialogueMatch) {
+      return { type: 'dialogue', content: dialogueMatch[2], original: line };
+    } else if (parentheticalMatch) {
+      return { type: 'parenthetical', content: parentheticalMatch[2], original: line };
+    } else if (transitionMatch) {
+      return { type: 'transition', content: transitionMatch[2], original: line };
+    } else if (actBreakMatch) {
+      return { type: 'act-break', content: actBreakMatch[2], original: line };
+    }
+    
+    // Implicit formatting
+    if (trimmed.match(/^(int\.?\/ext\.?|int\/ext|int\.|int|ext\.|ext)\b/i)) {
+      return { type: 'scene', content: trimmed, original: line };
+    }
+    if (trimmed.match(/^[A-Z0-9 .,'()\/&-]+$/) && !trimmed.match(/[a-z]/)) {
+      return { type: 'character', content: trimmed, original: line };
+    }
+    if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
+      return { type: 'parenthetical', content: trimmed.slice(1, -1), original: line };
+    }
+    
+    return { type: 'action', content: trimmed, original: line };
+  });
+  
+  return parsedLines;
+}
+
+// Convert back to shorthand format
+function toShorthandFormat(lines: any[]): string {
+  return lines.map(line => {
+    const content = line.content || '';
+    
+    // Check if content already starts with a valid single-letter prefix
+    const hasPrefix = /^[a-zc]-[a-z]/i.test(content);
+    
+    switch (line.type) {
+      case 'scene':
+        return hasPrefix ? line.original : `s-${content}`;
+      case 'action':
+        return hasPrefix ? line.original : `a-${content}`;
+      case 'character':
+        return content.toUpperCase();
+      case 'dialogue':
+        return hasPrefix ? line.original : `d-${content}`;
+      case 'parenthetical':
+        return hasPrefix ? line.original : `p-${content}`;
+      case 'transition':
+        return hasPrefix ? line.original : `t-${content}`;
+      case 'act-break':
+        return hasPrefix ? line.original : `ab-${content}`;
+      case 'empty':
+        return '';
+      default:
+        return line.original;
+    }
+  }).join('\n');
+}
+
+const parsedLines = parseScreenplayContent(content);
+---
+
+<div class="screenplay-editor-formatted">
+  <div class="editor-toolbar">
+    <div class="toolbar-section">
+      <button type="button" class="toolbar-btn" onclick="convertLineType('scene')" title="Convert to Scene">
+        <span class="btn-icon">📍</span>
+        Scene
+      </button>
+      <button type="button" class="toolbar-btn" onclick="convertLineType('action')" title="Convert to Action">
+        <span class="btn-icon">🎬</span>
+        Action
+      </button>
+      <button type="button" class="toolbar-btn" onclick="convertLineType('character')" title="Convert to Character">
+        <span class="btn-icon">👤</span>
+        Character
+      </button>
+      <button type="button" class="toolbar-btn" onclick="convertLineType('dialogue')" title="Convert to Dialogue">
+        <span class="btn-icon">💬</span>
+        Dialogue
+      </button>
+      <button type="button" class="toolbar-btn" onclick="convertLineType('parenthetical')" title="Convert to Parenthetical">
+        <span class="btn-icon">📝</span>
+        Parenthetical
+      </button>
+      <button type="button" class="toolbar-btn" onclick="convertLineType('transition')" title="Convert to Transition">
+        <span class="btn-icon">➡️</span>
+        Transition
+      </button>
+    </div>
+    
+    <div class="toolbar-section">
+      <button type="button" class="toolbar-btn" onclick={(() => formatSelection('bold'))} title="Bold">
+        <span class="btn-icon">**B**</span>
+      </button>
+      <button type="button" class="toolbar-btn" onclick={(() => formatSelection('italic'))} title="Italic">
+        <span class="btn-icon">*I*</span>
+      </button>
+      <button type="button" class="toolbar-btn" onclick={(() => insertCharacterReference())} title="Insert Character">
+        <span class="btn-icon">👥</span>
+        Characters
+      </button>
+    </div>
+  </div>
+
+  <div class="editor-container">
+    <div class="line-numbers" id="line-numbers">
+      {parsedLines.map((_, index) => (
+        <div class="line-number">{index + 1}</div>
+      ))}
+    </div>
+    
+    <div class="screenplay-content" id="screenplay-content" contenteditable="true" spellcheck="false">
+      {parsedLines.map((line, index) => {
+        switch (line.type) {
+          case 'scene':
+            return <div class="screenplay-line scene-line" data-type="scene" data-index={String(index)}>{line.content}</div>;
+          case 'action':
+            return <div class="screenplay-line action-line" data-type="action" data-index={String(index)}>{line.content}</div>;
+          case 'character':
+            return <div class="screenplay-line character-line" data-type="character" data-index={String(index)}>{line.content}</div>;
+          case 'dialogue':
+            return <div class="screenplay-line dialogue-line" data-type="dialogue" data-index={String(index)}>{line.content}</div>;
+          case 'parenthetical':
+            return <div class="screenplay-line parenthetical-line" data-type="parenthetical" data-index={String(index)}>{line.content}</div>;
+          case 'transition':
+            return <div class="screenplay-line transition-line" data-type="transition" data-index={String(index)}>{line.content}</div>;
+          case 'empty':
+            return <div class="screenplay-line empty-line" data-type="empty" data-index={String(index)}>&nbsp;</div>;
+          default:
+            return <div class="screenplay-line action-line" data-type="action" data-index={String(index)}>{line.content}</div>;
+        }
+      })}
+    </div>
+  </div>
+
+  <div class="editor-footer">
+    <div class="formatting-help">
+      <details>
+        <summary>Formatting Help</summary>
+        <div class="help-content">
+          <h4>Toolbar Functions:</h4>
+          <ul>
+            <li><strong>Scene/Action/Character/etc:</strong> Convert current line to specified type</li>
+            <li><strong>Bold/Italic:</strong> Format selected text</li>
+            <li><strong>Characters:</strong> Insert character name</li>
+          </ul>
+          
+          <h4>Keyboard Shortcuts:</h4>
+          <ul>
+            <li><code>Ctrl+S</code> - Save</li>
+            <li><code>Ctrl+1-6</code> - Convert line type</li>
+            <li><code>Tab</code> - Indent</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Hidden textarea for form submission -->
+  <textarea id="screenplay-body" name="body" style="display: none;">{content}</textarea>
+</div>
+
+<script>
+  let screenplayContent: HTMLElement;
+  let lineNumbers: HTMLElement;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    screenplayContent = document.getElementById('screenplay-content') as HTMLElement;
+    lineNumbers = document.getElementById('line-numbers') as HTMLElement;
+    
+    if (screenplayContent && lineNumbers) {
+      // Sync scrolling
+      screenplayContent.addEventListener('scroll', syncScroll);
+      
+      // Handle content changes
+      screenplayContent.addEventListener('input', handleContentChange);
+      screenplayContent.addEventListener('keydown', handleKeyDown);
+      
+      // Handle line clicks
+      screenplayContent.addEventListener('click', handleLineClick);
+      
+      // Initial setup
+      updateLineNumbers();
+      syncLineHeight();
+    }
+  });
+
+  function syncScroll() {
+    if (lineNumbers && screenplayContent) {
+      lineNumbers.scrollTop = screenplayContent.scrollTop;
+    }
+  }
+
+  function updateLineNumbers() {
+    if (!screenplayContent || !lineNumbers) return;
+    
+    const lines = screenplayContent.querySelectorAll('.screenplay-line');
+    const lineCount = lines.length;
+    
+    let lineNumbersHtml = '';
+    for (let i = 1; i <= lineCount; i++) {
+      lineNumbersHtml += `<div class="line-number">${i}</div>`;
+    }
+    lineNumbers.innerHTML = lineNumbersHtml;
+    
+    syncLineHeight();
+  }
+
+  function syncLineHeight() {
+    if (!screenplayContent || !lineNumbers) return;
+    
+    const computedStyle = window.getComputedStyle(screenplayContent);
+    const lineHeight = computedStyle.lineHeight;
+    const paddingTop = computedStyle.paddingTop;
+    const paddingBottom = computedStyle.paddingBottom;
+    
+    lineNumbers.style.lineHeight = lineHeight;
+    lineNumbers.style.paddingTop = paddingTop;
+    lineNumbers.style.paddingBottom = paddingBottom;
+  }
+
+  function handleContentChange() {
+    if (!screenplayContent) return;
+    
+    // Update hidden textarea for form submission
+    const hiddenTextarea = document.getElementById('screenplay-body') as HTMLTextAreaElement;
+    if (hiddenTextarea) {
+      const lines = Array.from(screenplayContent.querySelectorAll('.screenplay-line'));
+      const shorthandLines = lines.map((lineEl, index) => {
+        const type = lineEl.getAttribute('data-type');
+        const content = lineEl.textContent || '';
+        
+        switch (type) {
+          case 'scene':
+            return `s-${content}`;
+          case 'action':
+            return `a-${content}`;
+          case 'character':
+            return `c-${content}`;
+          case 'dialogue':
+            return `d-${content}`;
+          case 'parenthetical':
+            return `p-${content}`;
+          case 'transition':
+            return `t-${content}`;
+          case 'act-break':
+            return `ab-${content}`;
+          default:
+            return content;
+        }
+      });
+      
+      hiddenTextarea.value = shorthandLines.join('\n');
+    }
+    
+    updateLineNumbers();
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (!screenplayContent) return;
+    
+    // Handle tab key
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      document.execCommand('insertText', false, '  ');
+    }
+    
+    // Handle keyboard shortcuts
+    if (event.ctrlKey || event.metaKey) {
+      switch (event.key) {
+        case 's':
+          event.preventDefault();
+          if (window.saveEntry) window.saveEntry();
+          break;
+        case '1':
+          event.preventDefault();
+          convertLineType('scene');
+          break;
+        case '2':
+          event.preventDefault();
+          convertLineType('action');
+          break;
+        case '3':
+          event.preventDefault();
+          convertLineType('character');
+          break;
+        case '4':
+          event.preventDefault();
+          convertLineType('dialogue');
+          break;
+        case '5':
+          event.preventDefault();
+          convertLineType('parenthetical');
+          break;
+        case '6':
+          event.preventDefault();
+          convertLineType('transition');
+          break;
+      }
+    }
+  }
+
+  function handleLineClick(event) {
+    const target = event.target;
+    const lineElement = target.closest('.screenplay-line');
+    
+    if (lineElement) {
+      // Remove previous selection
+      document.querySelectorAll('.screenplay-line.selected').forEach(line => {
+        line.classList.remove('selected');
+      });
+      
+      // Select current line
+      lineElement.classList.add('selected');
+    }
+  }
+
+  function convertLineType(type) {
+    if (!screenplayContent) return;
+
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+
+    const range = selection.getRangeAt(0);
+    const lineElement = range.startContainer.parentElement?.closest('.screenplay-line');
+    if (!lineElement) return;
+
+    // Read the visible text and strip any shorthand prefix that may be present
+    // (ab- must be checked before a- so it matches the full prefix first)
+    const rawText = lineElement.textContent || '';
+    console.log('[convertLineType] rawText:', JSON.stringify(rawText));
+    
+    // Strip prefixes first, then strip parentheses from parenthetical content
+    let cleanContent = rawText.replace(/^(ab|s|a|c|d|p|t)-\s*/i, '').trim();
+    if (type !== 'parenthetical') {
+      // When converting FROM parenthetical to other types, strip parentheses
+      cleanContent = cleanContent.replace(/^\(|\)$/g, '').trim();
+    }
+    
+    console.log('[convertLineType] cleanContent after strip:', JSON.stringify(cleanContent));
+
+    // Swap the type class
+    lineElement.className = 'screenplay-line';
+
+    switch (type) {
+      case 'scene':
+        lineElement.classList.add('scene-line');
+        lineElement.textContent = cleanContent;
+        break;
+      case 'action':
+        lineElement.classList.add('action-line');
+        lineElement.textContent = cleanContent;
+        break;
+      case 'character':
+        lineElement.classList.add('character-line');
+        lineElement.textContent = cleanContent.toUpperCase();
+        break;
+      case 'dialogue':
+        lineElement.classList.add('dialogue-line');
+        lineElement.textContent = cleanContent;
+        break;
+      case 'parenthetical':
+        lineElement.classList.add('parenthetical-line');
+        // Display shows (content) without p- prefix
+        const bare = cleanContent.replace(/^\(|\)$/g, '').trim();
+        lineElement.textContent = `(${bare})`;
+        break;
+      case 'transition':
+        lineElement.classList.add('transition-line');
+        // Display shows clean text — handleContentChange adds t- when saving
+        lineElement.textContent = cleanContent;
+        break;
+      case 'act-break':
+        lineElement.classList.add('act-break-line');
+        lineElement.textContent = cleanContent;
+        break;
+    }
+
+    lineElement.setAttribute('data-type', type);
+
+    // handleContentChange reads data-type and adds the correct prefix
+    // when writing to the hidden textarea — prefixes never live in the display
+    handleContentChange();
+
+    // Restore cursor to end of line
+    const newRange = document.createRange();
+    newRange.selectNodeContents(lineElement);
+    newRange.collapse(false);
+    selection.removeAllRanges();
+    selection.addRange(newRange);
+  }
+
+  function formatSelection(format) {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+    
+    const range = selection.getRangeAt(0);
+    const selectedText = range.toString();
+    
+    if (!selectedText) return;
+    
+    let formattedText = '';
+    switch (format) {
+      case 'bold':
+        formattedText = `**${selectedText}**`;
+        break;
+      case 'italic':
+        formattedText = `*${selectedText}*`;
+        break;
+      default:
+        formattedText = selectedText;
+    }
+    
+    range.deleteContents();
+    range.insertNode(document.createTextNode(formattedText));
+    
+    // Update hidden textarea
+    handleContentChange();
+  }
+
+  function insertCharacterReference() {
+    const characters = JSON.parse('{JSON.stringify(referenceCollections.characters || [])}');
+    if (!characters.length) {
+      alert('No characters available');
+      return;
+    }
+    
+    const characterNames = characters.map(char => char.data.name || char.id);
+    const selectedCharacter = prompt('Select character:\n' + characterNames.map((name, i) => `${i + 1}. ${name}`).join('\n'));
+    
+    if (selectedCharacter && screenplayContent) {
+      document.execCommand('insertText', false, selectedCharacter);
+      handleContentChange();
+    }
+  }
+
+  // Make functions globally available immediately
+  if (typeof window !== 'undefined') {
+    window.convertLineType = convertLineType;
+    window.formatSelection = formatSelection;
+    window.insertCharacterReference = insertCharacterReference;
+  }
+
+  // Also make them available for immediate use
+  (globalThis as any).convertLineType = convertLineType;
+  (globalThis as any).formatSelection = formatSelection;
+  (globalThis as any).insertCharacterReference = insertCharacterReference;
+</script>
+
+<style>
+  .screenplay-editor-formatted {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .editor-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-section {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .toolbar-btn {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    color: #495057;
+  }
+
+  .toolbar-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+  }
+
+  .toolbar-btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+  }
+
+  .editor-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .line-numbers {
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    padding: 1rem 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #6c757d;
+    text-align: right;
+    user-select: none;
+    overflow: hidden;
+    min-width: 3rem;
+  }
+
+  .line-number {
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .screenplay-content {
+    flex: 1;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    background: white;
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .screenplay-line {
+    margin-bottom: 0.25rem;
+    padding: 0.25rem 0;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+
+  .screenplay-line.selected {
+    background-color: #e3f2fd;
+  }
+
+  .screenplay-line:hover {
+    background-color: #f8f9fa;
+  }
+
+  .scene-line {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .action-line {
+    color: #333;
+  }
+
+  .character-line {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+    color: #2c3e50;
+  }
+
+  .dialogue-line {
+    margin: 0 3rem;
+    color: #333;
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .dialogue-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 100%;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+  }
+
+  .parenthetical-line {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: 0.25rem 0;
+  }
+
+  .transition-line {
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #666;
+    margin-top: 1rem;
+  }
+
+  .act-break-line {
+    text-align: center;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #f8f9fa;
+    padding: 1rem;
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+  .editor-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #ddd;
+    padding: 1rem;
+  }
+
+  .formatting-help details {
+    cursor: pointer;
+  }
+
+  .formatting-help summary {
+    font-weight: 600;
+    color: #495057;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: white;
+    border: 1px solid #ddd;
+  }
+
+  .help-content {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .help-content h4 {
+    margin: 1rem 0 0.5rem 0;
+    color: #333;
+  }
+
+  .help-content h4:first-child {
+    margin-top: 0;
+  }
+
+  .help-content ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .help-content li {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .help-content code {
+    background: #e9ecef;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .screenplay-editor-formatted {
+      height: 500px;
+    }
+
+    .editor-toolbar {
+      padding: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .toolbar-section {
+      gap: 0.125rem;
+    }
+
+    .toolbar-btn {
+      padding: 0.375rem;
+      font-size: 0.6875rem;
+    }
+
+    .toolbar-btn span:not(.btn-icon) {
+      display: none;
+    }
+
+    .screenplay-content {
+      font-size: 0.8125rem;
+      padding: 0.75rem;
+    }
+
+    .line-numbers {
+      padding: 0.75rem 0.375rem;
+      font-size: 0.8125rem;
+      min-width: 2.5rem;
+    }
+  }
+</style>

@@ -74,7 +74,7 @@ export async function calculateAllCharacterStats() {
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneSlug = sceneId;
 
     /**
      * ── SCENE PRESENCE (FRONTMATTER ONLY) ──
@@ -197,7 +197,7 @@ export async function calculateAllCharacterStatsByEpisode(): Promise<Record<stri
    */
   for (const scene of scenes) {
     const act = scene.data.act ?? 0;
-    const sceneSlug = scene.slug;
+    const sceneSlug = sceneId;
     const episodeNumber = sceneToEpisodeMap.get(sceneSlug);
 
     /**

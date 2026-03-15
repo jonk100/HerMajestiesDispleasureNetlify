@@ -1,0 +1,46 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "@/layout/Layout.astro";
+import WysiwygEditor from "@/components/wysiwyg/WysiwygEditor.astro";
+
+export async function getStaticPaths() {
+  // Get all collections
+  const collections = ['scenes', 'characters', 'episodes', 'beats', 'threads', 'locations', 'dialogue', 'research', 'themes', 'timeline'];
+  const paths = [];
+
+  for (const collection of collections) {
+    try {
+      const entries = await getCollection(collection as any);
+      for (const entry of entries) {
+        paths.push({
+          params: { collection, entryId: entry.id },
+          props: { collection, entryId: entry.id }
+        });
+      }
+    } catch (error) {
+      console.warn(`Could not load collection ${collection}:`, error);
+    }
+  }
+
+  return paths;
+}
+
+const { collection, entryId }: { collection: string; entryId: string } = Astro.props;
+---
+
+<Layout title={`Edit ${entryId} - ${collection}`}>
+  <div class="editor-page">
+    <WysiwygEditor 
+      collection={collection}
+      entryId={entryId}
+      isOpen={true}
+    />
+  </div>
+</Layout>
+
+<style>
+  .editor-page {
+    height: 100vh;
+    padding: 0;
+  }
+</style>
